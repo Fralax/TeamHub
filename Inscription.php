@@ -6,30 +6,48 @@
 		<title> Inscription - TeamHub</title>
 	</head>
 	<body>
-    
-    	<p> <a href="AccueilVisiteurs.php"><img src="Logo.png" 	width="306" height="172" alt=""></a> </p>
+
+    <p> <a href="AccueilVisiteurs.php"><img src="Logo.png" 	width="306" height="172" alt=""></a> </p>
 
 		<h2>Inscription au site</h2>
+
+		<?php
+		$Nom=$_POST['Nom'];
+		$Prenom=$_POST['Prenom'];
+		$Email=$_POST['Email'];
+		$confirmemail = $_POST['ConfirmEmail'];
+		$Pseudo=$_POST['Pseudo'];
+		$MotDePasse=$_POST['MotDePasse'];
+		$confirmMotDePasse = $_POST['ConfirmMotDePasse'];
+    if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != ""))
+      {
+      echo "Merci de vous être inscrit, ", $Prenom, " ! ";
+			echo " Votre adresse mail : " ,$Email, ".";
+      exit;
+      }
+  	?>
+
 		<p> Remplissez c'est gratuit </p>
-		<form  name = "FormulaireInscription" method="post" action="InscriptionTermine.php"> 
-			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" required autofocus/>
-			
-			<input type="text" name="Prenom" placeholder="Prénom" size="25" required/> </p>
-            
+
+		<form  name = "FormulaireInscription" method="post" action="Inscription.php" >
+			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" required autofocus value="<?echo $Nom;?>" />
+
+			<input type="text" name="Prenom" placeholder="Prénom" size="25" required value="<?echo $Prenom;?>" /> </p>
+
             <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
 <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
-			
+
 			<p>Date de naissance
- 
+
 				<select name="jour">
                 	<option value="0"> Jour </option>
         <?php for ($jour = 1 ; $jour <= 31 ; $jour++)
 {
 ?>
                   	<option value="<?php echo $jour ?>"><?php echo $jour; ?></option>
-<?php              
+<?php
 }
-?>  
+?>
 				</select>
 				<select name="mois">
                 	<option value="0"> Mois </option>
@@ -37,9 +55,9 @@
 {
 ?>
                   	<option value="<?php echo $mois ?>"><?php echo $mois; ?></option>
-<?php              
+<?php
 }
-?>  
+?>
 				</select>
 				</select>
 				<select name="annee">
@@ -48,31 +66,31 @@
 {
 ?>
                   	<option value="<?php echo $annee ?>"><?php echo $annee; ?></option>
-<?php              
+<?php
 }
-?>  
+?>
 				</select>
 			</p>
-			
+
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
-			
-			<p> <input type="email" name="Email" placeholder="Email" size="25" required/> </p>
-			
-			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" required/> </p>
+
+			<p> <input type="email" name="Email" placeholder="Email" size="25" required value="<?echo $Email;?>" /> </p>
+
+			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" required value="<?echo $confirmemail;?>" /> </p>
 			<?php
-				$email = $_POST['Email'];
-				$confirmemail = $_POST['ConfirmEmail'];	
-				if ($email != $confirmemail){
+
+				if ($Email != $confirmemail){
 					echo "Les adresses Email saisies sont différents";
+					$confirmemail=="";
 				}
 			?>
-			
+
 			<p> <input type="text" name="Rue" placeholder="Rue" size="25" required/> </p>
-			
+
 			<p> <input type="text" name="Ville" placeholder="Ville" size="25" required/> </p>
-			
+
 			<p> <input type="text" name="Code Postal" placeholder="CP" size="25" required/> </p>
-			
+
 			<p>
 				<select name="Pays" required>
 					<option value="0"> -- Sélectionner un Pays -- </option>
@@ -280,7 +298,7 @@
 					</optgroup>
 				</select>
 			</p>
-			
+
 			<p>
 				<select name="departements" required>
 					<option value="0"> -- Sélectionner votre Région-- </option>
@@ -392,24 +410,20 @@
 					<option value="988">988 - Nouvelle-Caledonie</option>
 				</select>
 			</p>
-			
-			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" required onblur="verifPseudo(this)"/> </p>
-			
-			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" required/> </p>
-			
+
+			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" required value="<?echo $Pseudo;?>"/> </p>
+
+			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" required /> </p>
+
 			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" required/> </p>
-            
+
             <?php
-				$password = $_POST['MotDePasse'];
-				$confirmpassword = $_POST['ConfirmMotDePasse'];	
-				if ($email != $confirmemail){
+				if ($MotDePasse != $confirmMotDePasse){
 					echo "Les mots de Passes saisies sont différents";
 				}
 			?>
-			
+
 			<p> <input type="submit" value="Envoyer" > </p>
 		</form>
-        <script src="Verif.js"> </script>
 	</body>
 </html>
-
