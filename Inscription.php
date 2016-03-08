@@ -4,18 +4,55 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 		<title> Inscription - TeamHub</title>
-    <link href="Inscription.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+    
+    	<p> <a href="AccueilVisiteurs.php"><img src="Logo.png" 	width="306" height="172" alt=""></a> </p>
 
-		<th>Inscription au site</th>
+		<h2>Inscription au site</h2>
 		<p> Remplissez c'est gratuit </p>
-		<form  name = "FormulaireInscription" method="post" action="Inscription.php"> 
-			<p><input name="Nom" type="text" autofocus required class="Romain" placeholder="Nom de Famille" size="25"/>
+		<form  name = "FormulaireInscription" method="post" action="InscriptionTermine.php"> 
+			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" required autofocus/>
 			
 			<input type="text" name="Prenom" placeholder="Prénom" size="25" required/> </p>
+            
+            <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
+<input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
 			
-			<p><input type="date" name="Date de Naissance" placeholder="Date de Naissance (jj/mm/aaaa)" size="28" required/> </p>
+			<p>Date de naissance
+ 
+				<select name="jour">
+                	<option value="0"> Jour </option>
+        <?php for ($jour = 1 ; $jour <= 31 ; $jour++)
+{
+?>
+                  	<option value="<?php echo $jour ?>"><?php echo $jour; ?></option>
+<?php              
+}
+?>  
+				</select>
+				<select name="mois">
+                	<option value="0"> Mois </option>
+        <?php for ($mois = 1 ; $mois <= 12 ; $mois++)
+{
+?>
+                  	<option value="<?php echo $mois ?>"><?php echo $mois; ?></option>
+<?php              
+}
+?>  
+				</select>
+				</select>
+				<select name="annee">
+                	<option value="0"> Année </option>
+        <?php for ($annee = 2016 ; $annee >= 1900 ; $annee--)
+{
+?>
+                  	<option value="<?php echo $annee ?>"><?php echo $annee; ?></option>
+<?php              
+}
+?>  
+				</select>
+			</p>
 			
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
 			
@@ -356,21 +393,23 @@
 				</select>
 			</p>
 			
-			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" required /> </p>
+			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" required onblur="verifPseudo(this)"/> </p>
 			
 			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" required/> </p>
 			
 			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" required/> </p>
+            
             <?php
-				$mdp = $_POST['MotDePasse'];
-				$confirmmdp = $_POST['ConfirmMotDePasse'];	
-				if ($mdp != $confirmmdp){
-					echo "Les mots de passe saisis sont différents";
+				$password = $_POST['MotDePasse'];
+				$confirmpassword = $_POST['ConfirmMotDePasse'];	
+				if ($email != $confirmemail){
+					echo "Les mots de Passes saisies sont différents";
 				}
 			?>
 			
 			<p> <input type="submit" value="Envoyer" > </p>
 		</form>
+        <script src="Verif.js"> </script>
 	</body>
 </html>
 
