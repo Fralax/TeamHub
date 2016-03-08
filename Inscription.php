@@ -19,15 +19,21 @@
 		$Pseudo=$_POST['Pseudo'];
 		$MotDePasse=$_POST['MotDePasse'];
 		$confirmMotDePasse = $_POST['ConfirmMotDePasse'];
-    if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != ""))
-      {
-      echo "Merci de vous être inscrit, ", $Prenom, " ! ";
-			echo " Votre adresse mail : " ,$Email, ".";
-      exit;
+    if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != "")) {
+			if (($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
+				echo "Merci de vous être inscrit, ", $Prenom, " ! ";
+				echo "<br>";
+				echo '<br>';
+				echo " Votre adresse mail : " ,$Email, ".";
+				echo "<br>";
+				echo '<br>';
+				echo " Pour ajouter un sport à votre Profil, Rendez vous dans la rubrique : Gérer mon Profil.";
+      	exit;
       }
+		}
   	?>
 
-		<p> Remplissez c'est gratuit </p>
+		<p> Remplissez c'est gratuit ! </p>
 
 		<form  name = "FormulaireInscription" method="post" action="Inscription.php" >
 			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" required autofocus value="<?echo $Nom;?>" />
@@ -76,12 +82,11 @@
 
 			<p> <input type="email" name="Email" placeholder="Email" size="25" required value="<?echo $Email;?>" /> </p>
 
-			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" required value="<?echo $confirmemail;?>" /> </p>
+			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" required value="<? if ($Email == $confirmemail){ echo $confirmemail; } ?>" /> </p>
 			<?php
 
 				if ($Email != $confirmemail){
-					echo "Les adresses Email saisies sont différents";
-					$confirmemail=="";
+					echo "Les adresses Email saisies sont différentes";
 				}
 			?>
 

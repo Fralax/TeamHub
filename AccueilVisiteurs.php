@@ -5,7 +5,7 @@
 <title>Accueil</title>
 <link href="AccueilVisiteurs.css" rel="stylesheet" type="text/css">
 </head>
-	
+
 <body>
 	<p>
         <a href="AccueilVisiteurs.html"><img src="Logo.png" width="306" height="172" alt=""></a>
