@@ -1,12 +1,17 @@
 <?php
+  try{
+    $bdd = new PDO('mysql:host=localhost; dbname=TeamHub; charset=utf8', 'root', 'root');
+  }
 
-    $sql = "SELECT * FROM 'Utilisateurs'";
+  catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+  }
 
-    echo $sql['u_pseudo'] . '<br>';
-    echo $sql['u_id'] . '<br>';
-    echo $sql['u_prenom'] . '<br>';
-    echo $sql['u_nom'] . '<br>';
-    echo $sql['u_portable'] . '<br>';
-    echo $sql['u_email'] . '<br>';
+  $reponse = $bdd->query('SELECT * FROM Utilisateurs');
 
+  while ($donnees = $reponse->fetch()){
+    echo $donnees['u_pseudo'].'<br>';
+  }
+
+  $reponse->closeCursor();
  ?>
