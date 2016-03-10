@@ -1,17 +1,17 @@
-<?php
-  try{
-    $bdd = new PDO('mysql:host=localhost; dbname=TeamHub; charset=utf8', 'root', 'root');
-  }
+<?php foreach ($utilisateurs as $utilisateurs) : ?>
 
-  catch(Exception $e){
-    die('Erreur : '.$e->getMessage());
-  }
+  <p> Les inscrits sont :</p>
 
-  $reponse = $bdd->query('SELECT * FROM Utilisateurs');
+  <?php
+    $utilisateurs['u_pseudo']
+  ?>
 
-  while ($donnees = $reponse->fetch()){
-    echo $donnees['u_pseudo'].'<br>';
-  }
+  <p> Voici leur adresse mail respectives :</p>
 
-  $reponse->closeCursor();
- ?>
+  <?php
+    $utilisateurs['u_email']
+  ?>
+
+  <?php endforeach; ?>
+
+<p>
