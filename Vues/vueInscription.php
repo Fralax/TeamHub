@@ -12,7 +12,8 @@
 		<h2>Inscription au site</h2>
 		<p> Remplissez c'est gratuit ! </p>
 
-		<form  name = "formulaireInscription" method="post" action="/TeamHub/Autres/Logo.png" >
+		<form  name = "formulaireInscription" method="post" >
+
 			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" />
 			<input type="text" name="Prenom" placeholder="Prénom" size="25" /> </p>
 
@@ -370,6 +371,8 @@
 			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" /> </p>
 
 			<p> <input type="submit" value="Envoyer" > </p>
+
+      <?php verifMdp(); ?>
 
 		</form>
 	</body>

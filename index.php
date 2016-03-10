@@ -4,7 +4,6 @@ require 'Modèles/modele.php';
 
 
 try {
-  $utilisateurs = getUtilisateurs();
   require 'Vues/vueAccueilVisiteurs.php';
 }
 catch (Exception $e) {
