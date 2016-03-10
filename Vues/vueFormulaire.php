@@ -1,8 +1,11 @@
-<?php foreach ($utilisateurs as $utilisateurs) : ?>
-
 <p> Les inscrits sont :</p>
-<p> <?php $utilisateur['u_pseudo'] ?> </p>
-<p> Voici leur adresse mail respectives :</p>
-<p> <?php $utilisateur['u_email'] ?> </p>
 
+<?php foreach ($utilisateurs as $utilisateurs) :?>
+<p> <?= $utilisateurs['u_pseudo'] ?> </p>
+<?php endforeach; ?>
+
+
+<p> Voici leur adresse mail respectives :</p>
+<?php foreach ($utilisateurs as $utilisateurs) :?>
+<p> <?= $utilisateurs['u_email'] ?> </p>
 <?php endforeach; ?>
