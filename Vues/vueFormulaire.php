@@ -1,13 +1,12 @@
 <?php
 
-$teamhub = new mysqli('localhost', 'root', 'TeamHub');
-$reponse = $teamhub->query('SELECT * FROM 'Utilisateurs'');
+    $sql = "SELECT * FROM 'Utilisateurs'";
 
-    echo $reponse['u_pseudo'] . '<br>';
-    echo $reponse['u_id'] . '<br>';
-    echo $reponse['u_prenom'] . '<br>';
-    echo $reponse['u_nom'] . '<br>';
-    echo $reponse['u_portable'] . '<br>';
-    echo $reponse['u_email'] . '<br>';
+    echo $sql['u_pseudo'] . '<br>';
+    echo $sql['u_id'] . '<br>';
+    echo $sql['u_prenom'] . '<br>';
+    echo $sql['u_nom'] . '<br>';
+    echo $sql['u_portable'] . '<br>';
+    echo $sql['u_email'] . '<br>';
 
  ?>
