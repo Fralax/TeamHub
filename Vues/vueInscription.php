@@ -12,9 +12,14 @@
 		<h2>Inscription au site</h2>
 		<p> Remplissez c'est gratuit ! </p>
 
-		<form  name = "formulaireInscription" method="post" >
-			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" />
-			<input type="text" name="Prenom" placeholder="Prénom" size="25" /> </p>
+    <?php
+    if ($testVerif == true){
+      exit;
+    } ?>
+
+		<form  name = "formulaireInscription" method="post" action = "vueInscription.php">
+			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" value = "<?= $Nom ?>"/>
+			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $Prenom ?>"/> </p>
 
       <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
       <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
@@ -36,8 +41,8 @@
 
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
 
-			<p> <input type="email" name="Email" placeholder="Email" size="25" /> </p>
-			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" /> </p>
+			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $Email ?>"/> </p>
+			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<?= $ConfirmEmail ?>"/> </p>
 
 			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" required/> </p>
 			<p> <input type="text" name="Ville" placeholder="Ville" size="25" required/> </p>
@@ -365,14 +370,13 @@
 				</select>
 			</p>
 
-			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" /> </p>
-			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" /> </p>
-			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" /> </p>
+			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $Pseudo ?>"/> </p>
+			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<?= $MotDePasse ?>"/> </p>
+			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<?= $ConfirmMotDePasse ?>"/> </p>
 
 			<p> <input type="submit" value="Envoyer" > </p>
 
-      <?php verifMdp(); ?>
-
 		</form>
 	</body>
+
 </html>
