@@ -8,7 +8,8 @@
 
 <body>
 	<p>
-  <a href="Index.php"><img src="Autres/Logo.png" width="306" height="172" alt=""></a>
+
+	<img src="Autres/Logo.png" width="306" height="172" >
 
   <form action="#" id="formulaireAccueil" name="formulaireAccueil" method="post">
   	<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
@@ -17,7 +18,7 @@
 		<input type="checkbox">Connexion Automatique
   </form>
 
-	<a href="Vues/vueInscription.php" >	<input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
+	<input name="inscription" type="button" id="inscription" value = "Inscription">
 	</p>
 
 </body>

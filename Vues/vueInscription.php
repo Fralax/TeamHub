@@ -8,7 +8,7 @@
 
 
 	<body>
-    <p> <a href="index.php"> <img src="Autres/Logo.png" 	width="306" height="172" alt=""> </a> </p>
+    <img src="Autres/Logo.png" width="306" height="172" >
 		<h2>Inscription au site</h2>
 		<p> Remplissez c'est gratuit ! </p>
 
