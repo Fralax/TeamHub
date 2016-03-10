@@ -1,17 +1,12 @@
+<?php ob_start(); ?>
+
 <?php foreach ($utilisateurs as $utilisateurs) : ?>
 
-  <p> Les inscrits sont :</p>
+<p> Les inscrits sont :</p>
+<p> <?php $utilisateur['u_pseudo'] ?> </p>
+<p> Voici leur adresse mail respectives :</p>
+<p> <?php $utilisateur['u_email'] ?> </p>
 
-  <?php
-    $utilisateurs['u_pseudo']
-  ?>
+<?php endforeach; ?>
 
-  <p> Voici leur adresse mail respectives :</p>
-
-  <?php
-    $utilisateurs['u_email']
-  ?>
-
-  <?php endforeach; ?>
-
-<p>
+<?php $contenu = ob_get_clean(); ?>

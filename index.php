@@ -1,12 +1,14 @@
 <?php
 
-require 'modele.php';
+require 'Modèles/modele.php';
 
 try {
   $utilisateurs = getUtilisateurs();
-  require 'vueFormulaire.php';
+  require 'Vues/vueFormulaire.php';
 }
 catch (Exception $e) {
   $msgErreur = $e->getMessage();
-  require 'vueErreur.php';
+  require 'Vues/vueErreur.php';
 }
+
+?>
