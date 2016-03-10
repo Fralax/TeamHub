@@ -8,11 +8,11 @@
 
 
 	<body>
-    <img src="Autres/Logo.png" width="306" height="172" >
+    <img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
 		<h2>Inscription au site</h2>
 		<p> Remplissez c'est gratuit ! </p>
 
-		<form  name = "formulaireInscription" method="post" action="Autres/Logo.png" >
+		<form  name = "formulaireInscription" method="post" action="/TeamHub/Autres/Logo.png" >
 			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" />
 			<input type="text" name="Prenom" placeholder="Prénom" size="25" /> </p>
 
