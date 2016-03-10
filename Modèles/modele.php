@@ -13,11 +13,8 @@ function getUtilisateurs(){
   catch(Exception $e){
     die('Erreur : '.$e->getMessage());
   }
-
   $utilisateurs = $bdd->query('SELECT * FROM Utilisateurs');
-
   return $utilisateurs;
-
 }
 
 ?>
