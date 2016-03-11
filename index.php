@@ -4,7 +4,7 @@ require 'Modèles/modele.php';
 
 
 try {
-  require 'Vues/vueAccueilVisiteurs.php';
+  require 'Contrôleurs/controleurInscription.php';
 }
 catch (Exception $e) {
   $msgErreur = $e->getMessage();
