@@ -1,7 +1,6 @@
 <?php
-
+require '/TeamHub/Modèles/modeleInscription.php';
 function verif(){
-
   $Nom=$_POST['Nom'];
   $Prenom=$_POST['Prenom'];
   $Email=$_POST['Email'];
@@ -10,18 +9,23 @@ function verif(){
   $MotDePasse=$_POST['MotDePasse'];
   $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
   $envoyer = $_POST['Envoyer'];
-
+  $jour = $POST['jour'];
+  $mois = $POST['mois'];
+  $annee = $POST['annee'];
   if(isset($envoyer) && $envoyer == 'Envoyer'){
     if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != "")){
-      if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
+      if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse) && checkdate($mois, $jour, $annee)){
         return true;
       }
       else{
         if ($Email != $confirmemail){
           echo "Les adresses mail saisies ne sont pas identiques.";
         }
-        else{
+        if ($MotDePasse != $ConfirmMotDePasse){
           echo "Les mots de passe saisis ne sont pas identiques.";
+        }
+        if (checkdate($mois, $jour, $annee) == false){
+          echo "La date saisie est incorrecte."
         }
         return false;
       }
@@ -32,15 +36,12 @@ function verif(){
     }
   }
 }
-
 try {
   $testVerif = verif();
   require 'Vues/vueInscription.php';
 }
-
 catch (Exception $e) {
   $msgErreur = $e->getMessage();
   require 'Vues/vueErreur.php';
 }
-
 ?>
