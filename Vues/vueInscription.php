@@ -27,18 +27,7 @@
       <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
 
 			<p>Date de naissance
-			<select name="jour">
-      <option value="0"> Jour </option>
-      </select>
-
-			<select name="mois">
-      <option value="0"> Mois </option>
-      </select>
-
-			<select name="annee">
-      <option value="0"> Année </option>
-			</select>
-
+			<input type="date" name="naissance">
 			</p>
 
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
