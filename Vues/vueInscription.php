@@ -10,16 +10,18 @@
 	<body>
     <img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
 		<h2>Inscription au site</h2>
-		<p> Remplissez c'est gratuit ! </p>
+
 
     <?php
     if ($testVerif == true){
       exit;
     } ?>
 
-		<form  name = "formulaireInscription" method="post" action = "vueInscription.php">
-			<p><input type="text" name="Nom" placeholder="Nom de Famille" size="25" value = "<?= $Nom ?>"/>
-			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $Prenom ?>"/> </p>
+		<p> Remplissez c'est gratuit ! </p>
+
+		<form  name = "formulaireInscription" method="post" action = "">
+			<p><input type="text" name="Nom" placeholder="Nom" size="25" value = "<?= $_POST['Nom'] ?>"/>
+			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $_POST['Prenom'] ?>"/> </p>
 
       <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
       <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
@@ -41,14 +43,14 @@
 
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
 
-			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $Email ?>"/> </p>
-			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<?= $ConfirmEmail ?>"/> </p>
+			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/> </p>
+			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/> </p>
 
 			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" required/> </p>
 			<p> <input type="text" name="Ville" placeholder="Ville" size="25" required/> </p>
 			<p> <input type="text" name="Code Postal" placeholder="CP" size="25" required/> </p>
 
-<!--Pays -->
+<!--Pays
 			<p>
 				<select name="Pays" required>
 					<option value="0"> -- Sélectionner un Pays -- </option>
@@ -256,6 +258,7 @@
 					</optgroup>
 				</select>
 			</p>
+-->
 
 <!--Régions -->
 			<p>
@@ -370,11 +373,11 @@
 				</select>
 			</p>
 
-			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $Pseudo ?>"/> </p>
-			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<?= $MotDePasse ?>"/> </p>
-			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<?= $ConfirmMotDePasse ?>"/> </p>
+			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['Pseudo'] ?>"/> </p>
+			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/> </p>
+			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/> </p>
 
-			<p> <input type="submit" value="Envoyer" > </p>
+			<p> <input name="Envoyer" type="submit" value="Envoyer" > </p>
 
 		</form>
 	</body>
