@@ -9,14 +9,18 @@
 
 	<body>
     <img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
-		<h2>Inscription au site</h2>
+		<h2>Inscription au site
 
 
     <?php
-    if ($testVerif == true){
-      exit;
-    } ?>
+    if ($testVerif == true){?>
+		Terminée </h2>
+		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
+		<p> Un email de confirmation vous a été envoyé ! </p>
 
+			<?php exit;
+    } ?>
+		</h2>
 		<p> Remplissez c'est gratuit ! </p>
 
 		<form  name = "formulaireInscription" method="post" action = "">
@@ -26,8 +30,13 @@
       <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
       <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
 
+<<<<<<< HEAD
 			<p>Date de naissance
 			<input type="date" name="naissance">
+=======
+			<p><input type="date" name="naissance" placeholder="Date de Naissance (AAAA-MM-JJ)" size="28" /> </p>
+
+>>>>>>> d10d95acba5793fd1cab1726d49313c7ead28b92
 			</p>
 
 			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
@@ -370,5 +379,4 @@
 
 		</form>
 	</body>
-
 </html>
