@@ -13,12 +13,17 @@ function verif(){
   $MotDePasse=$_POST['MotDePasse'];
   $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
   $envoyer = $_POST['Envoyer'];
-  $jour = $POST['jour'];
-  $mois = $POST['mois'];
-  $annee = $POST['annee'];
+  $jour = $_POST['jour'];
+  $mois = $_POST['mois'];
+  $annee = $_POST['annee'];
+  $sexe = $_POST['Sexe'];
+  $cp = $_POST['CodePostal'];
+  $ville = $_POST['Ville'];
+  $adresse = $_POST['Adresse'];
 
   if(isset($envoyer) && $envoyer == 'Envoyer'){
-    if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != "")){
+    if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "")
+    && ($confirmMotDePasse != "") && ($sexe != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
       if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
         ajoutUtilisateurBdd();
         return true;
