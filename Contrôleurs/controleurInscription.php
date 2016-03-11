@@ -1,6 +1,9 @@
 <?php
 
+require 'Modèles/modeleInscription.php';
+
 function verif(){
+
 
   $Nom=$_POST['Nom'];
   $Prenom=$_POST['Prenom'];
@@ -10,17 +13,21 @@ function verif(){
   $MotDePasse=$_POST['MotDePasse'];
   $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
   $envoyer = $_POST['Envoyer'];
+  $jour = $POST['jour'];
+  $mois = $POST['mois'];
+  $annee = $POST['annee'];
 
   if(isset($envoyer) && $envoyer == 'Envoyer'){
     if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != "")){
       if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
+        ajoutUtilisateurBdd();
         return true;
       }
       else{
         if ($Email != $confirmemail){
           echo "Les adresses mail saisies ne sont pas identiques.";
         }
-        else{
+        if ($MotDePasse != $ConfirmMotDePasse){
           echo "Les mots de passe saisis ne sont pas identiques.";
         }
         return false;
@@ -34,6 +41,7 @@ function verif(){
 }
 
 try {
+
   $testVerif = verif();
   require 'Vues/vueInscription.php';
 }

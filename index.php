@@ -1,6 +1,5 @@
 <?php
 
-require 'Modèles/modele.php';
 
 
 try {
