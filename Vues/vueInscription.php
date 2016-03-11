@@ -8,12 +8,15 @@
     <img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
 		<h2>Inscription au site
     <?php
+
     if ($testVerif == true){?>
 		Terminée </h2>
 		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
 		<p> Un email de confirmation vous a été envoyé ! </p>
 			<?php exit;
     } ?>
+
+
 		</h2>
 		<p> Remplissez c'est gratuit ! </p>
 		<form  name = "formulaireInscription" method="post" action = "">
@@ -21,19 +24,23 @@
 			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $_POST['Prenom'] ?>"/> </p>
       <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
       <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
+
 			<p>Date de naissance
+
 				<select name="jour">
 					<option value="0"> Jour </option>
         	<?php for ($jour = 1 ; $jour <= 31 ; $jour++){ ?>
         	<option value="<?php echo $jour ?>"><?php echo $jour; ?></option>
 					<?php } ?>
 				</select>
+
 				<select name="mois">
 					<option value="0"> Mois </option>
         	<?php for ($mois = 1 ; $mois <= 12 ; $mois++){ ?>
           <option value="<?php echo $mois ?>"><?php echo $mois; ?></option>
 					<?php } ?>
 				</select>
+
 				<select name="annee">
           <option value="0"> Année </option>
         	<?php for ($annee = 2016 ; $annee >= 1900 ; $annee--){ ?>
@@ -41,12 +48,15 @@
 					<?php } ?>
 				</select>
 			</p>
-			<p> <input type="tel" name="Téléphone" placeholder="Téléphone" size="25"/> </p>
+
+			<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25"/> </p>
+
 			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/> </p>
 			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/> </p>
 			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" required/> </p>
 			<p> <input type="text" name="Ville" placeholder="Ville" size="25" required/> </p>
 			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" required/> </p>
+
 <!--Pays
 			<p>
 				<select name="Pays" required>
@@ -259,7 +269,7 @@
 <!--Régions -->
 			<p>
 				<select name="departement" required>
-					<option value="0"> -- Sélectionner votre Département-- </option>
+					<option value="0"> -- Sélectionner votre Département -- </option>
 					<option value="01">01 - Ain</option>
 					<option value="02">02 - Aisne</option>
 					<option value="03">03 - Allier</option>

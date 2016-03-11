@@ -5,15 +5,4 @@ function getBdd() {
   return $bdd;
 }
 
-// function getUtilisateurs(){
-//  try{
-//    $bdd = getBdd();
-//  }
-
-//  catch(Exception $e){
-//    die('Erreur : '.$e->getMessage());
-//  }
-//  $utilisateurs = $bdd->query('SELECT * FROM Utilisateurs');
-//  return $utilisateurs;
-//}
 ?>

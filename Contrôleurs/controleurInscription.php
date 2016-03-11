@@ -1,6 +1,10 @@
 <?php
-require '/TeamHub/Modèles/modeleInscription.php';
+
+require 'Modèles/modeleInscription.php';
+
 function verif(){
+
+
   $Nom=$_POST['Nom'];
   $Prenom=$_POST['Prenom'];
   $Email=$_POST['Email'];
@@ -12,9 +16,11 @@ function verif(){
   $jour = $POST['jour'];
   $mois = $POST['mois'];
   $annee = $POST['annee'];
+
   if(isset($envoyer) && $envoyer == 'Envoyer'){
     if (($Nom != "") && ($Prenom != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "") && ($confirmMotDePasse != "")){
-      if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse) && checkdate($mois, $jour, $annee)){
+      if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
+        ajoutUtilisateurBdd();
         return true;
       }
       else{
@@ -23,9 +29,6 @@ function verif(){
         }
         if ($MotDePasse != $ConfirmMotDePasse){
           echo "Les mots de passe saisis ne sont pas identiques.";
-        }
-        if (checkdate($mois, $jour, $annee) == false){
-          echo "La date saisie est incorrecte."
         }
         return false;
       }
@@ -37,6 +40,7 @@ function verif(){
   }
 }
 try {
+
   $testVerif = verif();
   require 'Vues/vueInscription.php';
 }
