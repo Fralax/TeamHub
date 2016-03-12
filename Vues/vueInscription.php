@@ -5,57 +5,65 @@
 		<title> Inscription - TeamHub</title>
 	</head>
 	<body>
-    <img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
+    <a href="/TeamHub/Vues/vueAccueilVisiteurs.php"> <img src="/TeamHub/Autres/Logo.png" width="306" height="172" > </a>
+		<p> </p>
 		<h2>Inscription au site
+
     <?php
-
-    if ($testVerif == true){?>
-		Terminée </h2>
+    if ($testVerif == true){ ?>
+		terminée </h2>
 		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
-		<p> Un email de confirmation vous a été envoyé ! </p>
-			<?php exit;
-    } ?>
+		<p> Nous avons envoyé un email de confirmatin à <?= $_POST['Email']?> ! </p>
+		<div class="bouton"><a href="/Vues/vueAccueilVisiteurs.php"> Accueil </a></div>
 
-
+		<?php exit;
+    }
+		?>
 		</h2>
-		<p> Remplissez c'est gratuit ! </p>
+
+
+		<p> Inscrivez-vous, c'est gratuit ! </p>
+
 		<form  name = "formulaireInscription" method="post" action = "">
 			<p><input type="text" name="Nom" placeholder="Nom" size="25" value = "<?= $_POST['Nom'] ?>"/>
 			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $_POST['Prenom'] ?>"/> </p>
-      <p> Sexe : <input type="radio" name="Sexe" value="H" /> <label for="H">H</label>
-      <input type="radio" name="Sexe" value="F" /> <label for="F">F</label> </p>
+
+      <p> Sexe : <input type="radio" name="Sexe" value = "Homme" <?php if ($_POST['Sexe']=="Homme"){?> checked <?php }?>/> <label for="H">Homme</label>
+      <input type="radio" name="Sexe" value = "Femme" <?php if ($_POST['Sexe']=="Femme"){?> checked <?php }?>/> <label for="F">Femme</label> </p>
 
 			<p>Date de naissance
 
 				<select name="jour">
 					<option value="0"> Jour </option>
         	<?php for ($jour = 1 ; $jour <= 31 ; $jour++){ ?>
-        	<option value="<?php echo $jour ?>"><?php echo $jour; ?></option>
+        	<option value = "<?php echo $jour ?>" <?php if ($_POST['jour']=="$jour"){?> selected <?php }?> > <?php echo $jour; ?> </option>
 					<?php } ?>
 				</select>
 
 				<select name="mois">
 					<option value="0"> Mois </option>
         	<?php for ($mois = 1 ; $mois <= 12 ; $mois++){ ?>
-          <option value="<?php echo $mois ?>"><?php echo $mois; ?></option>
+          <option value= "<?php echo $mois ?>" <?php if ($_POST['mois']=="$mois"){?> selected <?php }?> > <?php echo $mois; ?> </option>
 					<?php } ?>
 				</select>
 
 				<select name="annee">
           <option value="0"> Année </option>
         	<?php for ($annee = 2016 ; $annee >= 1900 ; $annee--){ ?>
-          <option value="<?php echo $annee ?>"><?php echo $annee; ?></option>
+          <option value="<?php echo $annee ?>" <?php if ($_POST['annee']=="$annee"){?> selected <?php }?> > <?php echo $annee; ?> </option>
 					<?php } ?>
 				</select>
 			</p>
 
-			<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25"/> </p>
+			<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25" value = "<?= $_POST['Portable'] ?>" /> </p>
 
 			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/> </p>
 			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/> </p>
-			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" required/> </p>
-			<p> <input type="text" name="Ville" placeholder="Ville" size="25" required/> </p>
-			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" required/> </p>
+
+			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?= $_POST['Adresse'] ?>"/> </p>
+			<p> <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?= $_POST['Ville'] ?>"/> </p>
+			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?= $_POST['CodePostal'] ?>"/> </p>
+
 
 <!--Pays
 			<p>
@@ -270,112 +278,112 @@
 			<p>
 				<select name="departement" required>
 					<option value="0"> -- Sélectionner votre Département -- </option>
-					<option value="01">01 - Ain</option>
-					<option value="02">02 - Aisne</option>
-					<option value="03">03 - Allier</option>
-					<option value="04">04 - Alpes-de-Haute-Provence</option>
-					<option value="05">05 - Hautes-Alpes</option>
-					<option value="06">06 - Alpes-Maritimes</option>
-					<option value="07">07 - Ardeche</option>
-					<option value="08">08 - Ardennes</option>
-					<option value="09">09 - Ariege</option>
-					<option value="10">10 - Aube</option>
-					<option value="11">11 - Aude</option>
-					<option value="12">12 - Aveyron</option>
-					<option value="13">13 - Bouches-du-Rhone</option>
-					<option value="14">14 - Calvados</option>
-					<option value="15">15 - Cantal</option>
-					<option value="16">16 - Charente</option>
-					<option value="17">17 - Charente-Maritime</option>
-					<option value="18">18 - Cher</option>
-					<option value="19">19 - Correze</option>
-					<option value="2A">2A - Corse-du-Sud</option>
-					<option value="2B">2B - Haute-Corse</option>
-					<option value="21">21 - Cote-d'Or</option>
-					<option value="22">22 - Cotes-d'Armor</option>
-					<option value="23">23 - Creuse</option>
-					<option value="24">24 - Dordogne</option>
-					<option value="25">25 - Doubs</option>
-					<option value="26">26 - Drome</option>
-					<option value="27">27 - Eure</option>
-					<option value="28">28 - Eure-et-Loir</option>
-					<option value="29">29 - Finistere</option>
-					<option value="30">30 - Gard</option>
-					<option value="31">31 - Haute-Garonne</option>
-					<option value="32">32 - Gers</option>
-					<option value="33">33 - Gironde</option>
-					<option value="34">34 - Herault</option>
-					<option value="35">35 - Ille-et-Vilaine</option>
-					<option value="36">36 - Indre</option>
-					<option value="37">37 - Indre-et-Loire</option>
-					<option value="38">38 - Isere</option>
-					<option value="39">39 - Jura</option>
-					<option value="40">40 - Landes</option>
-					<option value="41">41 - Loir-et-Cher</option>
-					<option value="42">42 - Loire</option>
-					<option value="43">43 - Haute-Loire</option>
-					<option value="44">44 - Loire-Atlantique</option>
-					<option value="45">45 - Loiret</option>
-					<option value="46">46 - Lot</option>
-					<option value="47">47 - Lot-et-Garonne</option>
-					<option value="48">48 - Lozere</option>
-					<option value="49">49 - Maine-et-Loire</option>
-					<option value="50">50 - Manche</option>
-					<option value="51">51 - Marne</option>
-					<option value="52">52 - Haute-Marne</option>
-					<option value="53">53 - Mayenne</option>
-					<option value="54">54 - Meurthe-et-Moselle</option>
-					<option value="55">55 - Meuse</option>
-					<option value="56">56 - Morbihan</option>
-					<option value="57">57 - Moselle</option>
-					<option value="58">58 - Nievre</option>
-					<option value="59">59 - Nord</option>
-					<option value="60">60 - Oise</option>
-					<option value="61">61 - Orne</option>
-					<option value="62">62 - Pas-de-Calais</option>
-					<option value="63">63 - Puy-de-Dome</option>
-					<option value="64">64 - Pyrenees-Atlantiques</option>
-					<option value="35">65 - Hautes-Pyrenees</option>
-					<option value="66">66 - Pyrenees-Orientales</option>
-					<option value="67">67 - Bas-Rhin</option>
-					<option value="68">68 - Haut-Rhin</option>
-					<option value="69">69 - Rhone</option>
-					<option value="70">70 - Haute-Saone</option>
-					<option value="71">71 - Saone-et-Loire</option>
-					<option value="72">72 - Sarthe</option>
-					<option value="73">73 - Savoie</option>
-					<option value="74">74 - Haute-Savoie</option>
-					<option value="75">75 - Paris</option>
-					<option value="76">76 - Seine-Maritime</option>
-					<option value="77">77 - Seine-et-Marne</option>
-					<option value="78">78 - Yvelines</option>
-					<option value="79">79 - Deux-Sevres</option>
-					<option value="80">80 - Somme</option>
-					<option value="81">81 - Tarn</option>
-					<option value="82">82 - Tarn-et-Garonne</option>
-					<option value="83">83 - Var</option>
-					<option value="84">84 - Vaucluse</option>
-					<option value="85">85 - Vendee</option>
-					<option value="86">86 - Vienne</option>
-					<option value="87">87 - Haute-Vienne</option>
-					<option value="88">88 - Vosges</option>
-					<option value="89">89 - Yonne</option>
-					<option value="90">90 - Territoire de Belfort</option>
-					<option value="91">91 - Essonne</option>
-					<option value="92">92 - Hauts-de-Seine</option>
-					<option value="93">93 - Seine-Saint-Denis</option>
-					<option value="94">94 - Val-de-Marne</option>
-					<option value="95">95 - Val-d'Oise</option>
-					<option value="971">971 - Guadeloupe</option>
-					<option value="972">972 - Martinique</option>
-					<option value="973">973 - Guyane</option>
-					<option value="974">974 - Réunion</option>
-					<option value="975">975 - Saint-Pierre-et-Miquelon</option>
-					<option value="984">984 - Terres-australes-et-antarctiques-françaises</option>
-					<option value="985">985 - Mayotte</option>
-					<option value="986">986 - Wallis-et-Futuna</option>
-					<option value="987">987 - Polynesie-franeaise</option>
-					<option value="988">988 - Nouvelle-Caledonie</option>
+					<option value="Ain" <?php if ($_POST['departement']=="Ain"){?> selected <?php }?> >01 - Ain</option>
+					<option value="Aisne">02 - Aisne</option>
+					<option value="Allier">03 - Allier</option>
+					<option value="Alpes-de-Haute-Provence">04 - Alpes-de-Haute-Provence</option>
+					<option value="Hautes-Alpes">05 - Hautes-Alpes</option>
+					<option value="Alpes-Maritimes">06 - Alpes-Maritimes</option>
+					<option value="Ardeche">07 - Ardeche</option>
+					<option value="Ardennes">08 - Ardennes</option>
+					<option value="Ariege">09 - Ariege</option>
+					<option value="Aube">10 - Aube</option>
+					<option value="Aude">11 - Aude</option>
+					<option value="Aveyron">12 - Aveyron</option>
+					<option value="Bouches-du-Rhone">13 - Bouches-du-Rhone</option>
+					<option value="Calvados">14 - Calvados</option>
+					<option value="Cantal">15 - Cantal</option>
+					<option value="Charente">16 - Charente</option>
+					<option value="Charente-Maritime">17 - Charente-Maritime</option>
+					<option value="Cher">18 - Cher</option>
+					<option value="Correze">19 - Correze</option>
+					<option value="Corse-du-Sud">2A - Corse-du-Sud</option>
+					<option value="Haute-Corse">2B - Haute-Corse</option>
+					<option value="Cote-d'Or">21 - Cote-d'Or</option>
+					<option value="Cotes-d'Armor">22 - Cotes-d'Armor</option>
+					<option value="Creuse">23 - Creuse</option>
+					<option value="Dordogne">24 - Dordogne</option>
+					<option value="Doubs">25 - Doubs</option>
+					<option value="Drome">26 - Drome</option>
+					<option value="Eure">27 - Eure</option>
+					<option value="Eure-et-Loir">28 - Eure-et-Loir</option>
+					<option value="Finistere">29 - Finistere</option>
+					<option value="Gard">30 - Gard</option>
+					<option value="Haute-Garonne">31 - Haute-Garonne</option>
+					<option value="Gers">32 - Gers</option>
+					<option value="Gironde">33 - Gironde</option>
+					<option value="Herault">34 - Herault</option>
+					<option value="Ille-et-Vilaine">35 - Ille-et-Vilaine</option>
+					<option value="Indre">36 - Indre</option>
+					<option value="Indre-et-Loire">37 - Indre-et-Loire</option>
+					<option value="Isere">38 - Isere</option>
+					<option value="Jura">39 - Jura</option>
+					<option value="Landes">40 - Landes</option>
+					<option value="Loir-et-Cher">41 - Loir-et-Cher</option>
+					<option value="Loire">42 - Loire</option>
+					<option value="Haute-Loire">43 - Haute-Loire</option>
+					<option value="Loire-Atlantique">44 - Loire-Atlantique</option>
+					<option value="Loiret">45 - Loiret</option>
+					<option value="Lot">46 - Lot</option>
+					<option value="Lot-et-Garonne">47 - Lot-et-Garonne</option>
+					<option value="Lozere">48 - Lozere</option>
+					<option value="Maine-et-Loire">49 - Maine-et-Loire</option>
+					<option value="Manche">50 - Manche</option>
+					<option value="Marne">51 - Marne</option>
+					<option value="Haute-Marne">52 - Haute-Marne</option>
+					<option value="Mayenne">53 - Mayenne</option>
+					<option value="Meurthe-et-Moselle">54 - Meurthe-et-Moselle</option>
+					<option value="Meuse">55 - Meuse</option>
+					<option value="Morbihan">56 - Morbihan</option>
+					<option value="Moselle">57 - Moselle</option>
+					<option value="Nievre">58 - Nievre</option>
+					<option value="Nord">59 - Nord</option>
+					<option value="Oise">60 - Oise</option>
+					<option value="Orne">61 - Orne</option>
+					<option value="Pas-de-Calais">62 - Pas-de-Calais</option>
+					<option value="Puy-de-Dome">63 - Puy-de-Dome</option>
+					<option value="Pyrenees-Atlantiques">64 - Pyrenees-Atlantiques</option>
+					<option value="Hautes-Pyrenees">65 - Hautes-Pyrenees</option>
+					<option value="Pyrenees-Orientales">66 - Pyrenees-Orientales</option>
+					<option value="Bas-Rhin">67 - Bas-Rhin</option>
+					<option value="Haut-Rhin">68 - Haut-Rhin</option>
+					<option value="Rhone">69 - Rhone</option>
+					<option value="Haute-Saone">70 - Haute-Saone</option>
+					<option value="Saone-et-Loire">71 - Saone-et-Loire</option>
+					<option value="Sarthe">72 - Sarthe</option>
+					<option value="Savoie">73 - Savoie</option>
+					<option value="Haute-Savoie">74 - Haute-Savoie</option>
+					<option value="Paris">75 - Paris</option>
+					<option value="Seine-Maritime">76 - Seine-Maritime</option>
+					<option value="Seine-et-Marne">77 - Seine-et-Marne</option>
+					<option value="Yvelines">78 - Yvelines</option>
+					<option value="Deux-Sevres">79 - Deux-Sevres</option>
+					<option value="Somme">80 - Somme</option>
+					<option value="Tarn">81 - Tarn</option>
+					<option value="Tarn-et-Garonne">82 - Tarn-et-Garonne</option>
+					<option value="Var">83 - Var</option>
+					<option value="Vaucluse">84 - Vaucluse</option>
+					<option value="Vendee<">85 - Vendee</option>
+					<option value="Vienne">86 - Vienne</option>
+					<option value="Haute-Vienne">87 - Haute-Vienne</option>
+					<option value="Vosges">88 - Vosges</option>
+					<option value="Yonne">89 - Yonne</option>
+					<option value="Territoire de Belfort">90 - Territoire de Belfort</option>
+					<option value="Essonne">91 - Essonne</option>
+					<option value="Hauts-de-Seine">92 - Hauts-de-Seine</option>
+					<option value="Seine-Saint-Denis">93 - Seine-Saint-Denis</option>
+					<option value="Val-de-Marne">94 - Val-de-Marne</option>
+					<option value="Val-d'Oise">95 - Val-d'Oise</option>
+					<option value="Guadeloupe">971 - Guadeloupe</option>
+					<option value="Martinique">972 - Martinique</option>
+					<option value="Guyane">973 - Guyane</option>
+					<option value="Réunion">974 - Réunion</option>
+					<option value="Saint-Pierre-et-Miquelon">975 - Saint-Pierre-et-Miquelon</option>
+					<option value="Terres-australes-et-antarctiques-françaises">984 - Terres-australes-et-antarctiques-françaises</option>
+					<option value="Mayotte">985 - Mayotte</option>
+					<option value="Wallis-et-Futuna">986 - Wallis-et-Futuna</option>
+					<option value="Polynesie-française">987 - Polynesie-française</option>
+					<option value="Nouvelle-Caledonie">988 - Nouvelle-Caledonie</option>
 				</select>
 			</p>
 			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['Pseudo'] ?>"/> </p>
