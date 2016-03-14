@@ -1,7 +1,5 @@
 <?php
 
-
-
 try {
   require 'Controleurs/controleurConnexion.php';
 }
