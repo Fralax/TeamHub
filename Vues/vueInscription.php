@@ -13,8 +13,7 @@
     if ($testVerif == true){ ?>
 		terminée </h2>
 		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
-		<p> Nous avons envoyé un email de confirmatin à <?= $_POST['Email']?> ! </p>
-		<div class="bouton"><a href="/Vues/vueAccueilVisiteurs.php"> Accueil </a></div>
+		<p> Nous avons envoyé un email de confirmation à <?= $_POST['Email']?> ! </p>
 
 		<?php exit;
     }
