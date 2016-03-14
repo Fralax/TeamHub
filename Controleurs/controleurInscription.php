@@ -20,13 +20,26 @@ function verif(){
   $cp = $_POST['CodePostal'];
   $ville = $_POST['Ville'];
   $adresse = $_POST['Adresse'];
+  $resultatP = verifPseudo();
+  $resultatE = verifEmail();
 
   if(isset($envoyer) && $envoyer == 'Envoyer'){
     if (($Nom != "") && ($Prenom != "") && ($sexe != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "")
     && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
       if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
-        ajoutUtilisateurBdd();
-        return true;
+        if (!$resultatP && !$resultatE) {
+          ajoutUtilisateurBdd();
+          return true;
+        }
+        elseif ($resultatP == true) {
+          echo "Ce pseudo est deja utilisé";
+          return false;
+        }
+        elseif ($resultatE == true) {
+          echo "Vous êtes déjà inscrit";
+          return false;
+        }
+
       }
       else{
         if ($Email != $confirmemail){
@@ -44,6 +57,7 @@ function verif(){
     }
   }
 }
+
 try {
 
   $testVerif = verif();

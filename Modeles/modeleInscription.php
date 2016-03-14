@@ -29,4 +29,39 @@ function ajoutUtilisateurBdd(){
     ));
 }
 
+function verifPseudo(){
+
+  $connexion = $_POST['Envoyer'];
+    if (isset($connexion) && $connexion == 'Envoyer'){
+
+      $bdd = getBdd();
+      $req = $bdd->prepare('SELECT u_id FROM Utilisateurs WHERE u_pseudo = :Pseudo ');
+      $req->execute(array(
+          'Pseudo' => $_POST['Pseudo']));
+
+      $resultatP = $req->fetch();
+
+      return $resultatP;
+    }
+}
+
+function verifEmail(){
+
+  $connexion = $_POST['Envoyer'];
+    if (isset($connexion) && $connexion == 'Envoyer'){
+
+      $bdd = getBdd();
+      $req = $bdd->prepare('SELECT u_id FROM Utilisateurs WHERE u_email = :Email ');
+      $req->execute(array(
+          'Email' => $_POST['Email']));
+
+      $resultatE = $req->fetch();
+
+      return $resultatE;
+    }
+}
+
+
+
+
 ?>
