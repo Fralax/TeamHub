@@ -12,6 +12,12 @@ function connexionUtilisateurs(){
         echo 'Mauvais identifiant ou mot de passe !';
     }
 
+  $connexion = $_POST['connexion'];
+  if (isset($connexion) && $connexion == 'Connexion'){
+    $resultat = verifID();
+    if (!$resultat) {
+        echo 'Mauvais identifiant ou mot de passe !';
+    }
     else {
         session_start();
         $_SESSION['id'] = $resultat['id'];
@@ -19,6 +25,7 @@ function connexionUtilisateurs(){
         echo 'Vous êtes connecté !';
     }
   }
+}
 }
 
 try {
