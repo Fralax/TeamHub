@@ -23,6 +23,7 @@ function verif(){
   $resultatP = verifPseudo();
   $resultatE = verifEmail();
 
+
   if(isset($envoyer) && $envoyer == 'Envoyer'){
     if (($Nom != "") && ($Prenom != "") && ($sexe != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "")
     && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
@@ -32,27 +33,27 @@ function verif(){
           return true;
         }
         elseif ($resultatP == true) {
-          echo "Ce pseudo est deja utilisé";
+          $verifPseudo = "Ce pseudo est deja utilisé";
           return false;
         }
         elseif ($resultatE == true) {
-          echo "Vous êtes déjà inscrit";
+          $verifInscri = "Vous êtes déjà inscrit";
           return false;
         }
 
       }
       else{
         if ($Email != $confirmemail){
-          echo "Les adresses mail saisies ne sont pas identiques.";
+          $verifEmail = "Les adresses mail saisies ne sont pas identiques.";
         }
         if ($MotDePasse != $ConfirmMotDePasse){
-          echo "Les mots de passe saisis ne sont pas identiques.";
+          $verifMdp = "Les mots de passe saisis ne sont pas identiques.";
         }
         return false;
       }
     }
     else{
-      echo "Des champs n'ont pas été remplis";
+      $verifChamps = "Des champs n'ont pas été remplis";
       return false;
     }
   }
