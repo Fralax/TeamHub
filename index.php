@@ -1,14 +1,7 @@
 <?php
 
-try {
   require 'Controleurs/controleurInscription.php';
-}
-catch (Exception $e) {
-  $msgErreur = $e->getMessage();
-  require 'Vues/vueErreur.php';
-}
 
+  $ctr = new inscription();
+  $ctr->verif();
 ?>
-
-<?php $util = new utilisateurs(); ?>
-<?php $util->ajoutUtilisateurBdd() ?>

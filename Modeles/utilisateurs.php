@@ -28,7 +28,7 @@ class utilisateurs extends modele {
       }
   }
 
-  function verifEmail(){
+  public function verifEmail(){
 
     $connexion = $_POST['Envoyer'];
       if (isset($connexion) && $connexion == 'Envoyer'){

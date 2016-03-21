@@ -1,6 +1,6 @@
 <?php
 
-require 'Modeles/utilisateurs.php';
+require_once 'Modeles/utilisateurs.php';
 
 class inscription{
 
@@ -21,24 +21,27 @@ class inscription{
     $cp = $_POST['CodePostal'];
     $ville = $_POST['Ville'];
     $adresse = $_POST['Adresse'];
-    $resultatP = verifPseudo();
-    $resultatE = verifEmail();
+    $resultatP = new utilisateurs();
+    $resultatP->verifPseudo();
+    $resultatE = new utilisateurs();
+    $resultatE->verifEmail();
+    $verif = false;
 
     if(isset($envoyer) && $envoyer == 'Envoyer'){
       if (($Nom != "") && ($Prenom != "") && ($sexe != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "")
       && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
         if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
           if (!$resultatP && !$resultatE) {
-            ajoutUtilisateurBdd();
-            return true;
+            $util = new utilisateurs();
+            $util->ajoutUtilisateurBdd();
+            $verif = true;
           }
           elseif ($resultatP == true) {
-            echo "Ce pseudo est deja utilisé";
-            return false;
+            echo "Ce pseudo est déjà utilisé";
+            
           }
           elseif ($resultatE == true) {
             echo "Vous êtes déjà inscrit";
-            return false;
           }
 
         }
@@ -49,28 +52,14 @@ class inscription{
           if ($MotDePasse != $ConfirmMotDePasse){
             echo "Les mots de passe saisis ne sont pas identiques.";
           }
-          return false;
         }
       }
       else{
         echo "Des champs n'ont pas été remplis";
-        return false;
       }
     }
+    require 'Vues/vueInscription.php';
   }
-
 }
 
-
-
-
-try {
-
-  $testVerif = verif();
-  require 'Vues/vueInscription.php';
-}
-catch (Exception $e) {
-  $msgErreur = $e->getMessage();
-  require 'Vues/vueErreur.php';
-}
 ?>

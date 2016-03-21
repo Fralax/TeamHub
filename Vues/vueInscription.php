@@ -10,7 +10,7 @@
 		<h2>Inscription au site
 
     <?php
-    if ($testVerif == true){ ?>
+    if ($verif == true){ ?>
 		terminée </h2>
 		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
 		<p> Nous avons envoyé un email de confirmation à <?= $_POST['Email']?> ! </p>
@@ -18,6 +18,7 @@
 		<?php exit;
     }
 		?>
+
 		</h2>
 
 
