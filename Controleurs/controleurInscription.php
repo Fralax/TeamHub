@@ -25,7 +25,6 @@ class inscription{
     $resultatP->verifPseudo();
     $resultatE = new utilisateurs();
     $resultatE->verifEmail();
-    $verif = false;
 
     require 'Vues/vueInscription.php';
 
@@ -44,10 +43,12 @@ class inscription{
 
           elseif ($resultatP) {
             echo "Ce pseudo est déjà utilisé";
+            $verif = false;
           }
 
           elseif ($resultatE) {
             echo "Vous êtes déjà inscrit";
+            $verif = false;
           }
         }
 
@@ -59,11 +60,13 @@ class inscription{
           if ($motDePasse != $confirmMotDePasse){
             echo "Les mots de passe saisis ne sont pas identiques.";
           }
+          $verif = false;
         }
       }
 
       else{
         echo "Des champs n'ont pas été remplis";
+        $verif = false;
       }
     }
   }
