@@ -59,7 +59,6 @@ function verif(){
 }
 
 try {
-
   $testVerif = verif();
   require 'Vues/vueInscription.php';
 }

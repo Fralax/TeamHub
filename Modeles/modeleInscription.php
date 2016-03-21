@@ -60,8 +60,4 @@ function verifEmail(){
       return $resultatE;
     }
 }
-
-
-
-
 ?>
