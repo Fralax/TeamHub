@@ -26,7 +26,7 @@ class inscription{
     $resultatE = new utilisateurs();
     $resultatE->verifEmail();
 
-    require 'Vues/vueInscription.php';
+
 
     if(isset($envoyer) && $envoyer == 'Envoyer'){
       if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmemail != "") && ($pseudo != "") && ($motDePasse != "")
@@ -39,14 +39,14 @@ class inscription{
               $verif = true;
             }
           }
+          else{
+            if ($resultatP) {
+              echo "Ce pseudo est déjà utilisé";
+            }
 
-          elseif ($resultatP) {
-            echo "Ce pseudo est déjà utilisé";
-            $verif = false;
-          }
-
-          elseif ($resultatE) {
-            echo "Vous êtes déjà inscrit";
+            if ($resultatE) {
+              echo "Vous êtes déjà inscrit";
+            }
             $verif = false;
           }
         }
@@ -68,6 +68,7 @@ class inscription{
         $verif = false;
       }
     }
+    require 'Vues/vueInscription.php';
   }
 }
 ?>
