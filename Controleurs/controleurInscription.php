@@ -33,27 +33,27 @@ function verif(){
           return true;
         }
         elseif ($resultatP == true) {
-          $verifPseudo = "Ce pseudo est deja utilisé";
+          echo "Ce pseudo est déjà utilisé";
           return false;
         }
         elseif ($resultatE == true) {
-          $verifInscri = "Vous êtes déjà inscrit";
+          echo "Vous êtes déjà inscrit";
           return false;
         }
 
       }
       else{
         if ($Email != $confirmemail){
-          $verifEmail = "Les adresses mail saisies ne sont pas identiques.";
+          echo "Les adresses mail saisies ne sont pas identiques.";
         }
         if ($MotDePasse != $ConfirmMotDePasse){
-          $verifMdp = "Les mots de passe saisis ne sont pas identiques.";
+          echo "Les mots de passe saisis ne sont pas identiques.";
         }
         return false;
       }
     }
     else{
-      $verifChamps = "Des champs n'ont pas été remplis";
+      echo "Des champs n'ont pas été remplis";
       return false;
     }
   }
