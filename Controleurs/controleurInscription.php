@@ -6,12 +6,12 @@ class inscription{
 
   public function verif(){
 
-    $Nom=$_POST['Nom'];
-    $Prenom=$_POST['Prenom'];
-    $Email=$_POST['Email'];
+    $nom=$_POST['nom'];
+    $prenom=$_POST['Prenom'];
+    $email=$_POST['Email'];
     $confirmemail = $_POST['ConfirmEmail'];
-    $Pseudo=$_POST['Pseudo'];
-    $MotDePasse=$_POST['MotDePasse'];
+    $pseudo=$_POST['Pseudo'];
+    $motDePasse=$_POST['MotDePasse'];
     $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
     $envoyer = $_POST['Envoyer'];
     $jour = $_POST['jour'];
@@ -27,39 +27,45 @@ class inscription{
     $resultatE->verifEmail();
     $verif = false;
 
+    require 'Vues/vueInscription.php';
+
     if(isset($envoyer) && $envoyer == 'Envoyer'){
-      if (($Nom != "") && ($Prenom != "") && ($sexe != "") && ($Email != "") && ($confirmemail != "") && ($Pseudo != "") && ($MotDePasse != "")
+      if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmemail != "") && ($pseudo != "") && ($motDePasse != "")
       && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
-        if(($Email == $confirmemail) && ($MotDePasse == $confirmMotDePasse)){
-          if (!$resultatP && !$resultatE) {
-            $util = new utilisateurs();
-            $util->ajoutUtilisateurBdd();
-            $verif = true;
-          }
-          elseif ($resultatP == true) {
-            echo "Ce pseudo est déjà utilisé";
-            
-          }
-          elseif ($resultatE == true) {
-            echo "Vous êtes déjà inscrit";
+        if(($email == $confirmemail) && ($motDePasse == $confirmMotDePasse)){
+          if (!$resultatP){
+            if(!$resultatE){
+              $util=new utilisateurs();
+              $util->ajoutUtilisateurBdd();
+              $verif = true;
+              require 'Vues/vueAccueilMembres.php';
+            }
           }
 
+          elseif ($resultatP) {
+            echo "Ce pseudo est déjà utilisé";
+          }
+
+          elseif ($resultatE) {
+            echo "Vous êtes déjà inscrit";
+          }
         }
+
         else{
-          if ($Email != $confirmemail){
+          if ($email != $confirmemail){
             echo "Les adresses mail saisies ne sont pas identiques.";
           }
-          if ($MotDePasse != $ConfirmMotDePasse){
+
+          if ($motDePasse != $confirmMotDePasse){
             echo "Les mots de passe saisis ne sont pas identiques.";
           }
         }
       }
+
       else{
         echo "Des champs n'ont pas été remplis";
       }
     }
-    require 'Vues/vueInscription.php';
   }
 }
-
 ?>
