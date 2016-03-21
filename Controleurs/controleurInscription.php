@@ -37,7 +37,6 @@ class inscription{
               $util=new utilisateurs();
               $util->ajoutUtilisateurBdd();
               $verif = true;
-              require 'Vues/vueAccueilMembres.php';
             }
           }
 
