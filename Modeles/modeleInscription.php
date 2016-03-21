@@ -37,7 +37,7 @@ function verifPseudo(){
       $bdd = getBdd();
       $req = $bdd->prepare('SELECT u_id FROM Utilisateurs WHERE u_pseudo = :Pseudo ');
       $req->execute(array(
-          'Pseudo' => $_POST['Pseudo']));
+              'Pseudo' => $_POST['Pseudo']));
 
       $resultatP = $req->fetch();
 
