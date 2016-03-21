@@ -1,7 +1,7 @@
 <?php
 
 try {
-  require 'Controleurs/controleurConnexion.php';
+  require 'Controleurs/controleurInscription.php';
 }
 catch (Exception $e) {
   $msgErreur = $e->getMessage();
@@ -9,3 +9,6 @@ catch (Exception $e) {
 }
 
 ?>
+
+<?php $util = new utilisateurs(); ?>
+<?php $util->ajoutUtilisateurBdd() ?>
