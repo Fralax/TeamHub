@@ -32,8 +32,6 @@ class utilisateurs extends modele {
 
     $connexion = $_POST['Envoyer'];
       if (isset($connexion) && $connexion == 'Envoyer'){
-
-
         $sql = 'SELECT u_id FROM Utilisateurs WHERE u_email = :Email ';
         $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
         return $resultatE;

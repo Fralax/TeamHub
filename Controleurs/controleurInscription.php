@@ -44,7 +44,7 @@ class inscription{
               echo "Ce pseudo est déjà utilisé";
             }
 
-            if ($resultatE) {
+            elseif ($resultatE) {
               echo "Vous êtes déjà inscrit";
             }
             $verif = false;
