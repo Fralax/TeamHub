@@ -19,8 +19,8 @@ class utilisateurs extends modele {
 
   public function verifPseudo(){
 
-    $connexion = $_POST['Envoyer'];
-      if (isset($connexion) && $connexion == 'Envoyer'){
+    $envoiInscription = $_POST['Envoyer'];
+      if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
 
         $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
         $resultatP = $this->executerRequete($sql, array( 'Pseudo' => $_POST['Pseudo']));
@@ -30,8 +30,8 @@ class utilisateurs extends modele {
 
   public function verifEmail(){
 
-    $connexion = $_POST['Envoyer'];
-      if (isset($connexion) && $connexion == 'Envoyer'){
+    $envoiInscription = $_POST['Envoyer'];
+      if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
         $sql = 'SELECT u_id FROM Utilisateurs WHERE u_email = :Email ';
         $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
         return $resultatE;
