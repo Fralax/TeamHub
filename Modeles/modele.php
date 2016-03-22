@@ -4,14 +4,15 @@ abstract class modele {
 
   private $bdd;
 
-  protected function executerRequete($sql, $parametres = null) {
+  protected function executerRequete($sql, $parametres) {
     if ($parametres == null){
-      $resultat = $this->getBdd()->query($sql);
+      $req = $this->getBdd()->query($sql);
     }
     else {
-      $resultat = $this->getBdd()->prepare($sql);
-      $resultat->execute($parametres);
+      $req = $this->getBdd()->prepare($sql);
+      $req->execute($parametres);
     }
+    $resultat = $req->fetch();
     return $resultat;
   }
 
