@@ -1,7 +1,4 @@
 <?php
-
-
-
   try {
     require 'Controleurs/controleurInscription.php';
     $ctr = new inscription();
@@ -12,6 +9,4 @@
     $msgErreur = $e->getMessage();
     require 'vueErreur.php';
   }
-
-
 ?>

@@ -12,6 +12,7 @@ abstract class modele {
       $resultat = $this->getBdd()->prepare($sql);
       $resultat->execute($parametres);
     }
+    return $resultat;
   }
 
   private function getBdd() {

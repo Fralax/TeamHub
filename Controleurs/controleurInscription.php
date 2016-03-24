@@ -29,12 +29,11 @@
          $resultatP = $user->verifPseudo()->fetch();
          $resultatE = $user->verifEmail()->fetch();
          if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
-           if (!$resultatP){
-             if(!$resultatE){
-               $user->ajoutUtilisateurBdd();
-               $verif = true;
-             }
+           if (!$resultatP && !$resultatE){
+             $user->ajoutUtilisateurBdd();
+             $verif = true;
            }
+
            else{
              if ($resultatP) {
                 echo "Ce pseudo est déjà utilisé";
