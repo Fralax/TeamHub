@@ -30,9 +30,6 @@ class inscription{
     $adresse = $_POST['Adresse'];
     $resultatP = $this->user->verifPseudo()->fetch();
     $resultatE = $this->user->verifEmail()->fetch();
-    echo "<pre>";
-    var_dump($resultatE,$resultatP);
-    echo "</pre>";
 
     if(isset($envoyer) && $envoyer == 'Envoyer'){
       if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
