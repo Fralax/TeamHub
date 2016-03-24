@@ -23,7 +23,8 @@ class utilisateurs extends modele {
       if (isset($test) && $test == 'Envoyer'){
 
         $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
-        $resultatP = $this->executerRequete($sql, array( 'Pseudo' => $_POST['Pseudo']));
+        $req = $this->executerRequete($sql, array( 'Pseudo' => $_POST['Pseudo']));
+        $resultatP = $req->fetch();
         return $resultatP;
       }
   }
@@ -35,7 +36,8 @@ class utilisateurs extends modele {
 
 
         $sql = 'SELECT u_id FROM Utilisateurs WHERE u_email = :Email ';
-        $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
+        $req = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
+        $resultatP = $req->fetch();
         return $resultatE;
       }
     }
