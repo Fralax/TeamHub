@@ -23,7 +23,7 @@ class utilisateurs extends modele {
       if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
 
         $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
-        $resultatP = $this->executerRequete($sql, array( 'Pseudo' => $_POST['Pseudo']));
+        $resultatP = $this->executerRequete($sql, array('Pseudo' => $_POST['Pseudo']));
         return $resultatP;
       }
   }
