@@ -4,12 +4,19 @@ require_once 'Modeles/utilisateurs.php';
 
 class inscription{
 
+  private $user;
+
+  public function __construct()
+  {
+    $this->user = new utilisateurs();
+  }
+
   public function verif(){
 
     $nom=$_POST['nom'];
     $prenom=$_POST['Prenom'];
     $email=$_POST['Email'];
-    $confirmemail = $_POST['ConfirmEmail'];
+    $confirmEmail = $_POST['ConfirmEmail'];
     $pseudo=$_POST['Pseudo'];
     $motDePasse=$_POST['MotDePasse'];
     $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
@@ -21,17 +28,13 @@ class inscription{
     $cp = $_POST['CodePostal'];
     $ville = $_POST['Ville'];
     $adresse = $_POST['Adresse'];
-    $resultatP = new utilisateurs();
-    $resultatP->verifPseudo();
-    $resultatE = new utilisateurs();
-    $resultatE->verifEmail();
-
-
+    $resultatP = $this->user->verifPseudo()->fetch();
+    $resultatE = $this->user->verifEmail()->fetch();
 
     if(isset($envoyer) && $envoyer == 'Envoyer'){
-      if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmemail != "") && ($pseudo != "") && ($motDePasse != "")
+      if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
       && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
-        if(($email == $confirmemail) && ($motDePasse == $confirmMotDePasse)){
+        if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
           if (!$resultatP){
             if(!$resultatE){
               $util=new utilisateurs();
@@ -39,12 +42,13 @@ class inscription{
               $verif = true;
             }
           }
+
           else{
             if ($resultatP) {
               echo "Ce pseudo est déjà utilisé";
             }
 
-            if ($resultatE) {
+            elseif ($resultatE) {
               echo "Vous êtes déjà inscrit";
             }
             $verif = false;
@@ -52,7 +56,7 @@ class inscription{
         }
 
         else{
-          if ($email != $confirmemail){
+          if ($email != $confirmEmail){
             echo "Les adresses mail saisies ne sont pas identiques.";
           }
 
