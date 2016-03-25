@@ -45,6 +45,7 @@ require_once 'Vues/vue.php';
 
              mail($destinataire, $sujet, $message, $entete) ;
              $verif = true;
+             header("Location: index.php?page=inscriptionterminee");
            }
 
            else{
