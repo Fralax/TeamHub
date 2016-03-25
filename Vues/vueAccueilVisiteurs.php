@@ -17,7 +17,7 @@
     		<input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required>
     		<input name="connexion" type="submit" id="connexion" value = "Connexion">
   		</form>
-			<a href="/TeamHub/index.php?page=inscription"> <input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
+			<a href="index.php?page=inscription"> <input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
 
 		</p>
 
