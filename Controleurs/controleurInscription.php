@@ -31,6 +31,18 @@
          if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
            if (!$resultatP && !$resultatE){
              $user->ajoutUtilisateurBdd();
+             $destinataire = $_POST['Email'];
+             $sujet = "Confirmation d'inscription" ;
+             $entete = "De: inscription@TeamHub.com" ;
+
+             $message = 'Bienvenue sur TeamHub,
+
+             Merci de votre inscription !
+
+             ---------------
+             Ceci est un mail automatique, Merci de ne pas y répondre.';
+
+             mail($destinataire, $sujet, $message, $entete) ;
              $verif = true;
            }
 

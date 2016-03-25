@@ -1,8 +1,8 @@
 <?php
   try {
-    require 'Controleurs/controleurInscription.php';
-    $ctr = new inscription();
-    $ctr->verif();
+    require 'Controleurs/controleurConnexion.php';
+    $ctr = new connexion();
+    $ctr->connexionUtilisateurs();
   }
 
   catch (Exception $e) {
