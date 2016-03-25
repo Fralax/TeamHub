@@ -20,12 +20,11 @@ class utilisateurs extends modele {
   public function verifPseudo(){
 
     $envoiInscription = $_POST['Envoyer'];
-      if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
-
-        $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
-        $resultatP = $this->executerRequete($sql, array('Pseudo' => $_POST['Pseudo']));
-        return $resultatP;
-      }
+    if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
+      $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
+      $resultatP = $this->executerRequete($sql, array('Pseudo' => $_POST['Pseudo']));
+      return $resultatP;
+    }
   }
 
   public function verifEmail(){
@@ -38,14 +37,14 @@ class utilisateurs extends modele {
       }
     }
 
-    public function verifConnexion(){
+  public function verifConnexion(){
 
     $envoiConnexion = $_POST['connexion'];
-      if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
-        $pass_hache = sha1($_POST['PasswordAccueil']);
-        $sql = 'SELECT u_id FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
-        $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo'],'passwordaccueil' => $pass_hache));
-        return $resultatConnexion;
-      }
+    if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
+      $pass_hache = sha1($_POST['PasswordAccueil']);
+      $sql = 'SELECT u_id FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
+      $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo'],'passwordaccueil' => $pass_hache));
+      return $resultatConnexion;
     }
   }
+}

@@ -1,6 +1,8 @@
 <?php
 
 require_once 'Modeles/utilisateurs.php';
+require_once 'Vues/vue.php';
+
 
 class connexion{
 
@@ -14,16 +16,17 @@ class connexion{
       if (!$resultatConnexion) {
           echo 'Mauvais identifiant ou mot de passe !';
       }
-      else {
-          session_start();
-          $_SESSION['id'] = $resultatConnexion['id'];
-          $_SESSION['pseudo'] = $_POST['pseudo'];
-          echo 'Vous êtes connecté !';
-          header('/Vues/vueAccueilMembres.php');      
 
-        }
+      else {
+        session_start();
+        $_SESSION['id'] = $resultatConnexion['id'];
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        echo 'Vous êtes connecté !';
+      }
     }
-    require 'Vues/vueAccueilVisiteurs.php';
+    $vue = new Vue('Accueilvisiteurs');
+    $vue->generer();
   }
 }
+
 ?>

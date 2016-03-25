@@ -8,14 +8,14 @@
     <body>
         <div id="global">
             <header>
-                <a href="index.php"><h1 id="titreBlog">Mon Blog</h1></a>
-                <p>Je vous souhaite la bienvenue sur ce modeste blog.</p>
+                <a href="index.php"><h1 id="titreBlog">TeamHub</h1></a>
+                <p>Bienvenue !</p>
             </header>
             <div id="contenu">
                 <?= $contenu ?>
             </div>
             <footer id="piedBlog">
-                Blog réalisé avec PHP, HTML5 et CSS.
+                Site réalisé par Valentin Fortun et Romain Frayssinet
             </footer>
         </div>
     </body>

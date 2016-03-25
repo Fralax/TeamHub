@@ -1,6 +1,7 @@
 <?php
 
- require_once 'Modeles/utilisateurs.php';
+require_once 'Modeles/utilisateurs.php';
+require_once 'Vues/vue.php';
 
  class inscription{
 
@@ -75,7 +76,8 @@
          $verif = false;
        }
      }
-     require 'Vues/vueInscription.php';
+     $vue = new Vue('Inscription');
+     $vue->generer();
    }
  }
  ?>
