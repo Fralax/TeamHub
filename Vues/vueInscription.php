@@ -8,7 +8,7 @@
 		<title>Inscription</title>
 	</head>
 	<body>
-    <a href="/TeamHub/Vues/vueAccueilVisiteurs.php"> <img src="/TeamHub/Autres/Logo.png" width="306" height="172" > </a>
+    <a> <img src="/TeamHub/Autres/Logo.png" width="306" height="172" > </a>
 		<p> </p>
 		<h2>Inscription au site
 
