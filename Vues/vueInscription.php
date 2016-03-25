@@ -10,19 +10,7 @@
 	<body>
     <a> <img src="/TeamHub/Autres/Logo.png" width="306" height="172" > </a>
 		<p> </p>
-		<h2>Inscription au site
-
-    <?php
-    if ($verif == true){ ?>
-		terminée </h2>
-		<p> Bienvenue <?= $_POST['Prenom']?>, Vous êtes inscrit </p>
-		<p> Nous avons envoyé un email de confirmation à <?= $_POST['Email']?> ! </p>
-
-		<?php exit;
-    }
-		?>
-
-		</h2>
+		<h2>Inscription au site</h2>
 
 
 		<p> Inscrivez-vous, c'est gratuit ! </p>
@@ -392,7 +380,7 @@
 			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['Pseudo'] ?>"/> </p>
 			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/> </p>
 			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/> </p>
-			<p> <input name="Envoyer" type="submit" value="Envoyer" > </p>
+			<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
 		</form>
 	</body>
 </html>

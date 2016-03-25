@@ -33,6 +33,7 @@ require_once 'Vues/vue.php';
            if (!$resultatP && !$resultatE){
              $user->ajoutUtilisateurBdd();
              $verif = true;
+             header("Location: index.php?page=inscriptionterminee");
            }
 
            else{
