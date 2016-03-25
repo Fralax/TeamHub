@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
+<?php $this->titre = "Inscription"; ?>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title> Inscription - TeamHub</title>
+		<title>Inscription</title>
 	</head>
 	<body>
     <a href="/TeamHub/Vues/vueAccueilVisiteurs.php"> <img src="/TeamHub/Autres/Logo.png" width="306" height="172" > </a>

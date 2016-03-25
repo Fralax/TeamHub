@@ -1,6 +1,7 @@
 <?php
 
- require_once 'Modeles/utilisateurs.php';
+require_once 'Modeles/utilisateurs.php';
+require_once 'Vues/vue.php';
 
  class inscription{
 
@@ -33,7 +34,7 @@
              $user->ajoutUtilisateurBdd();
              $verif = true;
            }
-           
+
            else{
              if ($resultatP) {
                 echo "Ce pseudo est déjà utilisé";
@@ -63,7 +64,8 @@
          $verif = false;
        }
      }
-     require 'Vues/vueInscription.php';
+     $vue = new Vue('Inscription');
+     $vue->generer();
    }
  }
  ?>
