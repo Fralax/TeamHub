@@ -22,11 +22,6 @@
               		  </form>
             			  <a href="index.php?page=inscription"> <input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
                   </div>
-                  <ul>
-    				        <li><a href="index.php?page=accueilmembres"> <input name="Accueil" type="button" id="Accueil" value = "Accueil"> </a></li>
-    				        <li><a href="index.php?page="> <input name="Groupe" type="button" id="Groupe" value = "Groupe"> </a></li>
-    				        <li><a href="index.php?page="> <input name="Club" type="button" id="Club" value = "Club"> </a></li>
-    			        </ul>
             		</p>
 
             </header>

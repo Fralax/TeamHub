@@ -45,10 +45,10 @@
               $affichageApropos = $Apropos->afficherAProposMembres();
               break;
 
-              case 'aproposvisiteurs':
-                $Apropos = new connexion();
-                $affichageApropos = $Apropos->afficherAProposVisiteurs();
-                break;
+            case 'aproposvisiteurs':
+              $Apropos = new connexion();
+              $affichageApropos = $Apropos->afficherAProposVisiteurs();
+              break;
 
           }
 
