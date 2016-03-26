@@ -37,16 +37,16 @@ h1 {
 
 
 #global {
-    min-height: 100%;  /* Voir commentaire sur html et body plus haut */
 
-    width: 70%;
-    margin: auto;    /* Permet de centrer la div */
-    text-align: justify;
 
 }
 
 #contenu {
-    margin-bottom : 30px
+	min-height: 100%;  /* Voir commentaire sur html et body plus haut */
+
+	width: 90%;
+	margin: auto;    /* Permet de centrer la div */
+	text-align: justify;
 }
 
 #titreBlog {
@@ -59,7 +59,15 @@ h1 {
 		color: #1E90FF;
 }
 
-#logo {
-		top: 5px;
-		right: 40px;
+#gauche {
+		position: absolute;
+		top: 5em;
+		left: 5em;
+		width: 18%;
+}
+#droite {
+		position: absolute;
+		top: 5em;
+		right: 5em;
+		width: 18%;
 }
