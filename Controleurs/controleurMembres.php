@@ -2,9 +2,10 @@
 
 class membres{
 
-  public function afficherInscription(){
-    $vue = new Vue('InscriptionTerminee');
+  public function afficherAccueilMembres(){
+    $vue = new Vue('AccueilMembres');
     $vue->generer();
+
   }
 
 }

@@ -12,10 +12,18 @@ class Vue {
   }
 
 
-  public function generer($donnees=[]) {
+  public function genererVisiteurs($donnees=[]) {
 
     $contenu = $this->genererFichier($this->fichier, $donnees);
-    $vue = $this->genererFichier('Vues/gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu));
+    $vue = $this->genererFichier('Vues/gabaritVisiteurs.php', array('titre' => $this->titre, 'contenu' => $contenu));
+    echo $vue;
+
+  }
+
+  public function genererMembres($donnees=[]) {
+
+    $contenu = $this->genererFichier($this->fichier, $donnees);
+    $vue = $this->genererFichier('Vues/gabaritMembres.php', array('titre' => $this->titre, 'contenu' => $contenu));
     echo $vue;
 
   }
@@ -33,7 +41,7 @@ class Vue {
     else {
       throw new Exception("Fichier '$fichier' introuvable");
     }
-    
+
   }
 
 }

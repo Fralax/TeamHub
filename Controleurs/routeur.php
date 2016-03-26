@@ -35,9 +35,9 @@
               $affichageInscription = $inscription->verif();
               break;
 
-            case 'inscriptionterminee':
+            case 'accueilmembres':
               $inscriptionTerminee = new membres();
-              $InscriptionTerminee = $inscriptionTerminee->afficherInscription();
+              $InscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
               break;
 
           }
@@ -51,5 +51,4 @@
     }
 
   }
-
  ?>
