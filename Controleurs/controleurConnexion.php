@@ -32,10 +32,17 @@ class connexion{
 
       }
     }
-    if (!$resultatConnexion){
+
+    if (!$resultatConnexion) {
       $vue = new Vue('AccueilVisiteurs');
       $vue->genererVisiteurs();
     }
+  }
+
+  public function afficherAProposVisiteurs(){
+    $vue = new Vue('APropos');
+    $vue->genererVisiteurs();
+
   }
 }
 

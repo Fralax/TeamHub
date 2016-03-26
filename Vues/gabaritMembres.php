@@ -10,9 +10,15 @@
 
             <header>
               <p> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </p>
-              <p>
 
-              </p>
+
+              <ul>
+				        <li><a href="index.php?page=accueilmembres"> <input name="Accueil" type="button" id="Accueil" value = "Accueil"> </a></li>
+				        <li><a href="index.php?page="> <input name="Groupe" type="button" id="Groupe" value = "Groupe"> </a></li>
+				        <li><a href="index.php?page="> <input name="Club" type="button" id="Club" value = "Club"> </a></li>
+				        <li><a href="index.php?page="> <input name="Profil" type="button" id="Profil" value = "Profil"> </a></li>
+			       </ul>
+
             </header>
 
             <div id="contenu">
@@ -20,7 +26,11 @@
             </div>
 
             <footer id="piedBlog">
-                Site réalisé par Valentin Fortun et Romain Frayssinet
+              <div>
+                <a href="index.php?page=aproposmembres"> A propos </a>
+              </div>
+
+              Site réalisé par Valentin Fortun et Romain Frayssinet
             </footer>
 
         </div>
