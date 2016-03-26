@@ -79,7 +79,7 @@ require_once 'Vues/vue.php';
        }
      }
      $vue = new Vue('Inscription');
-     $vue->genererMembres();
+     $vue->genererVisiteurs();
    }
  }
  ?>

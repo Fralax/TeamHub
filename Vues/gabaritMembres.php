@@ -10,6 +10,9 @@
 
             <header>
               <p> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </p>
+              <p>
+
+              </p>
             </header>
 
             <div id="contenu">

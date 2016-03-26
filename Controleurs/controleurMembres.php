@@ -4,9 +4,10 @@ class membres{
 
   public function afficherAccueilMembres(){
     $vue = new Vue('AccueilMembres');
-    $vue->generer();
-
+    $vue->genererMembres();
   }
+
+  
 
 }
 
