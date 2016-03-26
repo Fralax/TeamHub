@@ -23,7 +23,7 @@ class connexion{
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
-
+        
         $vue = new Vue('AccueilMembres');
         $vue->generer();
 

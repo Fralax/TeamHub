@@ -36,9 +36,9 @@
               break;
 
             case 'inscriptionterminee':
-            $inscriptionTerminee = new membres();
-            $InscriptionTerminee = $inscriptionTerminee->afficherInscription();
-            break;
+              $inscriptionTerminee = new membres();
+              $InscriptionTerminee = $inscriptionTerminee->afficherInscription();
+              break;
 
           }
 
