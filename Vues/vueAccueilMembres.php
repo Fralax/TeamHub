@@ -7,9 +7,9 @@
 </head>
 
 <body>
-	
+
 	<p>
-	<img src="/TeamHub/Autres/Logo.png" width="306" height="172" >
+	
 	</p>
 
 </body>

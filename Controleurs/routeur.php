@@ -40,6 +40,16 @@
               $InscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
               break;
 
+            case 'aproposmembres':
+              $Apropos = new membres();
+              $affichageApropos = $Apropos->afficherAProposMembres();
+              break;
+
+              case 'aproposvisiteurs':
+                $Apropos = new connexion();
+                $affichageApropos = $Apropos->afficherAProposVisiteurs();
+                break;
+
           }
 
       }

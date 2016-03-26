@@ -29,11 +29,17 @@ class connexion{
         $vue->genererMembres();
 
         header("Location: index.php?page=accueilmembres");
-        echo 'Vous êtes connecté !';
 
       }
     }
-    $vue = new Vue('AccueilVisiteurs');
+    if (!$resultatConnexion) {
+      $vue = new Vue('AccueilVisiteurs');
+      $vue->genererVisiteurs();
+  }
+  }
+
+  public function afficherAProposVisiteurs(){
+    $vue = new Vue('APropos');
     $vue->genererVisiteurs();
   }
 }
