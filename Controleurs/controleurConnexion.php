@@ -25,8 +25,7 @@ class connexion{
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
 
-        $vue = new Vue('AccueilMembres');
-        $vue->generer();
+        header("Location: index.php?page=inscriptionterminee");
 
         echo 'Vous êtes connecté !';
 
