@@ -10,11 +10,11 @@
         <div id="global">
             <header>
 
-                  <div class= "gauche">
+                  <div id= "gauche">
                     <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
                   </div>
 
-                  <div class= "droite">
+                  <div id= "droite">
               		  <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
               			  <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
                 		  <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required>
@@ -22,11 +22,6 @@
               		  </form>
             			  <a href="index.php?page=inscription"> <input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
                   </div>
-                  <ul>
-    				        <li><a href="index.php?page=accueilmembres"> <input name="Accueil" type="button" id="Accueil" value = "Accueil"> </a></li>
-    				        <li><a href="index.php?page="> <input name="Groupe" type="button" id="Groupe" value = "Groupe"> </a></li>
-    				        <li><a href="index.php?page="> <input name="Club" type="button" id="Club" value = "Club"> </a></li>
-    			        </ul>
             		</p>
 
             </header>
@@ -35,12 +30,12 @@
                 <?= $contenu ?>
             </div>
 
-            <footer id="piedBlog">
-              <div>
+            <footer>
+              <div id="piedBlog">
                 <a href="index.php?page=aproposvisiteurs"> A propos </a>
-              </div>
 
                 Site réalisé par Valentin Fortun et Romain Frayssinet
+              </div>
             </footer>
 
         </div>

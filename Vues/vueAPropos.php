@@ -6,17 +6,6 @@
     <meta charset="utf-8"/>
   </head>
   <body>
-    <div class="navbar">
-      <div id="logo">
-        <img src="http://localhost:8888/Autres/Logo.png"/>
-      </div>
-      <div id="menu">
-        <ul>
-          <li id="1">Accueil</li>
-          <li id="2">A propos</li>
-        </ul>
-      </div>
-    </div>
     <div class="équipe">
       <div id="description">
         <h2>Mot des fondateurs:</h2>

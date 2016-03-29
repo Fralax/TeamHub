@@ -9,15 +9,18 @@
         <div id="global">
 
             <header>
-              <p> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </p>
-
+              <div id="gauche"> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
+              <div id="droite">
+              <?php echo "Bonjour, ", $_POST['pseudo'], " ! "; ?>
 
               <ul>
-				        <li><a href="index.php?page=accueilmembres"> <input name="Accueil" type="button" id="Accueil" value = "Accueil"> </a></li>
-				        <li><a href="index.php?page="> <input name="Groupe" type="button" id="Groupe" value = "Groupe"> </a></li>
-				        <li><a href="index.php?page="> <input name="Club" type="button" id="Club" value = "Club"> </a></li>
-				        <li><a href="index.php?page="> <input name="Profil" type="button" id="Profil" value = "Profil"> </a></li>
+				        <li><a href="index.php?page=accueilmembres"> Accueil </a></li>
+				        <li><a href="index.php?page="> Groupe </a></li>
+				        <li><a href="index.php?page="> Club </a></li>
+				        <li><a href="index.php?page="> Profil </a></li>
 			       </ul>
+
+           </div>
 
             </header>
 
