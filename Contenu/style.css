@@ -96,39 +96,31 @@ ul li a:active{
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
 
-footer{
-	position:absolute;
-	bottom:0;
-	width:100%;
-	padding-top:50px;
-	height:50px;
-	text-align: center;;
-
+* {
+	padding:0
 }
 
+html {height: 100%}
 
-#global {
+#wrap {min-height: 100%}
 
-
+#main {
+  overflow:auto;
+  padding-bottom: 150px;
 }
 
-#contenu {
-	min-height: 100%;  /* Voir commentaire sur html et body plus haut */
-
-	width: 98%;
-	margin: auto;    /* Permet de centrer la div */
-	text-align: justify;
+#headerDroite{
+	text-align: right;
 }
 
-#gauche {
-		position: absolute;
-		top: 5em;
-		left: 5em;
-		width: 18%;
+#headerGauche{
+	text-align: left;
 }
-#droite {
-		position: absolute;
-		top: 5em;
-		right: 5em;
-		width: 18%;
+
+#footer {
+    position: relative;
+		text-align: right;
+    clear:both;
+    margin-top: -150px;
+    height: 150px;
 }
