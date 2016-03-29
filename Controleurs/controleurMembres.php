@@ -12,8 +12,6 @@ class membres{
     $vue = new Vue('APropos');
     $vue->genererMembres();
   }
-
-
 }
 
 

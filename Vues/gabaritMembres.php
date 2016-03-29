@@ -19,7 +19,9 @@
 				        <li><a href="index.php?page="> Club </a></li>
 				        <li><a href="index.php?page="> Profil </a></li>
 			       </ul>
+
            </div>
+
             </header>
 
             <div id="contenu">
