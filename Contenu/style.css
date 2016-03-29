@@ -35,22 +35,17 @@ h1 {
     color: #1E90FF;
 }
 
-
-
 ul{
 	display: table;
 	width: 500px;
-	margin: 20px;
-	float: right;
-	right: 40px;
-	top: 10px;
-	padding: 0;
-	border-radius: 3px;
+
+
   box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
               0 3px 5px rgba(0, 0, 0, .2),
               0 5px 10px rgba(0, 0, 0, .2),
               0 20px 20px rgba(0, 0, 0, .15);
 }
+
 ul li{
 	display: table-cell;
 }
@@ -102,7 +97,10 @@ ul li a:active{
 
 html {height: 100%}
 
-#wrap {min-height: 100%}
+#wrap {
+	position: relative;
+	margin-top: 2.5em;
+}
 
 #main {
   overflow:auto;
@@ -111,15 +109,16 @@ html {height: 100%}
 
 #headerDroite{
 	text-align: right;
+	float : right;
 }
 
 #headerGauche{
 	text-align: left;
 }
 
-#footer {
+footer {
     position: relative;
-		text-align: right;
+		text-align: center;
     clear:both;
     margin-top: -150px;
     height: 150px;

@@ -31,9 +31,9 @@
 
       <footer>
         <div>
-          <a href="index.php?page=aproposmembres"> A propos </a>
+          Site réalisé par le groupe G5C
         </div>
-        Site réalisé par le groupe G5C
+        <a href="index.php?page=aproposmembres"> A propos </a>
       </footer>
 
     </body>

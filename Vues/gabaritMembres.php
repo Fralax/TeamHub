@@ -12,13 +12,13 @@
       <header>
         <div id="headerGauche"> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
         <div id="headerDroite">
-        <?php echo "Bonjour, ", $_POST['pseudo'], " ! "; ?>
         <ul>
           <li><a href="index.php?page=accueilmembres"> Accueil </a></li>
           <li><a href="index.php?page="> Groupe </a></li>
           <li><a href="index.php?page="> Club </a></li>
           <li><a href="index.php?page="> Profil </a></li>
         </ul>
+
         </div>
       </header>
 
