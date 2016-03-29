@@ -3,6 +3,7 @@
   require_once 'Controleurs/controleurConnexion.php';
   require_once 'Controleurs/controleurInscription.php';
   require_once 'Controleurs/controleurMembres.php';
+  require_once 'Controleurs/controleurGroupes.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -48,6 +49,11 @@
             case 'aproposvisiteurs':
               $Apropos = new connexion();
               $affichageApropos = $Apropos->afficherAProposVisiteurs();
+              break;
+
+            case 'creationgroupe':
+              $creationgroupe = new controleurGroupes();
+              $affichagecreationgroupe = $creationgroupe->VerifFormulaire();
               break;
 
           }
