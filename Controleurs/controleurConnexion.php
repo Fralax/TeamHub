@@ -25,10 +25,9 @@ class connexion{
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['Pseudo'];
-
+        header("Location: index.php?page=accueilmembres");
         $vue = new Vue('AccueilMembres');
         $vue->genererMembres();
-        header("Location: index.php?page=accueilmembres");
 
       }
     }
