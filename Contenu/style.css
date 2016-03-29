@@ -117,9 +117,9 @@ html {height: 100%}
 	text-align: left;
 }
 
-#footer {
+footer {
     position: relative;
-		text-align: right;
+		text-align: center;
     clear:both;
     margin-top: -150px;
     height: 150px;

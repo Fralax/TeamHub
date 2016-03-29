@@ -45,7 +45,6 @@ require_once 'Vues/vue.php';
 
              mail($destinataire, $sujet, $message, $entete);
 
-             $verif = true;
              header("Location: index.php?page=accueilmembres");
            }
 
@@ -57,7 +56,7 @@ require_once 'Vues/vue.php';
              elseif ($resultatE) {
                 echo "Vous êtes déjà inscrit";
               }
-              $verif = false;
+
            }
          }
 
@@ -69,13 +68,13 @@ require_once 'Vues/vue.php';
            if ($motDePasse != $confirmMotDePasse){
              echo "Les mots de passe saisis ne sont pas identiques.";
            }
-           $verif = false;
+
          }
        }
 
        else{
          echo "Des champs n'ont pas été remplis";
-         $verif = false;
+
        }
      }
      $vue = new Vue('Inscription');
