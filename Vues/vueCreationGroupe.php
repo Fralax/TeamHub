@@ -13,10 +13,8 @@
 
 
 		<form  name = "formulaireNouveauGroupe" method="post" action = "">
-			<p><input type="text" name="admin" placeholder="admin" size="25" value = "<?= $_POST['admin'] ?>"/> </p>
-			<p><input type="text" name="nomgroupe" placeholder="Nom du Groupe" size="25" value = "<?= $_POST['nomgroupe'] ?>"/> </p>
-
-		  <p> <input type="text" name="placelibre" placeholder="Nombre de place libre" size="25" value = "<?= $_POST['placelibre'] ?>" /> </p>
+			<p><input type="text" name="nomGroupe" placeholder="Nom du Groupe" size="25" value = "<?= $_POST['nomGroupe'] ?>"/> </p>
+		  <p> <input type="text" name="placesLibres" placeholder="Nombre de places libre" size="25" value = "<?= $_POST['placesLibres'] ?>" /> </p>
 
 			<p> <input name="creer" type="submit" value="Créer"> </p>
 		</form>

@@ -17,8 +17,8 @@
           <li><a href="index.php?page=creationgroupe"> Groupe </a></li>
           <li><a href="index.php?page="> Club </a></li>
           <li><a href="index.php?page="> Profil </a></li>
+          <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
         </ul>
-
         </div>
       </header>
 

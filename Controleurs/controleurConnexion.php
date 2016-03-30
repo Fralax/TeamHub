@@ -10,9 +10,7 @@ class connexion{
 
     $connexion = $_POST['connexion'];
 
-
     if (isset($connexion) && $connexion == 'Connexion'){
-
       $user = new utilisateurs();
       $resultatConnexion = $user->verifConnexion()->fetch();
 
@@ -24,11 +22,10 @@ class connexion{
 
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
-        $_SESSION['pseudo'] = $_POST['Pseudo'];
+        $_SESSION['pseudo'] = $_POST['pseudo'];
         header("Location: index.php?page=accueilmembres");
         $vue = new Vue('AccueilMembres');
         $vue->genererMembres();
-
       }
     }
 

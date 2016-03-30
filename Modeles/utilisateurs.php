@@ -12,7 +12,7 @@ class utilisateurs extends modele {
       $sql = 'INSERT INTO utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance, u_mdp)
               VALUES (:pseudo, :nom, :prenom, :sexe, :adresse, :ville, :cp, :departement, :portable, :email, :naissance, :mdp)';
 
-      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['Pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'],
+      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'],
         'adresse' => $_POST['Adresse'],'ville' => $_POST['Ville'],'cp' => $_POST['CodePostal'],'departement' => $_POST['departement'],'portable' => $_POST['Portable'],
         'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache));
   }
@@ -21,8 +21,8 @@ class utilisateurs extends modele {
 
     $envoiInscription = $_POST['Envoyer'];
     if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
-      $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :Pseudo ';
-      $resultatP = $this->executerRequete($sql, array('Pseudo' => $_POST['Pseudo']));
+      $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :pseudo ';
+      $resultatP = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo']));
       return $resultatP;
     }
   }

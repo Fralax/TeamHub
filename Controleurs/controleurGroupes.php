@@ -6,16 +6,16 @@ require_once 'Vues/vue.php';
 class controleurGroupes{
 
   public function VerifFormulaire(){
-    $admin=$_POST['admin'];
-    $nomgroupe=$_POST['nomgroupe'];
-    $sport=$_POST['sport'];
-    $departement=$_POST['department'];
-    $placelibre=$_POST['placelibre'];
+    $admin = $_SESSION['pseudo'];
+    $nomGroupe=$_POST['nomGroupe'];
+    //$sport=$_POST['sport'];
+    //$departement=$_POST['departement'];
+    $placesLibres=$_POST['placesLibres'];
     $creer = $_POST['creer'];
 
 
     if(isset($creer) && $creer == 'creer'){
-      if (($admin != "") && ($nomgroupe != "") && ($sport != "") && ($departement != "") && ($placelibre != "")){
+      if (($nomGroupe != "") && ($placesLibre != "")){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         header("Location: index.php?page=accueilmembres");
