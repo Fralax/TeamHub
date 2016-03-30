@@ -11,12 +11,14 @@
     private $controleurConnexion;
     private $controleurInscription;
     private $controleurMembres;
+    private $controleurGroupes;
 
     public function __contruct(){
 
       $this->controleurConnexion = new connexion();
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();
+      $this->controleurGroupes = new groupes();
 
     }
 
@@ -45,20 +47,20 @@
 
             case 'aproposmembres':
               session_start();
-              $Apropos = new membres();
-              $affichageApropos = $Apropos->afficherAProposMembres();
+              $aPropos = new membres();
+              $affichageAPropos = $aPropos->afficherAProposMembres();
               break;
 
             case 'aproposvisiteurs':
               session_start();
-              $Apropos = new connexion();
-              $affichageApropos = $Apropos->afficherAProposVisiteurs();
+              $aPropos = new connexion();
+              $affichageAPropos = $aPropos->afficherAProposVisiteurs();
               break;
 
             case 'creationgroupe':
               session_start();
-              $creationgroupe = new controleurGroupes();
-              $affichagecreationgroupe = $creationgroupe->VerifFormulaire();
+              $creationGroupe = new controleurGroupes();
+              $affichageGreationGroupe = $creationGroupe->VerifFormulaire();
               break;
 
           }

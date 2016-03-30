@@ -11,6 +11,5 @@ class groupes extends modele {
 
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres']));
   }
-
 }
 ?>
