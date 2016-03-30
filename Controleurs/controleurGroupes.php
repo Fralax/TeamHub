@@ -14,14 +14,16 @@ class controleurGroupes{
     $creer = $_POST['creer'];
 
 
-    if(!empty ($creer)){
-      if (($nomGroupe != "") && ($placesLibres != "")){
+    if(!empty($creer)){
+
+      if($nomGroupe != "" && $placesLibres != ""){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         header("Location: index.php?page=accueilmembres");
       }
+
       else{
-        echo "Des champs n'ont pas été remplis";
+          echo "Des champs n'ont pas été remplis";
       }
     }
     $vue = new Vue('CreationGroupe');
