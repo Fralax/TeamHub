@@ -24,8 +24,6 @@
 
     public function routerRequete(){
 
-      try{
-
           switch($_GET['page']){
 
             default:
@@ -63,12 +61,8 @@
               $affichageCreationGroupe = $creationGroupe->VerifFormulaire();
               break;
 
-          }
+          
 
-      }
-
-      catch(Exception $e){
-        $this->erreur($e->getMessage());
       }
 
     }

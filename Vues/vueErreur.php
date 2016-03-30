@@ -1,4 +1,4 @@
-<?php $titre = 'TeamHub'; ?>
+<?php $titre; ?>
 
 <?php ob_start() ?>
 <p>Une erreur est survenue : <?= $msgErreur ?></p>
