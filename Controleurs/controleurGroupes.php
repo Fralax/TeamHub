@@ -8,15 +8,15 @@ class controleurGroupes{
   public function VerifFormulaire(){
     $admin = $_SESSION['pseudo'];
     $nomGroupe=$_POST['nomGroupe'];
-    //$sport=$_POST['sport'];
-    //$departement=$_POST['departement'];
+    $sport=$_POST['sport'];
+    $departement=$_POST['departement'];
     $placesLibres=$_POST['placesLibres'];
     $creer = $_POST['creer'];
 
 
     if(!empty($creer)){
 
-      if($nomGroupe != "" && $placesLibres != ""){
+      if($nomGroupe != "" && $placesLibres != "" && $sport !="" && $departement!="" ){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         header("Location: index.php?page=accueilmembres");
