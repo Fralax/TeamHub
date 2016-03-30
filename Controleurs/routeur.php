@@ -11,12 +11,14 @@
     private $controleurConnexion;
     private $controleurInscription;
     private $controleurMembres;
+    private $controleurGroupes;
 
     public function __contruct(){
 
       $this->controleurConnexion = new connexion();
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();
+      $this->controleurGroupes = new controleurGroupes();
 
     }
 

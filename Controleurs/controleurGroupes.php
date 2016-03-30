@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Modeles/utilisateurs.php';
+require_once 'Modeles/groupes.php';
 require_once 'Vues/vue.php';
 
 class controleurGroupes{
@@ -14,8 +14,8 @@ class controleurGroupes{
     $creer = $_POST['creer'];
 
 
-    if(isset($creer) && $creer == 'creer'){
-      if (($nomGroupe != "") && ($placesLibre != "")){
+    if(!empty ($creer)){
+      if (($nomGroupe != "") && ($placesLibres != "")){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         header("Location: index.php?page=accueilmembres");
