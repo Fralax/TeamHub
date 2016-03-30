@@ -11,5 +11,14 @@ class groupes extends modele {
 
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
   }
+
+  public function afficherCaracteristiqueGroupe(){
+
+
+    $sql = 'SELECT g_admin, g_sport, g_departement, g_placesLibres FROM Groupes WHERE g_nom = :nomGroupe';
+
+    $afficherCaracteristiqueGroupe = $this->executerRequete ($sql, array('nomGroupe'=> $_POST['nomGroupe']));
+    return $afficherCaracteristiqueGroupe;
+  }
 }
 ?>

@@ -19,7 +19,7 @@ class controleurGroupes{
       if($nomGroupe != "" && $placesLibres != "" && $sport !="" && $departement!="" ){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
-        header("Location: index.php?page=accueilmembres");
+        header("Location: index.php?page=moderationgroupe");
       }
 
       else{
@@ -29,5 +29,17 @@ class controleurGroupes{
     $vue = new Vue('CreationGroupe');
     $vue->genererMembres();
   }
+
+  public function afficherModerationGroupe(){
+    $vue = new Vue('ModerationGroupe');
+    $vue->genererMembres();
+    $groupe = new groupes();
+    while ($afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe()->fetch_All(PDO::FETCH_COLUMN)){
+      $data = $afficherCaracteristiqueGroupe[0] . "\t" . $afficherCaracteristiqueGroupe[1] . "\t" . $afficherCaracteristiqueGroupe[2] . "\n";
+      var_dump ($data);
+    }
+
+  }
+
 }
 ?>

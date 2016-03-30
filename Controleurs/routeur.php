@@ -61,7 +61,13 @@
               $affichageCreationGroupe = $creationGroupe->VerifFormulaire();
               break;
 
-          
+            case 'moderationgroupe':
+              session_start();
+              $moderationGroupe = new controleurGroupes();
+              $affichageModerationGroupe = $moderationGroupe->afficherModerationGroupe();
+              break;
+
+
 
       }
 
