@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
+        <link rel="stylesheet" href="Contenu/styleVisiteur.css" />
         <title><?= $titre ?></title>
     </head>
 
@@ -14,12 +14,28 @@
           <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
         </div>
         <div id= "headerDroite">
-          <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
-            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
-            <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required>
-            <input name="connexion" type="submit" id="connexion" value = "Connexion">
-            <a href="index.php?page=inscription"> <input name="inscription" type="button" id="inscription" value = "Inscription"> </a>
-          </form>
+          <ul id="menu-deroulant">
+            <li><a href="index.php?page="> Accueil </a>
+            </li>
+
+            <li> Connexion
+              <ul>
+                <li>
+                  <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
+                    <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required>
+                    <input name="connexion" type="submit" id="connexion" value = "Connexion">
+                  </form>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="index.php?page=inscription"> Inscription </a>
+            </li>
+
+          </ul>
+
+
         </div>
       </header>
 

@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
+        <link rel="stylesheet" href="Contenu/styleMembre.css" />
         <title><?= $titre ?></title>
     </head>
 
@@ -12,12 +12,35 @@
       <header>
         <div id="headerGauche"> <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
         <div id="headerDroite">
-        <ul>
-          <li><a href="index.php?page=accueilmembres"> Accueil </a></li>
-          <li><a href="index.php?page=creationgroupe"> Groupe </a></li>
-          <li><a href="index.php?page="> Club </a></li>
-          <li><a href="index.php?page="> Profil </a></li>
-          <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
+        <ul id="menu-deroulant">
+          <li><a href="index.php?page=accueilmembres"> Accueil </a>
+          </li>
+
+          <li> Groupe
+            <ul>
+              <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
+              <li><a href="index.php?page="> Gérer ses Groupes </a> </li>
+            </ul>
+          </li>
+
+          <li> Club
+            <ul>
+              <li><a href="index.php?page="> Voir la liste des clubs </a> </li>
+            </ul>
+          </li>
+
+          <li> Profil
+            <ul>
+              <li><a href="index.php?page="> Modifier ses informations personnelles </a> </li>
+            </ul>
+          </li>
+
+          <li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?> 
+            <ul>
+              <li><a href="index.php?page="> Déconnexion </a> </li>
+            </ul>
+          </li>
+
         </ul>
         </div>
       </header>
