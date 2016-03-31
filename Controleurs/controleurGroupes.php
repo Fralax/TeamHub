@@ -34,9 +34,8 @@ class controleurGroupes{
     $vue = new Vue('ModerationGroupe');
     $vue->genererMembres();
     $groupe = new groupes();
-    while ($afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe()->fetch_All(PDO::FETCH_COLUMN)){
-      $data = $afficherCaracteristiqueGroupe[0] . "\t" . $afficherCaracteristiqueGroupe[1] . "\t" . $afficherCaracteristiqueGroupe[2] . "\n";
-      var_dump ($data);
+    while ($afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe()->fetch()){
+       var_dump($afficherCaracteristiqueGroupe['nomGroupe']);
     }
 
   }

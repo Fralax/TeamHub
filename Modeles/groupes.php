@@ -13,11 +13,8 @@ class groupes extends modele {
   }
 
   public function afficherCaracteristiqueGroupe(){
-
-
     $sql = 'SELECT g_admin, g_sport, g_departement, g_placesLibres FROM Groupes WHERE g_nom = :nomGroupe';
-
-    $afficherCaracteristiqueGroupe = $this->executerRequete ($sql, array('nomGroupe'=> $_POST['nomGroupe']));
+    $afficherCaracteristiqueGroupe = $this->executerRequete ($sql);
     return $afficherCaracteristiqueGroupe;
   }
 }

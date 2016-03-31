@@ -33,7 +33,7 @@
         <div>
           Site réalisé par le groupe G5C
         </div>
-        <a href="index.php?page=aproposmembres"> A propos </a>
+        <a href="index.php?page=aproposvisiteurs"> A propos </a>
       </footer>
 
     </body>

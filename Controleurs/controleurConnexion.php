@@ -19,7 +19,6 @@ class connexion{
       }
 
       else {
-
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];

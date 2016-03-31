@@ -32,7 +32,6 @@
               break;
 
             case 'inscription':
-              session_start();
               $inscription = new inscription();
               $affichageInscription = $inscription->verif();
               break;
@@ -40,7 +39,7 @@
             case 'accueilmembres':
               session_start();
               $inscriptionTerminee = new membres();
-              $InscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
+              $affichageInscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
               break;
 
             case 'aproposmembres':
@@ -50,7 +49,6 @@
               break;
 
             case 'aproposvisiteurs':
-              session_start();
               $aPropos = new connexion();
               $affichageAPropos = $aPropos->afficherAProposVisiteurs();
               break;
