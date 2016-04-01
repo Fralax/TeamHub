@@ -31,9 +31,9 @@ class controleurGroupes{
 
   public function afficherModerationGroupe($nom){
     $groupe = new groupes();
-<<<<<<< HEAD
-    $afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe($_POST['nomGroupe'])->fetchAll();
-    var_dump ($afficherCaracteristiqueGroupe);
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+    $vue = new Vue('ModerationGroupe');
+    $vue->genererMembres(["caract" => $afficherCaracteristiquesGroupe]);
   }
 
   public function affichageMesGroupes(){
@@ -42,11 +42,7 @@ class controleurGroupes{
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherMesGroupe()->fetchAll();
     var_dump ($afficherMesGroupes);
-=======
-    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
-    $vue = new Vue('ModerationGroupe');
-    $vue->genererMembres(["caract" => $afficherCaracteristiquesGroupe]);
->>>>>>> f32d5709c35a121b6811e3075dfa1b09f154f818
+
   }
 }
 ?>
