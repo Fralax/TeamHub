@@ -17,5 +17,13 @@ class groupes extends modele {
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($nom));
     return $afficherCaracteristiquesGroupe;
   }
+
+  public function afficherMesGroupes(){
+
+    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo = ? ';
+
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $afficherMesGroupes;
+  }
 }
 ?>

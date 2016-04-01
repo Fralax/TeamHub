@@ -47,4 +47,12 @@ class utilisateurs extends modele {
       return $resultatConnexion;
     }
   }
+
+  public function ajoutAppartientBdd(){
+    $sql = 'INSERT INTO Appartient(u_pseudo, g_nom)
+            VALUES (:pseudo, :nomGroupe)';
+
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe']));
+  }
+
 }

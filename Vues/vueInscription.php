@@ -58,7 +58,7 @@
 <!--Pays
 			<p>
 				<select name="Pays" required>
-					<option value="0"> -- Sélectionner un Pays -- </option>
+					<option value=""> -- Sélectionner un Pays -- </option>
 					<optgroup label="Afrique">
 						<option value="afriqueDuSud">Afrique Du Sud</option>
 						<option value="algerie">Algérie</option>

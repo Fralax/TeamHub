@@ -22,6 +22,7 @@
     }
 
     public function routerRequete(){
+
       switch($_GET['page']){
 
         case 'inscription':
@@ -55,6 +56,16 @@
         case 'moderationgroupe':
           session_start();
           $this->controleurGroupes->afficherModerationGroupe($_GET['nom']);
+          break;
+
+        case 'mesgroupes':
+          session_start();
+          $this->controleurGroupes->affichageMesGroupes();
+          break;
+
+        case 'creationgroupe':
+          session_start();
+          $this->controleurGroupes->affichageMesGroupes() ;
           break;
 
         default:

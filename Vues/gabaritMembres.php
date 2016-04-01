@@ -19,7 +19,8 @@
           <li> Groupe
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
-              <li><a href="index.php?page="> Gérer ses Groupes </a> </li>
+              <li><a href="index.php?page=rejoindregroupe"> Rejoindre un Groupe </a> </li>
+              <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li>
 
@@ -35,7 +36,7 @@
             </ul>
           </li>
 
-          <li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?> 
+          <li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
             <ul>
               <li><a href="index.php?page="> Déconnexion </a> </li>
             </ul>
