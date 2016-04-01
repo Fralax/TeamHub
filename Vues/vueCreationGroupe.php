@@ -77,11 +77,11 @@
           <option value="Judo"> Judo </option>
           <option value="Javelot tir sur cible"> Javelot tir sur cible </option>
           <option value="Jumping"> Jumping </option>
-          <option value="java"> java </option>
-          <option value="jerk"> jerk </option>
-          <option value="jogging"> jogging </option>
+          <option value="Java"> java </option>
+          <option value="Jerk"> jerk </option>
+          <option value="Jogging"> jogging </option>
           <option value="Karaté"> Karaté </option>
-          <option value="kathak"> kathak</option>
+          <option value="Kathak"> kathak</option>
           <option value="Kick-boxing"> Kick-boxing </option>
           <option value="Kitesurfing"> Kitesurfing </option>
           <option value="Kronum"> Kronum </option>
@@ -99,7 +99,7 @@
           <option value="Motocross"> Motocross </option>
           <option value="Musculation"> Musculation </option>
           <option value="Marathon"> Marathon </option>
-          <option value="marche"> marche </option>
+          <option value="Marche"> marche </option>
           <option value="Naban"> Naban (lutte birmane) </option>
           <option value="Natation"> Natation </option>
           <option value="Natation synchronisée"> Natation synchronisée </option>
@@ -120,7 +120,7 @@
           <option value="Parkour"> Parkour </option>
           <option value="Qi gong"> Qi gong </option>
           <option value="Quadrille"> Quadrille </option>
-          <option value="polo"> polo </option>
+          <option value="Polo"> polo </option>
           <option value="Rafting"> Rafting </option>
           <option value="Rallye automobile"> Rallye automobile </option>
           <option value="Régate"> Régate </option>

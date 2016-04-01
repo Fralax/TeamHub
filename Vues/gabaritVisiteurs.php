@@ -21,6 +21,11 @@
             <li> Connexion
               <ul>
                 <li>
+                  <?php
+                  require_once 'Controleurs/controleurConnexion.php';
+                  $cnx = new connexion();
+                  $cnx->connexionUtilisateurs();
+                  ?>
                   <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
                     <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
                     <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required>
@@ -49,7 +54,7 @@
         <div>
           Site réalisé par le groupe G5C
         </div>
-        <a href="index.php?page=aproposmembres"> A propos </a>
+        <a href="index.php?page=aproposvisiteurs"> A propos </a>
       </footer>
 
     </body>

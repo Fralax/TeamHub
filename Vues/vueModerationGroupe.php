@@ -6,8 +6,13 @@
 	</head>
 	<body>
 
-		<h2>Gestion du groupe</h2>
+		<h2>Gestion du groupe <?php echo $caract['g_nom']?> </h2>
 
+
+    <p><?php echo $caract['g_admin'] ?></p>
+		<p><?php echo $caract['g_sport'] ?></p>
+		<p><?php echo $caract['g_departement'] ?></p>
+		<p><?php echo $caract['g_placesLibres'] ?></p>
 
   </body>
 </html>
