@@ -16,10 +16,10 @@ class controleurGroupes{
 
     if(!empty($creer)){
 
-      if($nomGroupe != "" && $placesLibres != "" && $sport !="" && $departement!="" ){
+      if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
-        header("Location: index.php?page=moderationgroupe");
+        header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       }
 
       else{
@@ -30,15 +30,11 @@ class controleurGroupes{
     $vue->genererMembres();
   }
 
-  public function afficherModerationGroupe(){
-    $vue = new Vue('ModerationGroupe');
-    $vue->genererMembres();
+  public function afficherModerationGroupe($nom){
     $groupe = new groupes();
-    while ($afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe()->fetch()){
-       var_dump($afficherCaracteristiqueGroupe['nomGroupe']);
-    }
-
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+    $vue = new Vue('ModerationGroupe');
+    $vue->genererMembres(["caract" => $afficherCaracteristiquesGroupe]);
   }
-
 }
 ?>

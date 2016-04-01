@@ -16,29 +16,27 @@ class connexion{
 
       if (!$resultatConnexion) {
         echo 'Mauvais identifiant ou mot de passe !';
-      }
-
-      else {
+      } else {
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
         header("Location: index.php?page=accueilmembres");
-        $vue = new Vue('AccueilMembres');
-        $vue->genererMembres();
       }
     }
+  }
 
-    if (!$resultatConnexion) {
-      $vue = new Vue('AccueilVisiteurs');
-      $vue->genererVisiteurs();
-    }
+  public function afficherAccueilVisiteurs()
+  {
+    $vue = new Vue('AccueilVisiteurs');
+    $vue->genererVisiteurs();
   }
 
   public function afficherAProposVisiteurs(){
     $vue = new Vue('APropos');
     $vue->genererVisiteurs();
-
   }
+
+
 }
 
 ?>

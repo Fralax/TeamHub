@@ -24,21 +24,21 @@
 			<p>Date de naissance
 
 				<select name="jour">
-					<option value="0"> Jour </option>
+					<option value=""> Jour </option>
         	<?php for ($jour = 1 ; $jour <= 31 ; $jour++){ ?>
         	<option value = "<?php echo $jour ?>" <?php if ($_POST['jour']=="$jour"){?> selected <?php }?> > <?php echo $jour; ?> </option>
 					<?php } ?>
 				</select>
 
 				<select name="mois">
-					<option value="0"> Mois </option>
+					<option value=""> Mois </option>
         	<?php for ($mois = 1 ; $mois <= 12 ; $mois++){ ?>
           <option value= "<?php echo $mois ?>" <?php if ($_POST['mois']=="$mois"){?> selected <?php }?> > <?php echo $mois; ?> </option>
 					<?php } ?>
 				</select>
 
 				<select name="annee">
-          <option value="0"> Année </option>
+          <option value=""> Année </option>
         	<?php for ($annee = 2016 ; $annee >= 1900 ; $annee--){ ?>
           <option value="<?php echo $annee ?>" <?php if ($_POST['annee']=="$annee"){?> selected <?php }?> > <?php echo $annee; ?> </option>
 					<?php } ?>
@@ -267,7 +267,7 @@
 <!--Régions -->
 			<p>
 				<select name="departement" required>
-					<option value="0"> -- Sélectionner votre Département -- </option>
+					<option value=""> -- Sélectionner votre Département -- </option>
 					<option value="Ain" <?php if ($_POST['departement']=="Ain"){?> selected <?php }?> >01 - Ain</option>
 					<option value="Aisne">02 - Aisne</option>
 					<option value="Allier">03 - Allier</option>
@@ -376,7 +376,7 @@
 					<option value="Nouvelle-Caledonie">988 - Nouvelle-Caledonie</option>
 				</select>
 			</p>
-			<p> <input type="text" name="Pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['Pseudo'] ?>"/> </p>
+			<p> <input type="text" name="pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['pseudo'] ?>"/> </p>
 			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/> </p>
 			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/> </p>
 			<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>

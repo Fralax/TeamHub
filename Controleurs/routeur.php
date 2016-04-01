@@ -13,61 +13,55 @@
     private $controleurMembres;
     private $controleurGroupes;
 
-    public function __contruct(){
+    public function __construct(){
 
       $this->controleurConnexion = new connexion();
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();
-      $this->controleurGroupes = new groupes();
-
+      $this->controleurGroupes = new controleurGroupes();
     }
 
     public function routerRequete(){
+      switch($_GET['page']){
 
-          switch($_GET['page']){
+        case 'inscription':
+          $inscription = new inscription();
+          $affichageInscription = $inscription->verif();
+          break;
 
-            default:
-              $cnx = new connexion();
-              $affichageCnx = $cnx->connexionUtilisateurs();
-              break;
+        case 'accueilmembres':
+          session_start();
+          $inscriptionTerminee = new membres();
+          $affichageInscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
+          break;
 
-            case 'inscription':
-              $inscription = new inscription();
-              $affichageInscription = $inscription->verif();
-              break;
+        case 'aproposmembres':
+          session_start();
+          $aPropos = new membres();
+          $affichageAPropos = $aPropos->afficherAProposMembres();
+          break;
 
-            case 'accueilmembres':
-              session_start();
-              $inscriptionTerminee = new membres();
-              $affichageInscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
-              break;
+        case 'aproposvisiteurs':
+          $aPropos = new connexion();
+          $affichageAPropos = $aPropos->afficherAProposVisiteurs();
+          break;
 
-            case 'aproposmembres':
-              session_start();
-              $aPropos = new membres();
-              $affichageAPropos = $aPropos->afficherAProposMembres();
-              break;
+        case 'creationgroupe':
+          session_start();
+          $creationGroupe = new controleurGroupes();
+          $affichageCreationGroupe = $creationGroupe->VerifFormulaire();
+          break;
 
-            case 'aproposvisiteurs':
-              $aPropos = new connexion();
-              $affichageAPropos = $aPropos->afficherAProposVisiteurs();
-              break;
+        case 'moderationgroupe':
+          session_start();
+          $this->controleurGroupes->afficherModerationGroupe($_GET['nom']);
+          break;
 
-            case 'creationgroupe':
-              session_start();
-              $creationGroupe = new controleurGroupes();
-              $affichageCreationGroupe = $creationGroupe->VerifFormulaire();
-              break;
-
-            case 'moderationgroupe':
-              session_start();
-              $moderationGroupe = new controleurGroupes();
-              $affichageModerationGroupe = $moderationGroupe->afficherModerationGroupe();
-              break;
-
-
-
-      }
+        default:
+          $AccueilVisiteurs = new connexion();
+          $AccueilVisiteurs->afficherAccueilVisiteurs();
+          break;
+        }
 
     }
 

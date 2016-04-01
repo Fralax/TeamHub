@@ -11,7 +11,7 @@ require_once 'Vues/vue.php';
      $prenom=$_POST['Prenom'];
      $email=$_POST['Email'];
      $confirmEmail = $_POST['ConfirmEmail'];
-     $pseudo=$_POST['Pseudo'];
+     $pseudo=$_POST['pseudo'];
      $motDePasse=$_POST['MotDePasse'];
      $confirmMotDePasse = $_POST['ConfirmMotDePasse'];
      $envoyer = $_POST['Envoyer'];
