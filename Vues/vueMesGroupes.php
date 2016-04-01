@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Gestion Groupe</title>
+		<title>Mes Groupes</title>
 	</head>
 	<body>
 
-		<h2>Gestion du groupe</h2>
+		<h2>Mes Groupes</h2>
 
 
   </body>

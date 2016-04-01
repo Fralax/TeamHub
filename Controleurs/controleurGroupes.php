@@ -16,7 +16,7 @@ class controleurGroupes{
 
     if(!empty($creer)){
 
-      if($nomGroupe != "" && $placesLibres != "" && $sport !="" && $departement!="" ){
+      if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0" ){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         header("Location: index.php?page=moderationgroupe");
@@ -34,11 +34,16 @@ class controleurGroupes{
     $vue = new Vue('ModerationGroupe');
     $vue->genererMembres();
     $groupe = new groupes();
-    while ($afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe()->fetch_All(PDO::FETCH_COLUMN)){
-      $data = $afficherCaracteristiqueGroupe[0] . "\t" . $afficherCaracteristiqueGroupe[1] . "\t" . $afficherCaracteristiqueGroupe[2] . "\n";
-      var_dump ($data);
-    }
+    $afficherCaracteristiqueGroupe = $groupe->afficherCaracteristiqueGroupe($_POST['nomGroupe'])->fetchAll();
+    var_dump ($afficherCaracteristiqueGroupe);
+  }
 
+  public function affichageMesGroupes(){
+    $vue = new Vue('MesGroupes');
+    $vue->genererMembres();
+    $groupe = new groupes();
+    $afficherMesGroupes = $groupe->afficherMesGroupe()->fetchAll();
+    var_dump ($afficherMesGroupes);
   }
 
 }

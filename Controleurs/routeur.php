@@ -67,6 +67,12 @@
               $affichageModerationGroupe = $moderationGroupe->afficherModerationGroupe();
               break;
 
+            case 'mesgroupes':
+            session_start();
+            $mesgroupes = new controleurGroupes();
+            $affichageMesGroupes = $mesgroupes->affichageMesGroupes();
+            break;
+
 
 
       }

@@ -47,4 +47,12 @@ class utilisateurs extends modele {
       return $resultatConnexion;
     }
   }
+
+  public function ajoutGroupeUtilBdd(){
+    $sql = 'INSERT INTO Utilisateurs(u_groupe1)
+            VALUES (:nomGroupe)';
+
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('nomGroupe'=> $_POST['nomGroupe']));
+  }
+
 }
