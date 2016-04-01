@@ -21,7 +21,7 @@ class utilisateurs extends modele {
 
     $envoiInscription = $_POST['Envoyer'];
     if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
-      $sql = 'SELECT u_id FROM utilisateurs WHERE u_pseudo = :pseudo ';
+      $sql = 'SELECT u_pseudo FROM utilisateurs WHERE u_pseudo = :pseudo ';
       $resultatP = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo']));
       return $resultatP;
     }
@@ -31,7 +31,7 @@ class utilisateurs extends modele {
 
     $envoiInscription = $_POST['Envoyer'];
       if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
-        $sql = 'SELECT u_id FROM Utilisateurs WHERE u_email = :Email ';
+        $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_email = :Email ';
         $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
         return $resultatE;
       }
@@ -42,7 +42,7 @@ class utilisateurs extends modele {
     $envoiConnexion = $_POST['connexion'];
     if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
       $pass_hache = sha1($_POST['PasswordAccueil']);
-      $sql = 'SELECT u_id FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
+      $sql = 'SELECT pseudo FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
       $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo'],'passwordaccueil' => $pass_hache));
       return $resultatConnexion;
     }
