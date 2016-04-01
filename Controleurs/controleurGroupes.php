@@ -18,6 +18,8 @@ class controleurGroupes{
       if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
+        $appartient = new utilisateurs();
+        $appartient->ajoutAppartientBdd();
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       }
 
@@ -37,11 +39,12 @@ class controleurGroupes{
   }
 
   public function affichageMesGroupes(){
-    $vue = new Vue('MesGroupes');
-    $vue->genererMembres();
     $groupe = new groupes();
-    $afficherMesGroupes = $groupe->afficherMesGroupe()->fetchAll();
-    var_dump ($afficherMesGroupes);
+
+    $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
+    $vue = new Vue('MesGroupes');
+    $vue->genererMembres(["caract" => $afficherMesGroupes]);
+    var_dump($afficherMesGroupes);
 
   }
 }

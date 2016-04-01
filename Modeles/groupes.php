@@ -20,9 +20,9 @@ class groupes extends modele {
 
   public function afficherMesGroupes(){
 
-    $sql = 'SELECT u_groupe1, u_groupe2, u_groupe3, u_groupe4, u_groupe5 FROM Utilisateurs WHERE u_pseudo = :pseudo ';
+    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo = ? ';
 
-    $afficherMesGroupes = $this->executerRequete ($sql, array('pseudo'=>$_SESSION['pseudo']));
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
 }

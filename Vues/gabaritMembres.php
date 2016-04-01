@@ -19,6 +19,7 @@
           <li> Groupe
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
+              <li><a href="index.php?page=rejoindregroupe"> Rejoindre un Groupe </a> </li>
               <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li>
