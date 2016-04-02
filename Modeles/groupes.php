@@ -19,18 +19,22 @@ class groupes extends modele {
   }
 
   public function afficherMesGroupes(){
+    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo = ? AND a_admin = ?';
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "nonAdmin"));
+    return $afficherMesGroupes;
+  }
 
-    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo = ? ';
-
-    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+  public function afficherMesGroupesAdmin(){
+    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo = ? AND a_admin = ?';
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin"));
     return $afficherMesGroupes;
   }
 
   public function afficherGroupes(){
-
-    $sql = 'SELECT g_nom FROM Appartient  WHERE u_pseudo != ? ';
-    $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo != ? AND a_admin = ?';
+    $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin"));
     return $afficherGroupes;
   }
+
 }
 ?>

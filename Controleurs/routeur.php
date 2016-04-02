@@ -58,6 +58,10 @@
           $this->controleurGroupes->affichageGroupes();
           break;
 
+        case 'groupe':
+          $this->controleurGroupes->rejoindreGroupes($_GET['nom']);
+          break;
+
         default:
           $this->controleurConnexion->afficherAccueilVisiteurs();
           break;
