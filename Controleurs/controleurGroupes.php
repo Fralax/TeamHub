@@ -19,7 +19,7 @@ class controleurGroupes{
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         $appartient = new utilisateurs();
-        $appartient->ajoutAppartientBdd($_POST['nomGroupe']);
+        $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       }
 
@@ -40,12 +40,17 @@ class controleurGroupes{
 
   public function affichageMesGroupes(){
     $groupe = new groupes();
-
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
+    $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
     $vue = new Vue('MesGroupes');
+    $vue->genererMembres(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
+  }
 
-    $vue->genererMembres(["groupe" => $afficherMesGroupes]);
-
+  public function affichageMesGroupesAdmin(){
+    $groupe = new groupes();
+    $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
+    $vue = new Vue('MesGroupes');
+    $vue->genererMembres(["groupesAdmin" => $afficherMesGroupesAdmin]);
   }
 
   public function affichageGroupes(){
@@ -58,9 +63,9 @@ class controleurGroupes{
 
   public function rejoindreGroupes($nom){
     $appartient = new utilisateurs();
-    $appartient->ajoutAppartientBdd($nom);
+    $appartient->ajoutAppartientBdd($nom, "nonAdmin");
     $vue = new Vue('Groupe');
-    $vue->genererMembres(["caract" => $afficherGroupe]);
+    $vue->genererMembres(["caract" => $appartient]);
   }
 }
 ?>

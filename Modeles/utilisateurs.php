@@ -38,7 +38,6 @@ class utilisateurs extends modele {
     }
 
   public function verifConnexion(){
-
     $envoiConnexion = $_POST['connexion'];
     if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
       $pass_hache = sha1($_POST['PasswordAccueil']);
@@ -48,12 +47,11 @@ class utilisateurs extends modele {
     }
   }
 
-  public function ajoutAppartientBdd($nom){
-    $sql = 'INSERT INTO Appartient(u_pseudo, g_nom)
-            VALUES (:pseudo, :nomGroupe)';
+  public function ajoutAppartientBdd($nom, $adminBool){
+    $sql = 'INSERT INTO Appartient(u_pseudo, g_nom, a_admin)
+            VALUES (:pseudo, :nomGroupe, :adminBool)';
 
-    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom));
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
   }
-
 
 }

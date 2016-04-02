@@ -8,11 +8,17 @@
 
 		<h2>Mes Groupes</h2>
 
-    <?php foreach ($groupe as list($nomMesGroupe)) { ?>
-    	<p> <a href="index.php?page=moderationgroupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
-        <input name="voirMembres" type="button" value="Voir les Membres">
-        <input name="Supprimer" type="button" value="Supprimer"> </p>
-    <?php } ?>
+		<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin)) { ?>
+			<p> <a href="index.php?page=moderationgroupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
+				<input name="voirMembres" type="button" value="Voir les Membres">
+				<input name="Supprimer" type="button" value="Supprimer le groupe"> </p>
+		<?php } ?>
+
+		<?php foreach ($groupes as list($nomMesGroupe)) { ?>
+			<p> <a href="index.php?page=moderationgroupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
+				<input name="voirMembres" type="button" value="Voir les Membres">
+				<input name="quitter" type="button" value="Quitter le groupe"> </p>
+		<?php } ?>
 
   </body>
 </html>
