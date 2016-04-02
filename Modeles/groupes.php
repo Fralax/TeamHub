@@ -28,8 +28,8 @@ class groupes extends modele {
 
   public function afficherGroupes(){
 
-    $sql = 'SELECT g_nom, g_admin FROM Groupes';
-    $afficherGroupes = $this->executerRequete ($sql);
+    $sql = 'SELECT g_nom FROM Appartient  WHERE u_pseudo != ? ';
+    $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
   }
 }
