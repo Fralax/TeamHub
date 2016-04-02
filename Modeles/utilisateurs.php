@@ -42,7 +42,7 @@ class utilisateurs extends modele {
     $envoiConnexion = $_POST['connexion'];
     if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
       $pass_hache = sha1($_POST['PasswordAccueil']);
-      $sql = 'SELECT u_id FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
+      $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
       $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo'],'passwordaccueil' => $pass_hache));
       return $resultatConnexion;
     }

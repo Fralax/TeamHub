@@ -8,7 +8,7 @@
 
 		<h2>Mes Groupes</h2>
 
-    <?php echo $caract['g_nom']?>
+    
 
   </body>
 </html>
