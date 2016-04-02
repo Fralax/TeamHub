@@ -19,7 +19,7 @@ class controleurGroupes{
         $groupe = new groupes();
         $groupe->ajoutGroupeBdd();
         $appartient = new utilisateurs();
-        $appartient->ajoutAppartientBdd();
+        $appartient->ajoutAppartientBdd($_POST['nomGroupe']);
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       }
 
@@ -51,9 +51,15 @@ class controleurGroupes{
   public function affichageGroupes(){
     $groupe = new groupes();
     $afficherGroupes = $groupe->afficherGroupes()->fetchAll();
-    var_dump($afficherGroupes);
     $vue = new Vue('Groupes');
     $vue->genererMembres(["groupe" => $afficherGroupes]);
+  }
+
+  public function rejoindreGroupes($nom){
+    $appartient = new utilisateurs();
+    $appartient->ajoutAppartientBdd($nom);
+    $vue = new Vue('Groupe');
+    $vue->genererMembres(["caract" => $afficherGroupe]);
   }
 }
 ?>

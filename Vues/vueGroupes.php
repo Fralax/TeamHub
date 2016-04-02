@@ -10,7 +10,7 @@
 
     <?php foreach ($groupe as list($nomGroupe)) { ?>
     	<p> <?php echo $nomGroupe?>
-        <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </p>
+        <a href="index.php?page=groupe&nom=<?php echo $nomGroupe?>"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a> </p>
     <?php } ?>
 
   </body>

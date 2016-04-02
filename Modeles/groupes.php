@@ -32,5 +32,6 @@ class groupes extends modele {
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
   }
+
 }
 ?>
