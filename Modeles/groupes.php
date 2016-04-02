@@ -25,5 +25,12 @@ class groupes extends modele {
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
+
+  public function afficherGroupes(){
+
+    $sql = 'SELECT g_nom, g_admin FROM Groupes';
+    $afficherGroupes = $this->executerRequete ($sql);
+    return $afficherGroupes;
+  }
 }
 ?>
