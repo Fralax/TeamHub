@@ -8,7 +8,9 @@
 
 		<h2>Mes Groupes</h2>
 
-    <?php echo $caract['g_nom']?>
+    <?php foreach ($groupe as list($nomGroupe)) { ?>
+    	<p> <?php echo $nomGroupe?> </p>
+    <?php } ?>
 
   </body>
 </html>

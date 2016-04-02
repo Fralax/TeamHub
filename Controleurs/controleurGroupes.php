@@ -43,8 +43,7 @@ class controleurGroupes{
 
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $vue = new Vue('MesGroupes');
-    $vue->genererMembres(["caract" => $afficherMesGroupes]);
-    var_dump($afficherMesGroupes);
+    $vue->genererMembres(["groupe" => $afficherMesGroupes]);
 
   }
 }

@@ -19,6 +19,7 @@
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();
       $this->controleurGroupes = new controleurGroupes();
+      session_start();
     }
 
     public function routerRequete(){
@@ -26,51 +27,35 @@
       switch($_GET['page']){
 
         case 'inscription':
-          $inscription = new inscription();
-          $affichageInscription = $inscription->verif();
+          $this->controleurInscription->verif();
           break;
 
         case 'accueilmembres':
-          session_start();
-          $inscriptionTerminee = new membres();
-          $affichageInscriptionTerminee = $inscriptionTerminee->afficherAccueilMembres();
+          $this->controleurMembres->afficherAccueilMembres();
           break;
 
         case 'aproposmembres':
-          session_start();
-          $aPropos = new membres();
-          $affichageAPropos = $aPropos->afficherAProposMembres();
+          $this->controleurMembres->afficherAProposMembres();
           break;
 
         case 'aproposvisiteurs':
-          $aPropos = new connexion();
-          $affichageAPropos = $aPropos->afficherAProposVisiteurs();
+          $this->controleurConnexion->afficherAProposVisiteurs();
           break;
 
         case 'creationgroupe':
-          session_start();
-          $creationGroupe = new controleurGroupes();
-          $affichageCreationGroupe = $creationGroupe->VerifFormulaire();
+          $this->controleurGroupes->VerifFormulaire();
           break;
 
         case 'moderationgroupe':
-          session_start();
           $this->controleurGroupes->afficherModerationGroupe($_GET['nom']);
           break;
 
         case 'mesgroupes':
-          session_start();
           $this->controleurGroupes->affichageMesGroupes();
           break;
 
-        case 'creationgroupe':
-          session_start();
-          $this->controleurGroupes->affichageMesGroupes() ;
-          break;
-
         default:
-          $AccueilVisiteurs = new connexion();
-          $AccueilVisiteurs->afficherAccueilVisiteurs();
+          $this->controleurConnexion->afficherAccueilVisiteurs();
           break;
         }
 
