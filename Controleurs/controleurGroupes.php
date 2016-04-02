@@ -51,6 +51,7 @@ class controleurGroupes{
   public function affichageGroupes(){
     $groupe = new groupes();
     $afficherGroupes = $groupe->afficherGroupes()->fetchAll();
+    var_dump($afficherGroupes);
     $vue = new Vue('Groupes');
     $vue->genererMembres(["groupe" => $afficherGroupes]);
   }
