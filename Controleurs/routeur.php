@@ -62,6 +62,10 @@
           $this->controleurGroupes->rejoindreGroupes($_GET['nom']);
           break;
 
+        case 'mesinfos':
+          $this->controleurMembres->affichageMesInfos();
+          break;
+
         default:
           $this->controleurConnexion->afficherAccueilVisiteurs();
           break;

@@ -46,13 +46,6 @@ class controleurGroupes{
     $vue->genererMembres(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
   }
 
-  public function affichageMesGroupesAdmin(){
-    $groupe = new groupes();
-    $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
-    $vue = new Vue('MesGroupes');
-    $vue->genererMembres(["groupesAdmin" => $afficherMesGroupesAdmin]);
-  }
-
   public function affichageGroupes(){
     $groupe = new groupes();
     $afficherGroupes = $groupe->afficherGroupes()->fetchAll();

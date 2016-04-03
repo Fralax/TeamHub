@@ -15,7 +15,7 @@
 		<?php } ?>
 
 		<?php foreach ($groupes as list($nomMesGroupe)) { ?>
-			<p> <a href="index.php?page=moderationgroupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
+			<p> <a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
 				<input name="voirMembres" type="button" value="Voir les Membres">
 				<input name="quitter" type="button" value="Quitter le groupe"> </p>
 		<?php } ?>

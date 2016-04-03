@@ -16,7 +16,14 @@ class membres{
     $vue->genererMembres();
   }
 
-  
+  public function affichageMesInfos(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $vue = new Vue('MesInfos');
+    $vue->genererMembres(["infos" => $afficherMesInfos]);
+  }
+
+
 }
 
 

@@ -54,4 +54,10 @@ class utilisateurs extends modele {
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
   }
 
+  public function afficherMesInfos(){
+    $sql = 'SELECT u_prenom, u_nom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance FROM Utilisateurs WHERE u_pseudo = ?';
+    $afficherMesInfos = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $afficherMesInfos;
+  }
+
 }

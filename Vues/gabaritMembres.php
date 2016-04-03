@@ -32,7 +32,7 @@
 
           <li> Profil
             <ul>
-              <li><a href="index.php?page="> Modifier ses informations personnelles </a> </li>
+              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a> </li>
             </ul>
           </li>
 
