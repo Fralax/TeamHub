@@ -12,18 +12,10 @@ class Vue {
   }
 
 
-  public function genererVisiteurs($donnees=[]) {
+  public function generer($donnees=[]) {
 
     $contenu = $this->genererFichier($this->fichier, $donnees);
-    $vue = $this->genererFichier('Vues/gabaritVisiteurs.php', array('titre' => $this->titre, 'contenu' => $contenu));
-    echo $vue;
-
-  }
-
-  public function genererMembres($donnees=[]) {
-
-    $contenu = $this->genererFichier($this->fichier, $donnees);
-    $vue = $this->genererFichier('Vues/gabaritMembres.php', array('titre' => $this->titre, 'contenu' => $contenu));
+    $vue = $this->genererFichier('Vues/gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu));
     echo $vue;
 
   }

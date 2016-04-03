@@ -28,12 +28,12 @@ class connexion{
   public function afficherAccueilVisiteurs()
   {
     $vue = new Vue('AccueilVisiteurs');
-    $vue->genererVisiteurs();
+    $vue->generer();
   }
 
   public function afficherAProposVisiteurs(){
     $vue = new Vue('APropos');
-    $vue->genererVisiteurs();
+    $vue->generer();
   }
 
 
