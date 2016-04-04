@@ -23,6 +23,16 @@ class membres{
     $vue->genererMembres(["infos" => $afficherMesInfos]);
   }
 
+  public function modificationMesInfos(){
+    $vue = new Vue('ModifMesInfos');
+    $vue->genererMembres();
+  }
+
+  public function (){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->modifierMesInfos();
+  }
+
 
 }
 

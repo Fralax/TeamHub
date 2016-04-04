@@ -66,6 +66,10 @@
           $this->controleurMembres->affichageMesInfos();
           break;
 
+        case 'modifmesinfos':
+          $this->controleurMembres->modificationMesInfos();
+          break;
+
         default:
           $this->controleurConnexion->afficherAccueilVisiteurs();
           break;
