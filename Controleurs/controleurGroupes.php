@@ -28,14 +28,14 @@ class controleurGroupes{
       }
     }
     $vue = new Vue('CreationGroupe');
-    $vue->genererMembres();
+    $vue->generer();
   }
 
-  public function afficherModerationGroupe($nom){
+  public function affichageCaracteristiquesGroupe($nom){
     $groupe = new groupes();
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
-    $vue = new Vue('ModerationGroupe');
-    $vue->genererMembres(["caract" => $afficherCaracteristiquesGroupe]);
+    $vue = new Vue('Groupe');
+    $vue->generer(["caract" => $afficherCaracteristiquesGroupe]);
   }
 
   public function affichageMesGroupes(){
@@ -43,22 +43,23 @@ class controleurGroupes{
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
     $vue = new Vue('MesGroupes');
-    $vue->genererMembres(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
   }
 
   public function affichageGroupes(){
     $groupe = new groupes();
     $afficherGroupes = $groupe->afficherGroupes()->fetchAll();
-    var_dump($afficherGroupes);
     $vue = new Vue('Groupes');
-    $vue->genererMembres(["groupe" => $afficherGroupes]);
+    $vue->generer(["groupe" => $afficherGroupes]);
   }
 
-  public function rejoindreGroupes($nom){
+  public function rejoindreGroupe($nom){
     $appartient = new utilisateurs();
     $appartient->ajoutAppartientBdd($nom, "nonAdmin");
-    $vue = new Vue('Groupe');
-    $vue->genererMembres(["caract" => $appartient]);
+    $vue = new Vue('ConfirmationGroupe');
+    $vue->generer(["nom"=>$nom]);
   }
+
 }
+
 ?>

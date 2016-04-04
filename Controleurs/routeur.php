@@ -47,7 +47,7 @@
           break;
 
         case 'moderationgroupe':
-          $this->controleurGroupes->afficherModerationGroupe($_GET['nom']);
+          $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
           break;
 
         case 'mesgroupes':
@@ -59,7 +59,11 @@
           break;
 
         case 'groupe':
-          $this->controleurGroupes->rejoindreGroupes($_GET['nom']);
+          $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
+          break;
+
+        case 'confirmationgroupe':
+          $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
           break;
 
         case 'mesinfos':
@@ -71,6 +75,8 @@
           break;
 
         default:
+          $_SESSION = array();
+          session_destroy();
           $this->controleurConnexion->afficherAccueilVisiteurs();
           break;
         }
