@@ -70,15 +70,16 @@
           break;
 
         case 'modifmescoordonnes':
+          $this->controleurMembres->affichageModificationMesCoordonnes();
           $this->controleurMembres->modificationMesCoordonnes();
           break;
 
         case 'modifmonadresse';
-          $this->controleurMembres->modificationMonAdresse();
+          $this->controleurMembres->affichageModificationMonAdresse();
           break;
 
         case 'modifmonmdp':
-          $this->controleurMembres->modificationMonMdp();
+          $this->controleurMembres->affichageModificationMonMdp();
           break;
 
         default:

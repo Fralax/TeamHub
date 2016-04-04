@@ -60,9 +60,9 @@ class utilisateurs extends modele {
     return $afficherMesInfos;
   }
 
-  public function modifierMesInfos($nom){
-    $sql = 'UPDATE Utilisateurs SET :nom = ":valeur" WHERE u_pseudo = :pseudo ';
-    $modifierMesInfos = $this->executerRequete ($sql, array('nom' => $nom, 'valeur' => $_POST['valeur'], 'pseudo' => $_SESSION['pseudo']));
+  public function modifierMesCoordonnees(){
+    $sql = 'UPDATE Utilisateurs SET u_portable = ":portable", u_email = ":email" WHERE u_pseudo = :pseudo ';
+    $modifierMesCoordonnees = $this->executerRequete ($sql, array('portable' => $_POST['Portable'], 'email'=> $_POST['Email'],'pseudo' => $_SESSION['pseudo']));
   }
 
 }

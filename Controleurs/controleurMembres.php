@@ -12,25 +12,34 @@ class membres{
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-  public function modificationMesCoordonnes(){
+  public function affichageModificationMesCoordonnes(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnes');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-  public function modificationMonAdresse(){
+  public function affichageModificationMonAdresse(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-  public function modificationMonMdp(){
+  public function affichageModificationMonMdp(){
     $vue = new Vue('ModifMonMdp');
     $vue->generer();
   }
 
+  public function modificationMesCoordonnes(){
+    if (isset($_POST['Envoyer'])){
+      $utilisateurs = new utilisateurs();
+      $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
+      $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+      header("Location : index.php?=mesinfos");
+    }
+
+  }
 
 
 }
