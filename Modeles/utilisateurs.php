@@ -65,4 +65,20 @@ class utilisateurs extends modele {
     $modifierMesInfos = $this->executerRequete ($sql, array('adresse' => $_POST['Adresse'], 'cp' => $_POST['CodePostal'], 'ville' => $_POST['Ville'], 'departement' => $_POST['Departement'],'pseudo' => $_SESSION['pseudo']));
   }
 
+  public function RecupMonMdp(){
+    $envoiMdp = $_POST['Envoyer'];
+    if (isset($envoiMdp) && $envoiMdp == 'Envoyer'){
+      $pass_hache = sha1($_POST['AncienMotDePasse']);
+      $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :ancienmotdepasse';
+      $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'ancienmotdepasse' => $pass_hache));
+      return $resultatRecupMdp;
+    }
+  }
+
+  public function modifierMonMdp(){
+    $pass_hache = sha1($_POST['NouveauMotDePasse']);
+    $sql = 'UPDATE Utilisateurs SET u_mdp = :mdp WHERE u_pseudo = :pseudo';
+    $modifierMonMdp = $this->executerRequete($sql, array('mdp' => $pass_hache, 'pseudo' => $_SESSION['pseudo']));
+  }
+
 }

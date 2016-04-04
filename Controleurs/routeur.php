@@ -78,7 +78,7 @@
           break;
 
         case 'modifmonmdp':
-          $this->controleurMembres->affichageModificationMonMdp();
+          $this->controleurMembres->modificationMonMdp();
           break;
 
         default:

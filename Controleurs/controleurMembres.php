@@ -15,7 +15,7 @@ class membres{
   public function affichageModificationMesCoordonnes(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
-    $vue = new Vue('ModifMesCoordonnes');
+    $vue = new Vue('ModifMesCoordonnees');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
@@ -34,11 +34,19 @@ class membres{
   public function modificationMesCoordonnees(){
     $utilisateurs = new utilisateurs();
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
-      $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
-      header("Location: index.php?page=mesinfos");
+      if($_POST['Portable'] != "" && $_POST['Email'] != "" && $_POST['ConfirmEmail'] != ""){
+        if ($_POST['Email'] != $_POST['ConfirmEmail']){
+          echo 'Les adresses mail saisis sont différents !';
+        } else{
+          $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
+          header("Location: index.php?page=mesinfos");
+        }
+      } else{
+        echo "Des champs n'ont pas été remplis !";
+      }
     }
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
-    $vue = new Vue('ModifMesCoordonnes');
+    $vue = new Vue('ModifMesCoordonnees');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
@@ -53,7 +61,27 @@ class membres{
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-}
+  public function modificationMonMdp(){
+    $user = new utilisateurs();
+    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
+      $resultatRecupMdp = $user->RecupMonMdp()->fetch();
+      if (!$resultatRecupMdp){
+        echo 'Votre ancien Mot de Passe est incorrect !';
+      } else{
+        if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
+          echo 'Les Mots de Passe saisis sont différents !';
+        } else{
+          $modifierMonMdp = $user->modifierMonMdp();
+          header("Location: index.php?page=mesinfos");
+        }
 
+      }
+    }
+    $afficherMesInfos = $user->afficherMesInfos()->fetch();
+    $vue = new Vue('ModifMonMdp');
+    $vue->generer(["infos" => $afficherMesInfos]);
+  }
+
+}
 
 ?>
