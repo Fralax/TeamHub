@@ -12,8 +12,31 @@ class membres{
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-  public function modificationMesCoordonnes(){
+  public function affichageModificationMesCoordonnes(){
     $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $vue = new Vue('ModifMesCoordonnes');
+    $vue->generer(["infos" => $afficherMesInfos]);
+  }
+
+  public function affichageModificationMonAdresse(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $vue = new Vue('ModifMonAdresse');
+    $vue->generer(["infos" => $afficherMesInfos]);
+  }
+
+  public function affichageModificationMonMdp(){
+    $vue = new Vue('ModifMonMdp');
+    $vue->generer();
+  }
+
+  public function modificationMesCoordonnees(){
+    $utilisateurs = new utilisateurs();
+    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
+      $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
+      header("Location: index.php?page=mesinfos");
+    }
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnes');
     $vue->generer(["infos" => $afficherMesInfos]);
@@ -21,13 +44,12 @@ class membres{
 
   public function modificationMonAdresse(){
     $utilisateurs = new utilisateurs();
+    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
+      $modifierMesCoord = $utilisateurs->modifierMonAdresse();
+      header("Location: index.php?page=mesinfos");
+    }
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
-    $vue->generer(["infos" => $afficherMesInfos]);
-  }
-
-  public function modificationMonMdp(){
-    $vue = new Vue('ModifMonMdp');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 

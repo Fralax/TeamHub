@@ -60,9 +60,9 @@ class utilisateurs extends modele {
     return $afficherMesInfos;
   }
 
-  public function modifierMesInfos($nom){
-    $sql = 'UPDATE Utilisateurs SET :nom = ":valeur" WHERE u_pseudo = :pseudo ';
-    $modifierMesInfos = $this->executerRequete ($sql, array('nom' => $nom, 'valeur' => $_POST['valeur'], 'pseudo' => $_SESSION['pseudo']));
+  public function modifierMonAdresse(){
+    $sql = 'UPDATE Utilisateurs SET u_adresse = :adresse, u_cp = :cp, u_ville = :ville, u_region = :departement WHERE u_pseudo = :pseudo';
+    $modifierMesInfos = $this->executerRequete ($sql, array('adresse' => $_POST['Adresse'], 'cp' => $_POST['CodePostal'], 'ville' => $_POST['Ville'], 'departement' => $_POST['Departement'],'pseudo' => $_SESSION['pseudo']));
   }
 
 }

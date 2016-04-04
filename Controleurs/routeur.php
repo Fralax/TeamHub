@@ -70,7 +70,7 @@
           break;
 
         case 'modifmescoordonnes':
-          $this->controleurMembres->modificationMesCoordonnes();
+          $this->controleurMembres->modificationMesCoordonnees();
           break;
 
         case 'modifmonadresse';
@@ -78,7 +78,7 @@
           break;
 
         case 'modifmonmdp':
-          $this->controleurMembres->modificationMonMdp();
+          $this->controleurMembres->affichageModificationMonMdp();
           break;
 
         default:
