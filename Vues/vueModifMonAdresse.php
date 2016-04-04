@@ -14,14 +14,14 @@
 
 		<form  name = "formulaireModifMonAdresse" method="post" action = "">
 
-      <p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?= $_POST['Adresse'] ?>"/> </p>
-			<p> <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?= $_POST['Ville'] ?>"/> </p>
-			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?= $_POST['CodePostal'] ?>"/> </p>
+      <p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?php echo $infos[u_adresse] ?>"/> </p>
+			<p> <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?php echo $infos[u_ville] ?>"/> </p>
+			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?php echo $infos[u_cp] ?>"/> </p>
 
 			<p>
 				<select name="departement" required>
 					<option value=""> -- Sélectionner votre Département -- </option>
-					<option value="Ain" <?php if ($_POST['departement']=="Ain"){?> selected <?php }?> >01 - Ain</option>
+					<option value="Ain" <?php if ($infos[u_region]=="Ain"){?> selected <?php }?> >01 - Ain</option>
 					<option value="Aisne">02 - Aisne</option>
 					<option value="Allier">03 - Allier</option>
 					<option value="Alpes-de-Haute-Provence">04 - Alpes-de-Haute-Provence</option>

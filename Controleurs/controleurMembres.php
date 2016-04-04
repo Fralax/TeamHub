@@ -13,23 +13,22 @@ class membres{
   }
 
   public function modificationMesCoordonnes(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnes');
-    $vue->generer();
+    $vue->generer(["infos" => $afficherMesInfos]);
   }
 
   public function modificationMonAdresse(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
-    $vue->generer();
+    $vue->generer(["infos" => $afficherMesInfos]);
   }
 
   public function modificationMonMdp(){
     $vue = new Vue('ModifMonMdp');
-    $vue->generer();
-  }
-
-  public function ghqerdgf(){
-    $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->modifierMesInfos();
+    $vue->generer(["infos" => $afficherMesInfos]);
   }
 
 }
