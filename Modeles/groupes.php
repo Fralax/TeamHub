@@ -36,5 +36,9 @@ class groupes extends modele {
     return $afficherGroupes;
   }
 
+  public function rechercherGroupes(){
+    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom' ;
+  }
+
 }
 ?>

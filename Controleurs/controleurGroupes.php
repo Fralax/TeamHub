@@ -60,6 +60,8 @@ class controleurGroupes{
     $vue->generer(["nom"=>$nom]);
   }
 
+  
+
 }
 
 ?>

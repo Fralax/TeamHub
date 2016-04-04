@@ -12,7 +12,7 @@
       <p> Sexe : <?php echo $infos[u_sexe]?> </p>
       <p> Date de Naissance : <?php echo $infos[u_naissance]?> </p>
 		</div>
-		<div id="Mes coordonnés"> <h2> Mes Coordonnées <a href = "index.php?page=modifmescoordonnes"> <input name="Modifier" type="button" value="Modifier"> </a> </h2>
+		<div id="Mes coordonnées"> <h2> Mes Coordonnées <a href = "index.php?page=modifmescoordonnees"> <input name="Modifier" type="button" value="Modifier"> </a> </h2>
       <p> Téléphone Portable : <?php echo $infos[u_portable]?> </p>
       <p> Email : <?php echo $infos[u_email]?> </p>
 		</div>

@@ -12,7 +12,7 @@
 		<h2>Modifier Mes Coordonnés</h2>
 
 
-		<form  name = "formulaireModifMesCoordonnes" method="post" action = "">
+		<form  name = "formulaireModifMesCoordonnees" method="post" action = "">
 
 			<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25" value = "<?php echo $infos[u_portable]?>" /> </p>
 

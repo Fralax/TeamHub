@@ -19,7 +19,7 @@
 			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?php echo $infos[u_cp]?>"/> </p>
 
 			<p>
-				<select name="departement" required>
+				<select name="Departement" required>
 					<option value=""> -- Sélectionner votre Département -- </option>
 					<option value="Ain" <?php if ($infos[u_region]=="Ain"){?> selected <?php }?> >01 - Ain</option>
 					<option value="Aisne" <?php if ($infos[u_region]=="Aisne"){?> selected <?php }?>>02 - Aisne</option>
