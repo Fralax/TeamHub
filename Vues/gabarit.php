@@ -12,10 +12,10 @@
     <body>
 
       <header>
-        <div id="headerGauche"> <a href="index.php?page=accueilmembres"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
+        <div id="headerGauche"> <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
         <div id="headerDroite">
         <ul id="menu-deroulant">
-          <li><a href="index.php?page=accueilmembres"> Accueil </a>
+          <li><a href="index.php?page=accueil"> Accueil </a>
           </li>
 
           <li> Groupe
@@ -28,7 +28,7 @@
 
           <li> Club
             <ul>
-              <li><a href="index.php?page=accueilmembres"> Voir la liste des clubs </a> </li>
+              <li><a href="index.php?page=accueil"> Voir la liste des clubs </a> </li>
             </ul>
           </li>
 
@@ -56,7 +56,7 @@
 
       <footer>
         <div>
-          <a href="index.php?page=aproposmembres"> A propos </a>
+          <a href="index.php?page=apropos"> A propos </a>
         </div>
         Site réalisé par le groupe G5C
       </footer>
@@ -79,7 +79,7 @@
         </div>
         <div id= "headerDroite">
           <ul id="menu-deroulant">
-            <li><a href="index.php?page="> Accueil </a>
+            <li><a href="index.php"> Accueil </a>
             </li>
 
             <li> Connexion
@@ -118,7 +118,7 @@
         <div>
           Site réalisé par le groupe G5C
         </div>
-        <a href="index.php?page=aproposvisiteurs"> A propos </a>
+        <a href="index.php?page=apropos"> A propos </a>
       </footer>
 
     </body>

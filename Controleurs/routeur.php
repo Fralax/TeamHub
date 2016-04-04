@@ -4,6 +4,7 @@
   require_once 'Controleurs/controleurInscription.php';
   require_once 'Controleurs/controleurMembres.php';
   require_once 'Controleurs/controleurGroupes.php';
+  require_once 'Controleurs/controleurAccueil.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -12,6 +13,7 @@
     private $controleurInscription;
     private $controleurMembres;
     private $controleurGroupes;
+    private $controleurAccueil;
 
     public function __construct(){
 
@@ -19,6 +21,7 @@
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();
       $this->controleurGroupes = new controleurGroupes();
+      $this->controleurAccueil = new accueil();
       session_start();
     }
 
@@ -30,16 +33,12 @@
           $this->controleurInscription->verif();
           break;
 
-        case 'accueilmembres':
-          $this->controleurMembres->afficherAccueilMembres();
+        case 'accueil':
+          $this->controleurAccueil->affichageAccueil();
           break;
 
-        case 'aproposmembres':
-          $this->controleurMembres->afficherAProposMembres();
-          break;
-
-        case 'aproposvisiteurs':
-          $this->controleurConnexion->afficherAProposVisiteurs();
+        case 'apropos':
+          $this->controleurAccueil->affichageAPropos();
           break;
 
         case 'creationgroupe':
@@ -85,7 +84,7 @@
         default:
           $_SESSION = array();
           session_destroy();
-          $this->controleurConnexion->afficherAccueilVisiteurs();
+          $this->controleurAccueil->affichageAccueil();
           break;
         }
 

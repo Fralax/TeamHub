@@ -5,17 +5,6 @@ require_once 'Vues/vue.php';
 
 class membres{
 
-  public function afficherAccueilMembres(){
-    $vue = new Vue('AccueilMembres');
-    $vue->generer();
-
-  }
-
-  public function afficherAProposMembres(){
-    $vue = new Vue('APropos');
-    $vue->generer();
-  }
-
   public function affichageMesInfos(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
@@ -42,7 +31,6 @@ class membres{
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->modifierMesInfos();
   }
-
 
 }
 

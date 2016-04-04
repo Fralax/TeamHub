@@ -48,7 +48,7 @@ require_once 'Vues/vue.php';
              session_start();
              $_SESSION['pseudo'] = $_POST['pseudo'];
 
-             header("Location: index.php?page=accueilmembres");
+             header("Location: index.php?page=accueil");
            }
 
            else{
