@@ -127,7 +127,7 @@
 					<option value="Wallis-et-Futuna" <?php if ($infos[u_region]=="Wallis-et-Futuna"){?> selected <?php }?>>986 - Wallis-et-Futuna</option>
 					<option value="Polynesie-française" <?php if ($infos[u_region]=="Polynesie-française"){?> selected <?php }?>>987 - Polynesie-française</option>
 					<option value="Nouvelle-Caledonie" <?php if ($infos[u_region]=="Nouvelle-Caledonie"){?> selected <?php }?>>988 - Nouvelle-Caledonie</option>
->>>>>>> a3ad5acb2a4a4670c7d9a83c52a865589be32d99
+
 				</select>
 			</p>
 

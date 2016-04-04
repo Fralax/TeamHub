@@ -81,4 +81,8 @@ class utilisateurs extends modele {
     $modifierMonMdp = $this->executerRequete($sql, array('mdp' => $pass_hache, 'pseudo' => $_SESSION['pseudo']));
   }
 
+  public function modifierMesCoordonnees(){
+    $sql = 'UPDATE Utilisateurs SET u_portable = :portable, u_email = :email WHERE u_pseudo = :pseudo';
+    $modifierMesCoordonnees = $this->executerRequete ($sql, array('portable' => $_POST['Portable'], 'email'=> $_POST['Email'],'pseudo' => $_SESSION['pseudo']));
+  }
 }
