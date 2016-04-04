@@ -70,8 +70,16 @@
           $this->controleurMembres->affichageMesInfos();
           break;
 
-        case 'modifmesinfos':
-          $this->controleurMembres->modificationMesInfos();
+        case 'modifmescoordonnes':
+          $this->controleurMembres->modificationMesCoordonnes();
+          break;
+
+        case 'modifmonadresse';
+          $this->controleurMembres->modificationMonAdresse();
+          break;
+
+        case 'modifmonmdp':
+          $this->controleurMembres->modificationMonMdp();
           break;
 
         default:

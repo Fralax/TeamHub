@@ -23,12 +23,22 @@ class membres{
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
-  public function modificationMesInfos(){
-    $vue = new Vue('ModifMesInfos');
-    $vue->genererMembres();
+  public function modificationMesCoordonnes(){
+    $vue = new Vue('ModifMesCoordonnes');
+    $vue->generer();
   }
 
-  public function (){
+  public function modificationMonAdresse(){
+    $vue = new Vue('ModifMonAdresse');
+    $vue->generer();
+  }
+
+  public function modificationMonMdp(){
+    $vue = new Vue('ModifMonMdp');
+    $vue->generer();
+  }
+
+  public function ghqerdgf(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->modifierMesInfos();
   }

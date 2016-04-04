@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 
-<?php $this->titre = "Inscription"; ?>
+<?php $this->titre = "Modifier Mon Adresse"; ?>
 
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Modification du profil</title>
+		<title>Modifier Mon Adresse</title>
 	</head>
 	<body>
 		<p> </p>
-		<h2>Modification de votre profil</h2>
-
-		<form  name = "formulaireInscription" method="post" action = "">
-			<p><input type="text" name="nom" placeholder="Nom" size="25" value = "<?= $_POST['nom'] ?>"/>
-			<input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $_POST['Prenom'] ?>"/> </p>
-
-			<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25" value = "<?= $_POST['Portable'] ?>" /> </p>
-
-			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/> </p>
+		<h2>Modifier Mon Adresse</h2>
 
 
-			<p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?= $_POST['Adresse'] ?>"/> </p>
+		<form  name = "formulaireModifMonAdresse" method="post" action = "">
+
+      <p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?= $_POST['Adresse'] ?>"/> </p>
 			<p> <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?= $_POST['Ville'] ?>"/> </p>
 			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?= $_POST['CodePostal'] ?>"/> </p>
 
 			<p>
-				<select name="departement" >
+				<select name="departement" required>
 					<option value=""> -- Sélectionner votre Département -- </option>
 					<option value="Ain" <?php if ($_POST['departement']=="Ain"){?> selected <?php }?> >01 - Ain</option>
 					<option value="Aisne">02 - Aisne</option>
@@ -135,9 +129,7 @@
 					<option value="Nouvelle-Caledonie">988 - Nouvelle-Caledonie</option>
 				</select>
 			</p>
-			<p> <input type="text" name="pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['pseudo'] ?>"/> </p>
-			<p> <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/> </p>
-			<p> <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/> </p>
+
 			<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
 		</form>
 	</body>
