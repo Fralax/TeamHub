@@ -36,8 +36,7 @@
             <ul>
               <li>
                 <input type="text" name="BarreRecherche" placeholder="Rechercher" >
-                <a href="index.php?page=resultatsrecherche&recherche=<?php echo $_POST['BarreRecherche'] ?>"> <input name="Recherche" type="button" value = "Recherche"> </a>
-                  <?php var_dump($_POST['BarreRecherche']) ?>
+                <a href = "index.php?page=resultatsrecherche"> <input name="Recherche" type="button" value = "Recherche"> </a>
                </li>
             </ul>
           </li>

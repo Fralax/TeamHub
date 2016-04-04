@@ -37,8 +37,8 @@ class groupes extends modele {
   }
 
   public function rechercherGroupes(){
-    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE "%:requete%" ' ;
-    $rechercherGroupes = $this->executerRequete ($sql, array('requete' =>$_POST['Recherche']));
+    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete ' ;
+    $rechercherGroupes = $this->executerRequete ($sql, array('requete' =>'%'.$_POST['Recherche'].'%'));
     return $rechercherGroupes;
   }
 

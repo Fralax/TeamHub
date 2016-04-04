@@ -5,6 +5,7 @@
   require_once 'Controleurs/controleurMembres.php';
   require_once 'Controleurs/controleurGroupes.php';
   require_once 'Controleurs/controleurAccueil.php';
+  require_once 'Controleurs/controleurRecherche.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -14,6 +15,7 @@
     private $controleurMembres;
     private $controleurGroupes;
     private $controleurAccueil;
+    private $controleurRecherche;
 
     public function __construct(){
 
@@ -22,6 +24,7 @@
       $this->controleurMembres = new membres();
       $this->controleurGroupes = new controleurGroupes();
       $this->controleurAccueil = new accueil();
+      $this->controleurRecherche = new recherche();
       session_start();
     }
 
@@ -79,6 +82,10 @@
 
         case 'modifmonmdp':
           $this->controleurMembres->affichageModificationMonMdp();
+          break;
+
+        case 'resultatsrecherche':
+          $this->controleurRecherche->rechercheGroupes();
           break;
 
         default:
