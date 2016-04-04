@@ -32,14 +32,19 @@
             </ul>
           </li>
 
-          <li> Profil
+          <li> Rechercher
             <ul>
-              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a> </li>
+              <li>
+                <input type="text" name="BarreRecherche" placeholder="Rechercher" >
+                <a href="index.php?page=resultatsrecherche&recherche=<?php echo $_POST['BarreRecherche'] ?>"> <input name="Recherche" type="button" value = "Recherche"> </a>
+                  <?php var_dump($_POST['BarreRecherche']) ?>
+               </li>
             </ul>
           </li>
 
           <li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
             <ul>
+              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a> </li>
               <li><a href="index.php"> Déconnexion </a> </li>
             </ul>
           </li>
