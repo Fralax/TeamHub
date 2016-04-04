@@ -35,9 +35,17 @@
           <li> Rechercher
             <ul>
               <li>
-                <input type="text" name="BarreRecherche" placeholder="Rechercher" >
-                <a href="index.php?page=resultatsrecherche&recherche=<?php echo $_POST['BarreRecherche'] ?>"> <input name="Recherche" type="button" value = "Recherche"> </a>
-                  <?php var_dump($_POST['BarreRecherche']) ?>
+
+                <?php
+                  require_once 'Controleurs/controleurRecherche.php';
+                  $recherche = new recherche();
+                  $resultatsrecherche = $recherche->affichageRecherche();
+                ?>
+
+                <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
+                  <input type="text" name="BarreRecherche" placeholder="Rechercher" required>
+                  <input type="submit" name="Recherche" value="Rechercher" id="Recherche">
+                </form>
                </li>
             </ul>
           </li>
