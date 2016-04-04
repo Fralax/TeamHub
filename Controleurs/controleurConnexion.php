@@ -20,23 +20,15 @@ class connexion{
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        header("Location: index.php?page=accueilmembres");
+        header("Location: index.php?page=accueil");
       }
     }
   }
 
-  public function afficherAccueilVisiteurs()
-  {
-    $vue = new Vue('AccueilVisiteurs');
+  public function affichageAccueil(){
+    $vue = new Vue('Accueil');
     $vue->generer();
   }
-
-  public function afficherAProposVisiteurs(){
-    $vue = new Vue('APropos');
-    $vue->generer();
-  }
-
-
 }
 
 ?>
