@@ -13,13 +13,17 @@ class membres{
   }
 
   public function modificationMesCoordonnes(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnes');
-    $vue->generer();
+    $vue->generer(["infos" => $afficherMesInfos]);
   }
 
   public function modificationMonAdresse(){
+    $utilisateurs = new utilisateurs();
+    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
-    $vue->generer();
+    $vue->generer(["infos" => $afficherMesInfos]);
   }
 
   public function modificationMonMdp(){
@@ -27,10 +31,7 @@ class membres{
     $vue->generer();
   }
 
-  public function ghqerdgf(){
-    $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->modifierMesInfos();
-  }
+
 
 }
 
