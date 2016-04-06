@@ -77,16 +77,16 @@
           break;
 
         case 'modifmonadresse';
-          $this->controleurMembres->affichageModificationMonAdresse();
+          $this->controleurMembres->modificationMonAdresse();
           break;
 
         case 'modifmonmdp':
-          $this->controleurMembres->affichageModificationMonMdp();
+          $this->controleurMembres->modificationMonMdp();
           break;
 
         case 'resultatsrecherche':
-        $this->controleurRecherche->affichageResultatsRecherche();
-        break;
+          $this->controleurRecherche->affichageResultatsRecherche();
+          break;
 
         default:
           $_SESSION = array();

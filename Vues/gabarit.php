@@ -39,13 +39,17 @@
                 <?php
                   require_once 'Controleurs/controleurRecherche.php';
                   $recherche = new recherche();
-                  $resultatsrecherche = $recherche->affichageRecherche();
+                  $recherche->rechercheGroupes();
                 ?>
 
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
                   <input type="text" name="BarreRecherche" placeholder="Rechercher" required>
                   <input type="submit" name="Recherche" value="Rechercher" id="Recherche">
                 </form>
+
+                <!-- <input type="text" name="BarreRecherche" placeholder="Rechercher" >
+                <a href = "index.php?page=resultatsrecherche"> <input name="Recherche" type="button" value = "Recherche"> </a> -->
+
                </li>
             </ul>
           </li>

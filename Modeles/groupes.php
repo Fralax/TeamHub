@@ -31,14 +31,14 @@ class groupes extends modele {
   }
 
   public function afficherGroupes(){
-    $sql = 'SELECT g_nom FROM Appartient WHERE u_pseudo != ? AND a_admin = ?';
-    $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin"));
+    $sql = 'SELECT DISTINCT(g_nom) FROM Appartient WHERE g_nom NOT IN (SELECT g_nom from Appartient where u_pseudo = ?)';
+    $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
   }
 
   public function rechercherGroupes(){
-    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE "%:requete%" ' ;
-    $rechercherGroupes = $this->executerRequete ($sql, array('requete' =>$_POST['Recherche']));
+    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete' ;
+    $rechercherGroupes = $this->executerRequete ($sql, array('requete' =>'%'.$_POST['BarreRecherche'].'%'));
     return $rechercherGroupes;
   }
 
