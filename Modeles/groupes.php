@@ -18,7 +18,7 @@ class groupes extends modele {
   }
 
   public function afficherCaracteristiquesGroupe($nom){
-    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_description, g_placesLibres FROM Groupes WHERE g_nom = ?';
+    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_description, ag_placesLibres FROM Groupes WHERE g_nom = ?';
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($nom));
     return $afficherCaracteristiquesGroupe;
   }
