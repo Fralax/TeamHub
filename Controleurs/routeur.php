@@ -48,6 +48,10 @@
           $this->controleurGroupes->VerifFormulaire();
           break;
 
+        case 'suppressiongroupe':
+          $this->controleurGroupes->suppressionGroupe($_GET['nom']);
+          break;
+
         case 'moderationgroupe':
           $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
           break;
@@ -68,6 +72,10 @@
           $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
           break;
 
+        case 'quittergroupe':
+          $this->controleurGroupes->quitterGroupe($_GET['nom']);
+          break;
+
         case 'mesinfos':
           $this->controleurMembres->affichageMesInfos();
           break;
@@ -82,6 +90,14 @@
 
         case 'modifmonmdp':
           $this->controleurMembres->modificationMonMdp();
+          break;
+
+        case 'listemembres':
+          $this->controleurMembres->listeMembres($_GET['nom']);
+          break;
+
+        case 'affichagemodificationdescription':
+          $this->controleurGroupes->modificationDescriptionGroupe($_GET['nom']);
           break;
 
         case 'resultatsrecherche':

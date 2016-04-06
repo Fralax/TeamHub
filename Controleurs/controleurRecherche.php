@@ -8,10 +8,12 @@ class recherche{
 
   public function rechercheGroupes(){
 
-    if (isset($_POST['Recherche']) && $_POST['Recherche'] == 'Rechercher'){
+    $recherche = $_POST['Recherche'];
+
+    if (isset($recherche) && $recherche == 'Rechercher'){
       $groupe = new groupes();
       $resultatRechercheGroupes = $groupe->rechercherGroupes()->fetchAll();
-      header("Location : index.php?page=resultatsrecherche");
+      header("Location : index.php");
     }
   }
 

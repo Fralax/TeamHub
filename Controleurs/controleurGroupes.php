@@ -31,11 +31,31 @@ class controleurGroupes{
     $vue->generer();
   }
 
+  public function suppressionGroupe($nom){
+    $groupe = new groupes();
+    $groupe->supprimerGroupeBdd($nom);
+    $appartient = new utilisateurs();
+    $appartient->supprimerAppartientBddAdmin($nom);
+    $vue = new Vue('SuppressionGroupe');
+    $vue->generer(["nom"=>$nom]);
+  }
+
   public function affichageCaracteristiquesGroupe($nom){
     $groupe = new groupes();
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $vue = new Vue('Groupe');
     $vue->generer(["caract" => $afficherCaracteristiquesGroupe]);
+  }
+
+  public function modificationDescriptionGroupe($nom){
+    $groupe = new groupes();
+    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+      $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
+      header("Location: index.php?page=accueil");
+    }
+    $vue = new Vue('ModifDescription');
+    $vue->generer();
+
   }
 
   public function affichageMesGroupes(){
@@ -60,7 +80,13 @@ class controleurGroupes{
     $vue->generer(["nom"=>$nom]);
   }
 
-  
+  public function quitterGroupe($nom){
+    $appartient = new utilisateurs();
+    $appartient->supprimerAppartientBddNonAdmin($nom);
+    $vue = new Vue('QuitterGroupe');
+    $vue->generer(["nom"=>$nom]);
+
+  }
 
 }
 

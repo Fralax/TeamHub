@@ -54,6 +54,16 @@ class utilisateurs extends modele {
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
   }
 
+  public function supprimerAppartientBddAdmin($nom){
+    $sql = 'DELETE FROM Appartient WHERE g_nom = ?';
+    $supprimerAppartientBdd = $this ->executerRequete ($sql, array($nom));
+  }
+
+  public function supprimerAppartientBddNonAdmin($nom){
+    $sql = 'DELETE FROM Appartient WHERE g_nom = :nom AND u_pseudo = :pseudo';
+    $supprimerAppartientBdd = $this ->executerRequete ($sql, array('nom' => $nom, 'pseudo'=>$_SESSION['pseudo']));
+  }
+
   public function afficherMesInfos(){
     $sql = 'SELECT u_prenom, u_nom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance FROM Utilisateurs WHERE u_pseudo = ?';
     $afficherMesInfos = $this->executerRequete ($sql, array($_SESSION['pseudo']));
@@ -84,6 +94,12 @@ class utilisateurs extends modele {
     $pass_hache = sha1($_POST['NouveauMotDePasse']);
     $sql = 'UPDATE Utilisateurs SET u_mdp = :mdp WHERE u_pseudo = :pseudo';
     $modifierMonMdp = $this->executerRequete($sql, array('mdp' => $pass_hache, 'pseudo' => $_SESSION['pseudo']));
+  }
+
+  public function listerMembres($nom){
+    $sql = 'SELECT u_pseudo FROM Appartient WHERE g_nom = ?';
+    $listerMembres = $this->executerRequete($sql, array($nom));
+    return $listerMembres;
   }
 
 }

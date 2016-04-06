@@ -12,6 +12,11 @@ class groupes extends modele {
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
   }
 
+  public function supprimerGroupeBdd($nom){
+    $sql = 'DELETE FROM Groupes WHERE g_nom = ?';
+    $supprimerGroupeBdd = $this ->executerRequete ($sql, array($nom));
+  }
+
   public function afficherCaracteristiquesGroupe($nom){
     $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_placesLibres FROM Groupes WHERE g_nom = ?';
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($nom));
@@ -34,6 +39,11 @@ class groupes extends modele {
     $sql = 'SELECT DISTINCT(g_nom) FROM Appartient WHERE g_nom NOT IN (SELECT g_nom from Appartient where u_pseudo = ?)';
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
+  }
+
+  public function modifierDescriptionGroupe(){
+    $sql='UPDATE Groupes SET u_description = ?';
+    $modifierDescriptionGroupe = $this->executerRequete ($sql, array($_POST['Description']));
   }
 
   public function rechercherGroupes(){

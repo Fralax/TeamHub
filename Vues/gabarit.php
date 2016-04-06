@@ -43,7 +43,7 @@
                 ?>
 
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
-                  <input type="text" name="BarreRecherche" placeholder="Rechercher" required>
+                  <input type="text" name="BarreRecherche" placeholder="Rechercher" value = <?php $_POST['BarreRecherche']?>>
                   <input type="submit" name="Recherche" value="Rechercher" id="Recherche">
                 </form>
 

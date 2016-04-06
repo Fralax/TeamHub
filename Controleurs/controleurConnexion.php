@@ -14,6 +14,7 @@ class connexion{
       $user = new utilisateurs();
       $resultatConnexion = $user->verifConnexion()->fetch();
 
+
       if (!$resultatConnexion) {
         echo 'Mauvais identifiant ou mot de passe !';
       } else {

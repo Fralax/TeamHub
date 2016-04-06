@@ -89,6 +89,13 @@ class membres{
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
+  public function listeMembres($nom){
+    $appartient = new utilisateurs();
+    $afficherMembres = $appartient->listerMembres($nom)-> fetchAll();
+    $vue = new Vue('VoirLesMembres');
+    $vue->generer(array("nom"=>$nom, "membres" => $afficherMembres));
+  }
+
 }
 
 ?>
