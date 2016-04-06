@@ -18,7 +18,7 @@ class groupes extends modele {
   }
 
   public function afficherCaracteristiquesGroupe($nom){
-    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_placesLibres FROM Groupes WHERE g_nom = ?';
+    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_description, g_placesLibres FROM Groupes WHERE g_nom = ?';
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($nom));
     return $afficherCaracteristiquesGroupe;
   }
@@ -41,9 +41,9 @@ class groupes extends modele {
     return $afficherGroupes;
   }
 
-  public function modifierDescriptionGroupe(){
-    $sql='UPDATE Groupes SET u_description = ?';
-    $modifierDescriptionGroupe = $this->executerRequete ($sql, array($_POST['Description']));
+  public function modifierDescriptionGroupe($nom){
+    $sql='UPDATE Groupes SET g_description = :description WHERE g_nom = :nom';
+    $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => $_POST['Description'], 'nom'=>$nom ));
   }
 
   public function rechercherGroupes(){

@@ -49,7 +49,7 @@ class controleurGroupes{
 
   public function modificationDescriptionGroupe($nom){
     $groupe = new groupes();
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
       $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
       header("Location: index.php?page=accueil");
     }

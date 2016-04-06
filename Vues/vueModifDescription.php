@@ -11,7 +11,7 @@
     <form method="post" action="">
       <p>
        <label for="Description"> Ecrivez une description pour votre groupe </label><br />
-       <textarea name="Description" ></textarea>
+       <textarea name="Description" > </textarea>
      </p>
      <p> <input type="submit" name="Modifier" value="Modifier la Description"> </p>
    </form>
