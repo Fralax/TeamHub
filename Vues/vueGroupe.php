@@ -13,7 +13,7 @@
     <p> Administrateur : <?php echo $caract['g_admin'] ?></p>
 		<p> Sport : <?php echo $caract['g_sport'] ?></p>
 		<p> Lieu : <?php echo $caract['g_departement'] ?></p>
-		<p> Nombre de places : <?php echo $caract['g_placesLibres'] ?></p>
+		<p> Nombre de places : <?php echo $caract['g_placesTotales'] ?></p>
 		<?php if ($caract['g_admin'] == $_SESSION['pseudo']) {?><p> <a href = "index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>" > <input name="Description" value="Modifier la description"> </a> </p>
 		<?php }?>
   </body>

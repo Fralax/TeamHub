@@ -20,6 +20,7 @@ class controleurGroupes{
         $groupe->ajoutGroupeBdd();
         $appartient = new utilisateurs();
         $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
+        $groupe->$récupPlacesLibres($nomGroupe);
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       }
 
@@ -76,6 +77,7 @@ class controleurGroupes{
   public function rejoindreGroupe($nom){
     $appartient = new utilisateurs();
     $appartient->ajoutAppartientBdd($nom, "nonAdmin");
+    $groupe->$récupPlacesLibres($nomGroupe);
     $vue = new Vue('ConfirmationGroupe');
     $vue->generer(["nom"=>$nom]);
   }
