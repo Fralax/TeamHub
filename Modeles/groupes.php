@@ -6,7 +6,7 @@ class groupes extends modele {
 
   public function ajoutGroupeBdd(){
 
-    $sql = 'INSERT INTO Groupes(g_admin, g_nom, g_placesTotales, g_placesLibres ,g_sport, g_departement)
+    $sql = 'INSERT INTO Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement)
             VALUES (:admin, :nomGroupe, :placesLibres, :placesLibres, :sport, :departement)';
 
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
@@ -52,14 +52,24 @@ class groupes extends modele {
     return $rechercherGroupes;
   }
 
-  public function modifierPlacesLibres($nom){
+  public function diminuerPlacesLibres($nom){
     $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
     $placesLibres = $recupPlacesLibres->fetch();
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] - 1;
     $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
-    $modifierPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+  }
+
+  public function augmenterPlacesLibres($nom){
+    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
+    $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
+    $placesLibres = $recupPlacesLibres->fetch();
+    settype($placesLibres[0], "integer");
+    $placesLibres[0] = $placesLibres[0] + 1;
+    $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
 }
