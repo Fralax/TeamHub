@@ -14,7 +14,9 @@
 		<p> Sport : <?php echo $caract['g_sport'] ?></p>
 		<p> Lieu : <?php echo $caract['g_departement'] ?></p>
 		<p> Nombre de places : <?php echo $caract['g_placesLibres'] ?></p>
-		<?php if ($caract['g_admin'] == $_SESSION['pseudo']) {?><p> <a href = "index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>" > <input name="Description" value="Modifier la description"> </a> </p>
+		<?php if ($caract['g_admin'] == $_SESSION['pseudo']) {?>
+			<p> <a href = "index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>" > <input type="button" name="Description" value="Modifier la description"> </a>
+			<a href = "index.php?page=affichagemodificationadmin&nom=<?php echo $caract['g_nom']?>" > <input type="button" name="Admin" value="Désigner un nouvel Admin"> </a> </p>
 		<?php }?>
   </body>
 </html>

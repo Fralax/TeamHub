@@ -46,6 +46,27 @@ class groupes extends modele {
     $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => $_POST['Description'], 'nom'=>$nom ));
   }
 
+  public function modifierAdminGroupe($nom){
+    $sql = 'UPDATE Groupes SET g_admin = :admin  WHERE g_nom = :nom' ;
+    $modifierAdminGroupe = $this->executerRequete ($sql, array('admin'=>$_POST['Admin'] ,'nom'=>$nom));
+  }
+
+  public function modifierAdminAppartient($nom, $admin){
+    $sql = 'UPDATE Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo' ;
+    $modifierAdminAppartient = $this->executerRequete ($sql, array('admin'=>$admin,'nom'=>$nom ,'pseudo'=>$_POST['Admin']));
+  }
+
+  public function modifierNonAdminAppartient($nom, $admin){
+    $sql = 'UPDATE Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo' ;
+    $modifierAdminAppartient = $this->executerRequete ($sql, array('admin'=>$admin,'nom'=>$nom ,'pseudo'=>$_SESSION['pseudo']));
+  }
+
+  public function afficherAdminPossible($nom){
+    $sql = 'SELECT u_pseudo FROM Appartient WHERE u_pseudo != :pseudo AND g_nom = :nom' ;
+    $afficherAdminPossible = $this->executerRequete ($sql, array('pseudo' =>$_SESSION['pseudo'], 'nom' => $nom));
+    return $afficherAdminPossible;
+  }
+
   public function rechercherGroupes(){
     $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete' ;
     $rechercherGroupes = $this->executerRequete ($sql, array('requete' =>'%'.$_POST['BarreRecherche'].'%'));

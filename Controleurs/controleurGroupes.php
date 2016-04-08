@@ -59,6 +59,19 @@ class controleurGroupes{
 
   }
 
+  public function modificationAdminGroupe($nom){
+    $groupe = new groupes();
+    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+      $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
+      $modificationAdminAppartient = $groupe->modifierAdminAppartient($nom, "admin");
+      $modificationNonAdminAppartient = $groupe->modifierNonAdminAppartient($nom, "nonAdmin");
+      header("Location: index.php?page=accueil");
+    }
+    $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
+    $vue = new Vue('ModifAdmin');
+    $vue->generer(["admin" => $adminPossible]);
+  }
+
   public function affichageMesGroupes(){
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
