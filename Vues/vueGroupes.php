@@ -8,10 +8,11 @@
 
 		<h2>Groupes</h2>
 
-    <?php foreach ($groupe as list($nomGroupe)) { ?>
+		<?php foreach ($groupe as list($nomGroupe)) { ?>
     	<p> <?php echo $nomGroupe?>
         <a href="index.php?page=confirmationgroupe&nom=<?php echo $nomGroupe?>"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a> </p>
-    <?php } ?>
+    <?php }
+		?>
 
   </body>
 </html>
