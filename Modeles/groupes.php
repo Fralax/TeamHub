@@ -52,14 +52,24 @@ class groupes extends modele {
     return $rechercherGroupes;
   }
 
-  public function modifierPlacesLibres($nom){
+  public function diminuerPlacesLibres($nom){
     $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
     $placesLibres = $recupPlacesLibres->fetch();
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] - 1;
     $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
-    $modifierPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+  }
+
+  public function augmenterPlacesLibres($nom){
+    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
+    $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
+    $placesLibres = $recupPlacesLibres->fetch();
+    settype($placesLibres[0], "integer");
+    $placesLibres[0] = $placesLibres[0] + 1;
+    $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
 }
