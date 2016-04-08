@@ -19,7 +19,7 @@ class controleurGroupes{
         $groupe->ajoutGroupeBdd();
         $appartient = new utilisateurs();
         $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
-        $groupe->diminuerPlacesLibres($nomGroupe);
+        $groupe->modifierPlacesLibres($nomGroupe);
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
       } else{
           echo "Des champs n'ont pas été remplis";
@@ -65,16 +65,17 @@ class controleurGroupes{
 
   public function affichageGroupes(){
     $groupe = new groupes();
-    $afficherGroupes = $groupe->afficherGroupes()->fetchAll();
+    $afficherNomsGroupes = $groupe->afficherGroupes()->fetchAll();
+    $afficherPlacesLibresGroupes = $groupe->recupererPlacesLibresGroupes()->fetchAll();
     $vue = new Vue('Groupes');
-    $vue->generer(["groupe" => $afficherGroupes]);
+    $vue->generer(["groupe" => $afficherNomsGroupes, "placesLibres" => $afficherPlacesLibresGroupes]);
   }
 
   public function rejoindreGroupe($nom){
     $appartient = new utilisateurs();
     $appartient->ajoutAppartientBdd($nom, "nonAdmin");
     $groupe = new groupes();
-    $groupe->diminuerPlacesLibres($nom);
+    $groupe->modifierPlacesLibres($nom);
     $vue = new Vue('ConfirmationGroupe');
     $vue->generer(["nom"=>$nom]);
   }

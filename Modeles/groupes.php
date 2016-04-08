@@ -36,9 +36,15 @@ class groupes extends modele {
   }
 
   public function afficherGroupes(){
-    $sql = 'SELECT DISTINCT(g_nom), g_placesLibres FROM Appartient WHERE g_nom NOT IN (SELECT g_nom from Appartient where u_pseudo = ?)';
+    $sql = 'SELECT DISTINCT(g_nom) FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = ?) ORDER BY g_placesLibres DESC';
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
+  }
+
+  public function recupererPlacesLibresGroupes(){
+    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
+    $recupPlacesLibres = $this->executerRequete ($sql1, array('pseudo' => $_SESSION['pseudo']));
+    return $recupPlacesLibres;
   }
 
   public function modifierDescriptionGroupe($nom){
@@ -52,14 +58,14 @@ class groupes extends modele {
     return $rechercherGroupes;
   }
 
-  public function diminuerPlacesLibres($nom){
+  public function modifierPlacesLibres($nom){
     $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
     $placesLibres = $recupPlacesLibres->fetch();
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] - 1;
     $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
-    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+    $modifierPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
   public function augmenterPlacesLibres($nom){
@@ -69,7 +75,7 @@ class groupes extends modele {
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] + 1;
     $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
-    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+    $modifierPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
 }
