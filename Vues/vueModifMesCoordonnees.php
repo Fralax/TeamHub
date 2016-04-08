@@ -18,7 +18,6 @@
 
 			<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?php echo $infos[u_email]?>"/> </p>
 			<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<?php echo $infos[u_email]?>"/> </p>
-
 			<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
 		</form>
 	</body>

@@ -12,9 +12,11 @@
     <body>
 
       <header>
-        <div id="headerGauche"> <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a> </div>
+        <div id="headerGauche">
+          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
+        </div>
         <div id="headerDroite">
-        <ul id="menu-deroulant">
+          <ul id="menu-deroulant">
           <li><a href="index.php?page=accueil"> Accueil </a>
           </li>
 
@@ -35,29 +37,23 @@
           <li> Rechercher
             <ul>
               <li>
-
                 <?php
-                  require_once 'Controleurs/controleurRecherche.php';
-                  $recherche = new recherche();
-                  $recherche->rechercheGroupes();
+                require_once 'Controleurs/controleurRecherche.php';
+                $recherche = new recherche();
+                $recherche->rechercheGroupes();
                 ?>
-
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
-                  <input type="text" name="BarreRecherche" placeholder="Rechercher" value = <?php $_POST['BarreRecherche']?>>
-                  <input type="submit" name="Recherche" value="Rechercher" id="Recherche">
+                  <input type="text" name="BarreRecherche" placeholder="Rechercher">
+                  <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
                 </form>
-
-                <!-- <input type="text" name="BarreRecherche" placeholder="Rechercher" >
-                <a href = "index.php?page=resultatsrecherche"> <input name="Recherche" type="button" value = "Recherche"> </a> -->
-
                </li>
             </ul>
           </li>
 
           <li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
             <ul>
-              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a> </li>
-              <li><a href="index.php"> Déconnexion </a> </li>
+              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a></li>
+              <li><a href="index.php"> Déconnexion </a></li>
             </ul>
           </li>
 
@@ -92,7 +88,7 @@
 
       <header>
         <div id= "headerGauche">
-          <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
+          <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
         </div>
         <div id= "headerDroite">
           <ul id="menu-deroulant">
@@ -113,6 +109,22 @@
                     <input name="connexion" type="submit" id="connexion" value = "Connexion">
                   </form>
                 </li>
+              </ul>
+            </li>
+
+            <li> Rechercher
+              <ul>
+                <li>
+                  <?php
+                  require_once 'Controleurs/controleurRecherche.php';
+                  $recherche = new recherche();
+                  $recherche->rechercheGroupes();
+                  ?>
+                  <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
+                    <input type="text" name="BarreRecherche" placeholder="Rechercher">
+                    <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
+                  </form>
+                 </li>
               </ul>
             </li>
 

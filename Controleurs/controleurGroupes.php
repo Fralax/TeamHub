@@ -13,7 +13,6 @@ class controleurGroupes{
     $placesLibres=$_POST['placesLibres'];
     $creer = $_POST['creer'];
 
-
     if(!empty($creer)){
       if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
         $groupe = new groupes();
@@ -21,9 +20,7 @@ class controleurGroupes{
         $appartient = new utilisateurs();
         $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
         header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
-      }
-
-      else{
+      } else{
           echo "Des champs n'ont pas été remplis";
       }
     }
@@ -55,7 +52,6 @@ class controleurGroupes{
     }
     $vue = new Vue('ModifDescription');
     $vue->generer();
-
   }
 
   public function affichageMesGroupes(){
@@ -85,7 +81,6 @@ class controleurGroupes{
     $appartient->supprimerAppartientBddNonAdmin($nom);
     $vue = new Vue('QuitterGroupe');
     $vue->generer(["nom"=>$nom]);
-
   }
 
 }
