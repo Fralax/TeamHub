@@ -23,11 +23,11 @@
 
 			<td>
 				<table>
-					<?php foreach ($placesLibres as list($placesLibres)){ ?>
+					<?php foreach ($placesLibres as list($placesLibres)){	?>
 					<tr>
 						<td>
 							<?php
-								if ($placesLibres != 1){
+								if ($placesLibres > 1){
 									echo $placesLibres.' places restantes';
 								} else{
 									echo $placesLibres.' place restante';
@@ -36,7 +36,9 @@
 						</td>
 
 						<td>
+							<?php if ($placesLibres != 0){ ?>
 							<a href="index.php?page=confirmationgroupe&nom=<?php echo $nomGroupe?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+							<?php } ?>
 						</td>
 					</tr>
 					<?php } ?>
