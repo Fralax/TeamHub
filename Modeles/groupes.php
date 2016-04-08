@@ -6,7 +6,7 @@ class groupes extends modele {
 
   public function ajoutGroupeBdd(){
 
-    $sql = 'INSERT INTO Groupes(g_admin, g_nom, g_placesTotales, g_placesLibres ,g_sport, g_departement)
+    $sql = 'INSERT INTO Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement)
             VALUES (:admin, :nomGroupe, :placesLibres, :placesLibres, :sport, :departement)';
 
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
@@ -36,7 +36,7 @@ class groupes extends modele {
   }
 
   public function afficherGroupes(){
-    $sql = 'SELECT DISTINCT(g_nom) FROM Appartient WHERE g_nom NOT IN (SELECT g_nom from Appartient where u_pseudo = ?)';
+    $sql = 'SELECT DISTINCT(g_nom), g_placesLibres FROM Appartient WHERE g_nom NOT IN (SELECT g_nom from Appartient where u_pseudo = ?)';
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
   }

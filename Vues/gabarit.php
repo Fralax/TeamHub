@@ -16,7 +16,7 @@
         <div id="headerGauche">
           <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
         </div>
-        
+
         <div id="headerDroite">
           <ul id="menu-deroulant">
           <li><a href="index.php?page=accueil"> Accueil </a>
@@ -90,11 +90,7 @@
 
       <header>
         <div id= "headerGauche">
-<<<<<<< HEAD
           <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
-=======
-          <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo_transparent.tiff" width="306" height="172" ></a>
->>>>>>> 53706ae7c57f4352163fa9fd40e6a3b713e5e04e
         </div>
         <div id= "headerDroite">
           <ul id="menu-deroulant">
