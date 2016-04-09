@@ -91,9 +91,11 @@ class controleurGroupes{
     $groupe = new groupes();
     $arrayNomsGroupes = array();
     $arrayPlacesLibres = array();
+    $arrayAdmin = array();
 
     $afficherNomsGroupes = $groupe->afficherGroupes()->fetchAll();
     $afficherPlacesLibresGroupes = $groupe->recupererPlacesLibresGroupes()->fetchAll();
+    $afficherAdmin = $groupe->afficherAdminGroupe()->fetchAll();
 
     foreach ($afficherNomsGroupes as list($nomGroupe)) {
       array_push($arrayNomsGroupes, $nomGroupe);
@@ -101,8 +103,13 @@ class controleurGroupes{
     foreach ($afficherPlacesLibresGroupes as list($placesLibres)) {
       array_push($arrayPlacesLibres, $placesLibres);
     }
+
+    foreach ($afficherAdmin as list($admin)) {
+      array_push($arrayAdmin, $admin);
+    }
+
     $vue = new Vue('Groupes');
-    $vue->generer(["groupe" => $arrayNomsGroupes, "placesLibres" => $arrayPlacesLibres]);
+    $vue->generer(["groupe" => $arrayNomsGroupes, "placesLibres" => $arrayPlacesLibres, "admin" => $arrayAdmin]);
   }
 
   public function rejoindreGroupe($nom){

@@ -9,8 +9,11 @@
 	<body>
 
 		<h2>Recherche</h2>
-    <?php foreach ($resultat as list($nomGroupe)) { ?>
-    	<p> <?php echo $nomGroupe?> </p>
+    <?php foreach ($groupes as list($groupes)) { ?>
+    	<p> <?php echo $groupes?> </p>
     <?php } ?>
+		<?php foreach ($membres as list($membres)) { ?>
+			<p> <?php echo $membres ?> </p>
+		<?php } ?>
   </body>
 </html>

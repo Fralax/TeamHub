@@ -1,23 +1,24 @@
 <?php
 
-require_once 'Modeles/groupes.php';
+require_once 'Modeles/recherche.php';
 require_once 'Vues/vue.php';
 
-class recherche{
+class controleurRecherche{
 
   public function rechercheGroupes(){
     $recherche = $_POST['Recherche'];
-    if (isset($recherche) && $recherche != NULL){
+    if (isset($recherche) && $recherche == 'Rechercher'){
       header('Location: index.php?page=resultatsrecherche&resultatsrecherche='.$_POST['BarreRecherche']);
     }
   }
 
   public function affichageResultatsRecherche(){
-    $groupe = new groupes();
-    $resultatRechercheGroupes = $groupe->rechercherGroupes()->fetchAll();
-    var_dump($resultatRechercheGroupes);
+    $recherche = new recherche();
+    $resultatRechercheGroupes = $recherche->rechercherGroupes()->fetchAll();
+    $resultatRechercheMembres = $recherche->rechercherMembres()->fetchAll();
+
     $vue = new Vue('ResultatsRecherche');
-    $vue->generer();
+    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres]);
   }
 }
 
