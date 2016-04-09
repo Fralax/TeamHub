@@ -10,32 +10,31 @@
 		<h2>Groupes</h2>
 
 		<table>
-			<?php for ($i=0; $i < count($groupe); $i++) { ?>
+			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
 			<tr>
 				<td>
-					<?php echo $groupe[$i] ?>
+					<?php echo $nom ?>
 				</td>
 
 				<td>
-					<?php echo "Créé par ".$admin[$i] ?>
+					<?php echo "créé par ".$admin ?>
 				</td>
 
 				<td>
 					<?php
-					if($placesLibres[$i] > 1){
-						echo $placesLibres[$i]." places restantes" ;
-					} else{
-						echo $placesLibres[$i]." place restante" ;
+					if($placesLibres > 1){
+						echo $placesLibres." places restantes";
+					} else {
+						echo $placesLibres. " place restante";
 					}
 					?>
 				</td>
 
 				<td>
-					<?php if($placesLibres[$i] != 0){ ?>
-						<a href="index.php?page=confirmationgroupe&nom=<?php echo $groupe[$i]?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+					<?php if($placesLibres != 0){ ?>
+					<a href="index.php?page=confirmationgroupe&nom=<?php echo $nom?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
 					<?php } ?>
 				</td>
-
 			</tr>
 			<?php } ?>
 		</table>

@@ -36,15 +36,9 @@ class groupes extends modele {
   }
 
   public function afficherGroupes(){
-    $sql = 'SELECT DISTINCT(g_nom) FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = ?) ORDER BY g_placesLibres DESC';
+    $sql = 'SELECT DISTINCT(g_nom), g_admin, g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = ?) ORDER BY g_placesLibres DESC';
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
-  }
-
-  public function recupererPlacesLibresGroupes(){
-    $sql ='SELECT g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
-    $recupPlacesLibres = $this->executerRequete ($sql , array('pseudo' => $_SESSION['pseudo']));
-    return $recupPlacesLibres;
   }
 
   public function modifierDescriptionGroupe($nom){
@@ -82,12 +76,6 @@ class groupes extends modele {
     $sql = 'SELECT u_pseudo FROM Appartient WHERE u_pseudo != :pseudo AND g_nom = :nom' ;
     $afficherAdminPossible = $this->executerRequete ($sql, array('pseudo' =>$_SESSION['pseudo'], 'nom' => $nom));
     return $afficherAdminPossible;
-  }
-
-  public function afficherAdminGroupe(){
-    $sql = 'SELECT g_admin FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
-    $recupAdmin = $this->executerRequete ($sql , array('pseudo' => $_SESSION['pseudo']));
-    return $recupAdmin;
   }
 
   public function modifierPlacesLibres($nom){
