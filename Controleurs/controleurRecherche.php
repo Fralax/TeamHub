@@ -1,9 +1,9 @@
 <?php
 
-require_once 'Modeles/groupes.php';
+require_once 'Modeles/recherche.php';
 require_once 'Vues/vue.php';
 
-class recherche{
+class controleurRecherche{
 
   public function rechercheGroupes(){
     $recherche = $_POST['Recherche'];
@@ -13,10 +13,12 @@ class recherche{
   }
 
   public function affichageResultatsRecherche(){
-    $groupe = new groupes();
-    $resultatRechercheGroupes = $groupe->rechercherGroupes()->fetchAll();
+    $recherche = new recherche();
+    $resultatRechercheGroupes = $recherche->rechercherGroupes()->fetchAll();
+    $resultatRechercheMembres = $recherche->rechercherMembres()->fetchAll();
+
     $vue = new Vue('ResultatsRecherche');
-    $vue->generer(['resultats' => $resultatRechercheGroupes]);
+    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres]);
   }
 }
 

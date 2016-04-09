@@ -90,12 +90,6 @@ class groupes extends modele {
     return $recupAdmin;
   }
 
-  public function rechercherGroupes(){
-    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete';
-    $rechercherGroupes = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
-    return $rechercherGroupes;
-  }
-
   public function modifierPlacesLibres($nom){
     $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));

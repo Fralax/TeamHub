@@ -24,7 +24,7 @@
       $this->controleurMembres = new membres();
       $this->controleurGroupes = new controleurGroupes();
       $this->controleurAccueil = new accueil();
-      $this->controleurRecherche = new recherche();
+      $this->controleurRecherche = new controleurRecherche();
       session_start();
     }
 
