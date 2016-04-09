@@ -104,6 +104,10 @@
           $this->controleurGroupes->modificationAdminGroupe($_GET['nom']);
           break;
 
+        case 'affichagemodificationplaces':
+          $this->controleurGroupes->modificationPlacesGroupe($_GET['nom']);
+          break;
+
         case 'resultatsrecherche':
           $this->controleurRecherche->affichageResultatsRecherche();
           break;

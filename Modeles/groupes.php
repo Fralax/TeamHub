@@ -57,6 +57,17 @@ class groupes extends modele {
     $modifierAdminGroupe = $this->executerRequete ($sql, array('admin'=>$_POST['Admin'] ,'nom'=>$nom));
   }
 
+  public function modifierPlacesGroupe($nom){
+    $sql1 = 'UPDATE Groupes SET g_placesTotal = :total WHERE g_nom = :nom';
+    $modifierPlacesGroupes = $this->executerRequete ($sql1, array('total'=>$_POST['placesTotales'] ,'nom'=>$nom));
+    $comptePlacesOccupées = 'SELECT COUNT(u_pseudo) FROM Appartient WHERE g_nom = :nom';
+    $recupPlacesOccupées = $this->executerRequete ($comptePlacesOccupées, array('nom'=>$nom));
+    $anciennesPlacesOccupées = $recupPlacesOccupées->fetch();
+    $placesLibres = $_POST['placesTotales'] - $anciennesPlacesOccupées[0];
+    $sql2 = 'UPDATE Groupes SET g_placesLibres = :libres WHERE g_nom = :nom';
+    $modifierPlacesLibresGroupes = $this->executerRequete ($sql2, array('libres'=> $placesLibres,'nom'=>$nom));
+  }
+
   public function modifierAdminAppartient($nom, $admin){
     $sql = 'UPDATE Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo' ;
     $modifierAdminAppartient = $this->executerRequete ($sql, array('admin'=>$admin,'nom'=>$nom ,'pseudo'=>$_POST['Admin']));

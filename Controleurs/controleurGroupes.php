@@ -68,6 +68,17 @@ class controleurGroupes{
     $vue->generer(["admin" => $adminPossible]);
   }
 
+  public function modificationPlacesGroupe($nom){
+    $groupe = new groupes();
+    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+      $groupe->modifierPlacesGroupe($nom);
+      header("Location: index.php?page=accueil");
+    }
+
+    $vue = new Vue('ModifPlaces');
+    $vue->generer();
+  }
+
   public function affichageMesGroupes(){
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
