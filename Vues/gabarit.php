@@ -119,7 +119,7 @@
                 <li>
                   <?php
                   require_once 'Controleurs/controleurRecherche.php';
-                  $recherche = new recherche();
+                  $recherche = new controleurRecherche();
                   $recherche->rechercheGroupes();
                   ?>
                   <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">

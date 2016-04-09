@@ -5,7 +5,7 @@ require_once "Modeles/modele.php";
 class recherche extends modele {
 
   public function rechercherGroupes(){
-    $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete';
+    $sql = 'SELECT g_nom, g_admin, g_placesLibres FROM Groupes WHERE g_nom LIKE :requete';
     $rechercherGroupes = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
     return $rechercherGroupes;
   }

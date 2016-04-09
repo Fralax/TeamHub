@@ -8,12 +8,37 @@
 
 	<body>
 
-		<h2>Recherche</h2>
-    <?php foreach ($groupes as list($groupes)) { ?>
-    	<p> <?php echo $groupes?> </p>
-    <?php } ?>
-		<?php foreach ($membres as list($membres)) { ?>
-			<p> <?php echo $membres ?> </p>
-		<?php } ?>
+		<h2><?php echo"Résultats pour la recherche : ".$_GET['resultatsrecherche'] ?></h2>
+
+		<table>
+			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
+			<tr>
+				<td>
+					<?php echo $nom ?>
+				</td>
+
+				<td>
+					<?php echo "créé par ".$admin ?>
+				</td>
+
+				<td>
+					<?php
+					if($placesLibres > 1){
+						echo $placesLibres." places restantes";
+					} else {
+						echo $placesLibres. " place restante";
+					}
+					?>
+				</td>
+
+				<td>
+					<?php if(isset($_SESSION['pseudo']) && $placesLibres !=0){ ?>
+					<a href="index.php?page=confirmationgroupe&nom=<?php echo $groupe[$i]?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+					<?php } ?>
+				</td>
+			</tr>
+			<?php } ?>
+		</table>
+
   </body>
 </html>
