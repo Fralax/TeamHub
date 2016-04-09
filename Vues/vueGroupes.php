@@ -15,6 +15,11 @@
 				<td>
 					<?php echo $groupe[$i] ?>
 				</td>
+
+				<td>
+					<?php echo "Créé par ".$admin[$i] ?>
+				</td>
+
 				<td>
 					<?php
 					if($placesLibres[$i] > 1){
@@ -24,11 +29,13 @@
 					}
 					?>
 				</td>
+
 				<td>
 					<?php if($placesLibres[$i] != 0){ ?>
 						<a href="index.php?page=confirmationgroupe&nom=<?php echo $groupe[$i]?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
 					<?php } ?>
 				</td>
+
 			</tr>
 			<?php } ?>
 		</table>

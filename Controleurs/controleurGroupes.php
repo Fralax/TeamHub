@@ -49,7 +49,7 @@ class controleurGroupes{
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
       $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
-      header("Location: index.php?page=accueil");
+      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
     }
     $vue = new Vue('ModifDescription');
     $vue->generer();
@@ -61,7 +61,7 @@ class controleurGroupes{
       $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
       $modificationAdminAppartient = $groupe->modifierAdminAppartient($nom, "admin");
       $modificationNonAdminAppartient = $groupe->modifierNonAdminAppartient($nom, "nonAdmin");
-      header("Location: index.php?page=accueil");
+      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
     }
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
     $vue = new Vue('ModifAdmin');
@@ -72,7 +72,7 @@ class controleurGroupes{
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       $groupe->modifierPlacesGroupe($nom);
-      header("Location: index.php?page=accueil");
+      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
     }
 
     $vue = new Vue('ModifPlaces');
@@ -91,9 +91,11 @@ class controleurGroupes{
     $groupe = new groupes();
     $arrayNomsGroupes = array();
     $arrayPlacesLibres = array();
+    $arrayAdmin = array();
 
     $afficherNomsGroupes = $groupe->afficherGroupes()->fetchAll();
     $afficherPlacesLibresGroupes = $groupe->recupererPlacesLibresGroupes()->fetchAll();
+    $afficherAdmin = $groupe->afficherAdminGroupe()->fetchAll();
 
     foreach ($afficherNomsGroupes as list($nomGroupe)) {
       array_push($arrayNomsGroupes, $nomGroupe);
@@ -101,8 +103,13 @@ class controleurGroupes{
     foreach ($afficherPlacesLibresGroupes as list($placesLibres)) {
       array_push($arrayPlacesLibres, $placesLibres);
     }
+
+    foreach ($afficherAdmin as list($admin)) {
+      array_push($arrayAdmin, $admin);
+    }
+
     $vue = new Vue('Groupes');
-    $vue->generer(["groupe" => $arrayNomsGroupes, "placesLibres" => $arrayPlacesLibres]);
+    $vue->generer(["groupe" => $arrayNomsGroupes, "placesLibres" => $arrayPlacesLibres, "admin" => $arrayAdmin]);
   }
 
   public function rejoindreGroupe($nom){

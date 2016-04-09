@@ -42,8 +42,8 @@ class groupes extends modele {
   }
 
   public function recupererPlacesLibresGroupes(){
-    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
-    $recupPlacesLibres = $this->executerRequete ($sql1, array('pseudo' => $_SESSION['pseudo']));
+    $sql ='SELECT g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
+    $recupPlacesLibres = $this->executerRequete ($sql , array('pseudo' => $_SESSION['pseudo']));
     return $recupPlacesLibres;
   }
 
@@ -84,9 +84,15 @@ class groupes extends modele {
     return $afficherAdminPossible;
   }
 
+  public function afficherAdminGroupe(){
+    $sql = 'SELECT g_admin FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = :pseudo) ORDER BY g_placesLibres DESC';
+    $recupAdmin = $this->executerRequete ($sql , array('pseudo' => $_SESSION['pseudo']));
+    return $recupAdmin;
+  }
+
   public function rechercherGroupes(){
     $sql = 'SELECT g_nom FROM Groupes WHERE g_nom LIKE :requete';
-    $rechercherGroupes = $this->executerRequete($sql, array('requete' => $_POST['BarreRecherche']));
+    $rechercherGroupes = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
     return $rechercherGroupes;
   }
 

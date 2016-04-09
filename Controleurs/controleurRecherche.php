@@ -7,7 +7,7 @@ class recherche{
 
   public function rechercheGroupes(){
     $recherche = $_POST['Recherche'];
-    if (isset($recherche) && $recherche != NULL){
+    if (isset($recherche) && $recherche == 'Rechercher'){
       header('Location: index.php?page=resultatsrecherche&resultatsrecherche='.$_POST['BarreRecherche']);
     }
   }
@@ -15,9 +15,8 @@ class recherche{
   public function affichageResultatsRecherche(){
     $groupe = new groupes();
     $resultatRechercheGroupes = $groupe->rechercherGroupes()->fetchAll();
-    var_dump($resultatRechercheGroupes);
     $vue = new Vue('ResultatsRecherche');
-    $vue->generer();
+    $vue->generer(['resultats' => $resultatRechercheGroupes]);
   }
 }
 
