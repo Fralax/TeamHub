@@ -15,7 +15,7 @@
 <a href = "index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>" > <input type="button" name="Description" value="Modifier la description"> </a>
 </p>
 
-    <p> Administrateur :
+<p> Administrateur :
 <?php echo $caract['g_admin'] ?>
 <a href = "index.php?page=affichagemodificationadmin&nom=<?php echo $caract['g_nom']?>" > <input type="button" name="Admin" value="Désigner un nouvel Admin"> </a>
 </p>

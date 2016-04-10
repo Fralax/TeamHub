@@ -46,7 +46,7 @@
                 ?>
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
                   <input type="text" name="BarreRecherche" placeholder="Rechercher">
-                  <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
+                  <input type="submit" name="Recherche" value="Rechercher" onclick="return true;">
                 </form>
                </li>
             </ul>
