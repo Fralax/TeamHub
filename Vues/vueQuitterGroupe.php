@@ -7,6 +7,8 @@
 
   <body>
     Vous avez quitté : <?php echo $nom ?> !
-    <p> <a href="index.php?page=accueil"> <input name="voirAccueil" type="button" value="Retour à l'Accueil"> </a> </p>
+    <p> Vous allez être redirigé vers vos groupes. </p>
   </body>
+  
+<?php header('refresh:3;url=index.php?page=mesgroupes') ?>
 </html>

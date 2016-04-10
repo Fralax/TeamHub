@@ -9,6 +9,7 @@ class controleurRecherche{
     $recherche = $_POST['Recherche'];
     if (isset($recherche) && $recherche == 'Rechercher'){
       header('Location: index.php?page=resultatsrecherche&resultatsrecherche='.$_POST['BarreRecherche']);
+      exit;
     }
   }
 
