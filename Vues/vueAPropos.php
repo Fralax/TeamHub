@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>A propos</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/Stylesheet/A_propos.css">
+    <link rel="stylesheet" type="text/css">
     <meta charset="utf-8"/>
   </head>
   <body>

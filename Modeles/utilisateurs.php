@@ -6,7 +6,7 @@ class utilisateurs extends modele {
 
   public function ajoutUtilisateurBdd(){
 
-      $pass_hache = sha1($_POST['MotDePasse']);
+      $pass_hache = password_hash($_POST['MotDePasse'], PASSWORD_BCRYPT);
       $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
 
       $sql = 'INSERT INTO utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance, u_mdp)
@@ -40,9 +40,8 @@ class utilisateurs extends modele {
   public function verifConnexion(){
     $envoiConnexion = $_POST['connexion'];
     if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
-      $pass_hache = sha1($_POST['PasswordAccueil']);
-      $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :passwordaccueil';
-      $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo'],'passwordaccueil' => $pass_hache));
+      $sql = 'SELECT u_mdp FROM Utilisateurs WHERE u_pseudo = :pseudo';
+      $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo']));
       return $resultatConnexion;
     }
   }
@@ -83,7 +82,7 @@ class utilisateurs extends modele {
   public function RecupMonMdp(){
     $envoiMdp = $_POST['Envoyer'];
     if (isset($envoiMdp) && $envoiMdp == 'Envoyer'){
-      $pass_hache = sha1($_POST['AncienMotDePasse']);
+      $pass_hache = password_hash($_POST['AncienMotDePasse'], PASSWORD_BCRYPT);
       $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :ancienmotdepasse';
       $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'ancienmotdepasse' => $pass_hache));
       return $resultatRecupMdp;
@@ -91,7 +90,7 @@ class utilisateurs extends modele {
   }
 
   public function modifierMonMdp(){
-    $pass_hache = sha1($_POST['NouveauMotDePasse']);
+    $pass_hache = password_hash($_POST['NouveauMotDePasse'], PASSWORD_BCRYPT);
     $sql = 'UPDATE Utilisateurs SET u_mdp = :mdp WHERE u_pseudo = :pseudo';
     $modifierMonMdp = $this->executerRequete($sql, array('mdp' => $pass_hache, 'pseudo' => $_SESSION['pseudo']));
   }

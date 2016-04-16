@@ -8,8 +8,10 @@
    - un parent (body) en "height: 100%";
    - le parent de body également en "height: 100%". */
 
+
+
 html {
-	background:#505D6E url(../Autres/img6.jpg) no-repeat center center fixed;
+	background:#505D6E url(../Autres/img1.jpg) no-repeat center center fixed;
 	min-height:100%;
 	opacity: 0.7;
 	-webkit-background-size: cover;
@@ -34,8 +36,6 @@ body {
 h1 {
     color: #1E90FF;
 }
-
-
 
 #menu-deroulant, #menu-deroulant ul {
     padding: 0;

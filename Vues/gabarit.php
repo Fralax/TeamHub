@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/styleMembre.css" />
+        <link rel="stylesheet" href="Contenu/style.css" />
         <title><?= $titre ?></title>
     </head>
 
@@ -13,11 +13,10 @@
 
       <header>
 
-        <div id="headerGauche">
+        <p>
           <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
-        </div>
+        </p>
 
-        <div id="headerDroite">
           <ul id="menu-deroulant">
           <li><a href="index.php?page=accueil"> Accueil </a>
           </li>
@@ -60,7 +59,6 @@
           </li>
 
         </ul>
-        </div>
       </header>
 
       <div id="wrap">
@@ -82,17 +80,14 @@
 
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/styleVisiteur.css" />
+        <link rel="stylesheet" href="Contenu/style.css" />
         <title><?= $titre ?></title>
     </head>
 
     <body>
 
       <header>
-        <div id= "headerGauche">
           <a href="index.php"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
-        </div>
-        <div id= "headerDroite">
           <ul id="menu-deroulant">
             <li><a href="index.php"> Accueil </a>
             </li>
@@ -135,8 +130,6 @@
 
           </ul>
 
-
-        </div>
       </header>
 
       <div id="wrap">
