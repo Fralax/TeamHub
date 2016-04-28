@@ -18,7 +18,6 @@
     private $controleurRecherche;
 
     public function __construct(){
-
       $this->controleurConnexion = new connexion();
       $this->controleurInscription = new inscription();
       $this->controleurMembres = new membres();

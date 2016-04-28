@@ -10,7 +10,7 @@
 
 
 
-html {
+html{
 	background:#505D6E url(../Autres/img1.jpg) no-repeat center center fixed;
 	min-height:100%;
 	opacity: 0.7;
@@ -20,7 +20,7 @@ html {
 	        background-size: cover;
 }
 
-body {
+body{
 	background:transparent;
 	min-height:100%;
 	-webkit-font-smoothing: antialiased;
@@ -33,87 +33,85 @@ body {
 	font-weight: normal;
 }
 
+
 h1 {
     color: #1E90FF;
 }
 
-#menu-deroulant, #menu-deroulant ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-		text-align: center;
+
+#barreMenu {
+	/* on centre le menu dans la page */
+  text-align: center;
+	color: black;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
-#menu-deroulant {
-/* on centre le menu dans la page */
-    text-align: center;
+
+#barreMenu, #barreMenu ul{
+	padding : 0; /* pas de marge intérieure */
+	margin : 0; /* ni extérieure */
+	list-style : none; /* on supprime le style par défaut de la liste */
+	line-height : 21px; /* on définit une hauteur pour chaque élément */
+	text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
-#menu-deroulant li {
-/* on place les liens du menu horizontalement */
-    display: inline-block;
-		position: relative;
-		border-radius: 8px 8px 0 0;
-		width: 144px;
+
+#barreMenu li {
+	/* on place les liens du menu horizontalement */
+	display: inline-block;
+	position: relative;
+	width: 15em;
 }
-#menu-deroulant ul li {
-/* on enlève ce comportement pour les liens du sous menu */
-    display: inherit;
-		border-radius: 0;
-		width: 144px;
+
+#barreMenu ul li {
+	/* on enlève ce comportement pour les liens du sous menu */
+  display: inherit;
+	border-radius: 0;
 }
-#menu-deroulant a {
-    text-decoration: none;
-    display: block;
-		color:#fff;
+
+#barreMenu a {
+	/*on enlève la décoration des liens pour qu'ils soient identiques au reste du menu*/
+  text-decoration: none;
+  display: block;
+	color: black;
 }
-#menu-deroulant ul {
+
+#barreMenu ul {
+	/*on cache les chamsp nécessaires et on aligne en haut*/
 	position:absolute;
 	z-index: 1000;
 	max-height:0;
 	left: 0;
 	right: 0;
 	overflow:hidden;
+
+	/*transitions animées*/
 	-moz-transition: .8s all .1s;
 	-webkit-transition: .8s all .1s;
 	transition: .8s all .1s;
 }
 
-#menu-deroulant ul li:hover{
+#barreMenu ul li:hover{
 border-radius:0;
 }
 
-#menu-deroulant li:hover ul {
+#barreMenu li:hover ul {
 	max-height:15em;
 }
-#menu-deroulant ul li:last-child{
-border-radius:0 0 8px 8px;
-}
-#menu-deroulant ul a{
+
+#barreMenu ul a{
 padding:8px 0;
 }
-#menu-deroulant li:hover li a{
-color:#fff;
+
+#barreMenu li:hover li a{
+color: black;
 text-transform:inherit;
 }
 
-#menu-deroulant li:first-child{
-background-color: #6A5ACD;
-
-}
-#menu-deroulant li:nth-child(2){
-background-color: #6A5ACD;
-
-}
-#menu-deroulant li:nth-child(3){
-background-color: #6A5ACD;
-
-}
-#menu-deroulant li:nth-child(4){
-background-color: #6A5ACD;
-
-}
-#menu-deroulant li:last-child{
-background-color: #6A5ACD;
-
+#barreMenu li:first-child, li:nth-child(2), li:nth-child(3), li:nth-child(4), li:last-child{
+background-color: #fff;
+text-transform:inherit;
 }
 
 * {
