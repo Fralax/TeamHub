@@ -67,10 +67,10 @@ class membres{
 
   public function modificationMonMdp(){
     $user = new utilisateurs();
-    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
+    if (isset($_POST['modifMdp']) && $_POST['modifMdp'] == 'Modifier le Mot de Passe'){
       if($_POST['AncienMotDePasse'] != "" && $_POST['NouveauMotDePasse'] != "" && $_POST['ConfirmNouveauMotDePasse'] != ""){
-        $resultatRecupMdp = $user->RecupMonMdp()->fetch();
-        if (!$resultatRecupMdp){
+        $resultatRecupMdp = $user->verifMdp()->fetch();
+        if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
           echo 'Votre ancien Mot de Passe est incorrect !';
         } else{
           if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){

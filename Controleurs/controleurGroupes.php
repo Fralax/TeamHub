@@ -15,14 +15,18 @@ class controleurGroupes{
 
     if(!empty($creer)){
       if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
-        $groupe = new groupes();
-        $groupe->ajoutGroupeBdd();
-        $appartient = new utilisateurs();
-        $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
-        $groupe->modifierPlacesLibres($nomGroupe);
-        header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
+        if($placesLibres < 2){
+          echo "Votre groupe doit contenir au moins deux places !";
+        } else{
+          $groupe = new groupes();
+          $groupe->ajoutGroupeBdd();
+          $appartient = new utilisateurs();
+          $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
+          $groupe->diminuerPlacesLibres($nomGroupe);
+          header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
+        }
       } else{
-          echo "Des champs n'ont pas été remplis";
+        echo "Des champs n'ont pas été remplis";
       }
     }
     $vue = new Vue('CreationGroupe');
@@ -57,12 +61,12 @@ class controleurGroupes{
 
   public function modificationAdminGroupe($nom){
     $groupe = new groupes();
+
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      $modificationAdminAppartient = $groupe->modifierAdminAppartient($nom, "admin");
-      $modificationNonAdminAppartient = $groupe->modifierNonAdminAppartient($nom, "nonAdmin");
       header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
     }
+
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
     $vue = new Vue('ModifAdmin');
     $vue->generer(["admin" => $adminPossible]);
@@ -98,7 +102,7 @@ class controleurGroupes{
     $appartient = new utilisateurs();
     $appartient->ajoutAppartientBdd($nom, "nonAdmin");
     $groupe = new groupes();
-    $groupe->modifierPlacesLibres($nom);
+    $groupe->diminuerPlacesLibres($nom);
     $vue = new Vue('ConfirmationGroupe');
     $vue->generer(["nom"=>$nom]);
   }

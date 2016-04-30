@@ -10,7 +10,7 @@
 
     <form action="" method="post">
       <select name="Admin">
-        <option value=""> -- Selectionnez un nouvel Admin -- </option>
+        <option value = "<?php echo $_SESSION['pseudo'] ?>"> <?php echo $_SESSION['pseudo'] ?> </option>
         <?php foreach ($admin as list($nomAdmin)) { ?>
         <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
         <?php } ?>

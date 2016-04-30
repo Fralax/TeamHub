@@ -12,7 +12,7 @@ class connexion{
 
     if (isset($connexion) && $connexion == 'Connexion'){
       $user = new utilisateurs();
-      $resultatConnexion = $user->verifConnexion()->fetch();
+      $resultatConnexion = $user->verifMdp()->fetch();
 
       if (password_verify($_POST['PasswordAccueil'], $resultatConnexion[0])){
         session_start();

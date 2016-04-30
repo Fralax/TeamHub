@@ -37,12 +37,13 @@ class utilisateurs extends modele {
       }
     }
 
-  public function verifConnexion(){
+  public function verifMdp(){
     $envoiConnexion = $_POST['connexion'];
-    if (isset($envoiConnexion) && $envoiConnexion == 'Connexion'){
-      $sql = 'SELECT u_mdp FROM Utilisateurs WHERE u_pseudo = :pseudo';
-      $resultatConnexion = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo']));
-      return $resultatConnexion;
+    $envoiModifMdp = $_POST['modifMdp'];
+    if ((isset($envoiConnexion) && $envoiConnexion == 'Connexion') || (isset($envoiModifMdp) && $envoiModifMdp == 'Modifier le Mot de Passe')){
+      $sql = 'SELECT u_mdp FROM Utilisateurs WHERE u_pseudo = :connexionPseudo OR u_pseudo = :modifPseudo';
+      $resultat = $this->executerRequete($sql, array('connexionPseudo' => $_POST['pseudo'], 'modifPseudo' => $_SESSION['pseudo']));
+      return $resultat;
     }
   }
 
@@ -87,12 +88,6 @@ class utilisateurs extends modele {
       $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'ancienmotdepasse' => $pass_hache));
       return $resultatRecupMdp;
     }
-  }
-
-  public function modifierMonMdp(){
-    $pass_hache = password_hash($_POST['NouveauMotDePasse'], PASSWORD_BCRYPT);
-    $sql = 'UPDATE Utilisateurs SET u_mdp = :mdp WHERE u_pseudo = :pseudo';
-    $modifierMonMdp = $this->executerRequete($sql, array('mdp' => $pass_hache, 'pseudo' => $_SESSION['pseudo']));
   }
 
   public function listerMembres($nom){

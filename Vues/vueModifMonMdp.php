@@ -17,7 +17,7 @@
 			<p> <input type="password" name="AncienMotDePasse" placeholder="Ancien Mot De Passe" size="25" value = ""/> </p>
       <p> <input type="password" name="NouveauMotDePasse" placeholder="Nouveau Mot De Passe" size="25" value = ""/> </p>
 			<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder="Confirmer Mot De Passe" size="25" value = ""/> </p>
-			<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
+			<p> <input name="modifMdp" type="submit" value="Modifier le Mot de Passe"> </p>
 
 		</form>
 	</body>
