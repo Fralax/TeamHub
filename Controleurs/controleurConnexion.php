@@ -12,16 +12,15 @@ class connexion{
 
     if (isset($connexion) && $connexion == 'Connexion'){
       $user = new utilisateurs();
-      $resultatConnexion = $user->verifConnexion()->fetch();
+      $resultatConnexion = $user->verifMdp()->fetch();
 
-
-      if (!$resultatConnexion) {
-        echo 'Mauvais identifiant ou mot de passe !';
-      } else {
+      if (password_verify($_POST['PasswordAccueil'], $resultatConnexion[0])){
         session_start();
         $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
         header("Location: index.php?page=accueil");
+      } else {
+        echo "Mauvais Identifiant ou Mot de Passe !";
       }
     }
   }

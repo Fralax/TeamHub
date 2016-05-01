@@ -8,7 +8,7 @@
 		<h2>Changement du nombre de places libres </h2>
 
     <form action="" method="post">
-      <input type="number" name="placesTotales" placeholder="Nombre de places" size="25"  />
+      <input type="number" name="placesTotales" placeholder="Nombre de places" size="25" min="0"  />
       <input type="submit" name="Modifier" value="Modifier" >
     </form>
   </body>
