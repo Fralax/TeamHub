@@ -11,7 +11,7 @@
 html {
 	background:#505D6E url(../Autres/img6.jpg) no-repeat center center fixed;
 	min-height:100%;
-	opacity: 0.7;
+	opacity: 0.9;
 	-webkit-background-size: cover;
 	   -moz-background-size: cover;
 	     -o-background-size: cover;
@@ -26,7 +26,6 @@ body {
 	line-height: 1.5em;
 	font-size:14px;
 	font-family: Helvetica, Arial, sans-serif;
-	color:#fff;
 	color:rgba(255,255,255,.8);
 	font-weight: normal;
 }
@@ -52,13 +51,15 @@ h1 {
     display: inline-block;
 		position: relative;
 		border-radius: 8px 8px 0 0;
-		width: 144px;
+		width: 17em;
+		height: 3em;
 }
 #menu-deroulant ul li {
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
 		border-radius: 0;
-		width: 144px;
+		width: 17em;
+		height: 3em;
 }
 #menu-deroulant a {
     text-decoration: none;
@@ -91,29 +92,34 @@ border-radius:0 0 8px 8px;
 padding:8px 0;
 }
 #menu-deroulant li:hover li a{
-color:#fff;
+color:#000000;
 text-transform:inherit;
 }
 
 #menu-deroulant li:first-child{
-background-color: #6A5ACD;
-
+background-color: #FAF0E6;
+opacity: 1;
+color:#000000;
 }
 #menu-deroulant li:nth-child(2){
-background-color: #6A5ACD;
-
+background-color: #FFFAFA;
+opacity: 1;
+color:#000000;
 }
 #menu-deroulant li:nth-child(3){
-background-color: #6A5ACD;
-
+background-color: #FAF0E6;
+opacity: 0.6;
+color:#000000;
 }
 #menu-deroulant li:nth-child(4){
-background-color: #6A5ACD;
-
+background-color: #E0FFFF;
+opacity: 0.6;
+color:#000000;
 }
 #menu-deroulant li:last-child{
-background-color: #6A5ACD;
-
+background-color: #F0F8FF;
+opacity: 0.6;
+color:#000000;
 }
 
 * {
