@@ -1,3 +1,8 @@
+
+*{
+    font-family: sans-serif;
+}
+
 html{
   background:#505D6E url(../Autres/img1.jpg) no-repeat center center fixed;
   min-height:100%;
@@ -5,8 +10,8 @@ html{
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
-}
 
+}
 
 header #logo{
   text-align: center;
@@ -26,12 +31,13 @@ header nav{
   text-align: center;
   background-color: rgba(245, 245, 245, 0.5);
   margin-top: 30px;
+  font-size: 17px;
 }
 
 header #barreMenu, #barreMenu ul{
 	padding : 0; /* pas de marge intérieure */
 	margin : 0; /* ni extérieure */
-	line-height : 21px; /* on définit une hauteur pour chaque élément */
+	line-height : 40px; /* on définit une hauteur pour chaque élément */
 	text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
 
@@ -43,8 +49,9 @@ header #barreMenu li {
 }
 
 header #barreMenu p{
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: -10px;
+  margin-bottom: -5px;
+  padding-bottom: -5px;
 }
 
 header #barreMenu ul li {
@@ -77,12 +84,6 @@ header #barreMenu li:hover ul {
   background-color: rgba(245, 245, 245, 0.5);
 }
 
-* {
-	padding:0
-}
-
-html {height: 98%}
-
 #wrap {
 	position: relative;
 	margin-top: 3em;
@@ -95,8 +96,15 @@ html {height: 98%}
 
 footer {
     position: relative;
-		text-align: center;
+    text-align: center;
     clear:both;
-    margin-top: -150px;
-    height: 150px;
+    margin-top: -90px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+footer a{
+  text-decoration: none;
+  color: black;
 }

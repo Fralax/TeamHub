@@ -19,20 +19,20 @@
 
         <nav>
           <ul id="barreMenu">
-          <li> <a href="index.php?page=accueil"> Accueil </a> </li><!--
-       --><li> Groupe
+          <li> <a href="index.php?page=accueil"> ACCUEIL </a> </li><!--
+       --><li> GROUPE
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
               <li><a href="index.php?page=groupes"> Rejoindre un Groupe </a> </li>
               <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li><!--
-       --><li> Club
+       --><li> CLUB
             <ul>
               <li><a href="index.php?page=accueil"> Voir la liste des clubs </a> </li>
             </ul>
           </li><!--
-       --><li> Rechercher
+       --><li> RECHERCHER
             <ul>
               <li>
                 <?php
@@ -47,9 +47,9 @@
                </li>
             </ul>
           </li><!--
-       --><li> <?php echo"Bonjour, ", $_SESSION['pseudo'] ?>
+       --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
-              <li><a href="index.php?page=mesinfos"> Modifier ses informations personnelles </a></li>
+              <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
             </ul>
           </li>
@@ -64,10 +64,16 @@
       </div>
 
       <footer>
-        <div>
+        <div class="reseaux">
+          <a href="https://www.facebook.com/TeamHub-1068359279883250/?fref=ts"> <img src="Autres/facebook.png" alt="facebook" height="30" width="30"> </a>
+          &nbsp;
+          <a href="https://twitter.com/TimHeub"> <img src="Autres/twitter.png" alt="twitter" height="32" width="32"> </a>
+        </div>
+        <div class="aPropos">
           <a href="index.php?page=apropos"> A propos </a>
         </div>
-        Site réalisé par le groupe G5C
+
+        TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
       </footer>
 
     </body>
@@ -85,8 +91,8 @@
 
         <nav>
           <ul id="barreMenu">
-            <li> <a href="index.php"> Accueil </a> </li><!--
-         --><li> Rechercher
+            <li> <a href="index.php"> ACCUEIL </a> </li><!--
+         --><li> RECHERCHER
               <ul>
                 <li>
                   <?php
@@ -101,7 +107,7 @@
                  </li>
               </ul>
             </li><!--
-         --><li> Connexion
+         --><li> CONNEXION
               <ul>
                 <li>
                   <?php
@@ -117,7 +123,7 @@
                 </li>
               </ul>
             </li><!--
-         --><li> <a href="index.php?page=inscription"> Inscription </a> </li>
+         --><li> <a href="index.php?page=inscription"> INSCRIPTION </a> </li>
           </ul>
         </nav>
 
@@ -130,10 +136,16 @@
       </div>
 
       <footer>
-        <div>
-          Site réalisé par le groupe G5C
+        <div class="reseaux">
+          <a href="https://www.facebook.com/TeamHub-1068359279883250/?fref=ts"> <img src="Autres/facebook.png" alt="facebook" height="30" width="30"> </a>
+          &nbsp;
+          <a href="https://twitter.com/TimHeub"> <img src="Autres/twitter.png" alt="twitter" height="32" width="32"> </a>
         </div>
-        <a href="index.php?page=apropos"> A propos </a>
+        <div class="aPropos">
+          <a href="index.php?page=apropos"> A propos </a>
+        </div>
+
+        TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
       </footer>
 
     </body>
