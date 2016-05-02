@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modeles/groupes.php';
+require_once 'Modeles/utilisateurs.php';
 require_once 'Vues/vue.php';
 
 class controleurGroupes{
@@ -45,8 +46,10 @@ class controleurGroupes{
   public function affichageCaracteristiquesGroupe($nom){
     $groupe = new groupes();
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+    $user = new utilisateurs();
+    $afficherMembresGroupe = $user->listerMembres($nom)->fetchAll();
     $vue = new Vue('Groupe');
-    $vue->generer(["caract" => $afficherCaracteristiquesGroupe]);
+    $vue->generer(array("caract" => $afficherCaracteristiquesGroupe, "membres" => $afficherMembresGroupe));
   }
 
   public function modificationDescriptionGroupe($nom){

@@ -32,25 +32,94 @@
 <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un évenement" > </a> </p>
 
 <?php } else{ ?>
+  <?php if(isset($_SESSION['pseudo'])){ ?>
+    <?php foreach ($membres as list($membre)) {
+      if ($membre == $_SESSION['pseudo']){ ?>
+        <p> Description du groupe :
+        <?php echo $caract['g_description'] ?>
+        </p>
 
-<p> Description du groupe :
-<?php echo $caract['g_description'] ?>
-</p>
+        <p> Administrateur :
+        <?php echo $caract['g_admin'] ?>
+        </p>
 
-<p> Administrateur :
-<?php echo $caract['g_admin'] ?>
-</p>
+        <p> Nombre de places :
+        <?php echo $caract['g_placesLibres'] ?>
+        </p>
 
-<p> Nombre de places :
-<?php echo $caract['g_placesLibres'] ?>
-</p>
+        <p> Sport : <?php echo $caract['g_sport'] ?></p>
 
-<p> Sport : <?php echo $caract['g_sport'] ?></p>
+        <p> Lieu : <?php echo $caract['g_departement'] ?></p>
 
-<p> Lieu : <?php echo $caract['g_departement'] ?></p>
+        <p> <input type = "button" name="Evenement" value="Créer un événement" > </p>
 
+        <?php break; ?>
 
+        <?php } if ($membre != $_SESSION['pseudo']){
+                  if($caract['g_placesLibres'] !=0){ ?>
+                    <p> Description du groupe :
+                    <?php echo $caract['g_description'] ?>
+                    </p>
 
-<?php } ?>
+                    <p> Administrateur :
+                    <?php echo $caract['g_admin'] ?>
+                    </p>
+
+                    <p> Nombre de places :
+                    <?php echo $caract['g_placesLibres'] ?>
+                    </p>
+
+                    <p> Sport : <?php echo $caract['g_sport'] ?></p>
+
+                    <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+
+                    <p> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </p>
+
+                  <?php } else{ ?>
+
+                    <p> Description du groupe :
+                    <?php echo $caract['g_description'] ?>
+                    </p>
+
+                    <p> Administrateur :
+                    <?php echo $caract['g_admin'] ?>
+                    </p>
+
+                    <p> Nombre de places :
+                    <?php echo $caract['g_placesLibres'] ?>
+                    </p>
+
+                    <p> Sport : <?php echo $caract['g_sport'] ?></p>
+
+                    <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+
+                    <?php } ?>
+
+          <?php break; ?>
+
+      <?php   }
+            }
+          } else{?>
+
+    <p> Description du groupe :
+    <?php echo $caract['g_description'] ?>
+    </p>
+
+    <p> Administrateur :
+    <?php echo $caract['g_admin'] ?>
+    </p>
+
+    <p> Nombre de places :
+    <?php echo $caract['g_placesLibres'] ?>
+    </p>
+
+    <p> Sport : <?php echo $caract['g_sport'] ?></p>
+
+    <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+
+    <p> <input type = "button" name="inscription" value="S'inscrire sur le site" > </p>
+
+  <?php }
+      } ?>
   </body>
 </html>
