@@ -29,7 +29,7 @@
 
 <p> Lieu : <?php echo $caract['g_departement'] ?></p>
 
-<p> <input type = "button" name="Evenement" value="Créer un évenement" > </p>
+<p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un évenement" > </a> </p>
 
 <?php } else{ ?>
 
