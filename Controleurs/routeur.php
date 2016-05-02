@@ -6,6 +6,7 @@
   require_once 'Controleurs/controleurGroupes.php';
   require_once 'Controleurs/controleurAccueil.php';
   require_once 'Controleurs/controleurRecherche.php';
+  require_once 'Controleurs/controleurEvenements.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -16,6 +17,7 @@
     private $controleurGroupes;
     private $controleurAccueil;
     private $controleurRecherche;
+    private $controleurEvenements;
 
     public function __construct(){
       $this->controleurConnexion = new connexion();
@@ -24,6 +26,7 @@
       $this->controleurGroupes = new controleurGroupes();
       $this->controleurAccueil = new accueil();
       $this->controleurRecherche = new controleurRecherche();
+      $this->controleurEvenements = new controleurEvenements();
       session_start();
     }
 
@@ -51,16 +54,16 @@
           $this->controleurGroupes->suppressionGroupe($_GET['nom']);
           break;
 
+        case 'groupe':
+          $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
+          break;
+
         case 'mesgroupes':
           $this->controleurGroupes->affichageMesGroupes();
           break;
 
         case 'groupes':
           $this->controleurGroupes->affichageGroupes();
-          break;
-
-        case 'groupe':
-          $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
           break;
 
         case 'confirmationgroupe':
@@ -105,6 +108,10 @@
 
         case 'resultatsrecherche':
           $this->controleurRecherche->affichageResultatsRecherche();
+          break;
+
+        case 'creationevenements':
+          $this->controleurEvenements->creationEvenements($_GET['nom']);
           break;
 
         default:
