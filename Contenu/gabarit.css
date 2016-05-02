@@ -77,12 +77,14 @@ header #barreMenu ul {
 }
 
 header #barreMenu ul li:hover{
-border-radius:0;
+border-radius: 0;
 }
 
 header #barreMenu li:hover ul {
 	max-height:15em;
   background-color: rgba(245, 245, 245, 0.5);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 #wrap {
@@ -109,4 +111,9 @@ footer {
 footer a{
   text-decoration: none;
   color: black;
+}
+
+footer img:hover{
+  transition:transform .2s ease;
+  transform: scale(1.2);
 }
