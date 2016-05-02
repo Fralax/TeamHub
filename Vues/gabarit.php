@@ -30,6 +30,7 @@
        --><li> CLUB
             <ul>
               <li><a href="index.php?page=accueil"> Voir la liste des clubs </a> </li>
+              <li><a href="index.php?page=accueil"> Ajout d'un club </a> </li>
             </ul>
           </li><!--
        --><li> RECHERCHER
