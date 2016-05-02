@@ -12,8 +12,11 @@
 
 	<body>
 
+
 		<div class="inscription">
 			<h2>Inscrivez vous, c'est gratuit !</h2>
+
+			<br></br>
 
 			<form  name = "formulaireInscription" method="post" action = "">
 				<p> Prénom : <input type="text" name="Prenom" placeholder="Prénom" size="25" value = "<?= $_POST['Prenom'] ?>"/>
@@ -382,6 +385,7 @@
 				<p> Mot de Passe : <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/>
 						Confirmez votre Mot de Passe : <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>
 				</p>
+				<br></br>
 				<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
 			</form>
 		</div>
