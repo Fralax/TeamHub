@@ -51,10 +51,6 @@
           $this->controleurGroupes->suppressionGroupe($_GET['nom']);
           break;
 
-        case 'moderationgroupe':
-          $this->controleurGroupes->affichageCaracteristiquesGroupe($_GET['nom']);
-          break;
-
         case 'mesgroupes':
           $this->controleurGroupes->affichageMesGroupes();
           break;

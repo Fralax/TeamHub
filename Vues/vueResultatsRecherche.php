@@ -21,7 +21,7 @@
 			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
 			<tr>
 				<td>
-					<?php echo $nom ?>
+					<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 				</td>
 
 				<td>

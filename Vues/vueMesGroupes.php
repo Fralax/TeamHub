@@ -13,7 +13,7 @@
 				<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin)) { ?>
 						<tr>
 							<td>
-								<a href="index.php?page=moderationgroupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
+								<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
 							</td>
 							<td>
 								<a href ="index.php?page=listemembres&nom=<?php echo $nomMesGroupeAdmin?>"> <input name="voirMembres" type="button" value="Voir les Membres"> </a>

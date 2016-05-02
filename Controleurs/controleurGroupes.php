@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modeles/groupes.php';
+require_once 'Modeles/utilisateurs.php';
 require_once 'Vues/vue.php';
 
 class controleurGroupes{
@@ -23,7 +24,7 @@ class controleurGroupes{
           $appartient = new utilisateurs();
           $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
           $groupe->diminuerPlacesLibres($nomGroupe);
-          header("Location: index.php?page=moderationgroupe&nom=".$_POST['nomGroupe']);
+          header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
         }
       } else{
         echo "Des champs n'ont pas été remplis";
@@ -45,15 +46,17 @@ class controleurGroupes{
   public function affichageCaracteristiquesGroupe($nom){
     $groupe = new groupes();
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+    $user = new utilisateurs();
+    $afficherMembresGroupe = $user->listerMembres($nom)->fetchAll();
     $vue = new Vue('Groupe');
-    $vue->generer(["caract" => $afficherCaracteristiquesGroupe]);
+    $vue->generer(array("caract" => $afficherCaracteristiquesGroupe, "membres" => $afficherMembresGroupe));
   }
 
   public function modificationDescriptionGroupe($nom){
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
       $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
-      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
+      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
     }
     $vue = new Vue('ModifDescription');
     $vue->generer();
@@ -64,7 +67,7 @@ class controleurGroupes{
 
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
+      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
     }
 
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
@@ -76,7 +79,7 @@ class controleurGroupes{
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       $groupe->modifierPlacesGroupe($nom);
-      header("Location: index.php?page=moderationgroupe&nom=".$_GET['nom']);
+      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
     }
 
     $vue = new Vue('ModifPlaces');
