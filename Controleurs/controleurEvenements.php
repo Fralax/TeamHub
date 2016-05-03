@@ -8,7 +8,7 @@ class controleurEvenements{
     $evenement = new evenements();
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
       $evenement->ajouterEvenementsBdd($groupe);
-      header('refresh:3;url=index.php?page=mesgroupes');
+      header("Location: index.php?page=mesgroupes");
     }
     $vue = new Vue('CreationEvenements');
     $vue->generer();
@@ -16,11 +16,10 @@ class controleurEvenements{
 
   public function affichageEvenements($groupe){
     $evenement = new evenements();
-    $afficherGroupes = $groupe->afficherEvenements($groupe)->fetchAll();
+    $afficherEvenements = $evenement->afficherEvenements($groupe)->fetchAll();
     $vue = new Vue('Groupe');
-    $vue->generer(["groupes" => $afficherGroupes]);
+    $vue->generer(["evenement" => $afficherEvenements]);
   }
-
 
 }
 ?>
