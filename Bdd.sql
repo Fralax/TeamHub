@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Ven 08 Avril 2016 à 11:34
+-- Généré le :  Mar 03 Mai 2016 à 09:31
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -26,6 +26,22 @@ CREATE TABLE `Appartient` (
   `a_admin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Evenements`
+--
+
+CREATE TABLE `Evenements` (
+  `e_id` int(12) NOT NULL,
+  `e_date` date NOT NULL,
+  `e_createur` varchar(255) NOT NULL,
+  `e_heure` time NOT NULL,
+  `g_nom` varchar(255) NOT NULL,
+  `c_nom` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -41,6 +57,7 @@ CREATE TABLE `Groupes` (
   `g_placesTotal` int(11) NOT NULL,
   `g_placesLibres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -63,6 +80,7 @@ CREATE TABLE `Utilisateurs` (
   `u_mdp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Table des utilisateurs enregistrés';
 
+
 --
 -- Index pour les tables exportées
 --
@@ -72,6 +90,12 @@ CREATE TABLE `Utilisateurs` (
 --
 ALTER TABLE `Appartient`
   ADD PRIMARY KEY (`u_pseudo`,`g_nom`);
+
+--
+-- Index pour la table `Evenements`
+--
+ALTER TABLE `Evenements`
+  ADD PRIMARY KEY (`e_id`);
 
 --
 -- Index pour la table `Groupes`
@@ -87,3 +111,14 @@ ALTER TABLE `Utilisateurs`
   ADD PRIMARY KEY (`u_pseudo`),
   ADD UNIQUE KEY `u_pseudo` (`u_pseudo`),
   ADD UNIQUE KEY `u_email` (`u_email`),
+  ADD UNIQUE KEY `u_pseudo_2` (`u_pseudo`,`u_email`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Evenements`
+--
+ALTER TABLE `Evenements`
+  MODIFY `e_id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
