@@ -20,20 +20,20 @@
         <nav>
           <ul id="barreMenu">
           <li> <a href="index.php?page=accueil"> ACCUEIL </a> </li><!--
-       --><li> GROUPE
+       --><li> <a href=""> GROUPE </a>
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
               <li><a href="index.php?page=groupes"> Rejoindre un Groupe </a> </li>
               <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li><!--
-       --><li> CLUB
+       --><li> <a href=""> CLUB </a>
             <ul>
               <li><a href="index.php?page=accueil"> Voir la liste des clubs </a> </li>
               <li><a href="index.php?page=accueil"> Ajout d'un club </a> </li>
             </ul>
           </li><!--
-       --><li> RECHERCHER
+       --><li> <a href=""> RECHERCHER </a>
             <ul>
               <li>
                 <?php
@@ -48,7 +48,7 @@
                </li>
             </ul>
           </li><!--
-       --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
+       --><li> <a href="">  <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?> </a>
             <ul>
               <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
@@ -93,7 +93,7 @@
         <nav>
           <ul id="barreMenu">
             <li> <a href="index.php"> ACCUEIL </a> </li><!--
-         --><li> RECHERCHER
+         --><li> <a href="">  RECHERCHER </a>
               <ul>
                 <li>
                   <?php
@@ -108,7 +108,7 @@
                  </li>
               </ul>
             </li><!--
-         --><li> CONNEXION
+         --><li> <a href=""> CONNEXION </a>
               <ul>
                 <li>
                   <?php
