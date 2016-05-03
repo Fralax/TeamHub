@@ -14,6 +14,12 @@ class controleurEvenements{
     $vue->generer();
   }
 
+  public function affichageEvenements($groupe){
+    $evenement = new evenements();
+    $afficherGroupes = $groupe->afficherEvenements($groupe)->fetchAll();
+    $vue = new Vue('Groupe');
+    $vue->generer(["groupes" => $afficherGroupes]);
+  }
 
 
 }

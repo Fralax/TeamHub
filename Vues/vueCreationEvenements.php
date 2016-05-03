@@ -10,6 +10,9 @@
 
 
 		<form name = "formulaireNouvelEvenement" method="post" action = "">
+
+			<p> <input type="text" name="nomEvenement" placeholder="Nom de l'évenement" size="25" /> </p>
+
       <p>Date de l'événement :
 
         <select name="jour">
