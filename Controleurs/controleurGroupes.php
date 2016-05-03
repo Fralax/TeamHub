@@ -19,12 +19,16 @@ class controleurGroupes{
         if($placesLibres < 2){
           echo "Votre groupe doit contenir au moins deux places !";
         } else{
-          $groupe = new groupes();
-          $groupe->ajoutGroupeBdd();
-          $appartient = new utilisateurs();
-          $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
-          $groupe->diminuerPlacesLibres($nomGroupe);
-          header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
+          if ($placesLibres > 100){
+          echo "Votre groupe ne peut pas contenir plus de 100 places !";
+          } else{
+            $groupe = new groupes();
+            $groupe->ajoutGroupeBdd();
+            $appartient = new utilisateurs();
+            $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
+            $groupe->diminuerPlacesLibres($nomGroupe);
+            header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
+          }
         }
       } else{
         echo "Des champs n'ont pas été remplis";
@@ -78,8 +82,16 @@ class controleurGroupes{
   public function modificationPlacesGroupe($nom){
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      $groupe->modifierPlacesGroupe($nom);
-      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      if($placesLibres < 2) {
+        echo "Votre groupe doit contenir au moins deux places !";
+      } else{
+        if ($placesLibres > 100){
+          echo "Votre groupe ne peut pas contenir plus de 100 places !";
+        } else{
+        $groupe->modifierPlacesGroupe($nom);
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+        }
+      }
     }
 
     $vue = new Vue('ModifPlaces');

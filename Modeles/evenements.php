@@ -14,10 +14,9 @@ class evenements extends modele {
 
   public function afficherEvenements($groupe){
     $sql = 'SELECT e_nom, e_date, e_heure, e_createur, c_nom  FROM Evenements WHERE g_nom = ?';
-    $afficherEvenements = $this->executerRequete ($sql, array($groupe));
-    return $afficherEvenements;
+    $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($groupe));
+    return $afficherCaracteristiquesGroupe;
   }
-
 
 }
 ?>

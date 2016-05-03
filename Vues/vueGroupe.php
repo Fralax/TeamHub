@@ -50,6 +50,7 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
+    <?php echo $evenement['e_nom']?>
   <?php } ?>
 
   <?php if ($i == 2){ ?>
@@ -79,7 +80,7 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-    <p> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </p>
+    <p> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a> </p>
   <?php } ?>
 
   <?php if ($i == 4){ ?>
@@ -108,7 +109,7 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-    <p> <input type = "button" name="inscription" value="S'inscrire sur le site" > </p>
+    <p> <a href="index.php?page=inscription"> <input type = "button" name="inscription" value="S'inscrire sur le site" > </a> </p>
     <?php } ?>
 
   </body>

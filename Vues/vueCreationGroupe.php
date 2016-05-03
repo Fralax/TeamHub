@@ -11,7 +11,7 @@
 
 		<form name = "formulaireNouveauGroupe" method="post" action = "">
 			<p> <input type="text" name="nomGroupe" placeholder="Nom du Groupe" size="25" value = "<?= $_POST['nomGroupe'] ?>"/> </p>
-		  <p> <input type="number" name="placesLibres" placeholder="Nombre de places" size="25"  min="2" value = "<?= $_POST['placesLibres'] ?>" /> </p>
+		  <p> <input type="number" name="placesLibres" placeholder="Nombre de places" size="25"  min="2" max="100" value = "<?= $_POST['placesLibres'] ?>" /> </p>
       <p>
         <select name="sport">
           <option value="0"> -- Sélectionnez un sport -- </option>
@@ -47,7 +47,7 @@
           <option value="Cheerleading"> Cheerleading </option>
           <option value="Conduite sur glace"> Conduite sur glace </option>
           <option value="Catch"> Catch </option>
-          <option value="canoë"> canoë </option>
+          <option value="Canoë"> canoë </option>
           <option value="Danse"> Danse </option>
           <option value="Deltaplane"> Deltaplane </option>
           <option value="Décathlon"> Décathlon </option>
