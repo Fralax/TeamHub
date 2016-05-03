@@ -35,6 +35,7 @@
         foreach ($membres as list($membre)) {
           if ($membre == $_SESSION['pseudo']){
             $i = 1;
+            break;
           }
           if ($membre != $_SESSION['pseudo']){
             if($caract['g_placesLibres'] !=0){
@@ -45,7 +46,7 @@
           }
         }
 
-        if ($i = 1){ ?>
+        if ($i == 1){ ?>
           <p> Description du groupe :
           <?php echo $caract['g_description'] ?>
           </p>
@@ -60,7 +61,7 @@
           <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
 
   <?php }
-        if($i = 2){ ?>
+         if($i == 2){ ?>
           <p> Description du groupe :
           <?php echo $caract['g_description'] ?>
           </p>
@@ -74,7 +75,7 @@
           <p> Lieu : <?php echo $caract['g_departement'] ?></p>
           <p> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </p>
   <?php }
-        if ($i = 3){ ?>
+        if ($i == 3){ ?>
           <p> Description du groupe :
           <?php echo $caract['g_description'] ?>
           </p>
