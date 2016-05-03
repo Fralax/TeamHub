@@ -21,6 +21,5 @@ class controleurEvenements{
     $vue->generer(["groupes" => $afficherGroupes]);
   }
 
-
 }
 ?>
