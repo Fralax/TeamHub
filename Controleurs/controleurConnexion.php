@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 require 'Modeles/modeleConnexion.php';
@@ -45,3 +46,39 @@ catch (Exception $e) {
   require 'Vues/vueErreur.php';
 }
 ?>
+=======
+<?php
+
+require_once 'Modeles/utilisateurs.php';
+require_once 'Vues/vue.php';
+
+
+class connexion{
+
+  public function connexionUtilisateurs(){
+
+    $connexion = $_POST['connexion'];
+
+    if (isset($connexion) && $connexion == 'Connexion'){
+      $user = new utilisateurs();
+      $resultatConnexion = $user->verifMdp()->fetch();
+
+      if (password_verify($_POST['PasswordAccueil'], $resultatConnexion[0])){
+        session_start();
+        $_SESSION['id'] = $resultatConnexion['id'];
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        header("Location: index.php?page=accueil");
+      } else {
+        echo "Mauvais Identifiant ou Mot de Passe !";
+      }
+    }
+  }
+
+  public function affichageAccueil(){
+    $vue = new Vue('Accueil');
+    $vue->generer();
+  }
+}
+
+?>
+>>>>>>> 33c2dcf6fa3c61c857735f20171a690ed1910e92

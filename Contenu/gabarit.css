@@ -1,0 +1,119 @@
+
+*{
+    font-family: sans-serif;
+}
+
+html{
+  background:#505D6E url(../Autres/img1.jpg) no-repeat center center fixed;
+  min-height:100%;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+
+}
+
+header #logo{
+  text-align: center;
+}
+
+header h1{
+  font-size: 1.8em;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+}
+
+header nav{
+  position: relative;
+  text-align: center;
+  background-color: rgba(245, 245, 245, 0.5);
+  margin-top: 30px;
+  font-size: 16px;
+  border-radius: 1em;
+}
+
+header #barreMenu, #barreMenu ul{
+	padding : 0; /* pas de marge intérieure */
+	margin : 0; /* ni extérieure */
+	line-height : 40px; /* on définit une hauteur pour chaque élément */
+	text-align : center; /* on centre le texte qui se trouve dans la liste */
+}
+
+header #barreMenu li {
+	/* on place les liens du menu horizontalement */
+	display: inline-block;
+	position: relative;
+	width: 15em;
+}
+
+header #barreMenu p{
+  margin-top: -10px;
+  margin-bottom: -5px;
+  padding-bottom: -5px;
+}
+
+header #barreMenu ul li {
+	/* on enlève ce comportement pour les liens du sous menu */
+  display: inherit;
+	border-radius: 0;
+}
+
+header #barreMenu ul {
+	/*on cache les chamsp nécessaires et on aligne en haut*/
+	position:absolute;
+	z-index: 1000;
+	max-height:0;
+	left: 0;
+	right: 0;
+	overflow:hidden;
+
+	/*transitions animées*/
+	-moz-transition: .3s all .1s;
+	-webkit-transition: .3s all .1s;
+	transition: .3s all .1s;
+}
+
+header #barreMenu ul li:hover{
+border-radius: 0;
+}
+
+header #barreMenu li:hover ul {
+	max-height:15em;
+  background-color: rgba(245, 245, 245, 0.5);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+#wrap {
+	position: relative;
+	margin-top: 3em;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom: 150px;
+}
+
+footer {
+    position: relative;
+    text-align: center;
+    clear:both;
+    margin-top: -90px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 1em;
+}
+
+footer a{
+  text-decoration: none;
+  color: black;
+}
+
+footer img:hover{
+  transition:transform .2s ease;
+  transform: scale(1.2);
+}
