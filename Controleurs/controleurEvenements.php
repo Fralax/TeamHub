@@ -16,9 +16,9 @@ class controleurEvenements{
 
   public function affichageEvenements($groupe){
     $evenement = new evenements();
-    $afficherGroupes = $groupe->afficherEvenements($groupe)->fetchAll();
+    $afficherEvenements = $evenement->afficherEvenements($groupe)->fetchAll();
     $vue = new Vue('Groupe');
-    $vue->generer(["groupes" => $afficherGroupes]);
+    $vue->generer(["evenement" => $afficherEvenements]);
   }
 
 }
