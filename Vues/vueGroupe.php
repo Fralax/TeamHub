@@ -50,6 +50,28 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
+    <h3>Événements</h3>
+    <table>
+      <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?> </a>
+        </td>
+        <td>
+          <?php echo "le ".$date ?>
+        </td>
+        <td>
+          <?php echo "à ".$heure ?>
+        </td>
+        <td>
+          <?php echo "créé par ".$createur ?>
+        </td>
+        <td>
+          <?php echo "au club ".$club ?>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
   <?php } ?>
 
   <?php if ($i == 2){ ?>
@@ -65,6 +87,28 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
+    <h3>Événements</h3>
+    <table>
+      <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?> </a>
+        </td>
+        <td>
+          <?php echo "le ".$date ?>
+        </td>
+        <td>
+          <?php echo "à ".$heure ?>
+        </td>
+        <td>
+          <?php echo "créé par ".$createur ?>
+        </td>
+        <td>
+          <?php echo "au club ".$club ?>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
   <?php } ?>
 
   <?php if ($i == 3){ ?>
@@ -80,6 +124,28 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </p>
+    <h3>Événements</h3>
+    <table>
+      <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?> </a>
+        </td>
+        <td>
+          <?php echo "le ".$date ?>
+        </td>
+        <td>
+          <?php echo "à ".$heure ?>
+        </td>
+        <td>
+          <?php echo "créé par ".$createur ?>
+        </td>
+        <td>
+          <?php echo "au club ".$club ?>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
   <?php } ?>
 
   <?php if ($i == 4){ ?>
@@ -94,6 +160,28 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+    <h3>Événements</h3>
+    <table>
+      <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?> </a>
+        </td>
+        <td>
+          <?php echo "le ".$date ?>
+        </td>
+        <td>
+          <?php echo "à ".$heure ?>
+        </td>
+        <td>
+          <?php echo "créé par ".$createur ?>
+        </td>
+        <td>
+          <?php echo "au club ".$club ?>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
   <?php } ?>
 
   <?php if ($i == 5){ ?>
@@ -109,7 +197,29 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <input type = "button" name="inscription" value="S'inscrire sur le site" > </p>
-    <?php } ?>
+    <h3>Événements</h3>
+    <table>
+      <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?> </a>
+        </td>
+        <td>
+          <?php echo "le ".$date ?>
+        </td>
+        <td>
+          <?php echo "à ".$heure ?>
+        </td>
+        <td>
+          <?php echo "créé par ".$createur ?>
+        </td>
+        <td>
+          <?php echo "au club ".$club ?>
+        </td>
+      </tr>
+      <?php } ?>
+    </table>
+  <?php } ?>
 
   </body>
 </html>

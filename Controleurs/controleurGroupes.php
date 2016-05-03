@@ -2,6 +2,7 @@
 
 require_once 'Modeles/groupes.php';
 require_once 'Modeles/utilisateurs.php';
+require_once 'Modeles/evenements.php';
 require_once 'Vues/vue.php';
 
 class controleurGroupes{
@@ -48,8 +49,10 @@ class controleurGroupes{
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $user = new utilisateurs();
     $afficherMembresGroupe = $user->listerMembres($nom)->fetchAll();
+    $evenement = new evenements();
+    $afficherEvenements = $evenement->afficherEvenements($groupe)->fetchAll();
     $vue = new Vue('Groupe');
-    $vue->generer(array("caract" => $afficherCaracteristiquesGroupe, "membres" => $afficherMembresGroupe));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenement' => $afficherEvenements));
   }
 
   public function modificationDescriptionGroupe($nom){
@@ -72,7 +75,7 @@ class controleurGroupes{
 
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
     $vue = new Vue('ModifAdmin');
-    $vue->generer(["admin" => $adminPossible]);
+    $vue->generer(['admin' => $adminPossible]);
   }
 
   public function modificationPlacesGroupe($nom){
