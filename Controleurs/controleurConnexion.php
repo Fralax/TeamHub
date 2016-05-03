@@ -1,34 +1,34 @@
 <?php
 
-require 'Modeles/modeleConnexion.php';
+require_once 'Modeles/utilisateurs.php';
+require_once 'Vues/vue.php';
 
-function connexionUtilisateurs(){
 
-  $resultat = verifID();
-  $connexion = $_POST['connexion'];
+class connexion{
 
-  if (isset($connexion) && $connexion == 'Connexion'){
-    if (!$resultat) {
-        echo 'Mauvais identifiant ou mot de passe !';
-    }
+  public function connexionUtilisateurs(){
 
-    else {
+    $connexion = $_POST['connexion'];
+
+    if (isset($connexion) && $connexion == 'Connexion'){
+      $user = new utilisateurs();
+      $resultatConnexion = $user->verifMdp()->fetch();
+
+      if (password_verify($_POST['PasswordAccueil'], $resultatConnexion[0])){
         session_start();
-        $_SESSION['id'] = $resultat['id'];
+        $_SESSION['id'] = $resultatConnexion['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        echo 'Vous êtes connecté !';
+        header("Location: index.php?page=accueil");
+      } else {
+        echo "Mauvais Identifiant ou Mot de Passe !";
+      }
     }
+  }
+
+  public function affichageAccueil(){
+    $vue = new Vue('Accueil');
+    $vue->generer();
   }
 }
 
-
-try {
-  require 'Vues/vueAccueilVisiteurs.php';
-  connexionUtilisateurs();
-}
-
-catch (Exception $e) {
-  $msgErreur = $e->getMessage();
-  require 'Vues/vueErreur.php';
-}
 ?>
