@@ -141,3 +141,25 @@
 	<body>
 	</body>
 <?php } ?>
+
+
+
+
+        <thead>
+            <tr style="border-bottom:1px solid black;">
+                <th id="title" colspan="2">Modifier mes informations personnelles</th>
+            </tr>
+
+        </thead>
+        <tr></tr><tr></tr>
+        <tr><<td>Coordonnées : </td><td><INPUT type="submit" name="modif_coordonnees" value="Modifier mes coordonnées"/></td></tr>
+        <tr><td><?php echo $a[3] ?></td></tr>
+        <tr><td><?php echo $a[8] ?></td></tr>
+        <tr><td><?php echo $a[6] ?></td></tr>
+        <tr><td><?php echo $a[7] ?></td></tr>
+        <tr><td><?php echo $a[5] ?></td></tr>
+        <tr></tr><tr></tr>
+        <tr><td>Adresse mail : </td><td><INPUT type="submit" name="modif_mail" value="Modifier mon adresse mail"/></td></tr>
+        <tr><td><?php echo $a[2] ?></td></tr>
+          <tr></tr><tr></tr>
+        <tr><td>Mot de passe : </td><td><INPUT type="submit" name="modif_mdp" value="Modifier le mot de passe"/></td></tr>
