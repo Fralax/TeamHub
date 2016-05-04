@@ -127,7 +127,9 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+
     <p> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a> </p>
+
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
