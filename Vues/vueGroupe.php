@@ -70,10 +70,13 @@
           <?php echo "au club ".$club ?>
         </td>
         <td>
-          a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+          <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
         </td>
       </tr>
-      <
+
       <?php } ?>
     </table>
 
@@ -113,6 +116,9 @@
         </td>
         <td>
           <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
         </td>
       </tr>
       <?php } ?>

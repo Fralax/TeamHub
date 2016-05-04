@@ -12,6 +12,11 @@ class evenements extends modele {
     $ajouterEvenementsBdd = $this->executerRequete ($sql, array('nomEvenement'=>$_POST['nomEvenement'] ,'dateActivite'=>$date , 'heureActivite'=> $heure, 'createur'=> $_SESSION['pseudo'], 'nomGroupe'=> $groupe, 'nomClub'=> $_POST['club']));
   }
 
+  public function supprimerEvenements($nomevenement){
+    $sql = 'DELETE FROM Evenements WHERE e_nom = :nomEvenement';
+    $quitterEvenements = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement));
+  }
+
   public function afficherEvenements($groupe){
     $sql = 'SELECT e_nom, e_date, e_heure, e_createur, c_nom  FROM Evenements WHERE g_nom = ?';
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($groupe));
@@ -22,6 +27,11 @@ class evenements extends modele {
     $sql = 'INSERT INTO Participe(u_pseudo, e_nom)
             VALUES (:pseudo, :nomEvenement)';
     $adhererEvenements = $this->executerRequete ($sql, array('pseudo'=>$_SESSION['pseudo'], 'nomEvenement'=>$nomevenement));
+  }
+
+  public function quitterEvenements($nomevenement){
+    $sql = 'DELETE FROM Participe WHERE e_nom = :nomEvenement AND u_pseudo = :participant';
+    $quitterEvenements = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement, 'participant'=>$_SESSION['pseudo']));
   }
 
   public function listeEvenementUtilisateur(){

@@ -114,8 +114,16 @@
           $this->controleurEvenements->creationEvenements($_GET['nom']);
           break;
 
+        case 'suppressionevenements':
+          $this->controleurEvenements->suppressionEvenements($_GET['evenement']);
+          break;
+
         case 'rejoindreevenement':
           $this->controleurEvenements->adhesionEvenements($_GET['evenement']);
+          break;
+
+        case 'quitterevenement':
+          $this->controleurEvenements->DepartEvenements($_GET['evenement']);
           break;
 
         default:
