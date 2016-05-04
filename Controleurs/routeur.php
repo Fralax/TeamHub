@@ -114,6 +114,10 @@
           $this->controleurEvenements->creationEvenements($_GET['nom']);
           break;
 
+        case 'rejoindreevenement':
+          $this->controleurEvenements->adhesionEvenements($_GET['evenement']);
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

@@ -54,7 +54,7 @@ class controleurGroupes{
     $user = new utilisateurs();
     $afficherMembresGroupe = $user->listerMembres($nom)->fetchAll();
     $evenement = new evenements();
-    $afficherEvenements = $evenement->afficherEvenements($groupe)->fetchAll();
+    $afficherEvenements = $evenement->afficherEvenements($nom)->fetchAll();
     $vue = new Vue('Groupe');
     $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenement' => $afficherEvenements));
   }
