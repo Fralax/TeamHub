@@ -5,15 +5,25 @@
 }
 
 .mesGroupes{
-margin-left: 1200px;
-margin-top: -190px;
-background-color: rgba(0, 0, 0, 0.3);
-border-radius: 1em;
-padding-top: 1px;
-padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  width: 14em;
 }
 
 
 
 .calendrier{
+
+}
+
+.mesEvenements{
+
+
+}
+.conteneur{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;;
 }
