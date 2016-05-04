@@ -32,7 +32,7 @@
     }
   ?>
 
-  <h2>Groupe <?php echo $caract['g_nom']?> </h2> 
+  <h2>Groupe <?php echo $caract['g_nom']?> </h2>
 
   <?php if ($i == 1){ ?>
     <p> Description du groupe :
@@ -70,8 +70,10 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
+      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
+
   <?php } ?>
 
   <?php if ($i == 2){ ?>
@@ -107,8 +109,10 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
+      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
+
   <?php } ?>
 
   <?php if ($i == 3){ ?>
@@ -123,6 +127,9 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+
+    <p> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a> </p>
+
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
@@ -143,9 +150,10 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
+      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
-    <p> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a> </p>
+
   <?php } ?>
 
   <?php if ($i == 4){ ?>
@@ -180,8 +188,10 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
+      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
+
   <?php } ?>
 
   <?php if ($i == 5){ ?>
@@ -196,6 +206,7 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
+    <p> <a href="index.php?page=inscription"> <input type = "button" name="inscription" value="S'inscrire sur le site" > </a> </p>
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
@@ -216,9 +227,11 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
+      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
-    <p> <a href="index.php?page=inscription"> <input type = "button" name="inscription" value="S'inscrire sur le site" > </a> </p>
+
+
   <?php } ?>
 
 

@@ -18,5 +18,17 @@ class evenements extends modele {
     return $afficherCaracteristiquesGroupe;
   }
 
+  public function adhererEvenements($nomevenement){
+    $sql = 'INSERT INTO Participe(u_pseudo, e_nom)
+            VALUES (:pseudo, :nomEvenement)';
+    $adhererEvenements = $this->executerRequete ($sql, array('pseudo'=>$_SESSION['pseudo'], 'nomEvenement'=>$nomevenement));
+  }
+
+  public function listeEvenementUtilisateur(){
+    $sql = 'SELECT e_nom FROM Participe WHERE u_pseudo = ?';
+    $listeEvenementUtilisateur  =$this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $listeEvenementUtilisateur;
+  }
+
 }
 ?>
