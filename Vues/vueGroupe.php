@@ -32,7 +32,7 @@
     }
   ?>
 
-  <h2>Groupe <?php echo $caract['g_nom']?> </h2>
+  <h2>Groupe <?php echo $caract['g_nom']?> </h2> 
 
   <?php if ($i == 1){ ?>
     <p> Description du groupe :
@@ -123,7 +123,6 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-    <p> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </p>
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
