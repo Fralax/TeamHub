@@ -69,8 +69,11 @@
         <td>
           <?php echo "au club ".$club ?>
         </td>
+        <td>
+          a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+        </td>
       </tr>
-      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+      <
       <?php } ?>
     </table>
 
@@ -108,8 +111,10 @@
         <td>
           <?php echo "au club ".$club ?>
         </td>
+        <td>
+          <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+        </td>
       </tr>
-      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
 
@@ -150,7 +155,6 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
-      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
 
@@ -188,7 +192,6 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
-      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
 
@@ -227,7 +230,6 @@
           <?php echo "au club ".$club ?>
         </td>
       </tr>
-      <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
       <?php } ?>
     </table>
 
