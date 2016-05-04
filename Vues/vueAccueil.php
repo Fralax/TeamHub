@@ -118,6 +118,16 @@
 
 		<div class="mesEvenements">
 			<h3> Mes Évenements </h3>
+			<table>
+				<?php foreach ($evenements as list($nomMesEvenements)) { ?>
+						<tr>
+							<td>
+								<a href="index.php?page=caractevenement&evenement=<?php echo $nomMesEvenements?>"> <?php echo $nomMesEvenements?> </a>
+							</td>
+						</tr>
+
+				<?php } ?>
+			</table>
 		</div>
 
 		<div class="mesGroupes">

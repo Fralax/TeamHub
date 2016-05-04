@@ -10,8 +10,10 @@ class accueil{
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
+    $evenements = new evenements();
+    $afficherEvenements = $evenements->listeEvenementUtilisateur()->fetchAll();
     $vue = new Vue('Accueil');
-    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin, "evenements" => $afficherEvenements));
   }
 
   public function affichageAPropos(){
