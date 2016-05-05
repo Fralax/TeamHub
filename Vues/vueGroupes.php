@@ -2,46 +2,43 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="Contenu/vueGroupes.css" />
 		<title>Groupes</title>
 	</head>
 
 	<body>
+    <div class="groupes">
+  		<h2>Groupes</h2>
 
-		<h2>Groupes</h2>
+  		<table>
+  			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
+  			<tr>
+  				<td>
+  					<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
+  				</td>
 
-		<table>
-			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
-			<tr>
-				<td>
-					<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
-				</td>
+  				<td>
+  					<?php echo "  créé par : ".$admin ?>
+  				</td>
 
-				<td>
-					<?php echo "créé par ".$admin ?>
-				</td>
+  				<td>
+  					<?php
+  					if($placesLibres > 1){
+  						echo "il y a ".$placesLibres." places restantes";
+  					} else {
+  						echo "il y a ".$placesLibres. " place restante";
+  					}
+  					?>
+  				</td>
 
-				<td>
-				</td>
-
-				<td>
-					<?php
-					if($placesLibres > 1){
-						echo $placesLibres." places restantes";
-					} else {
-						echo $placesLibres. " place restante";
-					}
-					?>
-				</td>
-
-				<td>
-					<?php if($placesLibres != 0){ ?>
-					<a href="index.php?page=confirmationgroupe&nom=<?php echo $nom?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
-					<?php } ?>
-				</td>
-			</tr>
-			<?php } ?>
-		</table>
-
-
+  				<td>
+  					<?php if($placesLibres != 0){ ?>
+  					<a href="index.php?page=confirmationgroupe&nom=<?php echo $nom?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+  					<?php } ?>
+  				</td>
+  			</tr>
+  			<?php } ?>
+  		</table>
+    </div>
   </body>
 </html>

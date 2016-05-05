@@ -110,12 +110,12 @@
           $this->controleurRecherche->affichageResultatsRecherche();
           break;
 
-        case 'creationevenements':
+        case 'creationevenement':
           $this->controleurEvenements->creationEvenements($_GET['nom']);
           break;
 
-        case 'suppressionevenements':
-          $this->controleurEvenements->suppressionEvenements($_GET['evenement']);
+        case 'suppressionevenement':
+          $this->controleurEvenements->suppressionevenement($_GET['evenement']);
           break;
 
         case 'rejoindreevenement':

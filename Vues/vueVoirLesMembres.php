@@ -2,15 +2,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
 		<title>Listes des Membres </title>
 	</head>
 	<body>
+		<div class="membre">
+			<h2>Listes des Membres de <?php echo $nom?> </h2>
 
-		<h2>Listes des Membres de <?php echo $nom?> </h2>
-
-    <?php foreach ($membres as list($nomMembre)) { ?>
-    	<p> - <?php echo $nomMembre?> </p>
-    <?php } ?>
+	    <?php foreach ($membres as list($nomMembre)) { ?>
+	    	<p> - <?php echo $nomMembre?> </p>
+	    <?php } ?>
+		</div>
 
   </body>
 </html>

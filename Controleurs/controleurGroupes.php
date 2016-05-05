@@ -50,15 +50,15 @@ class controleurGroupes{
 
   public function affichageCaracteristiquesGroupe($nom){
     $groupe = new groupes();
-    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $user = new utilisateurs();
+    $evenements = new evenements();
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
-    $evenement = new evenements();
-    $afficherEvenements = $evenement->afficherEvenements($nom)->fetchAll();
-    $afficherMembresEvenement = $user->listerMembresEvenement()->fetchAll();
-    var_dump($afficherMembresEvenement);
+    $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
+    $afficherEvenementsGroupe = $evenements->listerEvenementsGroupe($nom)->fetchAll();
+
     $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenement' => $afficherEvenements, 'afficherMesEvenements' => $afficherMembresEvenement));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur));
   }
 
   public function modificationDescriptionGroupe($nom){

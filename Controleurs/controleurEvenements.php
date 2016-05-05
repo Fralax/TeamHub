@@ -15,11 +15,11 @@ class controleurEvenements{
     $vue->generer();
   }
 
-  public function suppressionEvenements($nomevenement){
+  public function suppressionEvenement($nomevenement){
     $evenement = new evenements();
-    $evenement->supprimerEvenements($nomevenement);
-    $vue = new Vue('ConfirmationEvenement');
-    $vue->generer(["evenement"=>$groupe]);
+    $evenement->supprimerEvenement($nomevenement);
+    $vue = new Vue('SuppressionEvenement');
+    $vue->generer(["evenement"=>$nomevenement]);
   }
 
   public function adhesionEvenements($nomevenement){
@@ -32,7 +32,7 @@ class controleurEvenements{
   public function DepartEvenements($nomevenement){
     $evenement = new evenements();
     $evenement->quitterEvenements($nomevenement);
-    $vue = new Vue('ConfirmationEvenement');
+    $vue = new Vue('QuitterEvenement');
     $vue->generer(["evenement"=>$nomevenement]);
   }
 

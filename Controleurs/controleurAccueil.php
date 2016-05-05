@@ -11,7 +11,7 @@ class accueil{
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
     $evenements = new evenements();
-    $afficherEvenements = $evenements->listeEvenementUtilisateur()->fetchAll();
+    $afficherEvenements = $evenements->listerEvenementsAccueil()->fetchAll();
     $vue = new Vue('Accueil');
     $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin, "evenements" => $afficherEvenements));
   }
