@@ -71,8 +71,17 @@
         </td>
         <td>
           <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+<<<<<<< HEAD
         </td>
       </tr>
+=======
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
+        </td>
+      </tr>
+
+>>>>>>> 33c707534518ffc0a7ce1710ea7451eb88fefe5e
       <?php } ?>
     </table>
 
@@ -112,6 +121,9 @@
         </td>
         <td>
           <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
         </td>
       </tr>
       <?php } ?>
