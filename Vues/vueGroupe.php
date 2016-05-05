@@ -70,10 +70,9 @@
           <?php echo "au club ".$club ?>
         </td>
         <td>
-          a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+          <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
         </td>
       </tr>
-      <
       <?php } ?>
     </table>
 

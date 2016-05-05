@@ -117,7 +117,7 @@
 		</div>
 
 		<div class="mesEvenements">
-			<h3> Mes Évenements </h3>
+			<h3> Mes Événements </h3>
 			<table>
 				<?php foreach ($evenements as list($nomMesEvenements)) { ?>
 						<tr>

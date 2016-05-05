@@ -9,6 +9,7 @@ class controleurEvenements{
     $evenement = new evenements();
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
       $evenement->ajouterEvenementsBdd($groupe);
+      $evenement->adhererEvenements($_POST['nomEvenement']);
       header('refresh:1;url=index.php?page=mesgroupes');
     }
     $vue = new Vue('CreationEvenements');

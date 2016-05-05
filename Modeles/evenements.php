@@ -10,6 +10,16 @@ class evenements extends modele {
     $sql = 'INSERT INTO Evenements(e_nom, e_date, e_heure, e_createur, g_nom, c_nom)
             VALUES (:nomEvenement ,:dateActivite, :heureActivite, :createur ,:nomGroupe, :nomClub)';
     $ajouterEvenementsBdd = $this->executerRequete ($sql, array('nomEvenement'=>$_POST['nomEvenement'] ,'dateActivite'=>$date , 'heureActivite'=> $heure, 'createur'=> $_SESSION['pseudo'], 'nomGroupe'=> $groupe, 'nomClub'=> $_POST['club']));
+
+    $sql2 = 'SELECT g_nbrEvenements FROM Groupes WHERE g_nom = ?';
+    $ajouterNombreEvenements = $this->executerRequete($sql2, array($groupe));
+
+    $nbrEvenements = $ajouterNombreEvenements->fetch();
+    settype($nbrEvenements[0], "integer");
+    $nbrEvenements[0] = $nbrEvenements[0] + 1;
+
+    $sql3 = 'UPDATE Groupes SET g_nbrEvenements = ? WHERE g_nom = ?';
+    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe));
   }
 
   public function afficherEvenements($groupe){
@@ -29,6 +39,5 @@ class evenements extends modele {
     $listeEvenementUtilisateur  =$this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $listeEvenementUtilisateur;
   }
-
 }
 ?>

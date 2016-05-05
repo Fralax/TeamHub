@@ -21,6 +21,9 @@
 				</td>
 
 				<td>
+				</td>
+
+				<td>
 					<?php
 					if($placesLibres > 1){
 						echo $placesLibres." places restantes";

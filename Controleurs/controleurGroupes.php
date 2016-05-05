@@ -103,6 +103,7 @@ class controleurGroupes{
 
   public function affichageMesGroupes(){
     $groupe = new groupes();
+    $event = new evenements();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
     $vue = new Vue('MesGroupes');

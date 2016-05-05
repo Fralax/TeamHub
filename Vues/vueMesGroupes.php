@@ -10,10 +10,13 @@
 		<h2>Mes Groupes</h2>
 
 			<table>
-				<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin)) { ?>
+				<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin, $nbrEvenements)) { ?>
 						<tr>
 							<td>
 								<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
+							</td>
+							<td>
+								<?php echo $nbrEvenements." événements en cours" ?>
 							</td>
 							<td>
 								<a href ="index.php?page=listemembres&nom=<?php echo $nomMesGroupeAdmin?>"> <input name="voirMembres" type="button" value="Voir les Membres"> </a>
@@ -24,10 +27,13 @@
 						</tr>
 
 				<?php } ?>
-				<?php foreach ($groupes as list($nomMesGroupe)) { ?>
+				<?php foreach ($groupes as list($nomMesGroupe, $nbrEvenements)) { ?>
 					<tr>
 						<td>
 							<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
+						</td>
+						<td>
+							<?php echo $nbrEvenements." événements en cours" ?>
 						</td>
 						<td>
 							<a href ="index.php?page=listemembres&nom=<?php echo $nomMesGroupe?>"> <input name="voirMembres" type="button" value="Voir les Membres"> </a>
