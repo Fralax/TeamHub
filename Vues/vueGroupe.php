@@ -50,6 +50,25 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
+
+    <h3>Mes événements</h3>
+    <table>
+      <?php foreach ($afficherMesEvenements as list($nom, $createur)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?>
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
+        </td>
+        <td>
+          <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+        </td>
+      </tr>
+
+      <?php } ?>
+    </table>
+
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
@@ -95,6 +114,27 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href = "index.php?page=creationevenements&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
+
+    <h3>Mes événements</h3>
+    <table>
+      <?php foreach ($afficherMesEvenements as list($nom, $createur)){ ?>
+      <tr>
+        <td>
+          <?php echo $nom?>
+        </td>
+        <td>
+          <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
+        </td>
+        <?php if ($createur == "createur"){ ?>
+          <td>
+            <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+          </td>
+        <?php } ?>
+      </tr>
+
+      <?php } ?>
+    </table>
+
     <h3>Événements</h3>
     <table>
       <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>

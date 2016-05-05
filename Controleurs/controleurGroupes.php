@@ -52,11 +52,13 @@ class controleurGroupes{
     $groupe = new groupes();
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $user = new utilisateurs();
-    $afficherMembresGroupe = $user->listerMembres($nom)->fetchAll();
+    $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
     $evenement = new evenements();
     $afficherEvenements = $evenement->afficherEvenements($nom)->fetchAll();
+    $afficherMembresEvenement = $user->listerMembresEvenement()->fetchAll();
+    var_dump($afficherMembresEvenement);
     $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenement' => $afficherEvenements));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenement' => $afficherEvenements, 'afficherMesEvenements' => $afficherMembresEvenement));
   }
 
   public function modificationDescriptionGroupe($nom){

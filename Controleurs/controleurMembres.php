@@ -91,7 +91,7 @@ class membres{
 
   public function listeMembres($nom){
     $appartient = new utilisateurs();
-    $afficherMembres = $appartient->listerMembres($nom)-> fetchAll();
+    $afficherMembres = $appartient->listerMembresGroupe($nom)-> fetchAll();
     $vue = new Vue('VoirLesMembres');
     $vue->generer(array("nom"=>$nom, "membres" => $afficherMembres));
   }

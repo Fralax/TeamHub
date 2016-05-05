@@ -90,10 +90,15 @@ class utilisateurs extends modele {
     }
   }
 
-  public function listerMembres($nom){
+  public function listerMembresGroupe($nom){
     $sql = 'SELECT u_pseudo FROM Appartient WHERE g_nom = ?';
-    $listerMembres = $this->executerRequete($sql, array($nom));
-    return $listerMembres;
+    $listerMembresGroupe = $this->executerRequete($sql, array($nom));
+    return $listerMembresGroupe;
   }
 
+  public function listerMembresEvenement(){
+    $sql = 'SELECT e_nom, e_createur FROM Participe WHERE u_pseudo = ?';
+    $listerMembresEvenement = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $listerMembresEvenement;
+  }
 }
