@@ -1,20 +1,26 @@
-.mesGroupes{
+.conteneur{
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 1em;
   padding-left: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 58%;
-}
-
-.mesGroupes a, h2, table{
+  width: 30%;
   text-decoration: none;
   color : white;
 }
 
+.Mesinfos{
+  padding-left: 20px;
+}
 
-.mesGroupes td{
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right:40px;
+.Mescoordonnees{
+  padding-left: 20px;
+}
+
+.Adresse{
+  padding-left: 20px;
+}
+
+.MdP{
+  padding-left: 20px;
 }

@@ -1,20 +1,14 @@
-.mesGroupes{
+.groupe{
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 1em;
   padding-left: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 58%;
-}
-
-.mesGroupes a, h2, table{
+  width: 70%;
   text-decoration: none;
   color : white;
 }
 
-
-.mesGroupes td{
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right:40px;
+.evenement td{
+  padding-right: 30px;
 }
