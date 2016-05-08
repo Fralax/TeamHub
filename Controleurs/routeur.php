@@ -7,6 +7,7 @@
   require_once 'Controleurs/controleurAccueil.php';
   require_once 'Controleurs/controleurRecherche.php';
   require_once 'Controleurs/controleurEvenements.php';
+  require_once 'Controleurs/controleurClub.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -18,6 +19,7 @@
     private $controleurAccueil;
     private $controleurRecherche;
     private $controleurEvenements;
+    private $controleurClub;
 
     public function __construct(){
       $this->controleurConnexion = new connexion();
@@ -27,6 +29,7 @@
       $this->controleurAccueil = new accueil();
       $this->controleurRecherche = new controleurRecherche();
       $this->controleurEvenements = new controleurEvenements();
+      $this->controleurClub = new controleurClub();
       session_start();
     }
 
@@ -124,6 +127,14 @@
 
         case 'quitterevenement':
           $this->controleurEvenements->DepartEvenements($_GET['evenement']);
+          break;
+
+        case 'ajoutclub':
+          $this->controleurClub->ajoutClub();
+          break;
+
+        case 'listeclub':
+          $this->controleurClub->listeClub();
           break;
 
         default:
