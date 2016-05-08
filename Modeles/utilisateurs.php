@@ -85,7 +85,7 @@ class utilisateurs extends modele {
     $modifierMesInfos = $this->executerRequete ($sql, array('adresse' => $_POST['Adresse'], 'cp' => $_POST['CodePostal'], 'ville' => $_POST['Ville'], 'departement' => $_POST['Departement'],'pseudo' => $_SESSION['pseudo']));
   }
 
-  public function RecupMonMdp(){
+  public function modifierMonMdp(){
     $envoiMdp = $_POST['Envoyer'];
     if (isset($envoiMdp) && $envoiMdp == 'Envoyer'){
       $pass_hache = password_hash($_POST['AncienMotDePasse'], PASSWORD_BCRYPT);

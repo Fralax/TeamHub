@@ -87,10 +87,10 @@ class controleurGroupes{
   public function modificationPlacesGroupe($nom){
     $groupe = new groupes();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      if($placesLibres < 2) {
+      if($_POST['placesTotales'] < 2) {
         echo "Votre groupe doit contenir au moins deux places !";
       } else{
-        if ($placesLibres > 100){
+        if ($_POST['placesTotales'] > 100){
           echo "Votre groupe ne peut pas contenir plus de 100 places !";
         } else{
         $groupe->modifierPlacesGroupe($nom);

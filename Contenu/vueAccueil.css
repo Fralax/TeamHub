@@ -35,3 +35,10 @@
   justify-content: space-around;
 
 }
+
+.messageBienvenue h2{
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  text-align: center;
+  color : white;
+}

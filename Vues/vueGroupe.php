@@ -33,10 +33,10 @@
       $i = 5;
     }
   ?>
-  <div class="groupe">
-    <h2>Groupe <?php echo $caract['g_nom']?> </h2>
 
+  <div class="groupe">
     <?php if ($i == 1){ ?>
+      <h2>Groupe <?php echo $caract['g_nom']?> </h2>
       <p> Description du groupe :
       <?php echo $caract['g_description'] ?>
       <a href = "index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>" > <input type="button" name="Description" value="Modifier la description"> </a>
@@ -51,11 +51,8 @@
       </p>
       <p> Sport : <?php echo $caract['g_sport'] ?></p>
       <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-      <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
-
       <div class="evenement">
         <h3>Événements auxquels je participe</h3>
-
         <table>
           <?php foreach ($afficherMesEvenements as list($nom)){ ?>
           <tr>
@@ -69,10 +66,8 @@
               <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
             </td>
           </tr>
-
           <?php } ?>
         </table>
-
         <h3>Événements du groupe</h3>
         <table>
           <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
@@ -87,14 +82,14 @@
               <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
             </td>
           </tr>
-
           <?php } ?>
         </table>
       </div>
-
+      <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
   <?php } ?>
 
   <?php if ($i == 2){ ?>
+    <h2>Groupe <?php echo $caract['g_nom']?> </h2>
     <p> Description du groupe :
     <?php echo $caract['g_description'] ?>
     </p>
@@ -106,11 +101,8 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-    <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
-
     <div class="evenement">
       <h3>Événements auxquels je participe</h3>
-
       <table>
         <?php foreach ($afficherMesEvenements as list($nom, $createur)){ ?>
         <tr>
@@ -126,10 +118,8 @@
           </td>
           <?php } ?>
         </tr>
-
         <?php } ?>
       </table>
-
       <h3>Événements du groupe</h3>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
@@ -141,14 +131,14 @@
             <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
           </td>
         </tr>
-
         <?php } ?>
       </table>
     </div>
-
+    <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
   <?php } ?>
 
   <?php if ($i == 3){ ?>
+    <h2>Groupe <?php echo $caract['g_nom']?> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a></h2>
     <p> Description du groupe :
     <?php echo $caract['g_description'] ?>
     </p>
@@ -160,11 +150,7 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-
-    <p> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a> </p>
-
     <div class="evenement">
-
       <h3>Événements du groupe</h3>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
@@ -173,14 +159,13 @@
             <?php echo $nom ?> </a>
           </td>
         </tr>
-
         <?php } ?>
       </table>
     </div>
-
   <?php } ?>
 
   <?php if ($i == 4){ ?>
+    <h2>Groupe <?php echo $caract['g_nom']?> </h2>
     <p> Description du groupe :
     <?php echo $caract['g_description'] ?>
     </p>
@@ -192,9 +177,7 @@
     </p>
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
-
     <div class="evenement">
-
       <h3>Événements du groupe</h3>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
@@ -209,6 +192,7 @@
   <?php } ?>
 
   <?php if ($i == 5){ ?>
+    <h2>Groupe <?php echo $caract['g_nom']?> </h2>
     <p> Description du groupe :
     <?php echo $caract['g_description'] ?>
     </p>
@@ -221,7 +205,6 @@
     <p> Sport : <?php echo $caract['g_sport'] ?></p>
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <p> <a href="index.php?page=inscription"> <input type = "button" name="inscription" value="S'inscrire sur le site" > </a> </p>
-
     <div class="evenement">
       <h3>Événements</h3>
       <table>
@@ -249,5 +232,5 @@
   <?php } ?>
 </div>
 
-  </body>
+</body>
 </html>

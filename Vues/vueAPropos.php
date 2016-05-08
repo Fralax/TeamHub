@@ -10,7 +10,7 @@
       <div class="équipe">
         <div id="description">
           <h2>Mot des fondateurs:</h2>
-          <p> <img src=""/></p>
+          <p> TeamHub est le site pour trouver des partenaires de sports, que vous soyez en ville ou plus loin, des personnes cherchent toujours des partenaires de sport. Grâce à nous, vous pourrez enfin pratiquer vos sports favoris sans devoir passez des heures à trouver des personnes et des lieux de rendez-vous. TeamHub vous facilitera la vie, rejoignez-nous!</p>
           <h2>Présentation de l'équipe:</h2>
           <p></p>
         </div>
