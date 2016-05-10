@@ -42,8 +42,6 @@ class evenements extends modele {
     $quitterEvenements = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement));
   }
 
-
-
   public function adhererEvenements($nomevenement){
     $sql = 'INSERT INTO Participe(u_pseudo, e_nom, e_createur)
             VALUES (:pseudo, :nomEvenement, :createur)';
@@ -56,19 +54,19 @@ class evenements extends modele {
   }
 
   public function listerEvenementsUtilisateur($groupe){
-    $sql = 'SELECT e_nom, e_createur FROM Evenements WHERE e_nom IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM Evenements WHERE e_nom IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?) AND g_nom = ?';
     $listerMembresEvenement = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerMembresEvenement;
   }
 
   public function listerEvenementsGroupe($groupe){
-    $sql = 'SELECT e_nom, e_createur FROM Evenements WHERE e_nom NOT IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM Evenements WHERE e_nom NOT IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?) AND g_nom = ?';
     $listerEvenementsGroupes = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerEvenementsGroupes;
   }
 
   public function listerEvenementsAccueil(){
-    $sql = 'SELECT e_nom FROM Evenements WHERE e_nom IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?)';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM Evenements WHERE e_nom IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?)';
     $listerEvenementsAccueil = $this->executerRequete($sql, array($_SESSION['pseudo']));
     return $listerEvenementsAccueil;
   }

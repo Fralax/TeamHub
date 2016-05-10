@@ -54,10 +54,22 @@
       <div class="evenement">
         <h3>Événements auxquels je participe</h3>
         <table>
-          <?php foreach ($afficherMesEvenements as list($nom)){ ?>
+          <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
           <tr>
             <td>
-              <?php echo $nom?> </a>
+              <?php echo $nom ?> </a>
+            </td>
+            <td>
+              <?php echo "le ".$date ?>
+            </td>
+            <td>
+              <?php echo "à ".$heure ?>
+            </td>
+            <td>
+              <?php echo "créé par ".$createur ?>
+            </td>
+            <td>
+              <?php echo "au club ".$nomClub ?>
             </td>
             <td>
               <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
@@ -70,10 +82,22 @@
         </table>
         <h3>Événements du groupe</h3>
         <table>
-          <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
+          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
+            </td>
+            <td>
+              <?php echo "le ".$date ?>
+            </td>
+            <td>
+              <?php echo "à ".$heure ?>
+            </td>
+            <td>
+              <?php echo "créé par ".$createur ?>
+            </td>
+            <td>
+              <?php echo "au club ".$nomClub ?>
             </td>
             <td>
               <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
@@ -104,15 +128,27 @@
     <div class="evenement">
       <h3>Événements auxquels je participe</h3>
       <table>
-        <?php foreach ($afficherMesEvenements as list($nom, $createur)){ ?>
+        <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
             <?php echo $nom?> </a>
           </td>
           <td>
+            <?php echo "le ".$date ?>
+          </td>
+          <td>
+            <?php echo "à ".$heure ?>
+          </td>
+          <td>
+            <?php echo "créé par ".$createur ?>
+          </td>
+          <td>
+            <?php echo "au club ".$nomClub ?>
+          </td>
+          <td>
             <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
           </td>
-          <?php if ($createur == "createur"){ ?>
+          <?php if ($createur == $_SESSION['pseudo']){ ?>
           <td>
             <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
           </td>
@@ -122,10 +158,22 @@
       </table>
       <h3>Événements du groupe</h3>
       <table>
-        <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
+        <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
-            <?php echo $nom ?> </a>
+            <?php echo $nom?> </a>
+          </td>
+          <td>
+            <?php echo "le ".$date ?>
+          </td>
+          <td>
+            <?php echo "à ".$heure ?>
+          </td>
+          <td>
+            <?php echo "créé par ".$createur ?>
+          </td>
+          <td>
+            <?php echo "au club ".$nomClub ?>
           </td>
           <td>
             <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
@@ -153,10 +201,22 @@
     <div class="evenement">
       <h3>Événements du groupe</h3>
       <table>
-        <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
+        <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
-            <?php echo $nom ?> </a>
+            <?php echo $nom?> </a>
+          </td>
+          <td>
+            <?php echo "le ".$date ?>
+          </td>
+          <td>
+            <?php echo "à ".$heure ?>
+          </td>
+          <td>
+            <?php echo "créé par ".$createur ?>
+          </td>
+          <td>
+            <?php echo "au club ".$nomlub ?>
           </td>
         </tr>
         <?php } ?>
@@ -180,10 +240,22 @@
     <div class="evenement">
       <h3>Événements du groupe</h3>
       <table>
-        <?php foreach ($evenementsGroupe as list($nom, $createur)){ ?>
+        <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
-            <?php echo $nom ?> </a>
+            <?php echo $nom?> </a>
+          </td>
+          <td>
+            <?php echo "le ".$date ?>
+          </td>
+          <td>
+            <?php echo "à ".$heure ?>
+          </td>
+          <td>
+            <?php echo "créé par ".$createur ?>
+          </td>
+          <td>
+            <?php echo "au club ".$nomClub ?>
           </td>
         </tr>
         <?php } ?>
@@ -208,7 +280,7 @@
     <div class="evenement">
       <h3>Événements</h3>
       <table>
-        <?php foreach ($evenement as list($nom, $date, $heure, $createur, $club)){ ?>
+        <?php foreach ($evenement as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
             <?php echo $nom?> </a>
@@ -223,7 +295,7 @@
             <?php echo "créé par ".$createur ?>
           </td>
           <td>
-            <?php echo "au club ".$club ?>
+            <?php echo "au club ".$nomClub ?>
           </td>
         </tr>
         <?php } ?>
