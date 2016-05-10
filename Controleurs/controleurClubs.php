@@ -8,14 +8,14 @@ class ControleurClubs{
   public function ajoutClub(){
     $club = new clubs();
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
-      $club->ajouterPhoto();
-      //if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !=""){
-        //$club->ajouterClubBdd();
-        //header('refresh:1;url=index.php?page=accueil');
-      //}
-      //else {
-        //echo "Des champs n'ont pas été rempli !";
-      //}
+      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" ){
+        $club->ajouterClubBdd();
+        $club->ajouterPhoto();
+        header('refresh:1;url=index.php?page=accueil');
+      }
+      else {
+        echo "Des champs n'ont pas été rempli !";
+      }
     }
 
     $vue = new Vue('AjoutClub');
