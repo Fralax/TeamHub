@@ -48,19 +48,21 @@ class clubs extends modele {
   }
 
   public function ajouterPhoto(){
-    $image = basename($_FILES['photo']['name']);
+    $fichier = $_POST['photo'];
+    var_dump($_FILES[0]);
     $dossier = '/imagesClubs';
     $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-    $extension = strrchr($_FILES['image']['name'], '.');
-
+    $extension = strrchr($_POST['photo'], '.');
     if(!in_array($extension, $extensions)){
      $erreur = 'Vous devez uploader un fichier de type png, gif, jpg ou jpeg...';
     }
 
     if(!isset($erreur)){
      $fichier = strtr($fichier,'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+     var_dump($fichier);
      $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-     if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)){
+
+     if(move_uploaded_file($fichier, $dossier . $fichier)){
        $sql = 'INSERT INTO Clubs(c_image) VALUES(:image)';
        $ajouterPhoto = $this->executerRequete ($sql, array('image'=>$fichier));
      } else {

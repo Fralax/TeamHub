@@ -8,7 +8,7 @@
 	<body>
 		<div class="formulaire" >
 			<h2>Ajout d'un nouveau club</h2>
-			<form name = "formulaireNouveauClub" method="post" action = "">
+			<form name = "formulaireNouveauClub" method="post" action = "" enctype="multipart/form-data">
 				<p> Nom du club : <input type="text" name="nomClub" placeholder="Nom du Club" size="25" value = "<?= $_POST['nomClub'] ?>"/> </p>
         <p> Adresse : <input type="text" name="adresseClub" placeholder="Adresse du Club" size="25" value = "<?= $_POST['adresseClub'] ?>"/> </p>
         <p> CP : <input type="text" name="cpClub" placeholder="Code Postal" size="25" value = "<?= $_POST['cpClub'] ?>"/> </p>
