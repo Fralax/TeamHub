@@ -21,39 +21,8 @@ class clubs extends modele {
     $hoSamediFin = "{$_POST['hSamediFin']}:{$_POST['mSamediFin']}:00";
     $hoDimancheFin = "{$_POST['hDimancheFin']}:{$_POST['mDimancheFin']}:00";
 
-<<<<<<< HEAD
     $fichier = $_FILES['photo']['name'];
     $dossier = 'imagesClubs/';
-=======
-    $sql = 'INSERT INTO Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire)
-
-            VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
-                    :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub)';
-    $ajouterClubBdd = $this->executerRequete ($sql, array(
-      'nomClub'=>$_POST['nomClub'],
-      'adresseClub'=>$_POST['adresseClub'],
-      'cpClub'=>$_POST['cpClub'],
-      'numeroClub'=>$_POST['numeroClub'],
-      'hoLundiDebutClub'=>$hoLundiDebut,
-      'hoMardiDebutClub'=>$hoMardiDebut,
-      'hoMercrediDebutClub'=>$hoMercrediDebut,
-      'hoJeudiDebutClub'=>$hoJeudiDebut,
-      'hoVendrediDebutClub'=>$hoVendrediDebut,
-      'hoSamediDebutClub'=>$hoSamediDebut,
-      'hoDimancheDebutClub'=>$hoDimancheDebut,
-      'hoLundiFinClub'=>$hoLundiFin,
-      'hoMardiFinClub'=>$hoMardiFin,
-      'hoMercrediFinClub'=>$hoMercrediFin,
-      'hoJeudiFinClub'=>$hoJeudiFin,
-      'hoVendrediFinClub'=>$hoVendrediFin,
-      'hoSamediFinClub'=>$hoSamediFin,
-      'hoDimancheFinClub'=>$hoDimancheFin,
-      'hoCommentaireClub'=>$_POST['remarqueHoraire']));
-  }
-
-  public function ajouterPhoto(){
-    $dossier = '/imagesClubs';
->>>>>>> e9b169b511d1de27a716ee0f5f9e53d0f648fa4a
     $extensions = array('.png', '.gif', '.jpg', '.jpeg');
     $extension = strrchr($fichier, '.');
     if(!in_array($extension, $extensions)){
@@ -96,7 +65,6 @@ class clubs extends modele {
     } else {
      echo $erreur;
     }
-
   }
 
 
@@ -106,10 +74,16 @@ class clubs extends modele {
   }
 
   public function listerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire
-            FROM Clubs';
+    $sql = 'SELECT c_nom, c_adresse, c_cp FROM Clubs';
     $listerClub = $this->executerRequete ($sql);
     return $listerClub;
+  }
+
+  public function afficherCaracteristiquesClub($nom){
+    $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image
+            FROM Clubs WHERE c_nom = ?';
+    $afficherCaracteristiquesClub = $this->executerRequete($sql, array($nom));
+    return $afficherCaracteristiquesClub;
   }
 
 }

@@ -8,7 +8,7 @@ class ControleurClubs{
   public function ajoutClub(){
     $club = new clubs();
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
-      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" ){
+      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && isset($_FILES['photo'])){
         $club->ajouterClubBdd();
         $club->ajouterPhoto();
         header('refresh:1;url=index.php?page=accueil');
@@ -27,6 +27,15 @@ class ControleurClubs{
     $listeclubs = $club->listerClub()->fetchAll();
     $vue = new Vue('VoirLesClubs');
     $vue->generer(array('club'=>$listeclubs));
+  }
+
+  public function affichageCaracteristiquesClub($nom){
+    $club = new clubs();
+    $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
+    $vue = new Vue('Club');
+    $vue->generer(array('caractClub'=>$CaracteristiquesClub));
+
+
   }
 }
 ?>

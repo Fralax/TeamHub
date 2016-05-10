@@ -137,6 +137,10 @@
           $this->ControleurClubs->listeclubs();
           break;
 
+        case 'club':
+          $this->ControleurClubs->affichageCaracteristiquesClub($_GET['nom']);
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

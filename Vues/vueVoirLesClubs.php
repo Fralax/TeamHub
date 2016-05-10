@@ -10,7 +10,7 @@
 			<h2>Liste des Clubs </h2>
 
 	    <?php foreach ($club as list($nomClub, $adresseClub, $cpClub)) { ?>
-	    	<p> <?php echo $nomClub?> situé au <?php echo $adresseClub?> <?php echo $cpClub?> </p>
+	    	<p> <a href="index.php?page=club&nom=<?php echo $nomClub?>"> <?php echo $nomClub?></a> situé au <?php echo $adresseClub?> <?php echo $cpClub?> </p>
 	    <?php } ?>
 		</div>
 
