@@ -48,8 +48,6 @@ class clubs extends modele {
   }
 
   public function ajouterPhoto(){
-    $fichier = $_POST['photo'];
-    var_dump($_FILES[0]);
     $dossier = '/imagesClubs';
     $extensions = array('.png', '.gif', '.jpg', '.jpeg');
     $extension = strrchr($_POST['photo'], '.');

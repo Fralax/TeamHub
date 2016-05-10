@@ -24,9 +24,9 @@ class ControleurClubs{
 
   public function listeclubs(){
     $club = new clubs();
-    $listeclubss = $club->listerClub()->fetchAll();
+    $listeclubs = $club->listerClub()->fetchAll();
     $vue = new Vue('VoirLesClubs');
-    $vue->generer(array('club'=>$listeclubss));
+    $vue->generer(array('club'=>$listeclubs));
   }
 }
 ?>
