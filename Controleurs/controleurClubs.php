@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Modeles/club.php';
+require_once 'Modeles/clubs.php';
 require_once 'Vues/vue.php';
 
-class controleurClub{
+class ControleurClubs{
 
   public function ajoutClub(){
-    $club = new club();
+    $club = new clubs();
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
       if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !=""){
         // $club->ajouterClubBdd();
@@ -19,11 +19,11 @@ class controleurClub{
     $vue->generer();
   }
 
-  public function listeClub(){
-    $club = new club();
-    $ListeClubs = $club->listerClub()->fetchAll();
+  public function listeclubs(){
+    $club = new clubs();
+    $listeclubss = $club->listerClub()->fetchAll();
     $vue = new Vue('VoirLesClubs');
-    $vue->generer(array('club'=>$ListeClubs));
+    $vue->generer(array('club'=>$listeclubss));
   }
 }
 ?>

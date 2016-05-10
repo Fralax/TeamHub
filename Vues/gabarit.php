@@ -29,7 +29,7 @@
           </li><!--
        --><li> <a href=""> CLUB </a>
             <ul>
-              <li><a href="index.php?page=listeclub"> Voir la liste des clubs </a> </li>
+              <li><a href="index.php?page=listeclubs"> Voir la liste des clubs </a> </li>
               <li><a href="index.php?page=ajoutclub"> Ajout d'un club </a> </li>
             </ul>
           </li><!--

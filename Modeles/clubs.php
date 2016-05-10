@@ -2,7 +2,7 @@
 
 require_once "Modeles/modele.php";
 
-class club extends modele {
+class clubs extends modele {
 
   public function ajouterClubBdd(){
 
@@ -22,10 +22,29 @@ class club extends modele {
     $hoDimancheFin = "{$_POST['hDimancheFin']}:{$_POST['mDimancheFin']}:00";
 
     $sql = 'INSERT INTO Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire)
-            VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub, :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub)';
-    $ajouterClubBdd = $this->executerRequete ($sql, array('nomClub'=>$_POST['nomClub'], 'adresseClub'=>$_POST['adresseClub'], 'cpClub'=>$_POST['cpClub'], 'numeroClub'=>$_POST['numeroClub'], 'hoLundiDebutClub'=>$hoLundiDebut, 'hoMardiDebutClub'=>$hoMardiDebut, 'hoMercrediDebutClub'=>$hoMercrediDebut,
-     'hoJeudiDebutClub'=>$hoJeudiDebut, 'hoVendrediDebutClub'=>$hoVendrediDebut, 'hoSamediDebutClub'=>$hoSamediDebut, 'hoDimancheDebutClub'=>$hoDimancheDebut, 'hoLundiFinClub'=>$hoLundiFin, 'hoMardiFinClub'=>$hoMardiFin, 'hoMercrediFinClub'=>$hoMercrediFin, 'hoJeudiFinClub'=>$hoJeudiFin,
-     'hoVendrediFinClub'=>$hoVendrediFin, 'hoSamediFinClub'=>$hoSamediFin, 'hoDimancheFinClub'=>$hoDimancheFin, 'hoCommentaireClub'=>$_POST['remarqueHoraire']));
+
+            VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
+                    :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub)';
+    $ajouterClubBdd = $this->executerRequete ($sql, array(
+      'nomClub'=>$_POST['nomClub'],
+      'adresseClub'=>$_POST['adresseClub'],
+      'cpClub'=>$_POST['cpClub'],
+      'numeroClub'=>$_POST['numeroClub'],
+      'hoLundiDebutClub'=>$hoLundiDebut,
+      'hoMardiDebutClub'=>$hoMardiDebut,
+      'hoMercrediDebutClub'=>$hoMercrediDebut,
+      'hoJeudiDebutClub'=>$hoJeudiDebut,
+      'hoVendrediDebutClub'=>$hoVendrediDebut,
+      'hoSamediDebutClub'=>$hoSamediDebut,
+      'hoDimancheDebutClub'=>$hoDimancheDebut,
+      'hoLundiFinClub'=>$hoLundiFin,
+      'hoMardiFinClub'=>$hoMardiFin,
+      'hoMercrediFinClub'=>$hoMercrediFin,
+      'hoJeudiFinClub'=>$hoJeudiFin,
+      'hoVendrediFinClub'=>$hoVendrediFin,
+      'hoSamediFinClub'=>$hoSamediFin,
+      'hoDimancheFinClub'=>$hoDimancheFin,
+      'hoCommentaireClub'=>$_POST['remarqueHoraire']));
   }
 
   public function ajouterPhoto(){
