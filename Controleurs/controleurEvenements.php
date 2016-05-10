@@ -1,18 +1,21 @@
 <?php
 
 require_once 'Modeles/evenements.php';
+require_once "Modeles/clubs.php";
 require_once 'Vues/vue.php';
 
 class controleurEvenements{
 
   public function creationEvenements($groupe){
     $evenement = new evenements();
+    $club = new clubs();
+    $listeClubs = $club->listerClub()->fetchAll();
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
       $evenement->ajouterEvenementsBdd($groupe);
       header('refresh:1;url=index.php?page=mesgroupes');
     }
     $vue = new Vue('CreationEvenements');
-    $vue->generer();
+    $vue->generer(['clubs'=>$listeClubs]);
   }
 
   public function suppressionEvenement($nomevenement){

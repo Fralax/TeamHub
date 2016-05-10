@@ -53,8 +53,18 @@
 	          <?php } ?>
 	        </select>
 	      </p>
-	      <p> <input type="text" name="club" placeholder="Nom du club" size="25" /> </p>
-
+				<p>
+					Club :
+					<select name="club">
+						<?php foreach ($clubs as list($nom)) { ?>
+						<option value = "<?php echo $nom ?>"> <?php echo $nom ?> </option>
+						<?php } ?>
+					</select>
+				</p>
+				<p>
+					Le club souhaité n'apparaît pas dans la liste ?
+					<a href="index.php?page=ajoutclub"> <input type="button" name="ajouterClub" value="Ajouter un nouveau club"> </a>
+				</p>
 				<p> <input name="Créer" type="submit" value="Créer"> </p>
 			</form>
 		</div>
