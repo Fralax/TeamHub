@@ -22,6 +22,7 @@ class clubs extends modele {
     $hoDimancheFin = "{$_POST['hDimancheFin']}:{$_POST['mDimancheFin']}:00";
 
     $sql = 'INSERT INTO Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire)
+
             VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
                     :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub)';
     $ajouterClubBdd = $this->executerRequete ($sql, array(
@@ -44,6 +45,32 @@ class clubs extends modele {
       'hoSamediFinClub'=>$hoSamediFin,
       'hoDimancheFinClub'=>$hoDimancheFin,
       'hoCommentaireClub'=>$_POST['remarqueHoraire']));
+  }
+
+  public function ajouterPhoto(){
+    $fichier = $_POST['photo'];
+    var_dump($_FILES[0]);
+    $dossier = '/imagesClubs';
+    $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+    $extension = strrchr($_POST['photo'], '.');
+    if(!in_array($extension, $extensions)){
+     $erreur = 'Vous devez uploader un fichier de type png, gif, jpg ou jpeg...';
+    }
+
+    if(!isset($erreur)){
+     $fichier = strtr($fichier,'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+     var_dump($fichier);
+     $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+
+     if(move_uploaded_file($fichier, $dossier . $fichier)){
+       $sql = 'INSERT INTO Clubs(c_image) VALUES(:image)';
+       $ajouterPhoto = $this->executerRequete ($sql, array('image'=>$fichier));
+     } else {
+       echo 'Echec de l\'upload !';
+     }
+    } else {
+     echo $erreur;
+    }
   }
 
   public function listerClub(){
