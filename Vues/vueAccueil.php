@@ -8,13 +8,13 @@
 
 <?php
 	if(isset($_SESSION['pseudo'])){
-		$i = 1;
+		$n = 1;
 	} else{
-		$i = 2;
+		$n = 2;
 	}
 ?>
 
-<?php if ($i == 1){ ?>
+<?php if ($n == 1){ ?>
 	<div class="conteneur">
 		<div class="calendrier">
 			<?php $days=array('Lun','Mar','Mer','Jeu','Ven','Sam','Dim');
@@ -91,8 +91,7 @@
 		</div>
 	</div>
 <?php } ?>
-
-<?php if ($i == 2){ ?>
+<?php if ($n == 2){ ?>
 	<body>
 		<div class="messageBienvenue">
 			<h2>Bienvenue sur TeamHub !</h2>

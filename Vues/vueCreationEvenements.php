@@ -8,7 +8,7 @@
 	<body>
 
 		<div class="creationEvenement">
-			<h2>Création d'un nouveau groupe</h2>
+			<h2>Création d'un nouvel événement</h2>
 
 			<form name = "formulaireNouvelEvenement" method="post" action = "">
 
