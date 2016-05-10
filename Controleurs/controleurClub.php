@@ -9,7 +9,8 @@ class controleurClub{
     $club = new club();
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
       if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !=""){
-        $club->ajouterClubBdd();
+        // $club->ajouterClubBdd();
+        $club->ajouterPhoto();
         header('refresh:1;url=index.php?page=accueil');
       }
     }
