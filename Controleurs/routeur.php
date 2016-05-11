@@ -81,8 +81,8 @@
           break;
 
         case 'mesinfos':
-          $this->controleurMembres->affichageMesInfos();
           $this->controleurMembres->modificationPhoto();
+          $this->controleurMembres->affichageMesInfos();
           break;
 
         case 'modifmescoordonnees':

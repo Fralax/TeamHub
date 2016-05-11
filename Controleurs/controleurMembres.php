@@ -35,7 +35,7 @@ class membres{
     $utilisateurs = new utilisateurs();
     if (isset($_POST['modifier']) && $_POST['modifier'] == 'Modifier ma photo de Profil'){
       $modifierPhoto = $utilisateurs->modifierPhoto();
-      header("Refresh: 2;index.php?page=mesinfos");
+      header("Refresh:2; index.php?page=mesinfos");
     }
   }
 
