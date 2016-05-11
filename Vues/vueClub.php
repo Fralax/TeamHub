@@ -50,6 +50,9 @@
 					</tr>
 	      </table>
 			</div>
+			<div class="commentaire">
+					<?php echo $caractClub['c_hoCommentaire'] ?>
+			</div>
 		</div>
 
   </body>
