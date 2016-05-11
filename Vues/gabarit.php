@@ -63,8 +63,8 @@
        --><li> <a href="">  <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?> </a>
             <ul>
               <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
+              <li><a href="index.php?page=administration"> Panneau d'Administration </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
-              <li><a href="index.php?page=accueil"> Panneau d'Administration </a></li>
             </ul>
           </li>
         </ul>
