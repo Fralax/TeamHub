@@ -8,9 +8,9 @@
 	<body>
 		<div class="conteneur">
 			<p> <img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/>
-				<form name = "formulaireNouvellePhoto" method="post" action = "" enctype="multipart/form-data" >
+				<form name = "formulaireNouvellePhoto" method="post" action = "" enctype="multipart/form-data">
 					<input type="file" name="photo" />
-					<input name="modifier" type="submit" value="Modifier ma photo de Profil">
+					<input class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil">
 				</form >
 			<h2>Mes Infos</h2>
 			<div class = "Mesinfos">

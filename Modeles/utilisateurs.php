@@ -100,6 +100,12 @@ class utilisateurs extends modele {
     }
   }
 
+  public function afficherPhoto(){
+    $sql = 'SELECT u_photo FROM Utilisateurs WHERE u_pseudo = ?';
+    $afficherPhoto = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $afficherPhoto;
+  }
+
   public function modifierMesCoordonnees(){
     $sql = 'UPDATE Utilisateurs SET u_portable = :portable, u_email = :email WHERE u_pseudo = :pseudo ';
     $modifierMesCoordonnees = $this->executerRequete ($sql, array('portable' => $_POST['Portable'], 'email'=> $_POST['Email'],'pseudo' => $_SESSION['pseudo']));
