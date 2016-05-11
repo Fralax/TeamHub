@@ -17,9 +17,10 @@ class controleurRecherche{
     $recherche = new recherche();
     $resultatRechercheGroupes = $recherche->rechercherGroupes()->fetchAll();
     $resultatRechercheMembres = $recherche->rechercherMembres()->fetchAll();
+    $resultatRechercheClubs = $recherche->rechercherClubs()->fetchAll();
 
     $vue = new Vue('ResultatsRecherche');
-    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres]);
+    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres, 'clubs' => $resultatRechercheClubs]);
   }
 }
 

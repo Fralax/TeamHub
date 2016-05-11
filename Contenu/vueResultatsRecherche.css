@@ -1,25 +1,75 @@
-.resultatGroupe{
-  text-decoration: none;
-  color : white;
-  padding-left: 10px;
-}
-
-.resultatMembre{
-  text-decoration: none;
-  color : white;
-  padding-left: 10px;
-}
-
 .conteneur{
-  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 1em;
-  padding-left: 10px;
   padding-top: 2px;
   padding-bottom: 10px;
-  width: 45%;
+}
+
+.resultats{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.resultatGroupes{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: none;
+  color : white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  width: 30%;
+}
+
+.resultatMembres{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: none;
+  color : white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  width: 30%;
+}
+
+.resultatClubs{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: none;
+  color : white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  width: 30%;
+}
+
+.resultats table{
+  margin : auto;
+}
+
+.resultats table td{
+  padding-top: 1em;
+  padding-bottom: 1.6em;
+}
+
+.resultats td{
+  text-align: center;
 }
 
 .conteneur h2, h3, table, a{
   text-decoration: none;
   color : white;
+}
+
+.conteneur a:hover{
+  color: grey;
+}
+
+.conteneur h2{
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
 }

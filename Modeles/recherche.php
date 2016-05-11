@@ -12,8 +12,14 @@ class recherche extends modele {
 
   public function rechercherMembres(){
     $sql = 'SELECT u_pseudo FROM Utilisateurs WHERE u_pseudo LIKE :requete';
-    $rechercherGroupes = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
-    return $rechercherGroupes;
+    $rechercherMembres = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
+    return $rechercherMembres;
+  }
+
+  public function rechercherClubs(){
+    $sql = 'SELECT c_nom FROM Clubs WHERE c_nom LIKE :requete';
+    $rechercherClubs = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
+    return $rechercherClubs;
   }
 
 
