@@ -34,19 +34,19 @@
 					</tr>
 					<tr>
 						<td> Jeudi </td>
-						<td> de <?php echo $caractClub['c_hoMercrediDebut'] ?> à <?php echo $caractClub['c_hoMercrediFin'] ?> </td>
-					</tr>
-					<tr>
-						<td> Vendredi </td>
 						<td> de <?php echo $caractClub['c_hoJeudiDebut'] ?> à <?php echo $caractClub['c_hoJeudiFin'] ?> </td>
 					</tr>
 					<tr>
-						<td> Samedi </td>
+						<td> Vendredi </td>
 						<td> de <?php echo $caractClub['c_hoVendrediDebut'] ?> à <?php echo $caractClub['c_hoVendrediFin'] ?> </td>
 					</tr>
 					<tr>
-						<td> Dimanche </td>
+						<td> Samedi </td>
 						<td> de <?php echo $caractClub['c_hoSamediDebut'] ?> à <?php echo $caractClub['c_hoSamediFin'] ?> </td>
+					</tr>
+					<tr>
+						<td> Dimanche </td>
+						<td> de <?php echo $caractClub['c_hoDimancheDebut'] ?> à <?php echo $caractClub['c_hoDimancheFin'] ?> </td>
 					</tr>
 	      </table>
 			</div>

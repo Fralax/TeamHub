@@ -8,7 +8,7 @@ class utilisateurs extends modele {
 
       $pass_hache = password_hash($_POST['MotDePasse'], PASSWORD_BCRYPT);
       $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
-      $photo = avatar.png;
+      $photo = "avatar.png";
 
       $sql = 'INSERT INTO utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo)
               VALUES (:pseudo, :nom, :prenom, :sexe, :adresse, :ville, :cp, :departement, :portable, :email, :naissance, :mdp, :photo)';
