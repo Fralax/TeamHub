@@ -33,7 +33,7 @@
 
   				<td>
   					<?php if($placesLibres != 0){ ?>
-  					<a href="index.php?page=confirmationgroupe&nom=<?php echo $nom?>"><input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+						<a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $nom ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $nom; ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
   					<?php } ?>
   				</td>
   			</tr>

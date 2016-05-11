@@ -7,10 +7,15 @@
 	</head>
 	<body>
 		<div class="conteneur">
+			<p> <img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/>
+				<form name = "formulaireNouvellePhoto" method="post" action = "" enctype="multipart/form-data" >
+					<input type="file" name="photo" />
+					<input name="modifier" type="submit" value="Modifier ma photo de Profil">
+				</form >
 			<h2>Mes Infos</h2>
 			<div class = "Mesinfos">
-				<p> Nom : <?php echo $infos[u_nom]?> </p>
-	      <p> Prénom : <?php echo $infos[u_prenom]?> </p>
+				<p> Prénom : <?php echo $infos[u_prenom]?> </p>
+	      <p> Nom : <?php echo $infos[u_nom]?>  </p>
 	      <p> Sexe : <?php echo $infos[u_sexe]?> </p>
 	      <p> Date de Naissance : <?php echo $infos[u_naissance]?> </p>
 			</div>

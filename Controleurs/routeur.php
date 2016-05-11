@@ -79,6 +79,7 @@
 
         case 'mesinfos':
           $this->controleurMembres->affichageMesInfos();
+          $this->controleurMembres->modificationPhoto();
           break;
 
         case 'modifmescoordonnees':

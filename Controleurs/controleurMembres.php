@@ -31,6 +31,14 @@ class membres{
     $vue->generer();
   }
 
+  public function modificationPhoto(){
+    $utilisateurs = new utilisateurs();
+    if (isset($_POST['modifier']) && $_POST['modifier'] == 'Modifier ma photo de Profil'){
+      $modifierPhoto = $utilisateurs->modifierPhoto();
+      header("Refresh: 2;index.php?page=mesinfos");
+    }
+  }
+
   public function modificationMesCoordonnees(){
     $utilisateurs = new utilisateurs();
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){

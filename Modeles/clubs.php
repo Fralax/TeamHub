@@ -67,12 +67,6 @@ class clubs extends modele {
     }
   }
 
-
-
-  public function ajouterPhoto(){
-
-  }
-
   public function listerClub(){
     $sql = 'SELECT c_nom, c_adresse, c_cp FROM Clubs';
     $listerClub = $this->executerRequete ($sql);
