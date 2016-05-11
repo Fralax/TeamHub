@@ -4,6 +4,10 @@
   padding-left: 10px;
 }
 
+.mesGroupes a:hover{
+  color:grey;
+}
+
 .mesGroupes{
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 1em;
@@ -20,12 +24,15 @@
   padding-left: 10px;
 }
 
+.mesEvenements a:hover{
+  color:grey;
+}
+
 .mesEvenements{
   border-radius: 1em;
   background-color: rgba(0, 0, 0, 0.3);
   width: 30em;
   height: auto;
-
 }
 
 

@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
+		<link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
 		<title>Liste des Clubs </title>
 	</head>
 	<body>
-		<div class="club">
+		<div class="clubs">
 			<h2>Liste des Clubs </h2>
 
 	    <?php foreach ($club as list($nomClub, $adresseClub, $cpClub)) { ?>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
+		<link rel="stylesheet" href="Contenu/vueClub.css" />
 		<title>Liste des Clubs </title>
 	</head>
 	<body>
@@ -18,29 +18,38 @@
       <p> Numéro de téléphone :
       <?php echo $caractClub['c_numero'] ?>
       </p>
-      <table>
-        <tr>
-          <td> Lundi </td>
-          <td> Mardi </td>
-          <td> Mercredi </td>
-          <td> Jeudi </td>
-          <td> Vendredi </td>
-          <td> Samedi </td>
-          <td> Dimanche </td>
-        </tr>
-          <td> <?php echo date('G:i ',$caractClub['c_hoLundiDebut']) ?> - <?php echo $caractClub['c_hoLundiFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoMardiDebut'] ?> - <?php echo $caractClub['c_hoMardiFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoMercrediDebut'] ?> - <?php echo $caractClub['c_hoMercrediFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoJeudiDebut'] ?> - <?php echo $caractClub['c_hoJeudiFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoVendrediDebut'] ?> - <?php echo $caractClub['c_hoVendrediFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoSamediDebut'] ?> - <?php echo $caractClub['c_hoSamediFin'] ?> </td>
-          <td> <?php echo $caractClub['c_hoDimancheDebut'] ?> - <?php echo $caractClub['c_hoDimancheFin'] ?> </td>
-        <tr>
-
-        </tr>
-
-      </table>
-
+			<div class="horaires">
+				<table>
+	        <tr>
+	          <td> Lundi </td>
+						<td> de <?php echo $caractClub['c_hoLundiDebut'] ?> à <?php echo $caractClub['c_hoLundiFin'] ?> </td>
+	        </tr>
+	        <tr>
+						<td> Mardi </td>
+						<td> de <?php echo $caractClub['c_hoMardiDebut'] ?> à <?php echo $caractClub['c_hoMardiFin'] ?> </td>
+	        </tr>
+					<tr>
+						<td> Mercredi </td>
+						<td> de <?php echo $caractClub['c_hoMercrediDebut'] ?> à <?php echo $caractClub['c_hoMercrediFin'] ?> </td>
+					</tr>
+					<tr>
+						<td> Jeudi </td>
+						<td> de <?php echo $caractClub['c_hoMercrediDebut'] ?> à <?php echo $caractClub['c_hoMercrediFin'] ?> </td>
+					</tr>
+					<tr>
+						<td> Vendredi </td>
+						<td> de <?php echo $caractClub['c_hoJeudiDebut'] ?> à <?php echo $caractClub['c_hoJeudiFin'] ?> </td>
+					</tr>
+					<tr>
+						<td> Samedi </td>
+						<td> de <?php echo $caractClub['c_hoVendrediDebut'] ?> à <?php echo $caractClub['c_hoVendrediFin'] ?> </td>
+					</tr>
+					<tr>
+						<td> Dimanche </td>
+						<td> de <?php echo $caractClub['c_hoSamediDebut'] ?> à <?php echo $caractClub['c_hoSamediFin'] ?> </td>
+					</tr>
+	      </table>
+			</div>
 		</div>
 
   </body>

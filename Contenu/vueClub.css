@@ -1,0 +1,25 @@
+.club img{
+	max-width: 20em;
+	height: auto;
+}
+
+.club{
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  color : white;
+}
+
+.horaires table td{
+  text-align: left;
+}
+
+.horaires{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
