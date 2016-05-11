@@ -81,15 +81,14 @@ border-radius: 0;
 }
 
 header #barreMenu li:hover ul {
-  padding-top: 5%;
 	max-height:15em;
   background-color: rgba(245, 245, 225, 0.9);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
 
-header img{
-  border-radius: 15em;
+header #barreMenu img{
+  border-radius: 30000em;
 }
 
 #wrap {

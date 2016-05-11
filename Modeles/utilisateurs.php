@@ -81,6 +81,7 @@ class utilisateurs extends modele {
     $dossier = 'imagesUtilisateurs/';
     $extensions = array('.png', '.gif', '.jpg', '.jpeg');
     $extension = strrchr($fichier, '.');
+
     if(!in_array($extension, $extensions)){
      $erreur = 'Vous devez uploader un fichier de type png, gif, jpg ou jpeg...';
     }
