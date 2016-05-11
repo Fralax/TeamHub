@@ -72,10 +72,10 @@
               <?php echo "au club ".$nomClub ?>
             </td>
             <td>
-              <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l'évenement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Quitter" value="Quitter" > </a>
             </td>
             <td>
-              <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
             </td>
           </tr>
           <?php } ?>
@@ -100,10 +100,10 @@
               <?php echo "au club ".$nomClub ?>
             </td>
             <td>
-              <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
             </td>
             <td>
-              <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
             </td>
           </tr>
           <?php } ?>
@@ -146,11 +146,11 @@
             <?php echo "au club ".$nomClub ?>
           </td>
           <td>
-            <a href="index.php?page=quitterevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Quitter" value="Quitter" > </a>
+            <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l'évenement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom?>; ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
           </td>
           <?php if ($createur == $_SESSION['pseudo']){ ?>
           <td>
-            <a href="index.php?page=suppressionevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+            <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
           </td>
           <?php } ?>
         </tr>
@@ -176,7 +176,7 @@
             <?php echo "au club ".$nomClub ?>
           </td>
           <td>
-            <a href="index.php?page=rejoindreevenement&evenement=<?php echo $nom?>"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+            <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom?>; ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
           </td>
         </tr>
         <?php } ?>
@@ -186,7 +186,7 @@
   <?php } ?>
 
   <?php if ($i == 3){ ?>
-    <h2>Groupe <?php echo $caract['g_nom']?> <a href="index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']?>"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a></h2>
+    <h2>Groupe <?php echo $caract['g_nom']?> <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $caract['g_nom'] ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $caract['g_nom']; ?>'; return false"> <input type = "button" name="rejoindre" value="Rejoindre ce groupe" > </a></h2>
     <p> Description du groupe :
     <?php echo $caract['g_description'] ?>
     </p>

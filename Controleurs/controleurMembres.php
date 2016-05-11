@@ -35,7 +35,6 @@ class membres{
     $utilisateurs = new utilisateurs();
     if (isset($_POST['modifier'])){
       $modifierPhoto = $utilisateurs->modifierPhoto();
-
     }
   }
 
