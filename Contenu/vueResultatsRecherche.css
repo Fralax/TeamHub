@@ -17,7 +17,7 @@
   padding-bottom: 1em;
   text-decoration: none;
   color : white;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
   width: 30%;
 }
@@ -29,7 +29,7 @@
   padding-bottom: 1em;
   text-decoration: none;
   color : white;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
   width: 30%;
 }
@@ -41,7 +41,7 @@
   padding-bottom: 1em;
   text-decoration: none;
   color : white;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
   width: 30%;
 }
@@ -70,6 +70,6 @@
 
 .conteneur h2{
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
 }
