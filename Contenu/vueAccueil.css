@@ -9,7 +9,7 @@
 }
 
 .mesGroupes{
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
   padding-top: 0.5%;
   padding-bottom: 1%;
@@ -30,7 +30,7 @@
 
 .mesEvenements{
   border-radius: 1em;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 30em;
   height: auto;
 }
@@ -44,7 +44,7 @@
 }
 
 .messageBienvenue h2{
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1em;
   text-align: center;
   color : white;

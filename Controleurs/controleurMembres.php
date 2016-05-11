@@ -33,10 +33,15 @@ class membres{
 
   public function modificationPhoto(){
     $utilisateurs = new utilisateurs();
-    if (isset($_POST['modifier']) && $_POST['modifier'] == 'Modifier ma photo de Profil'){
+    if (isset($_POST['modifier'])){
       $modifierPhoto = $utilisateurs->modifierPhoto();
-      header("Refresh:2; index.php?page=mesinfos");
     }
+  }
+
+  public function affichagePhoto(){
+    $utilisateurs = new utilisateurs();
+    $affichagePhoto = $utilisateurs->afficherPhoto()->fetch();
+    return $affichagePhoto;
   }
 
   public function modificationMesCoordonnees(){
