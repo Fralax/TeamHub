@@ -108,10 +108,6 @@ class controleurGroupes{
     $event = new evenements();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
-    echo '<pre>';
-    var_dump($afficherMesGroupes);
-    var_dump($afficherMesGroupesAdmin);
-    echo '</pre>';
     $vue = new Vue('MesGroupes');
     $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
   }
