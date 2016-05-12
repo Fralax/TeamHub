@@ -49,15 +49,9 @@ class utilisateurs extends modele {
   }
 
   public function ajoutAppartientBdd($nom, $adminBool){
-    $sql = 'SELECT g_nbrEvenements FROM Appartient WHERE g_nom = ? AND a_admin = ?';
-    $recupNbrEvenements = $this->executerRequete($sql, array($nom, "admin"));
-
-    $nbrEvenements = $recupNbrEvenements->fetch();
-    settype($nbrEvenements[0], "integer");
-
-    $sql2 = 'INSERT INTO Appartient(u_pseudo, g_nom, a_admin, g_nbrEvenements)
-             VALUES (:pseudo, :nomGroupe, :adminBool, :nbrEvenements)';
-    $ajoutGroupeBdd = $this->executerRequete ($sql2, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool, 'nbrEvenements'=> $nbrEvenements[0]));
+    $sql = 'INSERT INTO Appartient(u_pseudo, g_nom, a_admin)
+             VALUES (:pseudo, :nomGroupe, :adminBool)';
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
   }
 
   public function supprimerAppartientBddAdmin($nom){
