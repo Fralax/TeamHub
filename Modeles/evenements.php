@@ -38,10 +38,26 @@ class evenements extends modele {
   }
 
   public function supprimerEvenement($nomevenement){
+    $sql0 = 'SELECT g_nom FROM Evenements WHERE e_nom = ?';
+    $recupGroupe = $this->executerRequete($sql0, array($nomevement));
+    $groupe = $recupGroupe->fetch();
+
     $sql = 'DELETE FROM Evenements WHERE e_nom = :nomEvenement';
     $quitterEvenements = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement));
-    $sql1 = 'DELETE FROM Appartient WHERE e_nom = :nomEvenement AND u_pseudo  = :pseudo';
-    $quitterParticipe = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement, 'pseudo' => $_SESSION['pseudo']));
+
+    $sql1 = 'DELETE FROM Participe WHERE e_nom = :nomEvenement';
+    $quitterParticipe = $this->executerRequete ($sql1, array('nomEvenement'=>$nomevenement));
+
+    $sql2 = 'SELECT g_nbrEvenements FROM Appartient WHERE g_nom = ?';
+    $ajouterNombreEvenementsAppartient = $this->executerRequete($sql2, array($groupe[0]));
+    var_dump($groupe[0]);
+
+    $nbrEvenementsAppartient = $ajouterNombreEvenementsAppartient->fetch();
+    settype($nbrEvenementsAppartient[0], "integer");
+    $nbrEvenementsAppartient[0] = $nbrEvenementsAppartient[0] - 1;
+
+    $sql3 = 'UPDATE Appartient SET g_nbrEvenements = ? WHERE g_nom = ?';
+    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenementsAppartient[0], $groupe[0]));
   }
 
   public function adhererEvenements($nomevenement){
