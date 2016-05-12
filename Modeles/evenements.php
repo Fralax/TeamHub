@@ -21,16 +21,6 @@ class evenements extends modele {
     $sql3 = 'UPDATE Groupes SET g_nbrEvenements = ? WHERE g_nom = ?';
     $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe));
 
-    $sql4 = 'SELECT g_nbrEvenements FROM Appartient WHERE g_nom = ?';
-    $ajouterNombreEvenementsAppartient = $this->executerRequete($sql4, array($groupe));
-
-    $nbrEvenementsAppartient = $ajouterNombreEvenementsAppartient->fetch();
-    settype($nbrEvenementsAppartient[0], "integer");
-    $nbrEvenementsAppartient[0] = $nbrEvenementsAppartient[0] + 1;
-
-    $sql5 = 'UPDATE Appartient SET g_nbrEvenements = ? WHERE g_nom = ?';
-    $ajouterEvenements = $this->executerRequete($sql5, array($nbrEvenementsAppartient[0], $groupe));
-
     $sql6 = 'INSERT INTO Participe(e_nom, u_pseudo, e_createur)
              VALUES(:nom, :pseudo, :createur)';
     $ajouterCreateurParticipe = $this->executerRequete($sql6, array('nom'=>$_POST['nomEvenement'], 'pseudo'=>$_SESSION['pseudo'], 'createur'=> "createur"));
@@ -39,7 +29,7 @@ class evenements extends modele {
 
   public function supprimerEvenement($nomevenement){
     $sql0 = 'SELECT g_nom FROM Evenements WHERE e_nom = ?';
-    $recupGroupe = $this->executerRequete($sql0, array($nomevement));
+    $recupGroupe = $this->executerRequete($sql0, array($nomevenement));
     $groupe = $recupGroupe->fetch();
 
     $sql = 'DELETE FROM Evenements WHERE e_nom = :nomEvenement';
@@ -48,16 +38,16 @@ class evenements extends modele {
     $sql1 = 'DELETE FROM Participe WHERE e_nom = :nomEvenement';
     $quitterParticipe = $this->executerRequete ($sql1, array('nomEvenement'=>$nomevenement));
 
-    $sql2 = 'SELECT g_nbrEvenements FROM Appartient WHERE g_nom = ?';
-    $ajouterNombreEvenementsAppartient = $this->executerRequete($sql2, array($groupe[0]));
-    var_dump($groupe[0]);
+    $sql2 = 'SELECT g_nbrEvenements FROM Groupes WHERE g_nom = ?';
+    $diminuerNombreEvenements = $this->executerRequete($sql2, array($groupe[0]));
 
-    $nbrEvenementsAppartient = $ajouterNombreEvenementsAppartient->fetch();
-    settype($nbrEvenementsAppartient[0], "integer");
-    $nbrEvenementsAppartient[0] = $nbrEvenementsAppartient[0] - 1;
+    $nbrEvenements = $diminuerNombreEvenements->fetch();
+    settype($nbrEvenements[0], "integer");
+    $nbrEvenements[0] = $nbrEvenements[0] - 1;
 
-    $sql3 = 'UPDATE Appartient SET g_nbrEvenements = ? WHERE g_nom = ?';
-    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenementsAppartient[0], $groupe[0]));
+    $sql3 = 'UPDATE Groupes SET g_nbrEvenements = ? WHERE g_nom = ?';
+    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe[0]));
+
   }
 
   public function adhererEvenements($nomevenement){

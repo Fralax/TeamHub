@@ -24,14 +24,14 @@ class groupes extends modele {
   }
 
   public function afficherMesGroupes(){
-    $sql = 'SELECT g_nom, g_nbrEvenements FROM Appartient WHERE u_pseudo = ? AND a_admin = ?';
-    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "nonAdmin"));
+    $sql = 'SELECT Groupes.g_nom, Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin != ?';
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], $_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
 
   public function afficherMesGroupesAdmin(){
-    $sql = 'SELECT g_nom, g_nbrEvenements FROM Appartient WHERE u_pseudo = ? AND a_admin = ?';
-    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin"));
+    $sql = 'SELECT Groupes.g_nom, Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin = ?';
+    $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], $_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
 
