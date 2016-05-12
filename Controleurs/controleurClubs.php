@@ -31,8 +31,12 @@ class ControleurClubs{
   public function affichageCaracteristiquesClub($nom){
     $club = new clubs();
     $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
+    $listeNote = $club->listerDerniereNote($nom)->fetchAll();
+    echo '<pre>';
+    var_dump($listeNote);
+    echo '</pre>';
     $vue = new Vue('Club');
-    $vue->generer(array('caractClub'=>$CaracteristiquesClub));
+    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'noteClub' =>$listeNote));
   }
 
   public function notationClub($nom){
@@ -40,11 +44,6 @@ class ControleurClubs{
     if (isset($_POST['Noter'])){
       $ajoutNote = $club->noterClub($nom);
     }
-  }
-
-  public function listeNote(){
-    $club = new clubs();
-    $listeNote = $club->listerNote($nom)->fetchAll();
   }
 }
 ?>

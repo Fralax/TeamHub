@@ -85,9 +85,10 @@ class clubs extends modele {
     $noterClub = $this->executerRequete ($sql, array('pseudo' => $_SESSION['pseudo'], 'nomClub' => $nom, 'noteClub' => $_POST['noteClub'], 'commentaireClub' => $_POST['commentaireClub']));
   }
 
-  public function listerNote($nom){
+  public function listerDerniereNote($nom){
     $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ?';
     $listerClub = $this->executerRequete($sql, array($nom));
+    return $listerClub;
   }
 
 }
