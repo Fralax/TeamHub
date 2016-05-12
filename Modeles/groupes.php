@@ -21,7 +21,7 @@ class groupes extends modele {
     $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
     $evenements = $recupEvenementASupprimer->fetchAll();
     $nb = count($evenements);
-    for ($i = 0; $i < 2; $i++){
+    for ($i = 0; $i < $nb; $i++){
       $sql3 = 'DELETE FROM Participe WHERE e_nom = ?';
       $supprimerGroupeParticipe = $this->executerRequete ($sql3, array($evenements[$i][0]));
     }
@@ -36,13 +36,13 @@ class groupes extends modele {
   }
 
   public function afficherMesGroupes(){
-    $sql = 'SELECT Groupes.g_nom, Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin != ?';
+    $sql = 'SELECT DISTINCT(Groupes.g_nom), Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin != ?';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], $_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
 
   public function afficherMesGroupesAdmin(){
-    $sql = 'SELECT Groupes.g_nom, Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin = ?';
+    $sql = 'SELECT DISTINCT(Groupes.g_nom), Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin = ?';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], $_SESSION['pseudo']));
     return $afficherMesGroupes;
   }
