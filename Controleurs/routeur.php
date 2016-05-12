@@ -142,6 +142,7 @@
           break;
 
         case 'club':
+          $this->controleurClubs->notationClub($_GET['nom']);
           $this->controleurClubs->affichageCaracteristiquesClub($_GET['nom']);
           break;
 
