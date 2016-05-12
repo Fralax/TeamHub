@@ -20,7 +20,11 @@ class groupes extends modele {
     $sql2 = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
     $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
     $evenements = $recupEvenementASupprimer->fetchAll();
-    var_dump($evenements);
+    $nb = count($evenements);
+    for ($i = 0; $i < 2; $i++){
+      $sql3 = 'DELETE FROM Participe WHERE e_nom = ?';
+      $supprimerGroupeParticipe = $this->executerRequete ($sql3, array($evenements[$i][0]));
+    }
     $sql3 = 'DELETE FROM Evenements WHERE g_nom = ?';
     $supprimerGroupeEvenement = $this->executerRequete ($sql3, array($nom));
   }
