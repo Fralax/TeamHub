@@ -37,14 +37,12 @@ class groupes extends modele {
 
   public function afficherMesGroupes(){
     $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM Appartient, Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM Appartient WHERE u_pseudo = ? AND a_admin = ?)';
-    //$sql = 'SELECT DISTINCT(Appartient.g_nom), Groupes.g_nbrEvenements FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin != ?';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "nonAdmin", $_SESSION['pseudo'], "nonAdmin"));
     return $afficherMesGroupes;
   }
 
   public function afficherMesGroupesAdmin(){
     $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM Appartient, Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM Appartient WHERE u_pseudo = ? AND a_admin = ?)';
-    //$sql = 'SELECT DISTINCT(Groupes.g_nom), Groupes.g_nbrEvenements, Appartient.u_pseudo FROM Groupes, Appartient WHERE Appartient.u_pseudo IN (SELECT Appartient.u_pseudo FROM Appartient WHERE Appartient.u_pseudo = ?) AND Groupes.g_admin = ?';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin", $_SESSION['pseudo'], "admin"));
     return $afficherMesGroupes;
   }
