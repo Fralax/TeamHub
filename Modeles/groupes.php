@@ -14,7 +14,15 @@ class groupes extends modele {
 
   public function supprimerGroupeBdd($nom){
     $sql = 'DELETE FROM Groupes WHERE g_nom = ?';
-    $supprimerGroupeBdd = $this ->executerRequete ($sql, array($nom));
+    $supprimerGroupeGroupes = $this ->executerRequete ($sql, array($nom));
+    $sql1 = 'DELETE FROM Appartient WHERE g_nom = ?';
+    $supprimerGroupeAppatient = $this->executerRequete ($sql1, array($nom));
+    $sql2 = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
+    $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
+    $evenements = $recupEvenementASupprimer->fetchAll();
+    var_dump($evenements);
+    $sql3 = 'DELETE FROM Evenements WHERE g_nom = ?';
+    $supprimerGroupeEvenement = $this->executerRequete ($sql3, array($nom));
   }
 
   public function afficherCaracteristiquesGroupe($nom){

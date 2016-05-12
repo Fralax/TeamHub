@@ -40,8 +40,8 @@ class evenements extends modele {
   public function supprimerEvenement($nomevenement){
     $sql = 'DELETE FROM Evenements WHERE e_nom = :nomEvenement';
     $quitterEvenements = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement));
-    $sql1 = 'DELETE FROM Appartient WHERE e_nom = :nomEvenement AND u_pseudo  = :pseudo';
-    $quitterParticipe = $this->executerRequete ($sql, array('nomEvenement'=>$nomevenement, 'pseudo' => $_SESSION['pseudo']));
+    $sql1 = 'DELETE FROM Participe WHERE e_nom = :nomEvenement AND u_pseudo  = :pseudo';
+    $quitterParticipe = $this->executerRequete ($sql1, array('nomEvenement'=>$nomevenement, 'pseudo' => $_SESSION['pseudo']));
   }
 
   public function adhererEvenements($nomevenement){
