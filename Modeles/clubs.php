@@ -81,7 +81,13 @@ class clubs extends modele {
   }
 
   public function noterClub($nom){
-    
+    $sql = 'INSERT INTO Note(u_pseudo, c_nom, n_note, n_commentaire) VALUES (:pseudo, :nomClub, :noteClub, :commentaireClub)';
+    $noterClub = $this->executerRequete ($sql, array('pseudo' => $_SESSION['pseudo'], 'nomClub' => $nom, 'noteClub' => $_POST['noteClub'], 'commentaireClub' => $_POST['commentaireClub']));
+  }
+
+  public function listerNote($nom){
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ?';
+    $listerClub = $this->executerRequete($sql, array($nom));
   }
 
 }

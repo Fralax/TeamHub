@@ -37,7 +37,14 @@ class ControleurClubs{
 
   public function notationClub($nom){
     $club = new clubs();
-    
+    if (isset($_POST['Noter'])){
+      $ajoutNote = $club->noterClub($nom);
+    }
+  }
+
+  public function listeNote(){
+    $club = new clubs();
+    $listeNote = $club->listerNote($nom)->fetchAll();
   }
 }
 ?>

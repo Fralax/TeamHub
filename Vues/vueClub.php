@@ -54,6 +54,20 @@
 					<?php echo $caractClub['c_hoCommentaire'] ?>
 			</div>
 		</div>
+		<div class="notation">
+			<form name = "formulaireNotation" method="post" action = "">
+				<p> Noter ce club : <input type="radio" name="noteClub" value = "1" /> <label for="1">1 étoile</label>
+														<input type="radio" name="noteClub" value = "2" /> <label for="2">2 étoiles</label>
+														<input type="radio" name="noteClub" value = "3" /> <label for="3">3 étoiles</label>
+														<input type="radio" name="noteClub" value = "4" /> <label for="4">4 étoiles</label>
+														<input type="radio" name="noteClub" value = "5" /> <label for="5">5 étoiles</label> </p>
+				<p>
+	       <label for="commentaireClub"> Ajoutez un commentaire ! </label><br />
+	       <textarea name="commentaireClub" > </textarea>
+	     </p>
+			 <p> <input type="submit" name="Noter" value="Noter"> </p>
+		 </form>
+		</div>
 
   </body>
 </html>
