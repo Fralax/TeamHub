@@ -33,8 +33,11 @@ class ControleurClubs{
     $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
     $vue = new Vue('Club');
     $vue->generer(array('caractClub'=>$CaracteristiquesClub));
+  }
 
-
+  public function notationClub($nom){
+    $club = new clubs();
+    
   }
 }
 ?>

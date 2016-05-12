@@ -80,5 +80,9 @@ class clubs extends modele {
     return $afficherCaracteristiquesClub;
   }
 
+  public function noterClub($nom){
+    
+  }
+
 }
 ?>
