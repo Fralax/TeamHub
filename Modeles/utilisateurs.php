@@ -52,16 +52,25 @@ class utilisateurs extends modele {
     $sql = 'INSERT INTO Appartient(u_pseudo, g_nom, a_admin)
              VALUES (:pseudo, :nomGroupe, :adminBool)';
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
+
   }
 
-  public function supprimerAppartientBddAdmin($nom){
+  public function supprimerAppartientBddAdmin($nom){ //Suppression d'un groupe
     $sql = 'DELETE FROM Appartient WHERE g_nom = ?';
     $supprimerAppartientBdd = $this ->executerRequete ($sql, array($nom));
   }
 
-  public function supprimerAppartientBddNonAdmin($nom){
+  public function supprimerAppartientBddNonAdmin($nom){ //Quitter un groupe
     $sql = 'DELETE FROM Appartient WHERE g_nom = :nom AND u_pseudo = :pseudo';
     $supprimerAppartientBdd = $this ->executerRequete ($sql, array('nom' => $nom, 'pseudo'=>$_SESSION['pseudo']));
+    $sql2 = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
+    $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
+    $evenements = $recupEvenementASupprimer->fetchAll();
+    $nb = count($evenements);
+    for ($i = 0; $i < $nb; $i++){
+      $sql3 = 'DELETE FROM Participe WHERE e_nom = ?';
+      $supprimerGroupeParticipe = $this->executerRequete ($sql3, array($evenements[$i][0]));
+    }
   }
 
   public function afficherMesInfos(){
