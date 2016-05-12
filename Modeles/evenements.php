@@ -46,7 +46,8 @@ class evenements extends modele {
     $nbrEvenements[0] = $nbrEvenements[0] - 1;
 
     $sql3 = 'UPDATE Groupes SET g_nbrEvenements = ? WHERE g_nom = ?';
-    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe[0]));
+    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe[0
+    ]));
 
   }
 
