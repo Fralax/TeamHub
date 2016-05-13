@@ -61,6 +61,7 @@
 						<td> Par : <?php echo $pseudo?> </td>
 						<td> note : <?php echo $note?> étoiles </td>
 						<td> Commentaire : <?php echo $commentaire?> </td>
+						<td> le : </td>
 					</tr>
 				<?php } ?>
 			</table>

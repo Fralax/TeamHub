@@ -31,11 +31,8 @@ class ControleurClubs{
   public function affichageCaracteristiquesClub($nom){
     $club = new clubs();
     $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
-    $listeDerniereNote = $club->listerDerniereNote($nom)->fetchAll();
-    $listeMeilleureNote = $club->listerMeilleureNote($nom)->fetchAll();
-    $listePireNote = $club->listerPireNote($nom)->fetchAll();
     $vue = new Vue('Club');
-    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'derniereNoteClub' =>$listeDerniereNote, 'meilleurNoteClub' => $listeMeilleureNote, 'pireNoteClub'=>$listePireNote));
+    $vue->generer(array('caractClub'=>$CaracteristiquesClub));
   }
 
   public function notationClub($nom){
@@ -43,6 +40,11 @@ class ControleurClubs{
     if (isset($_POST['Noter'])){
       $ajoutNote = $club->noterClub($nom);
     }
+  }
+
+  public function listeNote(){
+    $club = new clubs();
+    $listeNote = $club->listerNote($nom)->fetchAll();
   }
 }
 ?>
