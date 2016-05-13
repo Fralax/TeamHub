@@ -81,14 +81,26 @@ class clubs extends modele {
   }
 
   public function noterClub($nom){
-    $sql = 'INSERT INTO Note(u_pseudo, c_nom, n_note, n_commentaire) VALUES (:pseudo, :nomClub, :noteClub, :commentaireClub)';
+    $sql = 'INSERT INTO Note(u_pseudo, c_nom, n_note, n_commentaire, n_date) VALUES (:pseudo, :nomClub, :noteClub, :commentaireClub, CURDATE())';
     $noterClub = $this->executerRequete ($sql, array('pseudo' => $_SESSION['pseudo'], 'nomClub' => $nom, 'noteClub' => $_POST['noteClub'], 'commentaireClub' => $_POST['commentaireClub']));
   }
 
   public function listerDerniereNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ?';
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
     $listerClub = $this->executerRequete($sql, array($nom));
-    return $listerClub;
+    return $listerDerniereNote;
+  }
+
+  public function listerMeilleureNote($nom){
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
+    $listerClub = $this->executerRequete($sql, array($nom));
+    return $listerMeilleureClub;
+  }
+
+  public function listerPireNote($nom){
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
+    $listerClub = $this->executerRequete($sql, array($nom));
+    return $listerMeilleureClub;
   }
 
 }

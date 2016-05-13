@@ -31,12 +31,11 @@ class ControleurClubs{
   public function affichageCaracteristiquesClub($nom){
     $club = new clubs();
     $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
-    $listeNote = $club->listerDerniereNote($nom)->fetchAll();
-    echo '<pre>';
-    var_dump($listeNote);
-    echo '</pre>';
+    $listeDerniereNote = $club->listerDerniereNote($nom)->fetchAll();
+    $listeMeilleureNote = $club->listerMeilleureNote($nom)->fetchAll();
+    $listePireNote = $club->listerPireNote($nom)->fetchAll();
     $vue = new Vue('Club');
-    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'noteClub' =>$listeNote));
+    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'derniereNoteClub' =>$listeDerniereNote, 'meilleurNoteClub' => $listeMeilleureNote, 'pireNoteClub'=>$listePireNote));
   }
 
   public function notationClub($nom){

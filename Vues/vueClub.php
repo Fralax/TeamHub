@@ -55,10 +55,15 @@
 			</div>
 		</div>
 		<div class="notation">
-			<?php foreach ($noteClub as list($pseudo, $note, $commentaire)){
-				echo $commentaire;
-			}
-				?>
+			<table>
+				<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire)){?>
+					<tr>
+						<td> Par : <?php echo $pseudo?> </td>
+						<td> note : <?php echo $note?> étoiles </td>
+						<td> Commentaire : <?php echo $commentaire?> </td>
+					</tr>
+				<?php } ?>
+			</table>
 			<form name = "formulaireNotation" method="post" action = "">
 				<p> Noter ce club : <input type="radio" name="noteClub" value = "1" /> <label for="1">1 étoile</label>
 														<input type="radio" name="noteClub" value = "2" /> <label for="2">2 étoiles</label>
