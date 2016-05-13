@@ -12,14 +12,14 @@ class controleurEvenements{
     $listeClubs = $club->listerClub()->fetchAll();
     $dateAuj = date("d-m-Y");
     $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
-    $heureAuj = time("H:i");
+    $heureAuj = date("H:i:s");
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
 
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
       if(strtotime($dateAuj) > strtotime($date)){
         echo "Sélectionnez une date dans le futur !";
       } elseif (strtotime($dateAuj) == strtotime($date)){
-        if ($heureAuj > mktime($heure)){
+        if ($heureAuj > $heure){
           echo "Sélectionnez une heure dans le futur !";
         } else {
           $evenement->ajouterEvenementsBdd($groupe);

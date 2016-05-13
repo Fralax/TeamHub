@@ -55,7 +55,7 @@ class controleurGroupes{
     $afficherEvenements = $evenements->listerEvenements($nom)->fetchAll();
     $nb = count($afficherEvenements);
     $dateAuj = date("d-m-Y");
-    $heureAuj = time("H:i");
+    $heureAuj = date("H:i:s");
 
     for ($i=0; $i < $nb; $i++) {
       $date = $evenements->dateEvenement($afficherEvenements[$i][0])->fetch();
@@ -64,7 +64,7 @@ class controleurGroupes{
       if(strtotime($dateAuj) > strtotime($date[0])){
         $evenements->supprimerEvenement($afficherEvenements[$i][0]);
       } elseif (strtotime($dateAuj) == strtotime($date[0])){
-        if ($heureAuj > mktime($heure[0])){
+        if ($heureAuj > $heure[0]){
           $evenements->supprimerEvenement($afficherEvenements[$i][0]);
         }
       }

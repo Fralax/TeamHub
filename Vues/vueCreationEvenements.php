@@ -48,7 +48,7 @@
 
 	        <select name="minute">
 	          <option value=""> Minute </option>
-	          <?php for ($minute = 00 ; $minute <= 59 ; $minute=$minute+10){ ?>
+	          <?php for ($minute = 00 ; $minute <= 59 ; $minute=$minute+5){ ?>
 	          <option value= "<?php echo $minute ?>" <?php if ($_POST['minute']=="$minute"){?> selected <?php }?> > <?php echo $minute; ?> </option>
 	          <?php } ?>
 	        </select>
