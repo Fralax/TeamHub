@@ -7,7 +7,7 @@
 
   <body>
 
-    <h2> Vous avez supprimé l'évenement : <?php echo $evenement ?> ! </h2>
+    <h2> Vous avez supprimé l'événement : <?php echo $evenement ?> ! </h2>
 
     <p> Vous allez être redirigé vers vos groupes. </p>
 
