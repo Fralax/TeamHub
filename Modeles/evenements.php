@@ -46,9 +46,17 @@ class evenements extends modele {
     $nbrEvenements[0] = $nbrEvenements[0] - 1;
 
     $sql3 = 'UPDATE Groupes SET g_nbrEvenements = ? WHERE g_nom = ?';
-    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe[0
-    ]));
+    $ajouterEvenements = $this->executerRequete($sql3, array($nbrEvenements[0], $groupe[0]));
+  }
 
+  public function dateEvenement($nomevenement){
+    $sql = 'SELECT e_date FROM Evenement WHERE e_nom = ?';
+    $dateEvenement = $this->executerRequete($sql, array($nomevenement));
+  }
+
+  public function heureEvenement($nomevenement){
+    $sql = 'SELECT e_heure FROM Evenement WHERE e_nom = ?';
+    $heureEvenement = $this->executerRequete($sql, array($nomevenement));
   }
 
   public function adhererEvenements($nomevenement){
@@ -72,6 +80,12 @@ class evenements extends modele {
     $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM Evenements WHERE e_nom NOT IN (SELECT e_nom FROM Participe WHERE u_pseudo = ?) AND g_nom = ?';
     $listerEvenementsGroupes = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerEvenementsGroupes;
+  }
+
+  public function listerEvenements($groupe){
+    $sql = 'SELECT e_nom FROM Evenements';
+    $listerEvenements = $this->executerRequete($sql);
+    return $listerEvenements;
   }
 
   public function listerEvenementsAccueil(){
