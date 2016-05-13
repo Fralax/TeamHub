@@ -11,6 +11,18 @@
   		<h2>Groupes</h2>
 
   		<table>
+				<?php if ($groupes[0] == "" or $groupes == ""){ ?>
+					<tr>
+						<td>
+							Aucun Groupe n'est disponible ...
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Vous pouvez en créer un ! <a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+						</td>
+					</tr>
+				<?php } ?>
   			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
   			<tr>
   				<td>
