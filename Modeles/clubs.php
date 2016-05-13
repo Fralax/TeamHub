@@ -87,20 +87,20 @@ class clubs extends modele {
 
   public function listerDerniereNote($nom){
     $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
-    $listerClub = $this->executerRequete($sql, array($nom));
+    $listerDerniereNote = $this->executerRequete($sql, array($nom));
     return $listerDerniereNote;
   }
 
   public function listerMeilleureNote($nom){
     $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
-    $listerClub = $this->executerRequete($sql, array($nom));
+    $listerMeilleureClub = $this->executerRequete($sql, array($nom));
     return $listerMeilleureClub;
   }
 
   public function listerPireNote($nom){
     $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
-    $listerClub = $this->executerRequete($sql, array($nom));
-    return $listerMeilleureClub;
+    $listerPireClub = $this->executerRequete($sql, array($nom));
+    return $listerPireClub;
   }
 
 }
