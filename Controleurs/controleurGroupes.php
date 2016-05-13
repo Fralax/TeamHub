@@ -65,6 +65,7 @@ class controleurGroupes{
         $evenements->supprimerEvenement($afficherEvenements[$i][0]);
       } elseif (strtotime($dateAuj) == strtotime($date[0])){
         if ($heureAuj > mktime($heure[0])){
+          var_dump($heure[0]);
           $evenements->supprimerEvenement($afficherEvenements[$i][0]);
         }
       }
