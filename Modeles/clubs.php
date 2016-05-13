@@ -86,7 +86,7 @@ class clubs extends modele {
   }
 
   public function listerDerniereNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
     $listerDerniereNote = $this->executerRequete($sql, array($nom));
     return $listerDerniereNote;
   }
