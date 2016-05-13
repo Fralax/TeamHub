@@ -58,6 +58,7 @@ class controleurGroupes{
     $heureAuj = date("H:i:s");
 
     for ($i=0; $i < $nb; $i++) {
+      echo coucou;
       $date = $evenements->dateEvenement($afficherEvenements[$i][0])->fetch();
       $heure = $evenements->heureEvenement($afficherEvenements[$i][0])->fetch();
 
