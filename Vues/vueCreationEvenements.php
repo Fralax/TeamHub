@@ -56,6 +56,7 @@
 				<p>
 					Club :
 					<select name="club">
+						<option value=""> -- Nom du Club -- </option>
 						<?php foreach ($clubs as list($nom)) { ?>
 						<option value = "<?php echo $nom ?>"> <?php echo $nom ?> </option>
 						<?php } ?>

@@ -14,22 +14,27 @@ class controleurGroupes{
     $departement=$_POST['departement'];
     $placesLibres=$_POST['placesLibres'];
     $creer = $_POST['creer'];
+    $groupe = new groupes();
+    $appartient = new utilisateurs();
 
     if(!empty($creer)){
       if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
-        if($placesLibres < 2){
-          echo "Votre groupe doit contenir au moins deux places !";
-        } else{
-          if ($placesLibres > 100){
-          echo "Votre groupe ne peut pas contenir plus de 100 places !";
+        $resultatG = $groupe->verifGroupe()->fetch();
+        if (!$resultatG){
+          if($placesLibres < 2){
+            echo "Votre groupe doit contenir au moins deux places !";
           } else{
-            $groupe = new groupes();
-            $groupe->ajoutGroupeBdd();
-            $appartient = new utilisateurs();
-            $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
-            $groupe->diminuerPlacesLibres($nomGroupe);
-            header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
+            if ($placesLibres > 100){
+            echo "Votre groupe ne peut pas contenir plus de 100 places !";
+            } else{
+              $groupe->ajoutGroupeBdd();
+              $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
+              $groupe->diminuerPlacesLibres($nomGroupe);
+              header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
+            }
           }
+        } else {
+          echo "Ce nom de groupe existe déjà !";
         }
       } else{
         echo "Des champs n'ont pas été remplis";
@@ -58,7 +63,6 @@ class controleurGroupes{
     $heureAuj = date("H:i:s");
 
     for ($i=0; $i < $nb; $i++) {
-      echo coucou;
       $date = $evenements->dateEvenement($afficherEvenements[$i][0])->fetch();
       $heure = $evenements->heureEvenement($afficherEvenements[$i][0])->fetch();
 

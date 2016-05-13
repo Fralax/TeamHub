@@ -27,6 +27,14 @@ class evenements extends modele {
 
   }
 
+  public function verifEvenement($nom){
+    if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
+      $sql = 'SELECT e_nom FROM Evenements WHERE g_nom = :nomGroupe AND e_nom = :nomEvenement ';
+      $resultatEvenement = $this->executerRequete($sql, array('nomGroupe' => $nom, 'nomEvenement' => $_POST['nomEvenement']));
+      return $resultatEvenement;
+    }
+  }
+
   public function supprimerEvenement($nomevenement){
     $sql0 = 'SELECT g_nom FROM Evenements WHERE e_nom = ?';
     $recupGroupe = $this->executerRequete($sql0, array($nomevenement));

@@ -12,6 +12,14 @@ class groupes extends modele {
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
   }
 
+  public function verifGroupe(){
+    if (isset($_POST['creer']) && $_POST['creer'] == 'Créer'){
+      $sql = 'SELECT g_nom FROM Groupes WHERE g_nom = :nomGroupe ';
+      $resultatGroupe = $this->executerRequete($sql, array('nomGroupe' => $_POST['nomGroupe']));
+      return $resultatGroupe;
+    }
+  }
+
   public function supprimerGroupeBdd($nom){
     $sql = 'DELETE FROM Groupes WHERE g_nom = ?';
     $supprimerGroupeGroupes = $this ->executerRequete ($sql, array($nom));

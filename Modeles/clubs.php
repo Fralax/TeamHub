@@ -67,6 +67,14 @@ class clubs extends modele {
     }
   }
 
+  public function verifClub(){
+    if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
+      $sql = 'SELECT c_nom FROM Clubs WHERE c_nom = :nomClub ';
+      $resultatClub = $this->executerRequete($sql, array('nomClub' => $_POST['nomClub']));
+      return $resultatClub;
+    }
+  }
+
   public function listerClub(){
     $sql = 'SELECT c_nom, c_adresse, c_cp FROM Clubs';
     $listerClub = $this->executerRequete ($sql);
@@ -92,7 +100,7 @@ class clubs extends modele {
   }
 
   public function listerMeilleureNote($nom){
-    
+
     $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
     $listerMeilleureClub = $this->executerRequete($sql, array($nom));
     return $listerMeilleureClub;
