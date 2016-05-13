@@ -79,6 +79,22 @@ class utilisateurs extends modele {
     return $afficherMesInfos;
   }
 
+  public function afficherMesSports(){
+    $sql = 'SELECT s_nom FROM Pratique WHERE u_pseudo = ?';
+    $afficherMesSports = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $afficherMesSports;
+  }
+
+  public function ajouterSport(){
+    $sql = 'INSERT INTO Pratique (u_pseudo, s_nom) VALUES (:pseudo, :nomSport)';
+    $ajouterSport = $this->executerRequete ($sql, array('pseudo'=>$_SESSION['pseudo'], 'nomSport' => $_POST['sport']));
+  }
+
+  public function supprimerSport($sport){
+    $sql = 'DELETE FROM Pratique WHERE u_pseudo = ? AND s_nom = ?';
+    $supprimerSport = $this->executerRequete($sql, array($_SESSION['pseudo'], $sport));
+  }
+
   public function modifierPhoto(){
     $fichier = $_FILES['photo']['name'];
     $dossier = 'imagesUtilisateurs/';

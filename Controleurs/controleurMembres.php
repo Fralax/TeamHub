@@ -8,8 +8,9 @@ class membres{
   public function affichageMesInfos(){
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $afficherMesSports = $utilisateurs->afficherMesSports()->fetchAll();
     $vue = new Vue('MesInfos');
-    $vue->generer(["infos" => $afficherMesInfos]);
+    $vue->generer(array('infos' => $afficherMesInfos, 'sports'=> $afficherMesSports));
   }
 
   public function affichageModificationMesCoordonnes(){
@@ -29,6 +30,28 @@ class membres{
   public function affichageModificationMonMdp(){
     $vue = new Vue('ModifMonMdp');
     $vue->generer();
+  }
+
+  public function ajoutSport(){
+    $utilisateurs = new utilisateurs();
+    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == 'Ajouter'){
+      if($_POST['sport'] != ""){
+        $ajouterSport = $utilisateurs->ajouterSport();
+        header("Location: index.php?page=mesinfos");
+      } else {
+        echo "Sélectionnez un sport !";
+      }
+
+    }
+
+    $vue = new Vue('AjoutSport');
+    $vue->generer();
+  }
+
+  public function suppressionSport($sport){
+    $utilisateurs = new utilisateurs();
+    $suppressionSport = $utilisateurs->supprimerSport($sport);
+    header("Location: index.php?page=mesinfos");
   }
 
   public function modificationPhoto(){
