@@ -45,6 +45,7 @@
           break;
 
         case 'accueil':
+          $this->controleurEvenements->suppressionEvenementsPasses();
           $this->controleurAccueil->affichageAccueil();
           break;
 

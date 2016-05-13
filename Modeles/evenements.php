@@ -92,9 +92,9 @@ class evenements extends modele {
     return $listerEvenementsGroupes;
   }
 
-  public function listerEvenements($groupe){
-    $sql = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
-    $listerEvenements = $this->executerRequete($sql, array($groupe));
+  public function listerEvenements(){
+    $sql = 'SELECT e_nom FROM Evenements';
+    $listerEvenements = $this->executerRequete($sql);
     return $listerEvenements;
   }
 
