@@ -52,11 +52,13 @@ class evenements extends modele {
   public function dateEvenement($nomevenement){
     $sql = 'SELECT e_date FROM Evenements WHERE e_nom = ?';
     $dateEvenement = $this->executerRequete($sql, array($nomevenement));
+    return $dateEvenement;
   }
 
   public function heureEvenement($nomevenement){
     $sql = 'SELECT e_heure FROM Evenements WHERE e_nom = ?';
     $heureEvenement = $this->executerRequete($sql, array($nomevenement));
+    return $heureEvenement;
   }
 
   public function adhererEvenements($nomevenement){
