@@ -10,9 +10,25 @@ class controleurEvenements{
     $evenement = new evenements();
     $club = new clubs();
     $listeClubs = $club->listerClub()->fetchAll();
+    $dateAuj = date("d-m-Y");
+    $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
+    $heureAuj = time("H:i");
+    $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
+
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
-      $evenement->ajouterEvenementsBdd($groupe);
-      header('refresh:1;url=index.php?page=mesgroupes');
+      if(strtotime($dateAuj) > strtotime($date)){
+        echo "Sélectionnez une date dans le futur !";
+      } elseif (strtotime($dateAuj) == strtotime($date)){
+        if ($heureAuj > mktime($heure)){
+          echo "Sélectionnez une heure dans le futur !";
+        } else {
+          $evenement->ajouterEvenementsBdd($groupe);
+          header('refresh:1;url=index.php?page=mesgroupes');
+        }
+      } else {
+        $evenement->ajouterEvenementsBdd($groupe);
+        header('refresh:1;url=index.php?page=mesgroupes');
+      }
     }
     $vue = new Vue('CreationEvenements');
     $vue->generer(['clubs'=>$listeClubs]);

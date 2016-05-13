@@ -101,6 +101,7 @@ class clubs extends modele {
     $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
     $listerPireClub = $this->executerRequete($sql, array($nom));
     return $listerPireClub;
+
   }
 
 }

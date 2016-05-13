@@ -85,6 +85,14 @@
           $this->controleurMembres->affichageMesInfos();
           break;
 
+        case 'ajoutsport':
+          $this->controleurMembres->ajoutSport();
+          break;
+
+        case 'suppressionsport':
+          $this->controleurMembres->suppressionSport($_GET['sport']);
+          break;
+
         case 'modifmescoordonnees':
           $this->controleurMembres->modificationMesCoordonnees();
           break;
