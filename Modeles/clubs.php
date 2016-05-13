@@ -92,15 +92,16 @@ class clubs extends modele {
   }
 
   public function listerMeilleureNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
-    $listerMeilleureNote = $this->executerRequete($sql, array($nom));
-    return $listerMeilleureNote;
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
+    $listerMeilleureClub = $this->executerRequete($sql, array($nom));
+    return $listerMeilleureClub;
   }
 
   public function listerPireNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
-    $listerPireNote = $this->executerRequete($sql, array($nom));
-    return $listerPireNote;
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
+    $listerPireClub = $this->executerRequete($sql, array($nom));
+    return $listerPireClub;
+
   }
 
 }
