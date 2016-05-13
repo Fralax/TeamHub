@@ -7,7 +7,7 @@
 
   <body>
 
-    <h2> Vous ne participez plus à l'évenement : <?php echo $evenement ?> ! </h2>
+    <h2> Vous ne participez plus à l'événement : <?php echo $evenement ?> ! </h2>
 
     <p> Vous allez être redirigé vers vos groupes. </p>
 

@@ -146,7 +146,7 @@
             <?php echo "au club ".$nomClub ?>
           </td>
           <td>
-            <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'évenement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
+            <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
           </td>
           <?php if (b == $_SESSION['pseudo']){ ?>
           <td>
