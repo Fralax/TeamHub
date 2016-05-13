@@ -52,28 +52,28 @@ class controleurGroupes{
     $groupe = new groupes();
     $user = new utilisateurs();
     $evenements = new evenements();
-    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
-    $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
-    $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
-    $afficherEvenementsGroupe = $evenements->listerEvenementsGroupe($nom)->fetchAll();
     $afficherEvenements = $evenements->listerEvenements($nom)->fetchAll();
     $nb = count($afficherEvenements);
     $dateAuj = date("d-m-Y");
     $heureAuj = time("H:i");
 
     for ($i=0; $i < $nb; $i++) {
-      $date = $evenements->dateEvenement($evenements[$i][0]);
-      $heure = $evenements->heureEvenement($evenements[$i][0]);
+      $date = $evenements->dateEvenement($afficherEvenements[$i][0]);
+      $heure = $evenements->heureEvenement($afficherEvenements[$i][0]);
 
       if(strtotime($dateAuj) > strtotime($date)){
-        $evenement->supprimerEvenement($evenements[$i][0]);
+        $evenements->supprimerEvenement($afficherEvenements[$i][0]);
       } elseif (strtotime($dateAuj) == strtotime($date)){
         if ($heureAuj > mktime($heure)){
-          $evenement->supprimerEvenement($evenements[$i][0]);
+          $evenements->supprimerEvenement($afficherEvenements[$i][0]);
         }
       }
     }
 
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+    $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
+    $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
+    $afficherEvenementsGroupe = $evenements->listerEvenementsGroupe($nom)->fetchAll();
     $vue = new Vue('Groupe');
     $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur));
   }
