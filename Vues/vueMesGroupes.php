@@ -9,6 +9,18 @@
 		<div class="mesGroupes">
 			<h2>Mes Groupes</h2>
 				<table>
+					<?php if ($groupesAdmin[0] == "" or $groupes == ""){ ?>
+						<tr>
+							<td>
+								<b>Vous ne faites pas encore partie de groupe ... </b>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Rejoignez-en un vite ! <a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a>
+							</td>
+						</tr>
+					<?php } ?>
 					<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin, $nbrEvenements)) { ?>
 							<tr>
 								<td>

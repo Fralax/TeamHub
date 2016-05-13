@@ -35,6 +35,10 @@
   height: auto;
 }
 
+.pasDeGroupe{
+  color: white;
+  text-align: center;
+}
 
 .conteneur{
   display: flex;

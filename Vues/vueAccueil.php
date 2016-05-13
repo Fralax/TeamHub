@@ -71,6 +71,13 @@
 
 		<div class="mesGroupes">
 			<h3> Mes Groupes </h3>
+			<?php if ($groupesAdmin[0] == "" or $groupes == ""){ ?>
+				<div class="pasDeGroupe">
+					<b>Vous ne faites pas encore partie de groupe ... </b> <br> </br>
+					Rejoignez-en un vite ! <br> </br>
+					<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a>
+				</div>
+			<?php } ?>
 			<table>
 				<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin)) { ?>
 						<tr>

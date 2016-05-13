@@ -62,6 +62,13 @@
 						<h3>Les derniers commentaires</h3>
 						___________________
 					</th>
+					<?php if ($derniereNoteClub[0]==""){ ?>
+						<tr>
+							<td>
+								<b>Il n'y a pas encore de commentaire ... </b>
+							</td>
+						</tr>
+					<?php } ?>
 					<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
 							<td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
@@ -92,6 +99,13 @@
 						<h3> Les meilleurs commentaires</h3>
 						___________________
 					</th>
+					<?php if ($derniereNoteClub[0]==""){ ?>
+						<tr>
+							<td>
+								<b>Il n'y a pas encore de commentaire ... </b>
+							</td>
+						</tr>
+					<?php } ?>
 					<?php foreach ($meilleureNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
 							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
@@ -122,6 +136,13 @@
 						<h3>Les moins bons commentaires</h3>
 						___________________
 					</th>
+					<?php if ($derniereNoteClub[0]==""){ ?>
+						<tr>
+							<td>
+								<b>Il n'y a pas encore de commentaire ... </b>
+							</td>
+						</tr>
+					<?php } ?>
 					<?php foreach ($pireNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
 							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
@@ -160,7 +181,7 @@
 					--><input name="noteClub" value="1" id="e1" type="radio"><label for="e1">☆</label>
 					</div>
 					<p>
-					 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br /><br />
+					 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br/><br/>
 					 <textarea name="commentaireClub"> </textarea>
 				 	</p>
 				 <p> <input type="submit" name="Noter" value="Noter"> </p>
