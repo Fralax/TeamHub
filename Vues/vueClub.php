@@ -12,7 +12,7 @@
       <p> Adresse :
       <?php echo $caractClub['c_adresse'] ?>
       </p>
-      <p> Code Postale :
+      <p> Code Postal :
       <?php echo $caractClub['c_cp'] ?>
       </p>
       <p> Numéro de téléphone :
@@ -50,33 +50,122 @@
 					</tr>
 	      </table>
 			</div>
-			<div class="commentaire">
+			<div class="commentairesHoraires">
 					<?php echo $caractClub['c_hoCommentaire'] ?>
 			</div>
 		</div>
-		<div class="notation">
-			<table>
-				<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire)){?>
-					<tr>
-						<td> Par : <?php echo $pseudo?> </td>
-						<td> note : <?php echo $note?> étoiles </td>
-						<td> Commentaire : <?php echo $commentaire?> </td>
-						<td> le : </td>
-					</tr>
-				<?php } ?>
-			</table>
-			<form name = "formulaireNotation" method="post" action = "">
-				<p> Noter ce club : <input type="radio" name="noteClub" value = "1" /> <label for="1">1 étoile</label>
-														<input type="radio" name="noteClub" value = "2" /> <label for="2">2 étoiles</label>
-														<input type="radio" name="noteClub" value = "3" /> <label for="3">3 étoiles</label>
-														<input type="radio" name="noteClub" value = "4" /> <label for="4">4 étoiles</label>
-														<input type="radio" name="noteClub" value = "5" /> <label for="5">5 étoiles</label> </p>
-				<p>
-	       <label for="commentaireClub"> Ajoutez un commentaire ! </label><br />
-	       <textarea name="commentaireClub" > </textarea>
-	     </p>
-			 <p> <input type="submit" name="Noter" value="Noter"> </p>
-		 </form>
+
+		<div class="commentaires">
+			<div class="derniers">
+				<table>
+					<th>
+						<h3>Les derniers commentaires</h3>
+						___________________
+					</th>
+					<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire, $date)){?>
+						<tr>
+							<td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+						</tr>
+						<tr>
+							<td>
+								<?php echo $commentaire?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?php for ($i=0; $i < $note; $i++) { ?>
+									<img src="Autres/etoile.png" height="15px" width="15px" />
+								<?php } ?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								___________________
+							</td>
+						</tr>
+					<?php } ?>
+				</table>
+			</div>
+			<div class="meilleurs">
+				<table>
+					<th>
+						<h3> Les meilleurs commentaires</h3>
+						___________________
+					</th>
+					<?php foreach ($meilleureNoteClub as list($pseudo, $note, $commentaire, $date)){?>
+						<tr>
+							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+						</tr>
+						<tr>
+							<td>
+								<?php echo $commentaire?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?php for ($i=0; $i < $note; $i++) { ?>
+									<img src="Autres/etoile.png" height="15px" width="15px" />
+								<?php } ?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								___________________
+							</td>
+						</tr>
+					<?php } ?>
+				</table>
+			</div>
+			<div class="pires">
+				<table>
+					<th>
+						<h3>Les moins bons commentaires</h3>
+						___________________
+					</th>
+					<?php foreach ($pireNoteClub as list($pseudo, $note, $commentaire, $date)){?>
+						<tr>
+							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+						</tr>
+						<tr>
+							<td>
+								<?php echo $commentaire?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?php for ($i=0; $i < $note; $i++) { ?>
+									<img src="Autres/etoile.png" height="15px" width="15px" />
+								<?php } ?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								___________________
+							</td>
+						</tr>
+					<?php } ?>
+				</table>
+			</div>
+		</div>
+
+		<div class="Formulaire">
+			<div class="noterCommenter">
+				<h3>Notez et Commentez ce club !</h3>
+				<form name = "formulaireNotation" method="post" action = "">
+					<div class="rating"><!--
+				  --><input name="noteClub" id="e5" type="radio"></a><label for="e5">☆</label><!--
+					--><input name="noteClub" id="e4" type="radio"></a><label for="e4">☆</label><!--
+					--><input name="noteClub" id="e3" type="radio"></a><label for="e3">☆</label><!--
+					--><input name="noteClub" id="e2" type="radio"></a><label for="e2">☆</label><!--
+					--><input name="noteClub" id="e1" type="radio"></a><label for="e1">☆</label>
+					</div>
+					<p>
+					 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br /><br />
+					 <textarea name="commentaireClub"> </textarea>
+				 	</p>
+				 <p> <input type="submit" name="Noter" value="Noter"> </p>
+			 </form>
+			</div>
 		</div>
 
   </body>
