@@ -50,12 +50,12 @@ class evenements extends modele {
   }
 
   public function dateEvenement($nomevenement){
-    $sql = 'SELECT e_date FROM Evenement WHERE e_nom = ?';
+    $sql = 'SELECT e_date FROM Evenements WHERE e_nom = ?';
     $dateEvenement = $this->executerRequete($sql, array($nomevenement));
   }
 
   public function heureEvenement($nomevenement){
-    $sql = 'SELECT e_heure FROM Evenement WHERE e_nom = ?';
+    $sql = 'SELECT e_heure FROM Evenements WHERE e_nom = ?';
     $heureEvenement = $this->executerRequete($sql, array($nomevenement));
   }
 
@@ -83,8 +83,8 @@ class evenements extends modele {
   }
 
   public function listerEvenements($groupe){
-    $sql = 'SELECT e_nom FROM Evenements';
-    $listerEvenements = $this->executerRequete($sql);
+    $sql = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
+    $listerEvenements = $this->executerRequete($sql, array($groupe));
     return $listerEvenements;
   }
 
