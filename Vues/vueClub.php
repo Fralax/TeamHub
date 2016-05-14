@@ -171,21 +171,37 @@
 
 		<div class="Formulaire">
 			<div class="noterCommenter">
-				<h3>Notez et Commentez ce club !</h3>
-				<form name = "formulaireNotation" method="post" action = "">
-					<div class="rating"><!--
-				  --><input name="noteClub" value="5" id="e5" type="radio"><label for="e5">☆</label><!--
-					--><input name="noteClub" value="4" id="e4" type="radio"><label for="e4">☆</label><!--
-					--><input name="noteClub" value="3" id="e3" type="radio"><label for="e3">☆</label><!--
-					--><input name="noteClub" value="2" id="e2" type="radio"><label for="e2">☆</label><!--
-					--><input name="noteClub" value="1" id="e1" type="radio"><label for="e1">☆</label>
-					</div>
-					<p>
-					 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br/><br/>
-					 <textarea name="commentaireClub"> </textarea>
-				 	</p>
-				 <p> <input type="submit" name="Noter" value="Noter"> </p>
-			 </form>
+
+				<?php
+				foreach($membresNote as list($nomMembre)){
+					if($nomMembre != $_SESSION['pseudo']){
+						$i=1;
+					} else{
+						$i=2;
+						break;
+					}
+				}
+				?>
+
+				<?php if($i == 2){ ?>
+					<b> Merci d'avoir donné votre avis sur ce club ! </b>
+				<?php } else{?>
+					<h3>Notez et Commentez ce club !</h3>
+					<form name = "formulaireNotation" method="post" action = "">
+						<div class="rating"><!--
+					  --><input name="noteClub" value="5" id="e5" type="radio"><label for="e5">☆</label><!--
+						--><input name="noteClub" value="4" id="e4" type="radio"><label for="e4">☆</label><!--
+						--><input name="noteClub" value="3" id="e3" type="radio"><label for="e3">☆</label><!--
+						--><input name="noteClub" value="2" id="e2" type="radio"><label for="e2">☆</label><!--
+						--><input name="noteClub" value="1" id="e1" type="radio"><label for="e1">☆</label>
+						</div>
+						<p>
+						 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br/><br/>
+						 <textarea name="commentaireClub"> </textarea>
+					 	</p>
+					 <p> <input type="submit" name="Noter" value="Noter"> </p>
+				 </form>
+			 <?php } ?>
 			</div>
 		</div>
 

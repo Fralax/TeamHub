@@ -8,12 +8,11 @@ class accueil{
 
   public function affichageAccueil(){
     $groupe = new groupes();
-    $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
-    $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
+    $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
     $evenements = new evenements();
     $afficherEvenements = $evenements->listerEvenementsAccueil()->fetchAll();
     $vue = new Vue('Accueil');
-    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin, "evenements" => $afficherEvenements));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "evenements" => $afficherEvenements));
   }
 
   public function affichageAPropos(){

@@ -61,6 +61,12 @@ class groupes extends modele {
     return $afficherGroupes;
   }
 
+  public function afficherGroupesAccueil(){
+    $sql = 'SELECT DISTINCT(g_nom) FROM Appartient WHERE u_pseudo = ?';
+    $afficherGroupesAccueil = $this ->executerRequete($sql, array($_SESSION['pseudo']));
+    return $afficherGroupesAccueil;
+  }
+
   public function modifierDescriptionGroupe($nom){
     $sql='UPDATE Groupes SET g_description = :description WHERE g_nom = :nom';
     $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => $_POST['Description'], 'nom'=>$nom ));

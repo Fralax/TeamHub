@@ -112,8 +112,9 @@ class controleurGroupes{
     $event = new evenements();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
+    $afficherGroupesAccueil = $groupe->afficherGroupesAccueil()->fetchAll();
     $vue = new Vue('MesGroupes');
-    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin, 'groupesAccueil'=>$afficherGroupesAccueil));
   }
 
   public function affichageGroupes(){

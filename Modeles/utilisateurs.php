@@ -152,4 +152,10 @@ class utilisateurs extends modele {
     return $listerMembresGroupe;
   }
 
+  public function listerMembresNote($nomClub){
+    $sql = 'SELECT u_pseudo FROM Note WHERE c_nom = ?';
+    $listerMembresNote = $this->executerRequete($sql, array($nomClub));
+    return $listerMembresNote;
+  }
+
 }
