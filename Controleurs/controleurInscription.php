@@ -33,17 +33,17 @@ require_once 'Vues/vue.php';
            if (!$resultatP && !$resultatE){
              $user->ajoutUtilisateurBdd();
 
-            //  $destinataire = $_POST['Email'];
-            //  $sujet = "Confirmation d'inscription" ;
-            //  $entete = "De: inscription@TeamHub.com" ;
-            //  $message = 'Bienvenue sur TeamHub,
-             //
-            //  Merci de votre inscription et bienvenue sur TeamHub !
-             //
-            //  ---------------
-            //  Ceci est un mail automatique, Merci de ne pas y répondre.';
-             //
-            //  mail($destinataire, $sujet, $message, $entete);
+             $destinataire = $_POST['Email'];
+             $sujet = "Confirmation d'inscription" ;
+             $entete = "contact@teamhub.esy.es" ;
+             $message = 'Bienvenue sur TeamHub,
+
+             Merci de votre inscription et bienvenue sur TeamHub !
+
+             ---------------
+             Ceci est un mail automatique, Merci de ne pas y répondre.';
+
+             mail($destinataire, $sujet, $message, $entete);
 
              session_start();
              $_SESSION['pseudo'] = $_POST['pseudo'];
