@@ -2,19 +2,19 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Banir un membre </title>
+		<title>bannir un membre </title>
 	</head>
 	<body>
 
-		<h2>Banir un membre</h2>
+		<h2>bannir un membre</h2>
 
     <form action="" method="post">
-      <select name="Bani">
-        <?php foreach ($abanir as list($nomBani)) { ?>
-        <option value = "<?php echo $nomBani?>" > <?php echo $nomBani?> </option>
+      <select name="banni">
+        <?php foreach ($abannir as list($nombanni)) { ?>
+        <option value = "<?php echo $nombanni?>" > <?php echo $nombanni?> </option>
         <?php } ?>
       </select>
-      <input type="submit" name="Banir" value="Banir" >
+      <input type="submit" name="bannir" value="bannir" >
     </form>
 
 

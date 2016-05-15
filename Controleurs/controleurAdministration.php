@@ -10,16 +10,21 @@ class controleurAdministration{
     $vue->generer();
   }
 
-  public function banissementMembre(){
+  public function bannissementMembre(){
     $admin = new administration();
     $mail = $admin->recupMail()->fetch();
-    if (isset($_POST['Banir']) && $_POST['Banir'] == 'Banir'){
-      $ajouterBani = $admin->banirMembre($mail[0]);
+    if (isset($_POST['bannir']) && $_POST['bannir'] == 'bannir'){
+      $ajouterbanni = $admin->bannirMembre($mail[0]);
       header("Location: index.php?page=admin");
     }
-    $baniPossible = $admin->listerABanir()->fetchAll();
-    $vue = new Vue('BanirMembre');
-    $vue->generer(array('abanir'=>$baniPossible));
+    $banniPossible = $admin->listerAbannir()->fetchAll();
+    $vue = new Vue('bannirMembre');
+    $vue->generer(array('abannir'=>$banniPossible));
+  }
+
+  public function affichageBanni(){
+    $vue = new Vue('Banni');
+    $vue->generer();
   }
 
 }

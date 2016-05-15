@@ -17,7 +17,7 @@
 	    <div class="adminMembres">
 	      <h3>Administration des Membres</h3>
 	      <p>Nommer un Administrateur</p>
-	      <p><a href="index.php?page=banirmembre"> Banir un Membre </a> </p>
+	      <p><a href="index.php?page=bannirmembre"> bannir un Membre </a> </p>
 	      <p>Envoyer un mail</p>
 	    </div>
 	    <div class="adminGroupes">

@@ -67,11 +67,9 @@
               $afficher = $photo->affichagePhoto();
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
-<<<<<<< HEAD
-              <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
-=======
+
               <li><a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> Modifier son profil </a></li>
->>>>>>> 4c03ab7d4090cbdcd2d8bcba099124e06e8041fe
+
               <li><a href="index.php?page=administration"> Panneau d'Administration </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
             </ul>

@@ -159,8 +159,12 @@
           $this->controleurAdministration->affichageAdministration();
           break;
 
-        case 'banirmembre':
-          $this->controleurAdministration->banissementMembre();
+        case 'bannirmembre':
+          $this->controleurAdministration->bannissementMembre();
+          break;
+
+        case 'banni':
+          $this->controleurAdministration->affichageBanni();
           break;
 
         default:
