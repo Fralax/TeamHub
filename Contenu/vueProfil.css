@@ -38,6 +38,10 @@
   cursor: pointer;
 }
 
+.maPhoto input #fichier{
+  display: none;
+}
+
 .mesInfos{
   margin-top: 1em;
   display: flex;
