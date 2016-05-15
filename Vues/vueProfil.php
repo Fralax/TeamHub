@@ -32,10 +32,10 @@
 						</div>
 					</div>
 					<div class="maPhoto">
-						<img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/>
 						<form name = "formulaireNouvellePhoto" method="post" action = "" enctype="multipart/form-data">
-							<input type="file" name="photo" />
-							<input class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil">
+							<label for="fichier"><img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/></label>
+							<input type="file" id="fichier" name="photo" />
+							<input id class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil">
 						</form >
 					</div>
 					<div class="mesSports">
