@@ -30,7 +30,7 @@ CREATE TABLE `Appartient` (
 -- Contenu de la table `Appartient`
 --
 
-INSERT INTO `Appartient` (`u_pseudo`, `g_nom`, `a_admin`) VALUES
+INSERT INTO teamhubp_teamhub. `Appartient` (`u_pseudo`, `g_nom`, `a_admin`) VALUES
 ('Defarax', 'Cheval sur Place', 'admin'),
 ('Defarax', 'Curling sur Gazon', 'admin'),
 ('Natachou', 'Cheval sur Place', 'nonAdmin'),
@@ -77,7 +77,7 @@ CREATE TABLE `Clubs` (
 -- Contenu de la table `Clubs`
 --
 
-INSERT INTO `Clubs` (`c_nom`, `c_hoCommentaire`, `c_adresse`, `c_cp`, `c_numero`, `c_hoLundiDebut`, `c_hoMardiDebut`, `c_hoMercrediDebut`, `c_hoJeudiDebut`, `c_hoVendrediDebut`, `c_hoSamediDebut`, `c_hoDimancheDebut`, `c_hoLundiFin`, `c_hoMardiFin`, `c_hoMercrediFin`, `c_hoJeudiFin`, `c_hoVendrediFin`, `c_hoSamediFin`, `c_hoDimancheFin`, `c_image`) VALUES
+INSERT INTO teamhubp_teamhub. `Clubs` (`c_nom`, `c_hoCommentaire`, `c_adresse`, `c_cp`, `c_numero`, `c_hoLundiDebut`, `c_hoMardiDebut`, `c_hoMercrediDebut`, `c_hoJeudiDebut`, `c_hoVendrediDebut`, `c_hoSamediDebut`, `c_hoDimancheDebut`, `c_hoLundiFin`, `c_hoMardiFin`, `c_hoMercrediFin`, `c_hoJeudiFin`, `c_hoVendrediFin`, `c_hoSamediFin`, `c_hoDimancheFin`, `c_image`) VALUES
 ('DadaClub', ' Fermé les jours fériés', '74 rue Nationale', '75013', '0144239344', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', 'Accueil.jpg'),
 ('Racing Club de Curling', ' Fermé les dimanches et jours fériés', '97 avenue Felix Faure', '75015', '0123456789', '11:30:00', '11:30:00', '11:30:00', '11:30:00', '11:30:00', '13:00:00', '13:00:00', '00:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', 'Unknown.jpeg'),
 ('TiteLoloClub', ' Open tous les soirs', '128 rue de la boulette', '75008', '0169696969', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '21:00:00', '21:00:00', '00:00:00', '23:50:00', '23:50:00', '23:50:00', '23:50:00', '23:00:00', '23:00:00', 'Photo-le-08-01-2016-yy-16.48.jpg');
@@ -119,7 +119,7 @@ CREATE TABLE `Groupes` (
 -- Contenu de la table `Groupes`
 --
 
-INSERT INTO `Groupes` (`g_admin`, `g_nom`, `g_sport`, `g_departement`, `g_placesLibres`, `g_description`, `g_placesTotal`, `g_nbrEvenements`) VALUES
+INSERT INTO teamhubp_teamhub. `Groupes` (`g_admin`, `g_nom`, `g_sport`, `g_departement`, `g_placesLibres`, `g_description`, `g_placesTotal`, `g_nbrEvenements`) VALUES
 ('Pichupik', 'Bobsleigh TopDeck', 'Bobsleigh', 'Cher', 29, '', 30, 0),
 ('Pichupik', 'Borderlands', 'Esport', 'Aude', 3, '', 4, 0),
 ('Defarax', 'Cheval sur Place', 'Équitation', 'Ardennes', 17, ' Dada', 20, 0),
@@ -148,7 +148,7 @@ CREATE TABLE `Note` (
 -- Contenu de la table `Note`
 --
 
-INSERT INTO `Note` (`u_pseudo`, `c_nom`, `n_note`, `n_commentaire`, `n_date`) VALUES
+INSERT INTO teamhubp_teamhub. `Note` (`u_pseudo`, `c_nom`, `n_note`, `n_commentaire`, `n_date`) VALUES
 ('admin', 'DadaClub', 1, 'CECI EST UN MESSAGE D''AVERTISSEMENT :\r\n\r\nCe club n''est pas conforme aux règles. Il sera :\r\n- soit modifié par notre équipe\r\n- soit supprimé du site\r\n\r\nCordialement,\r\n\r\nLe staff', '2016-05-13'),
 ('Defarax', 'DadaClub', 5, ' Un très bon club pour aller au Galop !', '2016-05-13'),
 ('Natachou', 'DadaClub', 1, ' Un très mauvais club. Je n''ai pas pu prendre mon pied ! A éviter ...', '2016-05-13'),
@@ -207,7 +207,7 @@ CREATE TABLE `Utilisateurs` (
 -- Contenu de la table `Utilisateurs`
 --
 
-INSERT INTO `Utilisateurs` (`u_pseudo`, `u_prenom`, `u_sexe`, `u_nom`, `u_adresse`, `u_ville`, `u_cp`, `u_region`, `u_portable`, `u_email`, `u_naissance`, `u_mdp`, `u_photo`) VALUES
+INSERT INTO teamhubp_teamhub. `Utilisateurs` (`u_pseudo`, `u_prenom`, `u_sexe`, `u_nom`, `u_adresse`, `u_ville`, `u_cp`, `u_region`, `u_portable`, `u_email`, `u_naissance`, `u_mdp`, `u_photo`) VALUES
 ('admin', 'Admin', 'Homme', 'Istrateur', '28 rue Notre Dame des Champs', 'Paris', '75006', 'Paris', '', 'contact@teamhub.fr', '2000-01-01', '$2y$10$eBgIsu3wUF9c7TYaVv8MEeH1vSJtydfECZZyTWpYRylOnPUeboX2u', 'twitter.png'),
 ('Client', 'Présentation', 'Homme', 'Client', '12 rue du Test', 'Paris', '75012', 'Paris', '0699999999', 'présentationclient@gmail.com', '2013-08-05', '$2y$10$Mtg/6GgWpTQSolG2tPLRDOByxlWFbfMXWL6aPdAFhDxEiWMqnL8cy', 'avatar.png'),
 ('Defarax', 'Romain', 'Homme', 'Frayssinet', '74 rue Nationale', 'Paris', '75013', 'Paris', '0643176805', 'romain.frayssinet@icloud.com', '1995-10-04', '$2y$10$WjfCjb6szS4rpuM8Yree7Of6WiIOGDjViRMuenjI2vxDmwRZME83e', 'Photo-le-23-09-2015-yy-16.22.jpg'),

@@ -173,23 +173,25 @@
 			<div class="noterCommenter">
 
 				<?php
-				foreach($membresNote as list($nomMembre)){
-					if($nomMembre != $_SESSION['pseudo']){
-						$i=1;
-					} else{
-						$i=2;
-						break;
+				if(isset($_SESSION['pseudo'])){
+					foreach($membresNote as list($nomMembre)){
+						if($nomMembre != $_SESSION['pseudo']){
+							$i=1;
+						} else{
+							$i=2;
+							break;
+						}
 					}
+				} else{
+					$i=3;
 				}
 				?>
 
-				<?php if($i == 2){ ?>
-					<b> Merci d'avoir donné votre avis sur ce club ! </b>
-				<?php } else{?>
+				<?php if($i == 1){ ?>
 					<h3>Notez et Commentez ce club !</h3>
 					<form name = "formulaireNotation" method="post" action = "">
 						<div class="rating"><!--
-					  --><input name="noteClub" value="5" id="e5" type="radio"><label for="e5">☆</label><!--
+						--><input name="noteClub" value="5" id="e5" type="radio"><label for="e5">☆</label><!--
 						--><input name="noteClub" value="4" id="e4" type="radio"><label for="e4">☆</label><!--
 						--><input name="noteClub" value="3" id="e3" type="radio"><label for="e3">☆</label><!--
 						--><input name="noteClub" value="2" id="e2" type="radio"><label for="e2">☆</label><!--
@@ -198,10 +200,17 @@
 						<p>
 						 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br/><br/>
 						 <textarea name="commentaireClub"> </textarea>
-					 	</p>
+						</p>
 					 <p> <input type="submit" name="Noter" value="Noter"> </p>
 				 </form>
-			 <?php } ?>
+			 <?php }?>
+
+				<?php if($i == 2){ ?>
+					<b> Merci d'avoir donné votre avis sur ce club ! </b>
+				<?php } else{?>
+					
+				 Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
+			 <?php }?>
 			</div>
 		</div>
 

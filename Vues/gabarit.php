@@ -25,7 +25,7 @@
 
       <header>
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 
@@ -100,10 +100,9 @@
   <?php if($j == 1){ ?>
 
     <body>
-
       <header>
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 
@@ -180,7 +179,7 @@
       <header>
 
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.png" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 

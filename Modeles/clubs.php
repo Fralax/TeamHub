@@ -34,7 +34,7 @@ class clubs extends modele {
      $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
 
      if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier)){
-       $sql = 'INSERT INTO Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
+       $sql = 'INSERT INTO teamhubp_teamhub.Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
 
                VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
                        :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub, :image)';
@@ -69,45 +69,45 @@ class clubs extends modele {
 
   public function verifClub(){
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
-      $sql = 'SELECT c_nom FROM Clubs WHERE c_nom = :nomClub ';
+      $sql = 'SELECT c_nom FROM teamhubp_teamhub.Clubs WHERE c_nom = :nomClub ';
       $resultatClub = $this->executerRequete($sql, array('nomClub' => $_POST['nomClub']));
       return $resultatClub;
     }
   }
 
   public function listerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp FROM Clubs';
+    $sql = 'SELECT c_nom, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
     $listerClub = $this->executerRequete ($sql);
     return $listerClub;
   }
 
   public function afficherCaracteristiquesClub($nom){
     $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image
-            FROM Clubs WHERE c_nom = ?';
+            FROM teamhubp_teamhub.Clubs WHERE c_nom = ?';
     $afficherCaracteristiquesClub = $this->executerRequete($sql, array($nom));
     return $afficherCaracteristiquesClub;
   }
 
   public function noterClub($nom){
-    $sql = 'INSERT INTO Note(u_pseudo, c_nom, n_note, n_commentaire, n_date) VALUES (:pseudo, :nomClub, :noteClub, :commentaireClub, CURDATE())';
+    $sql = 'INSERT INTO teamhubp_teamhub.Note(u_pseudo, c_nom, n_note, n_commentaire, n_date) VALUES (:pseudo, :nomClub, :noteClub, :commentaireClub, CURDATE())';
     $noterClub = $this->executerRequete ($sql, array('pseudo' => $_SESSION['pseudo'], 'nomClub' => $nom, 'noteClub' => $_POST['noteClub'], 'commentaireClub' => $_POST['commentaireClub']));
   }
 
   public function listerDerniereNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM teamhubp_teamhub.Note WHERE c_nom = ? ORDER BY n_date DESC LIMIT 3';
     $listerDerniereNote = $this->executerRequete($sql, array($nom));
     return $listerDerniereNote;
   }
 
   public function listerMeilleureNote($nom){
 
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM teamhubp_teamhub.Note WHERE c_nom = ? ORDER BY n_note DESC LIMIT 3';
     $listerMeilleureClub = $this->executerRequete($sql, array($nom));
     return $listerMeilleureClub;
   }
 
   public function listerPireNote($nom){
-    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
+    $sql = 'SELECT u_pseudo, n_note, n_commentaire, n_date FROM teamhubp_teamhub.Note WHERE c_nom = ? ORDER BY n_note ASC LIMIT 3';
     $listerPireClub = $this->executerRequete($sql, array($nom));
     return $listerPireClub;
 

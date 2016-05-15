@@ -53,6 +53,9 @@
       <p> Lieu : <?php echo $caract['g_departement'] ?></p>
       <div class="evenement">
         <h3>Événements auxquels je participe</h3>
+        <?php if($afficherMesEvenements[0][0] == ""){ ?>
+          Vous ne participez à aucun événement !
+        <?php } else{?>
         <table>
           <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
           <tr>
@@ -80,7 +83,11 @@
           </tr>
           <?php } ?>
         </table>
+        <?php } ?>
         <h3>Événements du groupe</h3>
+        <?php if($evenementsGroupe[0][0] == ""){ ?>
+          Aucun événement en cours dans ce groupe ...
+        <?php } else{?>
         <table>
           <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
           <tr>
@@ -108,6 +115,7 @@
           </tr>
           <?php } ?>
         </table>
+        <?php } ?>
       </div>
       <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
   <?php } ?>
@@ -127,6 +135,9 @@
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <div class="evenement">
       <h3>Événements auxquels je participe</h3>
+      <?php if($afficherMesEvenements[0][0] == ""){ ?>
+        Vous ne participez à aucun événement !
+      <?php } else{?>
       <table>
         <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
@@ -148,15 +159,19 @@
           <td>
             <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
           </td>
-          <?php if (b == $_SESSION['pseudo']){ ?>
+          <?php if ($createur == $_SESSION['pseudo']){ ?>
           <td>
             <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
           </td>
           <?php } ?>
-        </tr>
         <?php } ?>
+        </tr>
       </table>
+      <?php } ?>
       <h3>Événements du groupe</h3>
+      <?php if($evenementsGroupe[0][0] == ""){ ?>
+        Aucun événement en cours dans ce groupe ...
+      <?php } else{?>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
@@ -181,6 +196,7 @@
         </tr>
         <?php } ?>
       </table>
+      <?php } ?>
     </div>
     <p> <a href = "index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>" > <input type = "button" name="Evenement" value="Créer un événement" > </a> </p>
   <?php } ?>
@@ -200,6 +216,9 @@
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <div class="evenement">
       <h3>Événements du groupe</h3>
+      <?php if($evenementsGroupe[0][0] == ""){ ?>
+        Aucun événement en cours dans ce groupe ...
+      <?php } else{?>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
@@ -221,6 +240,7 @@
         </tr>
         <?php } ?>
       </table>
+      <?php } ?>
     </div>
   <?php } ?>
 
@@ -239,6 +259,9 @@
     <p> Lieu : <?php echo $caract['g_departement'] ?></p>
     <div class="evenement">
       <h3>Événements du groupe</h3>
+      <?php if($evenementsGroupe[0][0] == ""){ ?>
+        Aucun événement en cours dans ce groupe ...
+      <?php } else{?>
       <table>
         <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
@@ -260,6 +283,7 @@
         </tr>
         <?php } ?>
       </table>
+      <?php } ?>
     </div>
   <?php } ?>
 
@@ -279,8 +303,11 @@
     <p> <a href="index.php?page=inscription"> <input type = "button" name="inscription" value="S'inscrire sur le site" > </a> </p>
     <div class="evenement">
       <h3>Événements</h3>
+      <?php if($evenementsGroupe[0][0] == ""){ ?>
+        Aucun événement en cours dans ce groupe ...
+      <?php } else{?>
       <table>
-        <?php foreach ($evenement as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+        <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
         <tr>
           <td>
             <?php echo $nom?> </a>
@@ -300,6 +327,7 @@
         </tr>
         <?php } ?>
       </table>
+      <?php } ?>
     </div>
   <?php } ?>
 </div>

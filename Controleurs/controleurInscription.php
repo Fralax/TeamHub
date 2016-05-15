@@ -33,7 +33,7 @@ require_once 'Vues/vue.php';
            if (!$resultatP && !$resultatE){
              $user->ajoutUtilisateurBdd();
 
-             $destinataire = $_POST['Email'];
+             $destinataire = $email;
              $sujet = "Confirmation d'inscription" ;
              $entete = "contact@teamhub.esy.es" ;
              $message = 'Bienvenue sur TeamHub,
@@ -46,7 +46,7 @@ require_once 'Vues/vue.php';
              mail($destinataire, $sujet, $message, $entete);
 
              session_start();
-             $_SESSION['pseudo'] = $_POST['pseudo'];
+             $_SESSION['pseudo'] = $pseudo;
 
              header("Location: index.php?page=accueil");
            }
