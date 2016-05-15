@@ -66,7 +66,7 @@
               $photo = new membres();
               $afficher = $photo->affichagePhoto();
               ?>
-              <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="10em" width="10em"/></li>
+              <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
               <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
               <li><a href="index.php?page=administration"> Panneau d'Administration </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
