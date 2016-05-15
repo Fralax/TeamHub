@@ -29,7 +29,13 @@
 .maPhoto img{
   width: 12em;
   height: 12em;
-  border-radius: 15em;
+  border-radius: 50%;
+}
+
+.maPhoto img:hover{
+  transition:transform .2s ease;
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .mesInfos{
@@ -56,4 +62,12 @@
 .conteneur, .conteneur a{
   text-decoration: none;
   color : white;
+}
+
+.mesSports table{
+  margin: auto;
+}
+
+.mesSports td{
+  padding-bottom: 1em;
 }

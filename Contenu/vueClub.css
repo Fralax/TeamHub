@@ -36,11 +36,15 @@
 	padding-right: 1em;
 	padding-top: 1em;
 	padding-bottom: 1em;
-	text-decoration: none;
 	color : white;
 	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 1em;
 	width: 30%;
+}
+
+.derniers a, .pires a, .meilleurs a{
+	text-decoration: none;
+	color : rgba(255, 255, 215, 1);
 }
 
 .infosCommentaire{
@@ -74,11 +78,13 @@
 	font-size: 45px;
 	overflow:hidden;
 }
+
 .rating input {
 float: right;
 opacity: 0;
 position: absolute;
 }
+
 .rating a,
 .rating label {
 	float:right;
@@ -89,6 +95,7 @@ position: absolute;
 	-o-transition: color .4s;
 	transition: color .4s;
 }
+
 .rating label:hover ~ label,
 .rating input:focus ~ label,
 .rating label:hover,
@@ -99,9 +106,6 @@ position: absolute;
 	color: orange;
 	cursor: pointer;
 }
-
-
-
 
 th{
 	text-align: left;

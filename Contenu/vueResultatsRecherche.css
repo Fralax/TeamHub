@@ -10,40 +10,17 @@
   justify-content: space-around;
 }
 
-.resultatGroupes, resultatsMembres, .resultatsClubs{
+.resultatGroupes, .resultatMembres, .resultatClubs{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
   padding-bottom: 1em;
   text-decoration: none;
   color : white;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   width: 30%;
-}
-
-.resultatMembres{
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  text-decoration: none;
-  color : white;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 1em;
-  width: 30%;
-}
-
-.resultatClubs{
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  text-decoration: none;
-  color : white;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 1em;
-  width: 30%;
+  margin-bottom: auto;
 }
 
 .resultats table{
@@ -59,6 +36,10 @@
   text-align: center;
 }
 
+.resultatGroupes td{
+  padding-right: 1em;
+}
+
 .conteneur h2, h3, table, a{
   text-decoration: none;
   color : white;
@@ -70,6 +51,12 @@
 
 .conteneur h2{
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
+}
+
+.resultatMembres img{
+  width: 4em;
+  height: 4em;
+  border-radius: 15em;
 }

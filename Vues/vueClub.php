@@ -71,7 +71,7 @@
 					<?php } ?>
 					<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
-							<td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+							<td class="infosCommentaire"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
 						</tr>
 						<tr>
 							<td>
@@ -108,7 +108,7 @@
 					<?php } ?>
 					<?php foreach ($meilleureNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
-							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+							<td class="infosCommentaire"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
 						</tr>
 						<tr>
 							<td>
@@ -145,7 +145,7 @@
 					<?php } ?>
 					<?php foreach ($pireNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 						<tr>
-							<td class = "infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : </td>
+							<td class="infosCommentaire"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
 						</tr>
 						<tr>
 							<td>
@@ -208,7 +208,7 @@
 				<?php if($i == 2){ ?>
 					<b> Merci d'avoir donné votre avis sur ce club ! </b>
 				<?php } else{?>
-					
+
 				 Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
 			 <?php }?>
 			</div>

@@ -11,7 +11,7 @@ class recherche extends modele {
   }
 
   public function rechercherMembres(){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo LIKE :requete';
+    $sql = 'SELECT u_pseudo, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo LIKE :requete';
     $rechercherMembres = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
     return $rechercherMembres;
   }
