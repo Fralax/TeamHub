@@ -57,24 +57,6 @@ class controleurGroupes{
     $groupe = new groupes();
     $user = new utilisateurs();
     $evenements = new evenements();
-    $afficherEvenements = $evenements->listerEvenements($nom)->fetchAll();
-    $nb = count($afficherEvenements);
-    $dateAuj = date("d-m-Y");
-    $heureAuj = date("H:i:s");
-
-    for ($i=0; $i < $nb; $i++) {
-      $date = $evenements->dateEvenement($afficherEvenements[$i][0])->fetch();
-      $heure = $evenements->heureEvenement($afficherEvenements[$i][0])->fetch();
-
-      if(strtotime($dateAuj) > strtotime($date[0])){
-        $evenements->supprimerEvenement($afficherEvenements[$i][0]);
-      } elseif (strtotime($dateAuj) == strtotime($date[0])){
-        if ($heureAuj > $heure[0]){
-          $evenements->supprimerEvenement($afficherEvenements[$i][0]);
-        }
-      }
-    }
-
     $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
     $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
     $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
@@ -130,8 +112,9 @@ class controleurGroupes{
     $event = new evenements();
     $afficherMesGroupes = $groupe->afficherMesGroupes()->fetchAll();
     $afficherMesGroupesAdmin = $groupe->afficherMesGroupesAdmin()->fetchAll();
+    $afficherGroupesAccueil = $groupe->afficherGroupesAccueil()->fetchAll();
     $vue = new Vue('MesGroupes');
-    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "groupesAdmin" => $afficherMesGroupesAdmin, 'groupesAccueil'=>$afficherGroupesAccueil));
   }
 
   public function affichageGroupes(){

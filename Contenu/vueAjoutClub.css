@@ -1,13 +1,10 @@
-.creationEvenement{
+.formulaire{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-left: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 35%;
-}
-
-.creationEvenement h2, form{
+  width: 99%;
   text-decoration: none;
   color : white;
 }

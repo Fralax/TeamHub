@@ -64,7 +64,26 @@ class controleurEvenements{
     $vue->generer(["evenement"=>$nomevenement]);
   }
 
+  public function suppressionEvenementsPasses(){
+    $evenements = new evenements();
+    $afficherEvenements = $evenements->listerEvenements()->fetchAll();
+    $nb = count($afficherEvenements);
+    $dateAuj = date("d-m-Y");
+    $heureAuj = date("H:i:s");
 
+    for ($i=0; $i < $nb; $i++) {
+      $date = $evenements->dateEvenement($afficherEvenements[$i][0])->fetch();
+      $heure = $evenements->heureEvenement($afficherEvenements[$i][0])->fetch();
+
+      if(strtotime($dateAuj) > strtotime($date[0])){
+        $evenements->supprimerEvenement($afficherEvenements[$i][0]);
+      } elseif (strtotime($dateAuj) == strtotime($date[0])){
+        if ($heureAuj > $heure[0]){
+          $evenements->supprimerEvenement($afficherEvenements[$i][0]);
+        }
+      }
+    }
+  }
 
 }
 ?>

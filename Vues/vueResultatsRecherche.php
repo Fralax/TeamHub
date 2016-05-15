@@ -55,10 +55,13 @@
 								</td>
 							</tr>
 						<?php } else{ ?>
-						<?php foreach ($membres as list($nom)){ ?>
+						<?php foreach ($membres as list($nom, $photo)){ ?>
 							<tr>
 								<td>
-									<?php echo $nom ?>
+									<img src="imagesUtilisateurs/<?php echo $photo?>"/>
+								</td>
+								<td>
+									<a href="index.php?page=profil&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 								</td>
 							</tr>
 							<?php } ?>

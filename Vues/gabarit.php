@@ -25,7 +25,7 @@
 
       <header>
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 
@@ -67,7 +67,11 @@
               $afficher = $photo->affichagePhoto();
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
+<<<<<<< HEAD
               <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
+=======
+              <li><a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> Modifier son profil </a></li>
+>>>>>>> 4c03ab7d4090cbdcd2d8bcba099124e06e8041fe
               <li><a href="index.php?page=administration"> Panneau d'Administration </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
             </ul>
@@ -100,10 +104,9 @@
   <?php if($j == 1){ ?>
 
     <body>
-
       <header>
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 
@@ -145,7 +148,7 @@
               $afficher = $photo->affichagePhoto();
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
-              <li><a href="index.php?page=mesinfos"> Modifier son profil </a></li>
+              <li><a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> Modifier son profil </a></li>
               <li><a href="index.php"> Déconnexion </a></li>
             </ul>
           </li>
@@ -180,7 +183,7 @@
       <header>
 
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="/TeamHub/Autres/Logo.tiff" width="306" height="172" ></a>
+          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.tiff" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 

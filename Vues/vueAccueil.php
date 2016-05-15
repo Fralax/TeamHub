@@ -1,7 +1,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="Contenu/vueAccueil.css" />
-	<title>Inscription</title>
+	<title>Accueil</title>
 </head>
 
 <body>
@@ -71,22 +71,16 @@
 
 		<div class="mesGroupes">
 			<h3> Mes Groupes </h3>
-			<?php if ($groupesAdmin[0] == "" or $groupes == ""){ ?>
+			<?php if ($groupes[0][0] == ""){ ?>
 				<div class="pasDeGroupe">
-					<b>Vous ne faites pas encore partie de groupe ... </b> <br> </br>
+					<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
 					Rejoignez-en un vite ! <br> </br>
-					<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a>
+					<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
+					Ou créez votre propre groupe ! <br> </br>
+					<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
 				</div>
 			<?php } ?>
 			<table>
-				<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin)) { ?>
-						<tr>
-							<td>
-								<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
-							</td>
-						</tr>
-
-				<?php } ?>
 				<?php foreach ($groupes as list($nomMesGroupe)) { ?>
 					<tr>
 						<td>

@@ -1,0 +1,223 @@
+[15-May-2016 00:52:33 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'cpanel6.pingfiles.com' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/teamhubp/public_html/Modeles/modele.php:20
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(20): PDO->__construct('mysql:host=cpan...', 'teamhubp_root', 'Totolino1', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(12): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT DISTINCT...', Array)
+#3 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(11): groupes->afficherGroupesAccueil()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(165): accueil->affichageAccueil()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 20
+[15-May-2016 00:52:57 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'cpanel6.pingfiles.com' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/teamhubp/public_html/Modeles/modele.php:20
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(20): PDO->__construct('mysql:host=cpan...', 'teamhubp_root', 'Totolino1', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(12): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT DISTINCT...', Array)
+#3 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(11): groupes->afficherGroupesAccueil()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(165): accueil->affichageAccueil()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 20
+[15-May-2016 00:57:39 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'cpanel6.pingfiles.com' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/teamhubp/public_html/Modeles/modele.php:20
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(20): PDO->__construct('mysql:host=cpan...', 'teamhubp_root', 'Totolino1', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(12): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT DISTINCT...', Array)
+#3 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(11): groupes->afficherGroupesAccueil()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(165): accueil->affichageAccueil()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 20
+[15-May-2016 00:58:46 Europe/Paris] PHP Warning:  PDO::__construct(): php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/teamhubp/public_html/Modeles/modele.php on line 22
+[15-May-2016 00:58:46 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known' in /home/teamhubp/public_html/Modeles/modele.php:22
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(22): PDO->__construct('mysql:host=mysq...', 'u654853168_root', 'Totolino1', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(12): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT DISTINCT...', Array)
+#3 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(11): groupes->afficherGroupesAccueil()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(165): accueil->affichageAccueil()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 22
+[15-May-2016 00:59:36 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'cpanel6.pingfiles.com' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/teamhubp/public_html/Modeles/modele.php:20
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(20): PDO->__construct('mysql:host=cpan...', 'teamhubp_root', 'Totolino1', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(12): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT DISTINCT...', Array)
+#3 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(11): groupes->afficherGroupesAccueil()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(165): accueil->affichageAccueil()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 20
+[15-May-2016 10:41:15 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 10:45:15 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:22:39 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:22:59 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:23:33 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:27:39 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:28:01 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:29:21 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:29:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.utilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(26): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(30): utilisateurs->verifPseudo()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 11:30:05 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.dedededededededeUtilisateurs' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(18): modele->executerRequete('INSERT INTO ded...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(34): utilisateurs->ajoutUtilisateurBdd()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 12:39:01 Europe/Paris] PHP Warning:  Invalid argument supplied for foreach() in /home/teamhubp/public_html/Vues/vueGroupe.php on line 283
+[15-May-2016 12:42:12 Europe/Paris] PHP Warning:  Invalid argument supplied for foreach() in /home/teamhubp/public_html/Vues/vueGroupe.php on line 286
+[15-May-2016 12:42:14 Europe/Paris] PHP Warning:  Invalid argument supplied for foreach() in /home/teamhubp/public_html/Vues/vueGroupe.php on line 286
+[15-May-2016 14:26:42 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(42): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(60): groupes->afficherCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(65): controleurGroupes->affichageCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:26:46 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(42): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(60): groupes->afficherCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(65): controleurGroupes->affichageCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:27:07 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(42): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(60): groupes->afficherCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(65): controleurGroupes->affichageCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:29:54 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(42): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(60): groupes->afficherCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(65): controleurGroupes->affichageCaracteristiquesGroupe('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:30:49 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(151): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurMembres.php(130): utilisateurs->listerMembresGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(110): membres->listeMembres('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:41:47 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(151): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurMembres.php(130): utilisateurs->listerMembresGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(110): membres->listeMembres('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:41:55 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(151): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurMembres.php(130): utilisateurs->listerMembresGroupe('Tennis F\xE9minin ...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(110): membres->listeMembres('Tennis F\xE9minin ...')
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 14:55:27 Europe/Paris] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/teamhubp/public_html/Controleurs/controleurMembres.php:2) in /home/teamhubp/public_html/Controleurs/routeur.php on line 36
+[15-May-2016 17:21:30 Europe/Paris] PHP Fatal error:  Call to undefined method utilisateurs::afficherMesInfos() in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 123
+[15-May-2016 18:12:42 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Defarax-Tennis' for key 'PRIMARY'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(90): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurMembres.php(39): utilisateurs->ajouterSport()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(90): membres->ajoutSport()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[15-May-2016 18:15:37 Europe/Paris] PHP Parse error:  syntax error, unexpected ')' in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 40
+[15-May-2016 18:18:18 Europe/Paris] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 40
+[15-May-2016 18:18:55 Europe/Paris] PHP Parse error:  syntax error, unexpected '}' in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 41
+[15-May-2016 18:58:20 Europe/Paris] PHP Fatal error:  Call to a member function fetch() on a non-object in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 109
+[15-May-2016 18:59:39 Europe/Paris] PHP Fatal error:  Call to a member function fetch() on a non-object in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 109

@@ -45,6 +45,7 @@
           break;
 
         case 'accueil':
+          $this->controleurEvenements->suppressionEvenementsPasses();
           $this->controleurAccueil->affichageAccueil();
           break;
 
@@ -80,7 +81,7 @@
           $this->controleurGroupes->quitterGroupe($_GET['nom']);
           break;
 
-        case 'mesinfos':
+        case 'profil':
           $this->controleurMembres->modificationPhoto();
           $this->controleurMembres->affichageMesInfos();
           break;

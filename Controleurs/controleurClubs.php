@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modeles/clubs.php';
+require_once 'Modeles/utilisateurs.php';
 require_once 'Vues/vue.php';
 
 class ControleurClubs{
@@ -10,6 +11,7 @@ class ControleurClubs{
     if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
       if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && $_POST['numeroClub'] !="" && $_POST['hLundiDebut'] !="" && $_POST['mLundiDebut'] !="" && $_POST['hMardiDebut'] !=""
       && $_POST['mMardiDebut'] !="" && $_POST['hMercrediDebut'] !="" && $_POST['mMercrediDebut'] !="" && $_POST['hJeudiDebut'] !="" && $_POST['mJeudiDebut'] !="" && $_POST['hVendrediDebut'] !="" && $_POST['mVendrediDebut'] !=""
+<<<<<<< HEAD
       && $_POST['hSamediDebut'] !="" && $_POST['mSamediDebut'] !="" && $_POST['hDimancheDebut'] !="" && $_POST['mDimancheDebut'] !=""){
         if ($_POST['hLundiFin'] !="" && $_POST['mLundiFin'] !="" && $_POST['hMardiFin'] !="" && $_POST['mMardiFin'] !="" && $_POST['hMercrediFin'] !="" && $_POST['mMercrediFin'] !="" && $_POST['hJeudiFin'] !=""
         && $_POST['mJeudiFin'] !="" && $_POST['hVendrediFin'] !="" && $_POST['mVendrediFin'] !="" && $_POST['hSamediFin'] !="" && $_POST['mSamediFin'] !="" && $_POST['hDimancheFin'] !="" && $_POST['mDimancheFin'] !=""
@@ -21,6 +23,15 @@ class ControleurClubs{
           } else {
             echo "Un club de ce nom existe déjà !";
           }
+=======
+      && $_POST['hSamediDebut'] !="" && $_POST['mSamediDebut'] !="" && $_POST['hDimancheDebut'] !="" && $_POST['mDimancheDebut'] !="" && $_POST['hLundiFin'] !="" && $_POST['mLundiFin'] !="" && $_POST['hMardiFin'] !=""
+      && $_POST['mMardiFin'] !="" && $_POST['hMercrediFin'] !="" && $_POST['mMercrediFin'] !="" && $_POST['hJeudiFin'] !="" && $_POST['mJeudiFin'] !="" && $_POST['hVendrediFin'] !="" && $_POST['mVendrediFin'] !=""
+      && $_POST['hSamediFin'] !="" && $_POST['mSamediFin'] !="" && $_POST['hDimancheFin'] !="" && $_POST['mDimancheFin'] !="" && isset($_FILES['photo'])){
+        $resultatC = $club->verifClub()->fetch();
+        if (!$resultatC){
+          $club->ajouterClubBdd();
+          header('refresh:1;url=index.php?page=accueil');
+>>>>>>> 4c03ab7d4090cbdcd2d8bcba099124e06e8041fe
         } else {
           echo "Des champs n'ont pas été rempli";
         }
@@ -43,12 +54,14 @@ class ControleurClubs{
 
   public function affichageCaracteristiquesClub($nom){
     $club = new clubs();
+    $user = new Utilisateurs();
     $CaracteristiquesClub = $club->afficherCaracteristiquesClub($nom)->fetch();
     $listeDerniereNote = $club->listerDerniereNote($nom)->fetchAll();
     $listeMeilleureNote = $club->listerMeilleureNote($nom)->fetchAll();
     $listePireNote = $club->listerPireNote($nom)->fetchAll();
+    $listeMembresNote = $user->listerMembresNote($nom)->fetchAll();
     $vue = new Vue('Club');
-    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'derniereNoteClub' =>$listeDerniereNote, 'meilleureNoteClub' => $listeMeilleureNote, 'pireNoteClub'=>$listePireNote));
+    $vue->generer(array('caractClub'=>$CaracteristiquesClub, 'derniereNoteClub' =>$listeDerniereNote, 'meilleureNoteClub' => $listeMeilleureNote, 'pireNoteClub'=>$listePireNote, 'membresNote' => $listeMembresNote));
   }
 
   public function notationClub($nom){

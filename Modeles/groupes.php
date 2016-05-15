@@ -6,7 +6,7 @@ class groupes extends modele {
 
   public function ajoutGroupeBdd(){
 
-    $sql = 'INSERT INTO Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement)
+    $sql = 'INSERT INTO teamhubp_teamhub.Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement)
             VALUES (:admin, :nomGroupe, :placesLibres, :placesLibres, :sport, :departement)';
 
     $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
@@ -14,99 +14,105 @@ class groupes extends modele {
 
   public function verifGroupe(){
     if (isset($_POST['creer']) && $_POST['creer'] == 'Créer'){
-      $sql = 'SELECT g_nom FROM Groupes WHERE g_nom = :nomGroupe ';
+      $sql = 'SELECT g_nom FROM teamhubp_teamhub.Groupes WHERE g_nom = :nomGroupe ';
       $resultatGroupe = $this->executerRequete($sql, array('nomGroupe' => $_POST['nomGroupe']));
       return $resultatGroupe;
     }
   }
 
   public function supprimerGroupeBdd($nom){
-    $sql = 'DELETE FROM Groupes WHERE g_nom = ?';
+    $sql = 'DELETE FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
     $supprimerGroupeGroupes = $this ->executerRequete ($sql, array($nom));
-    $sql1 = 'DELETE FROM Appartient WHERE g_nom = ?';
+    $sql1 = 'DELETE FROM teamhubp_teamhub.Appartient WHERE g_nom = ?';
     $supprimerGroupeAppatient = $this->executerRequete ($sql1, array($nom));
-    $sql2 = 'SELECT e_nom FROM Evenements WHERE g_nom = ?';
+    $sql2 = 'SELECT e_nom FROM teamhubp_teamhub.Evenements WHERE g_nom = ?';
     $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
     $evenements = $recupEvenementASupprimer->fetchAll();
     $nb = count($evenements);
     for ($i = 0; $i < 2; $i++){
-      $sql3 = 'DELETE FROM Participe WHERE e_nom = ?';
+      $sql3 = 'DELETE FROM teamhubp_teamhub.Participe WHERE e_nom = ?';
       $supprimerGroupeParticipe = $this->executerRequete ($sql3, array($evenements[$i][0]));
     }
-    $sql3 = 'DELETE FROM Evenements WHERE g_nom = ?';
+    $sql3 = 'DELETE FROM teamhubp_teamhub.Evenements WHERE g_nom = ?';
     $supprimerGroupeEvenement = $this->executerRequete ($sql3, array($nom));
   }
 
   public function afficherCaracteristiquesGroupe($nom){
-    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_description, g_placesLibres FROM Groupes WHERE g_nom = ?';
+    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_description, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
     $afficherCaracteristiquesGroupe = $this->executerRequete ($sql, array($nom));
     return $afficherCaracteristiquesGroupe;
   }
 
   public function afficherMesGroupes(){
-    $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM Appartient, Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM Appartient WHERE u_pseudo = ? AND a_admin = ?)';
+    $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM teamhubp_teamhub.Appartient, teamhubp_teamhub.Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ? AND a_admin = ?)';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "nonAdmin", $_SESSION['pseudo'], "nonAdmin"));
     return $afficherMesGroupes;
   }
 
   public function afficherMesGroupesAdmin(){
-    $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM Appartient, Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM Appartient WHERE u_pseudo = ? AND a_admin = ?)';
+    $sql = 'SELECT DISTINCT (Groupes.g_nom), g_nbrEvenements FROM teamhubp_teamhub.Appartient, teamhubp_teamhub.Groupes WHERE u_pseudo = ? AND a_admin = ? AND Groupes.g_nom IN (SELECT DISTINCT(g_nom) FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ? AND a_admin = ?)';
     $afficherMesGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo'], "admin", $_SESSION['pseudo'], "admin"));
     return $afficherMesGroupes;
   }
 
   public function afficherGroupes(){
-    $sql = 'SELECT DISTINCT(g_nom), g_admin, g_placesLibres FROM Groupes WHERE g_nom NOT IN (SELECT g_nom FROM Appartient WHERE u_pseudo = ?) ORDER BY g_placesLibres DESC';
+    $sql = 'SELECT DISTINCT(g_nom), g_admin, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom NOT IN (SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?) ORDER BY g_placesLibres DESC';
     $afficherGroupes = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $afficherGroupes;
   }
 
+  public function afficherGroupesAccueil(){
+    $sql = 'SELECT DISTINCT(g_nom) FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?';
+    $afficherGroupesAccueil = $this ->executerRequete($sql, array($_SESSION['pseudo']));
+    return $afficherGroupesAccueil;
+  }
+
   public function modifierDescriptionGroupe($nom){
-    $sql='UPDATE Groupes SET g_description = :description WHERE g_nom = :nom';
+    $sql='UPDATE teamhubp_teamhub.Groupes SET g_description = :description WHERE g_nom = :nom';
     $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => $_POST['Description'], 'nom'=>$nom ));
   }
 
   public function modifierAdminGroupe($nom){
-    $sql = 'UPDATE Groupes SET g_admin = :admin  WHERE g_nom = :nom' ;
+    $sql = 'UPDATE teamhubp_teamhub.Groupes SET g_admin = :admin  WHERE g_nom = :nom' ;
     $modifierAdminGroupe = $this->executerRequete ($sql, array('admin' => $_POST['Admin'] ,'nom' => $nom));
 
-    $sql2 = 'UPDATE Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo' ;
+    $sql2 = 'UPDATE teamhubp_teamhub.Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo' ;
     $modifierNonAdminAppartient = $this->executerRequete ($sql2, array('admin' => "nonAdmin", 'nom' => $nom , 'pseudo' => $_SESSION['pseudo']));
 
-    $sql3 = 'UPDATE Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo';
+    $sql3 = 'UPDATE teamhubp_teamhub.Appartient SET a_admin = :admin  WHERE g_nom = :nom AND u_pseudo = :pseudo';
     $modifierAdminAppartient = $this->executerRequete ($sql3, array('admin' => "admin", 'nom' => $nom, 'pseudo' => $_POST['Admin']));
   }
 
   public function afficherAdminPossible($nom){
-    $sql = 'SELECT u_pseudo FROM Appartient WHERE u_pseudo != :pseudo AND g_nom = :nom' ;
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE u_pseudo != :pseudo AND g_nom = :nom' ;
     $afficherAdminPossible = $this->executerRequete ($sql, array('pseudo' =>$_SESSION['pseudo'], 'nom' => $nom));
     return $afficherAdminPossible;
   }
 
   public function diminuerPlacesLibres($nom){
-    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
+    $sql1='SELECT g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
 
     $placesLibres = $recupPlacesLibres->fetch();
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] - 1;
 
-    $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $sql2='UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
     $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
   public function augmenterPlacesLibres($nom){
-    $sql1='SELECT g_placesLibres FROM Groupes WHERE g_nom = :nom';
+    $sql1='SELECT g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom = :nom';
     $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
     $placesLibres = $recupPlacesLibres->fetch();
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] + 1;
-    $sql2='UPDATE Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $sql2='UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = :placesLibres WHERE g_nom = :nom';
     $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 
   public function modifierPlacesGroupe($nom){
-    $sql1 = 'UPDATE Groupes SET g_placesTotal = :total WHERE g_nom = :nom';
+    $sql1 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesTotal = :total WHERE g_nom = :nom';
     $modifierPlacesGroupes = $this->executerRequete ($sql1, array('total'=>$_POST['placesTotales'] ,'nom'=>$nom));
 
     if ($_POST['placesTotales'] <= 0){
@@ -115,7 +121,7 @@ class groupes extends modele {
 
     } else{
 
-      $comptePlacesOccupées = 'SELECT COUNT(u_pseudo) FROM Appartient WHERE g_nom = :nom';
+      $comptePlacesOccupées = 'SELECT COUNT(u_pseudo) FROM teamhubp_teamhub.Appartient WHERE g_nom = :nom';
       $recupPlacesOccupées = $this->executerRequete ($comptePlacesOccupées, array('nom'=>$nom));
       $anciennesPlacesOccupées = $recupPlacesOccupées->fetch();
       $placesLibres = $_POST['placesTotales'] - $anciennesPlacesOccupées[0];
@@ -126,7 +132,7 @@ class groupes extends modele {
 
       } else{
 
-        $sql2 = 'UPDATE Groupes SET g_placesLibres = :libres WHERE g_nom = :nom';
+        $sql2 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = :libres WHERE g_nom = :nom';
         $diminuerPlacesLibresGroupes = $this->executerRequete ($sql2, array('libres'=> $placesLibres,'nom'=>$nom));
 
       }

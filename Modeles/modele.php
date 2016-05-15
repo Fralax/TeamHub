@@ -17,7 +17,9 @@ abstract class modele {
 
   private function getBdd() {
     if ($this->bdd == null) {
-      $this->bdd = new PDO('mysql:host=localhost; dbname=TeamHub; charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $this->bdd = new PDO("mysql:host=localhost; dbname=teamhubp_teamhub; charset=utf8", 'teamhubp_root', 'Totolino1', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    //$this->bdd = new PDO("mysql:host=localhost; dbname=teamhub; charset=utf8", 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    //$this->bdd = new PDO("mysql:host=mysql.hostinger.fr; dbname=u654853168_teamh; charset=utf8", 'u654853168_root', 'Totolino1', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     return $this->bdd;
   }

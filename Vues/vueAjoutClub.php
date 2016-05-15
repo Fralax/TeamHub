@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vue.css" />
+		<link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
 		<title>Inscription</title>
 	</head>
 	<body>
