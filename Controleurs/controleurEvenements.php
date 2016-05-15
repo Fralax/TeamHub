@@ -26,11 +26,11 @@ class controleurEvenements{
               echo "Sélectionnez une heure dans le futur !";
             } else {
               $evenement->ajouterEvenementsBdd($groupe);
-              header('refresh:1;url=index.php?page=mesgroupes');
+              header("Location: index.php?page=mesgroupes");
             }
           } else {
             $evenement->ajouterEvenementsBdd($groupe);
-            header('refresh:1;url=index.php?page=mesgroupes');
+            header("Location: index.php?page=mesgroupes");
           }
         } else {
           echo "Il y déjà un événement du même nom associé à ce groupe !";

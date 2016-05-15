@@ -159,6 +159,10 @@
           $this->controleurAdministration->affichageAdministration();
           break;
 
+        case 'banirmembre':
+          $this->controleurAdministration->banissementMembre();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();
