@@ -221,3 +221,17 @@ Stack trace:
 [15-May-2016 18:18:55 Europe/Paris] PHP Parse error:  syntax error, unexpected '}' in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 41
 [15-May-2016 18:58:20 Europe/Paris] PHP Fatal error:  Call to a member function fetch() on a non-object in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 109
 [15-May-2016 18:59:39 Europe/Paris] PHP Fatal error:  Call to a member function fetch() on a non-object in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 109
+[15-May-2016 19:23:55 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurMembres.php:109) in /home/teamhubp/public_html/Controleurs/controleurMembres.php on line 120
+[15-May-2016 21:45:23 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(97): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(69): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(48): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[15-May-2016 22:36:41 Europe/Paris] PHP Parse error:  syntax error, unexpected '$vue' (T_VARIABLE), expecting function (T_FUNCTION) in /home/teamhubp/public_html/Controleurs/controleurClubs.php on line 34
+[15-May-2016 22:36:54 Europe/Paris] PHP Parse error:  syntax error, unexpected '$vue' (T_VARIABLE), expecting function (T_FUNCTION) in /home/teamhubp/public_html/Controleurs/controleurClubs.php on line 34
+[15-May-2016 22:36:58 Europe/Paris] PHP Parse error:  syntax error, unexpected '$vue' (T_VARIABLE), expecting function (T_FUNCTION) in /home/teamhubp/public_html/Controleurs/controleurClubs.php on line 34

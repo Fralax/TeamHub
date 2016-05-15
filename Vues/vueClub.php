@@ -207,10 +207,11 @@
 
 				<?php if($i == 2){ ?>
 					<b> Merci d'avoir donné votre avis sur ce club ! </b>
-				<?php } else{?>
+				<?php }?>
 
-				 Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
-			 <?php }?>
+				<?php if($i == 3){ ?>
+				 	Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
+			 	<?php }?>
 			</div>
 		</div>
 
