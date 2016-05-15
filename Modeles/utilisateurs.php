@@ -48,6 +48,12 @@ class utilisateurs extends modele {
     }
   }
 
+  public function verifbanni(){
+    $sql = 'SELECT b_nom, b_email FROM teamhubp_teamhub.Banni WHERE b_nom = ?';
+    $resultat = $this->executerRequete($sql, array($_POST['pseudo']));
+    return $resultat;
+  }
+
   public function ajoutAppartientBdd($nom, $adminBool){
     $sql = 'INSERT INTO teamhubp_teamhub.Appartient(u_pseudo, g_nom, a_admin)
              VALUES (:pseudo, :nomGroupe, :adminBool)';

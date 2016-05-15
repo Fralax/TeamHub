@@ -174,17 +174,22 @@
 
 				<?php
 				if(isset($_SESSION['pseudo'])){
-					foreach($membresNote as list($nomMembre)){
-						if($nomMembre != $_SESSION['pseudo']){
-							$i=1;
-						} else{
-							$i=2;
-							break;
+					if($membresNote[0][0] != ""){
+						foreach($membresNote as list($nomMembre)){
+							if($nomMembre != $_SESSION['pseudo']){
+								$i=1;
+							} else{
+								$i=2;
+								break;
+							}
 						}
+					} else{
+						$i=1;
 					}
 				} else{
 					$i=3;
 				}
+
 				?>
 
 				<?php if($i == 1){ ?>

@@ -207,7 +207,7 @@
 						</optgroup>
 						<optgroup label="Europe">
 							<option value="allemagne">Allemagne</option>
-							<option value="albanie">Albanie</option>
+							<option value="albannie">Albannie</option>
 							<option value="andorre">Andorre</option>
 							<option value="autriche">Autriche</option>
 							<option value="bielorussie">Biélorussie</option>

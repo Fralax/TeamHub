@@ -13,12 +13,17 @@ class connexion{
     if (isset($connexion) && $connexion == 'Connexion'){
       $user = new utilisateurs();
       $resultatConnexion = $user->verifMdp()->fetch();
+      $resultatBanni = $user->verifbanni()->fetch();
 
       if (password_verify($_POST['PasswordAccueil'], $resultatConnexion[0])){
-        session_start();
-        $_SESSION['id'] = $resultatConnexion['id'];
-        $_SESSION['pseudo'] = $_POST['pseudo'];
-        header("Location: index.php?page=accueil");
+        if (!$resultatBanni){
+          session_start();
+          $_SESSION['id'] = $resultatConnexion['id'];
+          $_SESSION['pseudo'] = $_POST['pseudo'];
+          header("Location: index.php?page=accueil");
+        } else {
+          header("Location: index.php?page=banni");
+        }
       } else {
         echo "Mauvais Identifiant ou Mot de Passe !";
       }
