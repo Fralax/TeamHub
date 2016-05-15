@@ -1,0 +1,59 @@
+.infosGenerales{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.maPhoto, .conteneurPseudo, .mesSports{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  width: 30%;
+}
+
+.pseudo{
+  font-size: 5em;
+}
+
+.pseudo p{
+  text-align: center;
+}
+
+.maPhoto p{
+  text-align: center;
+}
+
+.maPhoto img{
+  width: 12em;
+  height: 12em;
+  border-radius: 15em;
+}
+
+.mesInfos{
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.mesInfos h2, h3, .infosGenerales h2{
+  text-align: center;
+}
+
+.General, .monAdresse, .mesCoordonnees, .modifs{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  width: 22%;
+}
+
+.conteneur, .conteneur a{
+  text-decoration: none;
+  color : white;
+}

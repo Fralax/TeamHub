@@ -73,15 +73,15 @@ class utilisateurs extends modele {
     }
   }
 
-  public function afficherMesInfos(){
+  public function afficherInfos(){
     $sql = 'SELECT u_prenom, u_nom, u_sexe, u_adresse, u_ville, u_cp, u_region, u_portable, u_email, u_naissance, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
-    $afficherMesInfos = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    $afficherMesInfos = $this->executerRequete ($sql, array($_GET['nom']));
     return $afficherMesInfos;
   }
 
-  public function afficherMesSports(){
+  public function afficherSports(){
     $sql = 'SELECT s_nom FROM teamhubp_teamhub.Pratique WHERE u_pseudo = ?';
-    $afficherMesSports = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    $afficherMesSports = $this->executerRequete ($sql, array($_GET['nom']));
     return $afficherMesSports;
   }
 
@@ -137,12 +137,11 @@ class utilisateurs extends modele {
   }
 
   public function modifierMonMdp(){
-    $envoiMdp = $_POST['Envoyer'];
-    if (isset($envoiMdp) && $envoiMdp == 'Envoyer'){
-      $pass_hache = password_hash($_POST['AncienMotDePasse'], PASSWORD_BCRYPT);
-      $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :pseudo AND u_mdp = :ancienmotdepasse';
-      $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'ancienmotdepasse' => $pass_hache));
-      return $resultatRecupMdp;
+    $envoiMdp = $_POST['modifMdp'];
+    if (isset($envoiMdp) && $envoiMdp == 'Modifier le Mot de Passe'){
+      $pass_hache = password_hash($_POST['NouveauMotDePasse'], PASSWORD_BCRYPT);
+      $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_mdp = :nouveauMdp WHERE u_pseudo = :pseudo';
+      $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'nouveauMdp' => $pass_hache));
     }
   }
 

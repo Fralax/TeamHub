@@ -81,7 +81,7 @@
           $this->controleurGroupes->quitterGroupe($_GET['nom']);
           break;
 
-        case 'mesinfos':
+        case 'profil':
           $this->controleurMembres->modificationPhoto();
           $this->controleurMembres->affichageMesInfos();
           break;

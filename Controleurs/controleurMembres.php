@@ -7,22 +7,22 @@ class membres{
 
   public function affichageMesInfos(){
     $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
-    $afficherMesSports = $utilisateurs->afficherMesSports()->fetchAll();
-    $vue = new Vue('MesInfos');
+    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
+    $afficherMesSports = $utilisateurs->afficherSports()->fetchAll();
+    $vue = new Vue('Profil');
     $vue->generer(array('infos' => $afficherMesInfos, 'sports'=> $afficherMesSports));
   }
 
   public function affichageModificationMesCoordonnes(){
     $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnees');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
 
   public function affichageModificationMonAdresse(){
     $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
@@ -37,7 +37,7 @@ class membres{
     if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == 'Ajouter'){
       if($_POST['sport'] != ""){
         $ajouterSport = $utilisateurs->ajouterSport();
-        header("Location: index.php?page=mesinfos");
+        header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else {
         echo "Sélectionnez un sport !";
       }
@@ -51,7 +51,7 @@ class membres{
   public function suppressionSport($sport){
     $utilisateurs = new utilisateurs();
     $suppressionSport = $utilisateurs->supprimerSport($sport);
-    header("Location: index.php?page=mesinfos");
+    header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
   }
 
   public function modificationPhoto(){
@@ -75,13 +75,13 @@ class membres{
           echo 'Les adresses mail saisies sont différents !';
         } else{
           $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
-          header("Location: index.php?page=mesinfos");
+          header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
         }
       } else{
         echo "Des champs n'ont pas été remplis !";
       }
     }
-    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $vue = new Vue('ModifMesCoordonnees');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
@@ -91,12 +91,12 @@ class membres{
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
       if($_POST['Adresse'] != "" && $_POST['Ville'] != "" && $_POST['CodePostal'] != "" && $_POST['Departement'] != ""){
         $modifierMesCoord = $utilisateurs->modifierMonAdresse();
-        header("Location: index.php?page=mesinfos");
+        header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else{
         echo "Des champs n'ont pas été remplis";
       }
     }
-    $afficherMesInfos = $utilisateurs->afficherMesInfos()->fetch();
+    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
     $vue->generer(["infos" => $afficherMesInfos]);
   }
@@ -109,18 +109,22 @@ class membres{
         if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
           echo 'Votre ancien Mot de Passe est incorrect !';
         } else{
-          if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
-            echo 'Les Mots de Passe saisis sont différents !';
+          if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
+            echo "Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !";
           } else{
-            $modifierMonMdp = $user->modifierMonMdp();
-            header("Location: index.php?page=mesinfos");
+            if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
+              echo 'Les nouveaux Mots de Passe saisis sont différents !';
+            } else{
+                $modifierMonMdp = $user->modifierMonMdp();
+                header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
+              }
+            }
           }
+        } else{
+          echo "Des champs n'ont pas été remplis !";
         }
-      } else{
-        echo "Des champs n'ont pas été remplis !";
       }
-    }
-    $afficherMesInfos = $user->afficherMesInfos()->fetch();
+    $afficherMesInfos = $user->afficherInfos()->fetch();
     $vue = new Vue('ModifMonMdp');
     $vue->generer(["infos" => $afficherMesInfos]);
   }

@@ -58,7 +58,7 @@
 						<?php foreach ($membres as list($nom)){ ?>
 							<tr>
 								<td>
-									<?php echo $nom ?>
+									<a href="index.php?page=profil&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 								</td>
 							</tr>
 							<?php } ?>
