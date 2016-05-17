@@ -15,7 +15,6 @@
   padding-right: 1em;
   padding-top: 1em;
   padding-bottom: 1em;
-  text-decoration: none;
   color : white;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
@@ -43,10 +42,6 @@
 .conteneur h2, h3, table, a{
   text-decoration: none;
   color : white;
-}
-
-.conteneur a:hover{
-  color: grey;
 }
 
 .conteneur h2{

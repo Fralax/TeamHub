@@ -49,7 +49,7 @@ class utilisateurs extends modele {
   }
 
   public function verifbanni(){
-    $sql = 'SELECT b_nom, b_email FROM teamhubp_teamhub.Banni WHERE b_nom = ?';
+    $sql = 'SELECT b_nom, b_email FROM teamhubp_teamhub.Bannis WHERE b_nom = ?';
     $resultat = $this->executerRequete($sql, array($_POST['pseudo']));
     return $resultat;
   }

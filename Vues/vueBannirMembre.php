@@ -14,7 +14,7 @@
         <option value = "<?php echo $nombanni?>" > <?php echo $nombanni?> </option>
         <?php } ?>
       </select>
-      <input type="submit" name="bannir" value="bannir" >
+      <input type="submit" name="bannir" value="Bannir" >
     </form>
 
 

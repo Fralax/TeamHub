@@ -27,19 +27,27 @@
 }
 
 .maPhoto img{
-  width: 12em;
-  height: 12em;
+  border: 8px solid #fff;
+  display: block;
+  width: 13em;
+  height: 13em;
   border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .maPhoto img:hover{
-  transition:transform .2s ease;
-  transform: scale(1.02);
   cursor: pointer;
 }
 
-.maPhoto input #fichier{
-  display: none;
+.maPhoto span{
+  margin-left: 12em;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.maPhoto img:hover + span {
+    visibility: visible;
 }
 
 .mesInfos{
@@ -63,10 +71,10 @@
   width: 22%;
 }
 
-.conteneur, .conteneur a{
-  text-decoration: none;
+.conteneur{
   color : white;
 }
+
 
 .mesSports table{
   margin: auto;

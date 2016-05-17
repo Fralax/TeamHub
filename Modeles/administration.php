@@ -17,7 +17,7 @@ class administration extends modele {
   }
 
   public function bannirMembre($mail){
-    $sql = 'INSERT INTO banni(b_nom, b_email) VALUES (:nomAbannir, :mailAbannir)';
+    $sql = 'INSERT INTO Bannis(b_nom, b_email) VALUES (:nomAbannir, :mailAbannir)';
     $bannirMembre = $this->executerRequete ($sql, array('nomAbannir'=>$_POST['banni'], 'mailAbannir'=>$mail));
   }
 }

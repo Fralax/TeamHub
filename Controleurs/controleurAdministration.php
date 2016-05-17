@@ -13,12 +13,12 @@ class controleurAdministration{
   public function bannissementMembre(){
     $admin = new administration();
     $mail = $admin->recupMail()->fetch();
-    if (isset($_POST['bannir']) && $_POST['bannir'] == 'bannir'){
+    if (isset($_POST['bannir']) && $_POST['bannir'] == 'Bannir'){
       $ajouterbanni = $admin->bannirMembre($mail[0]);
       header("Location: index.php?page=admin");
     }
     $banniPossible = $admin->listerAbannir()->fetchAll();
-    $vue = new Vue('bannirMembre');
+    $vue = new Vue('BannirMembre');
     $vue->generer(array('abannir'=>$banniPossible));
   }
 

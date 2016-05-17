@@ -36,9 +36,6 @@
 									<?php echo $nbrEvenements." événements en cours" ?>
 								</td>
 								<td>
-									<a href ="index.php?page=listemembres&nom=<?php echo $nomMesGroupeAdmin?>"> <input name="voirMembres" type="button" value="Voir les Membres"> </a>
-								</td>
-								<td>
 									<a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo $nomMesGroupeAdmin ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo $nomMesGroupeAdmin?>'; return false"> <input name="Supprimer" type="button" value="Supprimer le groupe"> </a>
 								</td>
 							</tr>
@@ -51,9 +48,6 @@
 							</td>
 							<td>
 								<?php echo $nbrEvenements." événements en cours" ?>
-							</td>
-							<td>
-								<a href ="index.php?page=listemembres&nom=<?php echo $nomMesGroupe?>"> <input name="voirMembres" type="button" value="Voir les Membres"> </a>
 							</td>
 							<td>
 								<a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo $nomMesGroupe ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo $nomMesGroupe?>'; return false"> <input name="quitter" type="submit" value="Quitter le groupe"> </a>
