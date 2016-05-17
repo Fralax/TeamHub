@@ -37,5 +37,11 @@ class administration extends modele {
     $ListerGroupes = $this->executerRequete ($sql);
     return $ListerGroupes;
   }
+
+  public function ListerEvenements(){
+    $sql = 'SELECT e_nom FROM teamhubp_teamhub.Evenements';
+    $ListerEvenements = $this->executerRequete ($sql);
+    return $ListerEvenements;
+  }
 }
 ?>
