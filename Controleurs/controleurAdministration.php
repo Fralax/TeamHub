@@ -12,10 +12,22 @@ class controleurAdministration{
 
   public function bannissementMembre(){
     $admin = new administration();
+    $groupe = new groupes();
+    $appartient = new utilisateurs();
     $mail = $admin->recupMail()->fetch();
+    $groupesAdmin = $admin->ListerGroupesAdmin($_POST['banni'])->fetchAll();
+    $groupesNonAdmin = $admin->ListerGroupesNonAdmin($_POST['banni'])->fetchAll();
     if (isset($_POST['bannir']) && $_POST['bannir'] == 'Bannir'){
       if ($_POST['banni'] != ""){
         $ajouterbanni = $admin->bannirMembre($mail[0]);
+
+        foreach ($groupesAdmin as list($nomGroupesAdmin)){
+          $groupe->supprimerGroupeBdd($nomGroupesAdmin);
+        }
+        foreach ($groupesNonAdmin as list($nomGroupesNonAdmin)){
+          $appartient->supprimerAppartientBddNonAdmin($nomGroupesNonAdmin);
+          $groupe->augmenterPlacesLibres($nomGroupesNonAdmin);
+        }
         header("Location: index.php?page=administration");
       }
     }

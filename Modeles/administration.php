@@ -38,10 +38,23 @@ class administration extends modele {
     return $ListerGroupes;
   }
 
+  public function ListerGroupesAdmin($nomBanni){
+    $sql = 'SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ? AND a_admin = ?';
+    $ListerGroupesAdmin = $this->executerRequete ($sql, array($nomBanni, "admin"));
+    return $ListerGroupesAdmin;
+  }
+
+  public function ListerGroupesNonAdmin($nomBanni){
+    $sql = 'SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ? AND a_admin = ?';
+    $ListerGroupesNonAdmin = $this->executerRequete ($sql, array($nomBanni, "nonAdmin"));
+    return $ListerGroupesNonAdmin;
+  }
+
   public function ListerEvenements(){
     $sql = 'SELECT e_nom FROM teamhubp_teamhub.Evenements';
     $ListerEvenements = $this->executerRequete ($sql);
     return $ListerEvenements;
   }
+
 }
 ?>
