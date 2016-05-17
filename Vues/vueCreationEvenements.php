@@ -53,6 +53,9 @@
 	          <?php } ?>
 	        </select>
 	      </p>
+				<p>Nombre de places
+					<input type="number" name="nbrPlaces" value="">
+				</p>
 				<p>
 					Club :
 					<select name="club">

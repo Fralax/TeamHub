@@ -18,6 +18,7 @@
       else{
         foreach ($membres as list($membre)) { //Bloucle sur les membres du groupe pour voir si l'utilisateur appartient à ce groupe
           if ($membre == $_SESSION['pseudo']){ //S'il appartien à ce groupe
+
             $i = 2;
             break;
           }
@@ -66,7 +67,7 @@
             Vous ne participez à aucun événement !
           <?php } else{?>
           <table>
-            <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+            <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
             <tr>
               <td>
                 <?php echo $nom ?> </a>
@@ -79,6 +80,12 @@
               </td>
               <td>
                 <?php echo "au club ".$nomClub ?>
+              </td>
+              <td>
+                <?php
+                  $participants = $placesTotal-$placesLibres;
+                  echo $participants." participants";
+                ?>
               </td>
               <td>
                 <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom; ?>'; return false"> <input type = "button" name="Quitter" value="Quitter" > </a>
@@ -97,7 +104,7 @@
             Aucun événement en cours dans ce groupe ...
           <?php } else{?>
           <table>
-            <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+            <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
             <tr>
               <td>
                 <?php echo $nom?> </a>
@@ -110,6 +117,12 @@
               </td>
               <td>
                 <?php echo "au club ".$nomClub ?>
+              </td>
+              <td>
+                <?php
+                  $participants = $placesTotal-$placesLibres;
+                  echo $participants." participants";
+                ?>
               </td>
               <td>
                 <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
@@ -151,7 +164,7 @@
           Vous ne participez à aucun événement !
         <?php } else{?>
         <table>
-          <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+          <?php foreach ($afficherMesEvenements as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
@@ -164,6 +177,12 @@
             </td>
             <td>
               <?php echo "au club ".$nomClub ?>
+            </td>
+            <td>
+              <?php
+                $participants = $placesTotal-$placesLibres;
+                echo $participants." participants";
+              ?>
             </td>
             <td>
               <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
@@ -184,7 +203,7 @@
           Aucun événement en cours dans ce groupe ...
         <?php } else{?>
         <table>
-          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
@@ -197,6 +216,12 @@
             </td>
             <td>
               <?php echo "au club ".$nomClub ?>
+            </td>
+            <td>
+              <?php
+                $participants = $placesTotal-$placesLibres;
+                echo $participants." participants";
+              ?>
             </td>
             <td>
               <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
@@ -238,7 +263,7 @@
           Aucun événement en cours dans ce groupe ...
         <?php } else{?>
         <table>
-          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
@@ -251,6 +276,12 @@
             </td>
             <td>
               <?php echo "au club ".$nomlub ?>
+            </td>
+            <td>
+              <?php
+                $participants = $placesTotal-$placesLibres;
+                echo $participants." participants";
+              ?>
             </td>
           </tr>
           <?php } ?>
@@ -289,7 +320,7 @@
           Aucun événement en cours dans ce groupe ...
         <?php } else{?>
         <table>
-          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
@@ -302,6 +333,12 @@
             </td>
             <td>
               <?php echo "au club ".$nomlub ?>
+            </td>
+            <td>
+              <?php
+                $participants = $placesTotal-$placesLibres;
+                echo $participants." participants";
+              ?>
             </td>
           </tr>
           <?php } ?>
@@ -340,7 +377,7 @@
           Aucun événement en cours dans ce groupe ...
         <?php } else{?>
         <table>
-          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub)){ ?>
+          <?php foreach ($evenementsGroupe as list($nom, $createur, $date, $heure, $nomClub, $placesTotal, $placesLibres)){ ?>
           <tr>
             <td>
               <?php echo $nom?> </a>
@@ -353,6 +390,12 @@
             </td>
             <td>
               <?php echo "au club ".$nomlub ?>
+            </td>
+            <td>
+              <?php
+                $participants = $placesTotal-$placesLibres;
+                echo $participants." participants";
+              ?>
             </td>
           </tr>
           <?php } ?>

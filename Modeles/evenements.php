@@ -7,9 +7,9 @@ class evenements extends modele {
   public function ajouterEvenementsBdd($groupe){
     $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
-    $sql = 'INSERT INTO teamhubp_teamhub.Evenements(e_nom, e_date, e_heure, e_createur, g_nom, c_nom)
-            VALUES (:nomEvenement, :dateActivite, :heureActivite, :createur ,:nomGroupe, :nomClub)';
-    $ajouterEvenementsBdd = $this->executerRequete ($sql, array('nomEvenement'=>$_POST['nomEvenement'] ,'dateActivite'=>$date , 'heureActivite'=> $heure, 'createur'=> $_SESSION['pseudo'], 'nomGroupe'=> $groupe, 'nomClub'=> $_POST['club']));
+    $sql = 'INSERT INTO teamhubp_teamhub.Evenements(e_nom, e_date, e_heure, e_createur, g_nom, c_nom, e_placesTotal)
+            VALUES (:nomEvenement, :dateActivite, :heureActivite, :createur ,:nomGroupe, :nomClub, :nbrPlaces)';
+    $ajouterEvenementsBdd = $this->executerRequete ($sql, array('nomEvenement'=>$_POST['nomEvenement'] ,'dateActivite'=>$date , 'heureActivite'=> $heure, 'createur'=> $_SESSION['pseudo'], 'nomGroupe'=> $groupe, 'nomClub'=> $_POST['club'], 'nbrPlaces' => $_POST['nbrPlaces']));
 
     $sql2 = 'SELECT g_nbrEvenements FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
     $ajouterNombreEvenements = $this->executerRequete($sql2, array($groupe));
@@ -81,13 +81,13 @@ class evenements extends modele {
   }
 
   public function listerEvenementsUtilisateur($groupe){
-    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom, e_placesTotal, e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
     $listerMembresEvenement = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerMembresEvenement;
   }
 
   public function listerEvenementsGroupe($groupe){
-    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM teamhubp_teamhub.Evenements WHERE e_nom NOT IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom, e_placesTotal, e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom NOT IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
     $listerEvenementsGroupes = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerEvenementsGroupes;
   }
@@ -103,5 +103,30 @@ class evenements extends modele {
     $listerEvenementsAccueil = $this->executerRequete($sql, array($_SESSION['pseudo']));
     return $listerEvenementsAccueil;
   }
+
+  public function diminuerPlacesLibresEvenement($nom){
+    $sql1='SELECT e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom = :nom';
+    $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
+
+    $placesLibres = $recupPlacesLibres->fetch();
+    settype($placesLibres[0], "integer");
+    $placesLibres[0] = $placesLibres[0] - 1;
+
+    $sql2='UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = :placesLibres WHERE e_nom = :nom';
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+  }
+
+  public function augmenterPlacesLibresEvenement($nom){
+    $sql1='SELECT e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom = :nom';
+    $recupPlacesLibres = $this->executerRequete ($sql1, array('nom'=>$nom ));
+
+    $placesLibres = $recupPlacesLibres->fetch();
+    settype($placesLibres[0], "integer");
+    $placesLibres[0] = $placesLibres[0] + 1;
+
+    $sql2='UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
+  }
+
 }
 ?>
