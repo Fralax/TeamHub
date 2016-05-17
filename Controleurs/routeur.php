@@ -174,6 +174,10 @@
           $this->controleurAdministration->groupesSupprimables();
           break;
 
+        case 'evenementasupprimer':
+          $this->controleurAdministration->evenementsSupprimables();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

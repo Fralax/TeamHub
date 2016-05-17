@@ -25,6 +25,11 @@ class controleurAdministration{
     $vue->generer(array('abannir'=>$banniPossible, 'banni'=>$banni));
   }
 
+  public function affichageBanni(){
+    $vue = new Vue('Banni');
+    $vue->generer();
+  }
+
   public function debanni($nom){
     $admin = new administration();
     $debanni = $admin->debannir($nom);
@@ -38,9 +43,11 @@ class controleurAdministration{
     $vue->generer(array('listeGroupes'=>$groupes));
   }
 
-  public function affichageBanni(){
-    $vue = new Vue('Banni');
-    $vue->generer();
+  public function evenementsSupprimables(){
+    $admin = new administration();
+    $evenements = $admin->ListerEvenements()->fetchAll();
+    $vue = new Vue('EvenementsASupprimer');
+    $vue->generer(array('listeEvenements'=>$evenements));
   }
 
 }
