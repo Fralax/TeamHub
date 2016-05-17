@@ -13,7 +13,7 @@ class controleurAdministration{
   public function bannissementMembre(){
     $admin = new administration();
     $mail = $admin->recupMail()->fetch();
-    if (isset($_POST['bannir']) && $_POST['bannir'] == 'bannir'){
+    if (isset($_POST['bannir']) && $_POST['bannir'] == 'Bannir'){
       if ($_POST['banni'] != ""){
         $ajouterbanni = $admin->bannirMembre($mail[0]);
         header("Location: index.php?page=administration");
@@ -23,6 +23,19 @@ class controleurAdministration{
     $banni = $admin->listerBanni()->fetchAll();
     $vue = new Vue('bannirMembre');
     $vue->generer(array('abannir'=>$banniPossible, 'banni'=>$banni));
+  }
+
+  public function debanni($nom){
+    $admin = new administration();
+    $debanni = $admin->debannir($nom);
+    header("Location: index.php?page=administration");
+  }
+
+  public function groupesSupprimables(){
+    $admin = new administration();
+    $groupes = $admin->ListerGroupes()->fetchAll();
+    $vue = new Vue('GroupesASupprimer');
+    $vue->generer(array('listeGroupes'=>$groupes));
   }
 
   public function affichageBanni(){

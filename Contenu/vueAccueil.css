@@ -1,11 +1,6 @@
 .mesGroupes a, h3{
-  text-decoration: none;
   color : white;
   padding-left: 10px;
-}
-
-.mesGroupes a:hover{
-  color:grey;
 }
 
 .mesGroupes{
@@ -22,10 +17,6 @@
   text-align: center;
   color : white;
   padding-left: 10px;
-}
-
-.mesEvenements a:hover{
-  color:grey;
 }
 
 .mesEvenements{

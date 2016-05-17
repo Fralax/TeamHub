@@ -167,6 +167,14 @@
           $this->controleurAdministration->affichageBanni();
           break;
 
+        case 'debanni':
+          $this->controleurAdministration->debanni($_GET['pseudo']);
+          break;
+
+        case 'groupesasupprimer':
+          $this->controleurAdministration->groupesSupprimables();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

@@ -33,9 +33,9 @@
 					</div>
 					<div class="maPhoto">
 						<form name = "formulaireNouvellePhoto" method="post" action = "" enctype="multipart/form-data">
-							<label for="fichier"><img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/></label>
-							<input type="file" id="fichier" name="photo" />
-							<input id class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil">
+							<label for="fichier"><img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/><span>Modifier la photo de Profil</span></label>
+							<p><input type="file" id="fichier" name="photo" hidden="hidden"/> </p>
+							<p><input id class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil"></p>
 						</form >
 					</div>
 					<div class="mesSports">

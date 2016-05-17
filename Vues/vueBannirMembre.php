@@ -15,12 +15,12 @@
         <option value = "<?php echo $nomabannir?>" > <?php echo $nomabannir?> </option>
         <?php } ?>
       </select>
-      <input type="submit" name="bannir" value="bannir" >
+      <input type="submit" name="bannir" value="Bannir" >
     </form>
 
 		<h2>Membre Banni </h2>
 		<?php foreach ($banni as list($nombanni)){ ?>
-			<?php echo $nombanni?>
+			<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="Débannir"> </a>
 		<?php } ?>
 
 

@@ -35,7 +35,7 @@ require_once 'Vues/vue.php';
 
              $destinataire = $email;
              $sujet = "Confirmation d'inscription" ;
-             $entete = "contact@teamhub.esy.es" ;
+             $entete = "Inscription sur le site" ;
              $message = 'Bienvenue sur TeamHub,
 
              Merci de votre inscription et bienvenue sur TeamHub !

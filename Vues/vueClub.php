@@ -174,17 +174,22 @@
 
 				<?php
 				if(isset($_SESSION['pseudo'])){
-					foreach($membresNote as list($nomMembre)){
-						if($nomMembre != $_SESSION['pseudo']){
-							$i=1;
-						} else{
-							$i=2;
-							break;
+					if($membresNote[0][0] != ""){
+						foreach($membresNote as list($nomMembre)){
+							if($nomMembre != $_SESSION['pseudo']){
+								$i=1;
+							} else{
+								$i=2;
+								break;
+							}
 						}
+					} else{
+						$i=1;
 					}
 				} else{
 					$i=3;
 				}
+
 				?>
 
 				<?php if($i == 1){ ?>
@@ -207,10 +212,11 @@
 
 				<?php if($i == 2){ ?>
 					<b> Merci d'avoir donné votre avis sur ce club ! </b>
-				<?php } else{?>
+				<?php }?>
 
-				 Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
-			 <?php }?>
+				<?php if($i == 3){ ?>
+				 	Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
+			 	<?php }?>
 			</div>
 		</div>
 
