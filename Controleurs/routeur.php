@@ -37,7 +37,7 @@
     }
 
     public function routerRequete(){
-
+      $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
         case 'inscription':
@@ -45,7 +45,6 @@
           break;
 
         case 'accueil':
-          $this->controleurEvenements->suppressionEvenementsPasses();
           $this->controleurAccueil->affichageAccueil();
           break;
 

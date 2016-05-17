@@ -33,7 +33,7 @@ class controleurAdministration{
     }
     $banniPossible = $admin->listerAbannir()->fetchAll();
     $banni = $admin->listerBanni()->fetchAll();
-    $vue = new Vue('bannirMembre');
+    $vue = new Vue('BannirMembre');
     $vue->generer(array('abannir'=>$banniPossible, 'banni'=>$banni));
   }
 

@@ -11,26 +11,26 @@
 
     <?php
     $nbrMembres = $caract['g_placesTotal'] - $caract['g_placesLibres'];
-    if(isset($_SESSION['pseudo'])){
-      if ($caract['g_admin'] == $_SESSION['pseudo']) {
+    if(isset($_SESSION['pseudo'])){ //Si l'utilisateur est connecté
+      if ($caract['g_admin'] == $_SESSION['pseudo']) { //Si c'est l'admin du groupe
         $i = 1;
       }
       else{
-        foreach ($membres as list($membre)) {
-          if ($membre == $_SESSION['pseudo']){
+        foreach ($membres as list($membre)) { //Bloucle sur les membres du groupe pour voir si l'utilisateur appartient à ce groupe
+          if ($membre == $_SESSION['pseudo']){ //S'il appartien à ce groupe
             $i = 2;
             break;
           }
-          if ($membre != $_SESSION['pseudo']){
-            if($caract['g_placesLibres'] !=0){
+          if ($membre != $_SESSION['pseudo']){ // S'il n'appartient pas à ce groupe
+            if($caract['g_placesLibres'] !=0){ // S'il reste des places dans le groupe
               $i = 3;
-            } else{
+            } else{ // S'il ne reste pas de place dans le groupe
               $i = 4;
             }
           }
         }
       }
-    } else{
+    } else{ // Si l'utilisateur n'est pas connecté
       $i = 5;
     }
   ?>
@@ -223,14 +223,14 @@
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
       </div>
       <div class="actionsGroupe">
-        <a href="#">Me notifier quand une place se libère</a>
+        <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $_GET['nom'] ?>'; return false"> <h3> Rejoindre le groupe <h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>
     <div class="evenements">
       <div class="mesEvenements">
         <h3>Événements auxquels je participe</h3>
-        <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ... Mais il n'y a plus de place !</p>
+        <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ...</p>
       </div>
       <div class="evenementsGroupe">
         <h3>Événements du groupe</h3>
@@ -274,14 +274,14 @@
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
       </div>
       <div class="actionsGroupe">
-        <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $_GET['nom'] ?>'; return false"> Rejoindre le groupe </a>
+        <a href="#"><h3>Me notifier quand une place se libère</h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>
     <div class="evenements">
       <div class="mesEvenements">
         <h3>Événements auxquels je participe</h3>
-        <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ...</p>
+        <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ... Mais il n'y a plus de place !</p>
       </div>
       <div class="evenementsGroupe">
         <h3>Événements du groupe</h3>
