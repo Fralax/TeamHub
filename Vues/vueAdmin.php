@@ -22,7 +22,7 @@
 	    </div>
 	    <div class="adminGroupes">
 	      <h3>Administration des Groupes</h3>
-	      <p>Supprimer un Groupe</p>
+	      <p> <a href="index.php?page=groupesasupprimer"> Supprimer un Groupe </a> </p>
 	      <p>Supprimer un Événement</p>
 	      <p>Désigner un nouvel administrateur de groupe</p>
 	    </div>

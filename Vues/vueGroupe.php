@@ -78,9 +78,6 @@
                 <?php echo "à ".$heure ?>
               </td>
               <td>
-                <?php echo "créé par ".$createur ?>
-              </td>
-              <td>
                 <?php echo "au club ".$nomClub ?>
               </td>
               <td>
@@ -110,9 +107,6 @@
               </td>
               <td>
                 <?php echo "à ".$heure ?>
-              </td>
-              <td>
-                <?php echo "créé par ".$createur ?>
               </td>
               <td>
                 <?php echo "au club ".$nomClub ?>
@@ -169,9 +163,6 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "créé par ".$createur ?>
-            </td>
-            <td>
               <?php echo "au club ".$nomClub ?>
             </td>
             <td>
@@ -203,9 +194,6 @@
             </td>
             <td>
               <?php echo "à ".$heure ?>
-            </td>
-            <td>
-              <?php echo "créé par ".$createur ?>
             </td>
             <td>
               <?php echo "au club ".$nomClub ?>
@@ -262,9 +250,6 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "créé par ".$createur ?>
-            </td>
-            <td>
               <?php echo "au club ".$nomlub ?>
             </td>
           </tr>
@@ -316,9 +301,6 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "créé par ".$createur ?>
-            </td>
-            <td>
               <?php echo "au club ".$nomlub ?>
             </td>
           </tr>
@@ -368,9 +350,6 @@
             </td>
             <td>
               <?php echo "à ".$heure ?>
-            </td>
-            <td>
-              <?php echo "créé par ".$createur ?>
             </td>
             <td>
               <?php echo "au club ".$nomlub ?>
