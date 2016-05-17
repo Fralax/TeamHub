@@ -10,12 +10,18 @@
 
     <form action="" method="post">
       <select name="banni">
-        <?php foreach ($abannir as list($nombanni)) { ?>
-        <option value = "<?php echo $nombanni?>" > <?php echo $nombanni?> </option>
+				<option value =""> -- Selectionnez un membre à bannir -- </option>
+        <?php foreach ($abannir as list($nomabannir)) { ?>
+        <option value = "<?php echo $nomabannir?>" > <?php echo $nomabannir?> </option>
         <?php } ?>
       </select>
       <input type="submit" name="bannir" value="bannir" >
     </form>
+
+		<h2>Membre Banni </h2>
+		<?php foreach ($banni as list($nombanni)){ ?>
+			<?php echo $nombanni?>
+		<?php } ?>
 
 
   </body>

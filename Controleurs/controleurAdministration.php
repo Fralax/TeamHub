@@ -14,12 +14,15 @@ class controleurAdministration{
     $admin = new administration();
     $mail = $admin->recupMail()->fetch();
     if (isset($_POST['bannir']) && $_POST['bannir'] == 'bannir'){
-      $ajouterbanni = $admin->bannirMembre($mail[0]);
-      header("Location: index.php?page=admin");
+      if ($_POST['banni'] != ""){
+        $ajouterbanni = $admin->bannirMembre($mail[0]);
+        header("Location: index.php?page=administration");
+      }
     }
     $banniPossible = $admin->listerAbannir()->fetchAll();
+    $banni = $admin->listerBanni()->fetchAll();
     $vue = new Vue('bannirMembre');
-    $vue->generer(array('abannir'=>$banniPossible));
+    $vue->generer(array('abannir'=>$banniPossible, 'banni'=>$banni));
   }
 
   public function affichageBanni(){
