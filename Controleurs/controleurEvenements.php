@@ -28,7 +28,6 @@ class controleurEvenements{
               echo "Sélectionnez une heure dans le futur !";
             } else {
               $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
-              var_dump($placesGroupe);
               settype($placesGroupe[0], "integer");
               if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
                 $evenement->ajouterEvenementsBdd($groupe);
