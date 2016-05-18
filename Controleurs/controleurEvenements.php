@@ -9,7 +9,7 @@ class controleurEvenements{
 
   public function creationEvenements($groupe){
     $evenement = new evenements();
-    $groupe = new groupes();
+    $groupes = new groupes();
     $club = new clubs();
     $listeClubs = $club->listerClub()->fetchAll();
     $dateAuj = date("d-m-Y");
@@ -27,8 +27,7 @@ class controleurEvenements{
             if ($heureAuj > $heure){
               echo "Sélectionnez une heure dans le futur !";
             } else {
-              $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
-              var_dump($placesGroupe);
+              $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
               settype($placesGroupe[0], "integer");
               if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
                 $evenement->ajouterEvenementsBdd($groupe);
@@ -39,7 +38,7 @@ class controleurEvenements{
               }
             }
           } else {
-            $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
+            $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
             var_dump($placesGroupe);
             settype($placesGroupe[0], "integer");
             if ($_POST['nbrPlaces'] <= $placesGroupe[0]){

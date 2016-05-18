@@ -62,5 +62,30 @@ class administration extends modele {
     return $ListerClub;
   }
 
+  public function modifierCaracteristiquesClub($nom){
+    $sql = 'UPDATE teamhubp_teamhub.Clubs SET c_nom = :nomClub, c_adresse = :adresseClub, c_cp = :cpClub, c_numero = :numeroClub, c_hoLundiDebut = :c_hoLundiDebut, c_hoMardiDebut = :c_hoMardiDebut, c_hoMercrediDebut = :c_hoMercrediDebut, c_hoJeudiDebut = :c_hoJeudiDebut, c_hoVendrediDebut = :c_hoVendrediDebut, c_hoSamediDebut = :c_hoSamediDebut, c_hoDimancheDebut = :c_hoDimancheDebut, c_hoLundiFin = :c_hoLundiFin, c_hoMardiFin = :c_hoMardiFin, c_hoMercrediFin = :c_hoMercrediFin, c_hoJeudiFin = :c_hoJeudiFin, c_hoVendrediFin = :c_hoVendrediFin, c_hoSamediFin = :c_hoSamediFin, c_hoDimancheFin = :c_hoDimancheFin, c_hoCommentaire = :c_hoCommentaire WHERE c_nom = :Club';
+    $modifierCaracteristiquesClub = $this->executerRequete ($sql, array(
+    'nomClub'=>$_POST['nomClub'],
+    'adresseClub'=>$_POST['adresseClub'],
+    'cpClub'=>$_POST['cpClub'],
+    'numeroClub'=>$_POST['numeroClub'],
+    'c_hoLundiDebut'=>$_POST['c_hoLundiDebut'],
+    'c_hoMardiDebut'=>$_POST['c_hoMardiDebut'],
+    'c_hoMercrediDebut'=>$_POST['c_hoMercrediDebut'],
+    'c_hoJeudiDebut'=>$_POST['c_hoJeudiDebut'],
+    'c_hoVendrediDebut'=>$_POST['c_hoVendrediDebut'],
+    'c_hoSamediDebut'=>$_POST['c_hoSamediDebut'],
+    'c_hoDimancheDebut'=>$_POST['c_hoDimancheDebut'],
+    'c_hoLundiFin'=>$_POST['c_hoLundiFin'],
+    'c_hoMardiFin'=>$_POST['c_hoMardiFin'],
+    'c_hoMercrediFin'=>$_POST['c_hoMercrediFin'],
+    'c_hoJeudiFin'=>$_POST['c_hoJeudiFin'],
+    'c_hoVendrediFin'=>$_POST['c_hoVendrediFin'],
+    'c_hoSamediFin'=>$_POST['c_hoSamediFin'],
+    'c_hoDimancheFin'=>$_POST['c_hoDimancheFin'],
+    'c_hoCommentaire'=>$_POST['c_hoCommentaire'],
+    'Club'=>$nom));
+  }
+
 }
 ?>
