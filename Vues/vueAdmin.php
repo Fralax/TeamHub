@@ -28,8 +28,10 @@
 	    </div>
 	    <div class="adminClubs">
 	      <h3>Administration des Clubs</h3>
-	      <p>Éditer un Club</p>
-	      <p>Supprimer un Club</p>
+	      <p> <a href="index.php?page=clubsamodifier">  Modifier les informations d'un Club </a> </p>
+				<p> Modifier la photo d'un Club <p>
+				<p> Modérer les commentaires <p>
+	      <p> Supprimer un Club</p>
 	    </div>
 	    <div class="adminGenerale">
 	      <h3>Administration du Site</h3>

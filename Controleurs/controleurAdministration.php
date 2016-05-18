@@ -62,6 +62,13 @@ class controleurAdministration{
     $vue->generer(array('listeEvenements'=>$evenements));
   }
 
+  public function clubsModifiables(){
+    $admin = new administration();
+    $clubs = $admin->ListerClub()->fetchAll();
+    $vue = new Vue('ClubsAModifier');
+    $vue->generer(array('listeClubs'=>$clubs));
+  }
+
 }
 
 

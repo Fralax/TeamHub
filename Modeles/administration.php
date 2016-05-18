@@ -56,5 +56,11 @@ class administration extends modele {
     return $ListerEvenements;
   }
 
+  public function ListerClub(){
+    $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire FROM teamhubp_teamhub.Clubs';
+    $ListerClub = $this->executerRequete ($sql);
+    return $ListerClub;
+  }
+
 }
 ?>

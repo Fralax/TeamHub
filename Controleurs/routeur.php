@@ -178,6 +178,10 @@
           $this->controleurAdministration->evenementsSupprimables();
           break;
 
+        case 'clubsamodifier':
+          $this->controleurAdministration->clubsModifiables();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();
