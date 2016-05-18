@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Sam 14 Mai 2016 à 14:54
+-- Généré le :  Mer 18 Mai 2016 à 09:13
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de données :  `TeamHub`
+-- Base de données :  `teamhubp_teamhub`
 --
 
 -- --------------------------------------------------------
@@ -30,19 +30,33 @@ CREATE TABLE `Appartient` (
 -- Contenu de la table `Appartient`
 --
 
-INSERT INTO teamhubp_teamhub. `Appartient` (`u_pseudo`, `g_nom`, `a_admin`) VALUES
-('Defarax', 'Cheval sur Place', 'admin'),
-('Defarax', 'Curling sur Gazon', 'admin'),
-('Natachou', 'Cheval sur Place', 'nonAdmin'),
-('Natachou', 'Lalalou', 'admin'),
-('Natachou', 'Sport de Chambre', 'admin'),
-('Natachou', 'Tennis Féminin Nudiste', 'nonAdmin'),
-('Pichupik', 'Bobsleigh TopDeck', 'admin'),
-('Pichupik', 'Borderlands', 'admin'),
-('Torlk', 'Druide Ramp', 'admin'),
-('Torlk', 'MilleStone', 'admin'),
-('Val78', 'Cheval sur Place', 'nonAdmin'),
-('Val78', 'Tennis Féminin Nudiste', 'admin');
+INSERT INTO `Appartient` (`u_pseudo`, `g_nom`, `a_admin`) VALUES
+('micha', 'Football ', 'admin'),
+('micha', 'Tennis double', 'nonAdmin'),
+('pichupik', 'Cours de Golf', 'admin'),
+('Val', 'Football 06', 'admin'),
+('Val78', 'Cours de Golf', 'nonAdmin'),
+('Val78', 'Football', 'nonAdmin'),
+('Val78', 'Tennis double', 'admin'),
+('vero', 'Cours de Golf', 'nonAdmin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Bannis`
+--
+
+CREATE TABLE `Bannis` (
+  `b_nom` varchar(255) NOT NULL,
+  `b_email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `Bannis`
+--
+
+INSERT INTO `Bannis` (`b_nom`, `b_email`) VALUES
+('vero', 'veronique.fortun@wanadoo.fr');
 
 -- --------------------------------------------------------
 
@@ -52,7 +66,6 @@ INSERT INTO teamhubp_teamhub. `Appartient` (`u_pseudo`, `g_nom`, `a_admin`) VALU
 
 CREATE TABLE `Clubs` (
   `c_nom` varchar(255) NOT NULL,
-  `c_hoCommentaire` text NOT NULL,
   `c_adresse` varchar(255) NOT NULL,
   `c_cp` varchar(255) NOT NULL,
   `c_numero` varchar(255) NOT NULL,
@@ -70,6 +83,7 @@ CREATE TABLE `Clubs` (
   `c_hoVendrediFin` time NOT NULL,
   `c_hoSamediFin` time NOT NULL,
   `c_hoDimancheFin` time NOT NULL,
+  `c_hoCommentaire` varchar(255) NOT NULL,
   `c_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -77,10 +91,14 @@ CREATE TABLE `Clubs` (
 -- Contenu de la table `Clubs`
 --
 
-INSERT INTO teamhubp_teamhub. `Clubs` (`c_nom`, `c_hoCommentaire`, `c_adresse`, `c_cp`, `c_numero`, `c_hoLundiDebut`, `c_hoMardiDebut`, `c_hoMercrediDebut`, `c_hoJeudiDebut`, `c_hoVendrediDebut`, `c_hoSamediDebut`, `c_hoDimancheDebut`, `c_hoLundiFin`, `c_hoMardiFin`, `c_hoMercrediFin`, `c_hoJeudiFin`, `c_hoVendrediFin`, `c_hoSamediFin`, `c_hoDimancheFin`, `c_image`) VALUES
-('DadaClub', ' Fermé les jours fériés', '74 rue Nationale', '75013', '0144239344', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '07:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', 'Accueil.jpg'),
-('Racing Club de Curling', ' Fermé les dimanches et jours fériés', '97 avenue Felix Faure', '75015', '0123456789', '11:30:00', '11:30:00', '11:30:00', '11:30:00', '11:30:00', '13:00:00', '13:00:00', '00:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', 'Unknown.jpeg'),
-('TiteLoloClub', ' Open tous les soirs', '128 rue de la boulette', '75008', '0169696969', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '21:00:00', '21:00:00', '00:00:00', '23:50:00', '23:50:00', '23:50:00', '23:50:00', '23:00:00', '23:00:00', 'Photo-le-08-01-2016-yy-16.48.jpg');
+INSERT INTO `Clubs` (`c_nom`, `c_adresse`, `c_cp`, `c_numero`, `c_hoLundiDebut`, `c_hoMardiDebut`, `c_hoMercrediDebut`, `c_hoJeudiDebut`, `c_hoVendrediDebut`, `c_hoSamediDebut`, `c_hoDimancheDebut`, `c_hoLundiFin`, `c_hoMardiFin`, `c_hoMercrediFin`, `c_hoJeudiFin`, `c_hoVendrediFin`, `c_hoSamediFin`, `c_hoDimancheFin`, `c_hoCommentaire`, `c_image`) VALUES
+('2ème essai', '30 rue de soie ', '09456', '045464883', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', ' ', 'Accueil.jpg'),
+('Club Oxygène', '8 rue de Témara', '78100', '0134511019 ', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '00:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', ' ', 'O2.jpeg'),
+('Golf Club d''Antony', 'Voie de la Vallée de la Bièvre ', '91370 ', '01 60 19 37 82', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '09:00:00', '00:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', '20:00:00', ' Les horaires peuvent être modifiés les jours fériés', 'golf-verrieres.jpg'),
+('Golf de Villennes', 'Villennes', '78700', '0139567800', '08:00:00', '09:10:00', '07:30:00', '08:10:00', '08:20:00', '07:10:00', '07:50:00', '19:30:00', '22:20:00', '19:50:00', '23:00:00', '21:20:00', '20:00:00', '19:30:00', ' ', 'Accueil.jpg'),
+('Saint-Marc', 'Plateau Saint Marc', '78630', '0139754367', '09:00:00', '10:00:00', '09:30:00', '08:30:00', '11:00:00', '09:00:00', '09:00:00', '00:00:00', '20:30:00', '20:00:00', '18:30:00', '22:00:00', '23:30:00', '13:00:00', ' Fermé les jours fériés', 'stmarc.jpg'),
+('Test Champ', 'eqhet', 'etqherth', 'qrthqert', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', '01:10:00', ' BLBLL', 'Accueil.jpg'),
+('Test Image ', '20 rue de test', '75014', '0656849345', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', ' Bonjour les horaires de merde !', '');
 
 -- --------------------------------------------------------
 
@@ -89,14 +107,25 @@ INSERT INTO teamhubp_teamhub. `Clubs` (`c_nom`, `c_hoCommentaire`, `c_adresse`, 
 --
 
 CREATE TABLE `Evenements` (
-  `e_id` int(11) NOT NULL,
+  `e_id` int(12) NOT NULL,
+  `e_nom` varchar(255) NOT NULL,
   `e_date` date NOT NULL,
   `e_createur` varchar(255) NOT NULL,
   `e_heure` time NOT NULL,
   `g_nom` varchar(255) NOT NULL,
   `c_nom` varchar(255) NOT NULL,
-  `e_nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `e_placesTotal` int(11) NOT NULL,
+  `e_placesLibres` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `Evenements`
+--
+
+INSERT INTO `Evenements` (`e_id`, `e_nom`, `e_date`, `e_createur`, `e_heure`, `g_nom`, `c_nom`, `e_placesTotal`, `e_placesLibres`) VALUES
+(41, 'Match', '2016-07-20', 'Val', '11:25:00', 'Football 06', '2ème essai', 0, 0),
+(50, 'Coupe de Golf', '2016-06-06', 'vero', '08:00:00', 'Cours de Golf', 'Golf Club d''Antony', 0, 0),
+(52, 'coupe de golf sur bitume', '2016-06-18', 'Val78', '03:00:00', 'Cours de Golf', 'Club Oxygène', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -109,26 +138,21 @@ CREATE TABLE `Groupes` (
   `g_nom` varchar(255) NOT NULL,
   `g_sport` varchar(255) NOT NULL,
   `g_departement` varchar(255) NOT NULL,
-  `g_placesLibres` int(11) NOT NULL,
   `g_description` text NOT NULL,
   `g_placesTotal` int(11) NOT NULL,
-  `g_nbrEvenements` int(11) NOT NULL
+  `g_placesLibres` int(11) NOT NULL,
+  `g_nbrEvenements` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `Groupes`
 --
 
-INSERT INTO teamhubp_teamhub. `Groupes` (`g_admin`, `g_nom`, `g_sport`, `g_departement`, `g_placesLibres`, `g_description`, `g_placesTotal`, `g_nbrEvenements`) VALUES
-('Pichupik', 'Bobsleigh TopDeck', 'Bobsleigh', 'Cher', 29, '', 30, 0),
-('Pichupik', 'Borderlands', 'Esport', 'Aude', 3, '', 4, 0),
-('Defarax', 'Cheval sur Place', 'Équitation', 'Ardennes', 17, ' Dada', 20, 0),
-('Defarax', 'Curling sur Gazon', 'Curling', 'Alpes-Maritimes', 11, '', 12, 0),
-('Torlk', 'Druide Ramp', 'Esport', 'Paris', 1, '', 2, 0),
-('Natachou', 'Lalalou', 'Aviron', 'Ardeche', 14, '', 15, 0),
-('Torlk', 'MilleStone', 'Esport', 'Var', 39, '', 40, 0),
-('Natachou', 'Sport de Chambre', 'Capoeira', 'Seine-Saint-Denis', 24, '', 25, 0),
-('Val78', 'Tennis Féminin Nudiste', 'Tennis', 'Val-de-Marne', 8, '', 10, 0);
+INSERT INTO `Groupes` (`g_admin`, `g_nom`, `g_sport`, `g_departement`, `g_description`, `g_placesTotal`, `g_placesLibres`, `g_nbrEvenements`) VALUES
+('pichupik', 'Cours de Golf', 'Golf', 'Hauts-de-Seine', '', 15, 14, 2),
+('micha', 'Football ', 'Football', 'Paris', '', 14, 12, 0),
+('Val', 'Football 06', 'Football', 'Alpes-Maritimes', '', 30, 29, 1),
+('Val78', 'Tennis double', 'Tennis', 'Yvelines', ' Petit double pour se détendre', 8, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -148,15 +172,17 @@ CREATE TABLE `Note` (
 -- Contenu de la table `Note`
 --
 
-INSERT INTO teamhubp_teamhub. `Note` (`u_pseudo`, `c_nom`, `n_note`, `n_commentaire`, `n_date`) VALUES
-('admin', 'DadaClub', 1, 'CECI EST UN MESSAGE D''AVERTISSEMENT :\r\n\r\nCe club n''est pas conforme aux règles. Il sera :\r\n- soit modifié par notre équipe\r\n- soit supprimé du site\r\n\r\nCordialement,\r\n\r\nLe staff', '2016-05-13'),
-('Defarax', 'DadaClub', 5, ' Un très bon club pour aller au Galop !', '2016-05-13'),
-('Natachou', 'DadaClub', 1, ' Un très mauvais club. Je n''ai pas pu prendre mon pied ! A éviter ...', '2016-05-13'),
-('Natachou', 'TiteLoloClub', 3, ' Elle est bien bonne ...', '2016-05-13'),
-('Pichupik', 'Racing Club de Curling', 5, 'Oh, oui ! Du Curling ! J''adore ça ! <3 <3', '2016-05-13'),
-('Pichupik', 'TiteLoloClub', 4, 'Déshabille toi Laure !', '2016-05-13'),
-('Torlk', 'DadaClub', 2, 'LE PONEY 5/5 !!!!!! \r\nJ''ai pas TopDeck ...', '2016-05-13'),
-('Torlk', 'TiteLoloClub', 1, ' On dirait un hamster ...', '2016-05-13');
+INSERT INTO `Note` (`u_pseudo`, `c_nom`, `n_note`, `n_commentaire`, `n_date`) VALUES
+('micha', 'Saint-Marc', 3, ' test', '2016-05-12'),
+('micha', 'Test Image', 1, '', '2016-05-15'),
+('pichupik', 'Golf de Villennes', 1, ' C''est pas très bien entretenu ...', '2016-05-15'),
+('Pichupik', 'Saint-Marc', 1, ' Pas terrible !', '2016-05-13'),
+('Val', 'Golf de Villennes', 3, ' C''est pas mal mais ca pourrait être mieux !', '2016-05-15'),
+('Val', 'Saint-Marc', 1, ' Bof, Bof ...', '2016-05-13'),
+('Val78', 'Golf de Villennes', 5, ' Excellent !', '2016-05-15'),
+('Val78', 'Saint-Marc', 5, 'Très bon centre de sport ! ', '2016-05-10'),
+('vero', 'Golf de Villennes', 4, ' Très bon club pour démarrer le golf', '2016-05-15'),
+('vero', 'Saint-Marc', 2, ' Peut mieux faire', '2016-05-15');
 
 -- --------------------------------------------------------
 
@@ -170,6 +196,13 @@ CREATE TABLE `Participe` (
   `e_createur` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `Participe`
+--
+
+INSERT INTO `Participe` (`u_pseudo`, `e_nom`, `e_createur`) VALUES
+('Val', 'Match', 'createur');
+
 -- --------------------------------------------------------
 
 --
@@ -181,6 +214,194 @@ CREATE TABLE `Pratique` (
   `s_nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `Pratique`
+--
+
+INSERT INTO `Pratique` (`u_pseudo`, `s_nom`) VALUES
+('vero', 'Aviron'),
+('vero', 'Badminton'),
+('vero', 'Conduite sur glace'),
+('vero', 'Équitation');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Sports`
+--
+
+CREATE TABLE `Sports` (
+  `s_nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `Sports`
+--
+
+INSERT INTO `Sports` (`s_nom`) VALUES
+('Aérobic'),
+('Aïkido'),
+('Alpinisme'),
+('Apnée'),
+('Athlétisme'),
+('Aviron'),
+('Badminton'),
+('Balle au tambourin'),
+('Bando'),
+('Base jump'),
+('Baseball'),
+('Basket-ball'),
+('Bateau-Dragon'),
+('Biathlon'),
+('Billard'),
+('BMX'),
+('Bobsleigh'),
+('Bowling'),
+('Boxe'),
+('Canoë'),
+('Canoë-kayak'),
+('Canyoning'),
+('Capoeira'),
+('Catch'),
+('Cheerleading'),
+('Conduite sur glace'),
+('Course'),
+('Course d orientation'),
+('Cricket'),
+('Croquet'),
+('Crosse'),
+('Curling'),
+('Cyclisme'),
+('Danse'),
+('Décathlon'),
+('Deltaplane'),
+('Échecs'),
+('Équitation'),
+('Escalade'),
+('Escrime'),
+('Esport'),
+('Floorball'),
+('Football'),
+('Football américain'),
+('Futsal'),
+('Golf'),
+('Gymnastique'),
+('Hakko-Ryu'),
+('Haltérophilie'),
+('Handball'),
+('Hockey sur gazon'),
+('Hockey sur glace'),
+('Horse-ball'),
+('Hurling'),
+('Iaïdo'),
+('Iaïjutsu'),
+('Java'),
+('Javelot'),
+('Jerk'),
+('Jeu de paume'),
+('Jogging'),
+('Joutes nautiques'),
+('Ju-Jitsu'),
+('Judo'),
+('Jumping'),
+('Karaté'),
+('Karting'),
+('Kathak'),
+('Keirin'),
+('Kempo'),
+('Kendo'),
+('Kick-boxing'),
+('Kin-ball'),
+('Kitesurfing'),
+('Krav maga'),
+('Kronum'),
+('Kung fu'),
+('Luge de course'),
+('Lutte'),
+('Marathon'),
+('Marche'),
+('Motocross'),
+('Muay thaï'),
+('Musculation'),
+('Naban'),
+('Natation'),
+('Natation synchronisée'),
+('Nautisme'),
+('Optimist'),
+('Paddle'),
+('Paintball'),
+('Parachutisme'),
+('Parapente'),
+('Parkour'),
+('Patinage artistique'),
+('Patinage de vitesse'),
+('Pêche'),
+('Pelote basque'),
+('Pentathlon'),
+('Pétanque'),
+('Ping-Pong'),
+('Plongée'),
+('Polo'),
+('Qi gong'),
+('Quadrille'),
+('Rafting'),
+('Rallye automobile'),
+('Régate'),
+('Ringuette'),
+('Rink hockey'),
+('Roller'),
+('Rugby'),
+('Salsa'),
+('Savate'),
+('Shinty'),
+('Skateboard'),
+('Skater hockey'),
+('Skeleton'),
+('Ski alpin'),
+('Ski de fond'),
+('Ski nautique'),
+('Ski nordique'),
+('Slamball'),
+('Snowboard'),
+('Softball'),
+('Spéléologie'),
+('Squash'),
+('Sumo'),
+('Supermotard'),
+('Surf'),
+('Tae Bo'),
+('Taekwondo'),
+('Tai Chi'),
+('Taihojutsu'),
+('Tambourin'),
+('Tango'),
+('Tchoukball'),
+('Tennis'),
+('Tennis de table'),
+('Tennis léger'),
+('Tir'),
+('Tir à l arc'),
+('Triathlon'),
+('Tricking'),
+('Twirling'),
+('ULM'),
+('Ultimate'),
+('Unihockey'),
+('Valse'),
+('Varappe'),
+('Voile'),
+('Volata'),
+('Volley-ball'),
+('Voltige'),
+('VTT'),
+('Wakeboard'),
+('Water polo'),
+('Wing Chun'),
+('Yoga'),
+('Zen Hakko Kaï'),
+('Zouk'),
+('Zumba');
+
 -- --------------------------------------------------------
 
 --
@@ -190,8 +411,8 @@ CREATE TABLE `Pratique` (
 CREATE TABLE `Utilisateurs` (
   `u_pseudo` varchar(255) NOT NULL,
   `u_prenom` varchar(255) NOT NULL,
-  `u_sexe` varchar(255) NOT NULL,
   `u_nom` varchar(255) NOT NULL,
+  `u_sexe` varchar(255) NOT NULL,
   `u_adresse` varchar(255) NOT NULL,
   `u_ville` varchar(255) NOT NULL,
   `u_cp` varchar(255) NOT NULL,
@@ -207,17 +428,14 @@ CREATE TABLE `Utilisateurs` (
 -- Contenu de la table `Utilisateurs`
 --
 
-INSERT INTO teamhubp_teamhub. `Utilisateurs` (`u_pseudo`, `u_prenom`, `u_sexe`, `u_nom`, `u_adresse`, `u_ville`, `u_cp`, `u_region`, `u_portable`, `u_email`, `u_naissance`, `u_mdp`, `u_photo`) VALUES
-('admin', 'Admin', 'Homme', 'Istrateur', '28 rue Notre Dame des Champs', 'Paris', '75006', 'Paris', '', 'contact@teamhub.fr', '2000-01-01', '$2y$10$eBgIsu3wUF9c7TYaVv8MEeH1vSJtydfECZZyTWpYRylOnPUeboX2u', 'twitter.png'),
-('Client', 'Présentation', 'Homme', 'Client', '12 rue du Test', 'Paris', '75012', 'Paris', '0699999999', 'présentationclient@gmail.com', '2013-08-05', '$2y$10$Mtg/6GgWpTQSolG2tPLRDOByxlWFbfMXWL6aPdAFhDxEiWMqnL8cy', 'avatar.png'),
-('Defarax', 'Romain', 'Homme', 'Frayssinet', '74 rue Nationale', 'Paris', '75013', 'Paris', '0643176805', 'romain.frayssinet@icloud.com', '1995-10-04', '$2y$10$WjfCjb6szS4rpuM8Yree7Of6WiIOGDjViRMuenjI2vxDmwRZME83e', 'Photo-le-23-09-2015-yy-16.22.jpg'),
-('JeanLouis', 'Jean-Louis', 'Homme', 'Dumont', '74 avenue du Général Leclerc', 'Paris', '75012', 'Paris', '0678954321', 'jl@dumont.fr', '2002-09-14', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'avatar.png'),
-('Natachou', 'Natacha', 'Femme', 'Gerard', '97 avenue de la République', '94300', 'Vincennes', 'Val-de-Marne', '06000', 'nnn@free.fr', '1995-11-27', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'avatar.png'),
-('Pichupik', 'Guillaume', 'Homme', 'Harat', '49 rue des Boulets', 'Antony', '77943', 'Seine-et-Marne', '0678657912', 'g.harat@gmail.com', '1995-12-22', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'avatar.png'),
-('Renaud', 'Renaud', 'Homme', 'D', '28 rue de ma paix', 'paris', '75001', 'Paris', '0344456734', 'renaud.donz@me.com', '2014-03-25', '$2y$10$hEUCR6SVqf6nMy7.8xqleO7XN706eO0frThHm72i4mOIA4oaqbe2u', 'avatar.png'),
-('TiteLolo', 'Laure', 'Femme', 'de Rancourt de Mimérand-Verny', '128 rue Brancion', 'Paris', '75015', 'Paris', '0629486664', 'lolorm@hotmail.fr', '1995-02-06', '$2y$10$L1Ye5DLOvXKxlKuS5JpXcOJa1A6EWQM5i.xBNItj.E6YFohn7OFNG', 'avatar.png'),
-('Torlk', 'Jaidlachence', 'Homme', 'Jeremy', '56 rue du TopDeck', 'Paris', '75014', 'Paris', '0663451299', 'jeremy@torlk.com', '2012-06-09', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'avatar.png'),
-('Val78', 'Valentin', 'Homme', 'Fortun', '620 rue de Montamets', 'Orgeval', '78630', 'Yvelines', '0645986754', 'valentin.fortun@orange.fr', '1996-01-18', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'Photo-le-02-10-2015-yy-11.26.jpg');
+INSERT INTO `Utilisateurs` (`u_pseudo`, `u_prenom`, `u_nom`, `u_sexe`, `u_adresse`, `u_ville`, `u_cp`, `u_region`, `u_portable`, `u_email`, `u_naissance`, `u_mdp`, `u_photo`) VALUES
+('admin', 'Admin', 'Istrateur', 'Homme', '28 rue Notre-Dame des Champs', 'Paris', '75006', 'Paris', '0000000000', 'contact@teamHub.com', '2000-01-01', '$2y$10$Z8zyMUvfroLiBFMH0K8ZaebImajzzbol6os9igNn1NQ9S4/F8B3P2', 'avatar.png'),
+('Defarax', 'Romain ', 'Frayssinet', 'Homme', '74 rue de National', 'Paris', '75013', 'Paris', '0667061977', 'frayssinetr@gmail.com', '1995-09-10', '$2y$10$otUMYzcwAXF9OjkGwtmXGO3/jJ3N2fGfG7pAzDzL17dG1mkM3B416', 'avatar.png'),
+('micha', 'Michael', 'Elbaz', 'Homme', '194 quai de jemmapes', 'Paris', '75010', 'Paris', '0699651612', 'mickelbaz@gmail.com', '1995-12-16', '$2y$10$VR9EQ3Nxl/3fG2MlUUhAY.AmRKmAJ9BzX2us4wQnEGt.ELz.WRZ3K', 'avatar.png'),
+('Pichupik', 'Guillaume', 'Harat', 'Homme', 'rue de la butte', 'Antony', '92160', 'Hauts-de-Seine', '0945678934', 'guillaume.harat@gmail.com', '1995-12-11', '$2y$10$6zk4RIdvP/KHCTdfJxGwEelxJr/legqTUOclZGflBh51i4InBhrC.', 'avatar.png'),
+('Val', 'Valentin', 'Fortun', 'Homme', 'dqgqerg', 'qergeqrg', 'qergeqrg', 'Alpes-de-Haute-Provence', 'reggae', 'valentin.fortun@orange.fr', '2013-07-04', '$2y$10$6d3EqZ38PI/wfZhI42BwPuB.EOAA4C8WlG7ATZsxC9mFqWplN15sS', 'Logo.png'),
+('Val78', 'Valentin', 'Fortun', 'Homme', '620 rue de Montamets', 'Orgeval', '78630', 'Yvelines', '0667061788', 'val78.fortun@gmail.com', '1996-01-18', '$2y$10$3W1/9FmuhUf3hE.DykmQt.ZV2XGlRbbL1ZpNr2r.eJ6HxVfzbwpty', 'avatar.png'),
+('vero', 'Véronique', 'FORTUN', 'Femme', 'avenue maurice Martin', '33120', 'Arcachon', 'Gironde', '0667061788', 'veronique.fortun@wanadoo.fr', '1966-05-03', '$2y$10$kWWb.xXFyr4rmaHPfQzzkerIaByHbLxsVELrDOhEiyn1ZwpSn8b6a', 'avatar.png');
 
 --
 -- Index pour les tables exportées
@@ -230,11 +448,16 @@ ALTER TABLE `Appartient`
   ADD PRIMARY KEY (`u_pseudo`,`g_nom`);
 
 --
+-- Index pour la table `Bannis`
+--
+ALTER TABLE `Bannis`
+  ADD PRIMARY KEY (`b_nom`);
+
+--
 -- Index pour la table `Clubs`
 --
 ALTER TABLE `Clubs`
-  ADD PRIMARY KEY (`c_nom`),
-  ADD UNIQUE KEY `c_image` (`c_image`);
+  ADD PRIMARY KEY (`c_nom`);
 
 --
 -- Index pour la table `Evenements`
@@ -268,13 +491,19 @@ ALTER TABLE `Pratique`
   ADD PRIMARY KEY (`u_pseudo`,`s_nom`);
 
 --
+-- Index pour la table `Sports`
+--
+ALTER TABLE `Sports`
+  ADD PRIMARY KEY (`s_nom`);
+
+--
 -- Index pour la table `Utilisateurs`
 --
 ALTER TABLE `Utilisateurs`
   ADD PRIMARY KEY (`u_pseudo`),
-  ADD UNIQUE KEY `u_id` (`u_pseudo`),
+  ADD UNIQUE KEY `u_pseudo` (`u_pseudo`),
   ADD UNIQUE KEY `u_email` (`u_email`),
-  ADD UNIQUE KEY `u_email_2` (`u_email`);
+  ADD UNIQUE KEY `u_pseudo_2` (`u_pseudo`,`u_email`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -284,4 +513,4 @@ ALTER TABLE `Utilisateurs`
 -- AUTO_INCREMENT pour la table `Evenements`
 --
 ALTER TABLE `Evenements`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `e_id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
