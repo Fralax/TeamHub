@@ -9,7 +9,7 @@ class controleurEvenements{
 
   public function creationEvenements($groupe){
     $evenement = new evenements();
-    $groupe = new groupes();
+    $groupes = new groupes();
     $club = new clubs();
     $listeClubs = $club->listerClub()->fetchAll();
     $dateAuj = date("d-m-Y");
@@ -18,7 +18,7 @@ class controleurEvenements{
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
 
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
-      if (($_POST['nomEvenement'] != "") && ($_POST['jour'] != "") && ($_POST['mois'] != "") && ($_POST['annee'] != "") && ($_POST['heure'] != "") && ($_POST['minute'] != "") && ($_POST['club'] != "")){
+      if (($_POST['nbrPlaces'] && $_POST['nomEvenement'] != "") && ($_POST['jour'] != "") && ($_POST['mois'] != "") && ($_POST['annee'] != "") && ($_POST['heure'] != "") && ($_POST['minute'] != "") && ($_POST['club'] != "")){
         $resultatG = $evenement->verifEvenement($groupe)->fetch();
         if(!$resultatG){
           if(strtotime($dateAuj) > strtotime($date)){
@@ -27,7 +27,7 @@ class controleurEvenements{
             if ($heureAuj > $heure){
               echo "Sélectionnez une heure dans le futur !";
             } else {
-              $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
+              $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
               var_dump($placesGroupe);
               settype($placesGroupe[0], "integer");
               if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
@@ -39,8 +39,7 @@ class controleurEvenements{
               }
             }
           } else {
-            $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
-            var_dump($placesGroupe);
+            $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
             settype($placesGroupe[0], "integer");
             if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
               $evenement->ajouterEvenementsBdd($groupe);
