@@ -84,7 +84,11 @@
               <td>
                 <?php
                   $participants = $placesTotal-$placesLibres;
-                  echo $participants." participants";
+                  if($participants == 1){
+                    echo $participants." participant";
+                  } else{
+                    echo $participants." participants";
+                  }
                 ?>
               </td>
               <td>
@@ -121,12 +125,33 @@
               <td>
                 <?php
                   $participants = $placesTotal-$placesLibres;
-                  echo $participants." participants";
+                  if($participants == 1){
+                    echo $participants." participant";
+                  } else{
+                    echo $participants." participants";
+                  }
                 ?>
               </td>
+              <?php
+                if ($placesLibres != 0){
+                  if($placesLibres == 1){
+              ?>
+              <td>
+                <?php echo $placesLibres." place restante" ?>
+              </td>
+              <?php } else{ ?>
+              <td>
+                <?php echo $placesLibres." places restantes" ?>
+              </td>
+              <?php } ?>
               <td>
                 <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
               </td>
+              <?php } else{ ?>
+                <td>
+                  Plus de place disponible ...
+                </td>
+              <?php } ?>
               <td>
                 <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
               </td>
@@ -181,7 +206,11 @@
             <td>
               <?php
                 $participants = $placesTotal-$placesLibres;
-                echo $participants." participants";
+                if($participants == 1){
+                  echo $participants." participant";
+                } else{
+                  echo $participants." participants";
+                }
               ?>
             </td>
             <td>
@@ -220,12 +249,33 @@
             <td>
               <?php
                 $participants = $placesTotal-$placesLibres;
-                echo $participants." participants";
+                if($participants == 1){
+                  echo $participants." participant";
+                } else{
+                  echo $participants." participants";
+                }
               ?>
             </td>
+            <?php
+              if ($placesLibres != 0){
+                if($placesLibres == 1){
+            ?>
+            <td>
+              <?php echo $placesLibres." place restante" ?>
+            </td>
+            <?php } else{ ?>
+            <td>
+              <?php echo $placesLibres." places restantes" ?>
+            </td>
+            <?php } ?>
             <td>
               <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
             </td>
+            <?php } else{ ?>
+              <td>
+                Plus de place disponible ...
+              </td>
+            <?php } ?>
           </tr>
           <?php } ?>
         </table>
@@ -275,14 +325,35 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "au club ".$nomlub ?>
+              <?php echo "au club ".$nomClub ?>
             </td>
             <td>
               <?php
                 $participants = $placesTotal-$placesLibres;
-                echo $participants." participants";
+                if($participants == 1){
+                  echo $participants." participant";
+                } else{
+                  echo $participants." participants";
+                }
               ?>
             </td>
+            <?php
+              if ($placesLibres != 0){
+                if($placesLibres == 1){
+            ?>
+            <td>
+              <?php echo $placesLibres." place restante" ?>
+            </td>
+            <?php } else{ ?>
+            <td>
+              <?php echo $placesLibres." places restantes" ?>
+            </td>
+            <?php }
+            } else{ ?>
+              <td>
+                Plus de place disponible ...
+              </td>
+            <?php } ?>
           </tr>
           <?php } ?>
         </table>
@@ -332,14 +403,35 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "au club ".$nomlub ?>
+              <?php echo "au club ".$nomClub ?>
             </td>
             <td>
               <?php
                 $participants = $placesTotal-$placesLibres;
-                echo $participants." participants";
+                if($participants == 1){
+                  echo $participants." participant";
+                } else{
+                  echo $participants." participants";
+                }
               ?>
             </td>
+            <?php
+              if ($placesLibres != 0){
+                if($placesLibres == 1){
+            ?>
+            <td>
+              <?php echo $placesLibres." place restante" ?>
+            </td>
+            <?php } else{ ?>
+            <td>
+              <?php echo $placesLibres." places restantes" ?>
+            </td>
+            <?php }
+            } else{ ?>
+              <td>
+                Plus de place disponible ...
+              </td>
+            <?php } ?>
           </tr>
           <?php } ?>
         </table>
@@ -389,14 +481,35 @@
               <?php echo "à ".$heure ?>
             </td>
             <td>
-              <?php echo "au club ".$nomlub ?>
+              <?php echo "au club ".$nomClub ?>
             </td>
             <td>
               <?php
                 $participants = $placesTotal-$placesLibres;
-                echo $participants." participants";
+                if($participants == 1){
+                  echo $participants." participant";
+                } else{
+                  echo $participants." participants";
+                }
               ?>
             </td>
+            <?php
+              if ($placesLibres != 0){
+                if($placesLibres == 1){
+            ?>
+            <td>
+              <?php echo $placesLibres." place restante" ?>
+            </td>
+            <?php } else{ ?>
+            <td>
+              <?php echo $placesLibres." places restantes" ?>
+            </td>
+            <?php }
+            } else{ ?>
+              <td>
+                Plus de place disponible ...
+              </td>
+            <?php } ?>
           </tr>
           <?php } ?>
         </table>

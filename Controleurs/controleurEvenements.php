@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modeles/evenements.php';
+require_once 'Modeles/groupes.php';
 require_once "Modeles/clubs.php";
 require_once 'Vues/vue.php';
 
@@ -8,6 +9,7 @@ class controleurEvenements{
 
   public function creationEvenements($groupe){
     $evenement = new evenements();
+    $groupe = new groupes();
     $club = new clubs();
     $listeClubs = $club->listerClub()->fetchAll();
     $dateAuj = date("d-m-Y");
@@ -25,14 +27,28 @@ class controleurEvenements{
             if ($heureAuj > $heure){
               echo "Sélectionnez une heure dans le futur !";
             } else {
+              $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
+              var_dump($placesGroupe);
+              settype($placesGroupe[0], "integer");
+              if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
+                $evenement->ajouterEvenementsBdd($groupe);
+                $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
+                header("Location: index.php?page=mesgroupes");
+              } else{
+                echo "Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !";
+              }
+            }
+          } else {
+            $placesGroupe = $groupe->recupPlacesTotal($groupe)->fetch();
+            var_dump($placesGroupe);
+            settype($placesGroupe[0], "integer");
+            if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
               $evenement->ajouterEvenementsBdd($groupe);
               $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
               header("Location: index.php?page=mesgroupes");
+            } else{
+              echo "Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !";
             }
-          } else {
-            $evenement->ajouterEvenementsBdd($groupe);
-            $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
-            header("Location: index.php?page=mesgroupes");
           }
         } else {
           echo "Il y déjà un événement du même nom associé à ce groupe !";
