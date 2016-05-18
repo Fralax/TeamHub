@@ -7,9 +7,18 @@ class evenements extends modele {
   public function ajouterEvenementsBdd($groupe){
     $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
-    $sql = 'INSERT INTO teamhubp_teamhub.Evenements(e_nom, e_date, e_heure, e_createur, g_nom, c_nom, e_placesTotal)
-            VALUES (:nomEvenement, :dateActivite, :heureActivite, :createur ,:nomGroupe, :nomClub, :nbrPlaces)';
-    $ajouterEvenementsBdd = $this->executerRequete ($sql, array('nomEvenement'=>$_POST['nomEvenement'] ,'dateActivite'=>$date , 'heureActivite'=> $heure, 'createur'=> $_SESSION['pseudo'], 'nomGroupe'=> $groupe, 'nomClub'=> $_POST['club'], 'nbrPlaces' => $_POST['nbrPlaces']));
+    $sql = 'INSERT INTO teamhubp_teamhub.Evenements(e_nom, e_date, e_heure, e_createur, g_nom, c_nom, e_placesTotal, e_placesLibres)
+            VALUES (:nomEvenement, :dateActivite, :heureActivite, :createur ,:nomGroupe, :nomClub, :nbrPlacesTotal, :nbrPlacesLibres)';
+    $ajouterEvenementsBdd = $this->executerRequete ($sql, array(
+      'nomEvenement'=>$_POST['nomEvenement'],
+      'dateActivite'=>$date ,
+      'heureActivite'=> $heure,
+      'createur'=> $_SESSION['pseudo'],
+      'nomGroupe'=> $groupe,
+      'nomClub'=> $_POST['club'],
+      'nbrPlacesTotal' => $_POST['nbrPlaces'],
+      'nbrPlacesLibres' => $_POST['nbrPlaces']
+    ));
 
     $sql2 = 'SELECT g_nbrEvenements FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
     $ajouterNombreEvenements = $this->executerRequete($sql2, array($groupe));

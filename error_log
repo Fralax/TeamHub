@@ -237,3 +237,20 @@ Stack trace:
 [15-May-2016 22:36:58 Europe/Paris] PHP Parse error:  syntax error, unexpected '$vue' (T_VARIABLE), expecting function (T_FUNCTION) in /home/teamhubp/public_html/Controleurs/controleurClubs.php on line 34
 [15-May-2016 22:47:59 Europe/Paris] PHP Fatal error:  Class 'controleurClubs' not found in /home/teamhubp/public_html/Controleurs/routeur.php on line 34
 [15-May-2016 22:48:00 Europe/Paris] PHP Fatal error:  Class 'controleurClubs' not found in /home/teamhubp/public_html/Controleurs/routeur.php on line 34
+[17-May-2016 20:07:41 Europe/Paris] PHP Fatal error:  Call to undefined method evenements::diminuerNombreEvenements() in /home/teamhubp/public_html/Controleurs/controleurEvenements.php on line 29
+[17-May-2016 20:09:38 Europe/Paris] PHP Fatal error:  Call to undefined method evenements::diminuerPLacesLibresEvenements() in /home/teamhubp/public_html/Controleurs/controleurEvenements.php on line 29
+[17-May-2016 20:10:13 Europe/Paris] PHP Fatal error:  Call to undefined method evenements::diminuerPlacesLibresEvenements() in /home/teamhubp/public_html/Controleurs/controleurEvenements.php on line 29
+[18-May-2016 00:13:19 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/teamhubp/public_html/Vues/vueGroupe.php on line 142
+[18-May-2016 00:14:13 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/teamhubp/public_html/Vues/vueGroupe.php on line 142
+[18-May-2016 00:14:16 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/teamhubp/public_html/Vues/vueGroupe.php on line 142
+[18-May-2016 00:14:16 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/teamhubp/public_html/Vues/vueGroupe.php on line 142
+[18-May-2016 00:14:17 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/teamhubp/public_html/Vues/vueGroupe.php on line 142
+[18-May-2016 00:34:44 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:36:12 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:37:36 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:38:19 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:43:13 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:44:03 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:45:26 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:45:57 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[18-May-2016 00:50:48 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13

@@ -140,4 +140,9 @@ class groupes extends modele {
     }
   }
 
+  public function recupPlacesTotal($nom){
+    $sql= 'SELECT g_placesTotal FROM teamhubp_teamhub.Groupes WHERE g_nom = :nom';
+    $recupPlacesTotal = $this->executerRequete ($sql, array('nom'=>$nom));
+    return $recupPlacesTotal;
+  }
 }
