@@ -86,6 +86,9 @@
                   $participants = $placesTotal-$placesLibres;
                   if($participants == 1){
                     echo $participants." participant";
+                  }
+                  if ($participants == 0){
+                    echo "Aucun participant";
                   } else{
                     echo $participants." participants";
                   }
@@ -127,6 +130,9 @@
                   $participants = $placesTotal-$placesLibres;
                   if($participants == 1){
                     echo $participants." participant";
+                  }
+                  if ($participants == 0){
+                    echo "Aucun participant";
                   } else{
                     echo $participants." participants";
                   }
@@ -208,6 +214,9 @@
                 $participants = $placesTotal-$placesLibres;
                 if($participants == 1){
                   echo $participants." participant";
+                }
+                if ($participants == 0){
+                  echo "Aucun participant";
                 } else{
                   echo $participants." participants";
                 }
@@ -251,6 +260,9 @@
                 $participants = $placesTotal-$placesLibres;
                 if($participants == 1){
                   echo $participants." participant";
+                }
+                if ($participants == 0){
+                  echo "Aucun participant";
                 } else{
                   echo $participants." participants";
                 }
@@ -332,6 +344,9 @@
                 $participants = $placesTotal-$placesLibres;
                 if($participants == 1){
                   echo $participants." participant";
+                }
+                if ($participants == 0){
+                  echo "Aucun participant";
                 } else{
                   echo $participants." participants";
                 }
@@ -410,6 +425,9 @@
                 $participants = $placesTotal-$placesLibres;
                 if($participants == 1){
                   echo $participants." participant";
+                }
+                if ($participants == 0){
+                  echo "Aucun participant";
                 } else{
                   echo $participants." participants";
                 }
@@ -488,6 +506,9 @@
                 $participants = $placesTotal-$placesLibres;
                 if($participants == 1){
                   echo $participants." participant";
+                }
+                if ($participants == 0){
+                  echo "Aucun participant";
                 } else{
                   echo $participants." participants";
                 }

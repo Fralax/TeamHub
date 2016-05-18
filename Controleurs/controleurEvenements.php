@@ -18,7 +18,7 @@ class controleurEvenements{
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
 
     if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
-      if (($_POST['nomEvenement'] != "") && ($_POST['jour'] != "") && ($_POST['mois'] != "") && ($_POST['annee'] != "") && ($_POST['heure'] != "") && ($_POST['minute'] != "") && ($_POST['club'] != "")){
+      if (($_POST['nbrPlaces'] && $_POST['nomEvenement'] != "") && ($_POST['jour'] != "") && ($_POST['mois'] != "") && ($_POST['annee'] != "") && ($_POST['heure'] != "") && ($_POST['minute'] != "") && ($_POST['club'] != "")){
         $resultatG = $evenement->verifEvenement($groupe)->fetch();
         if(!$resultatG){
           if(strtotime($dateAuj) > strtotime($date)){
@@ -39,7 +39,6 @@ class controleurEvenements{
             }
           } else {
             $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
-            var_dump($placesGroupe);
             settype($placesGroupe[0], "integer");
             if ($_POST['nbrPlaces'] <= $placesGroupe[0]){
               $evenement->ajouterEvenementsBdd($groupe);
