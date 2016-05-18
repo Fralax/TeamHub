@@ -25,7 +25,8 @@
 
       <header>
         <div id="logo">
-          <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.png" width="306" height="172" ></a>
+          <a hre
+          f="index.php?page=accueil"><img id="logo" src="Autres/Logo.png" width="306" height="172" ></a>
           <h1> Le sport, pour tous. </h1>
         </div>
 
