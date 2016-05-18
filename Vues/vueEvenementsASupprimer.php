@@ -10,7 +10,8 @@
     <table>
 		<?php foreach ($listeEvenements as list($nomevenements)){ ?>
       <tr>
-			  <td> <?php echo $nomevenements?> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'évenement : <?php echo $nomevenements ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nomevenements?>'; return false">  <input type="button" name="Supprimer" value ="Supprimer"> </a> </td>
+			  <td> <?php echo $nomevenements?> </td>
+				<td> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'évenement : <?php echo $nomevenements ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nomevenements?>'; return false">  <input type="button" name="Supprimer" value ="Supprimer"> </a></td>
       </tr>
 		<?php } ?>
     </table>

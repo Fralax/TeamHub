@@ -26,10 +26,12 @@ class controleurEvenements{
               echo "Sélectionnez une heure dans le futur !";
             } else {
               $evenement->ajouterEvenementsBdd($groupe);
+              $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
               header("Location: index.php?page=mesgroupes");
             }
           } else {
             $evenement->ajouterEvenementsBdd($groupe);
+            $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
             header("Location: index.php?page=mesgroupes");
           }
         } else {
@@ -52,6 +54,7 @@ class controleurEvenements{
 
   public function adhesionEvenements($nomevenement){
     $evenement = new evenements();
+    $evenement->diminuerPlacesLibresEvenement($nomevenement);
     $evenement->adhererEvenements($nomevenement);
     $vue = new Vue('ConfirmationEvenement');
     $vue->generer(["evenement"=>$nomevenement]);
@@ -59,6 +62,7 @@ class controleurEvenements{
 
   public function DepartEvenements($nomevenement){
     $evenement = new evenements();
+    $evenement->augmenterPlacesLibresEvenement($nomevenement);
     $evenement->quitterEvenements($nomevenement);
     $vue = new Vue('QuitterEvenement');
     $vue->generer(["evenement"=>$nomevenement]);
