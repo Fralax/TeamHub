@@ -56,15 +56,15 @@ class administration extends modele {
     return $ListerEvenements;
   }
 
-  public function ListerClubs(){
+  public function ListerClub(){
     $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire FROM teamhubp_teamhub.Clubs';
-    $ListerClubs = $this->executerRequete ($sql);
-    return $ListerClubs;
+    $ListerClub = $this->executerRequete ($sql);
+    return $ListerClub;
   }
 
   public function modifierCaracteristiquesClub($nom){
     $sql = 'UPDATE teamhubp_teamhub.Clubs SET c_nom = :nomClub, c_adresse = :adresseClub, c_cp = :cpClub, c_numero = :numeroClub, c_hoLundiDebut = :c_hoLundiDebut, c_hoMardiDebut = :c_hoMardiDebut, c_hoMercrediDebut = :c_hoMercrediDebut, c_hoJeudiDebut = :c_hoJeudiDebut, c_hoVendrediDebut = :c_hoVendrediDebut, c_hoSamediDebut = :c_hoSamediDebut, c_hoDimancheDebut = :c_hoDimancheDebut, c_hoLundiFin = :c_hoLundiFin, c_hoMardiFin = :c_hoMardiFin, c_hoMercrediFin = :c_hoMercrediFin, c_hoJeudiFin = :c_hoJeudiFin, c_hoVendrediFin = :c_hoVendrediFin, c_hoSamediFin = :c_hoSamediFin, c_hoDimancheFin = :c_hoDimancheFin, c_hoCommentaire = :c_hoCommentaire WHERE c_nom = :Club';
-    $modifierCaracteristiquesClub = $this->executerRequete($sql, array(
+    $modifierCaracteristiquesClub = $this->executerRequete ($sql, array(
     'nomClub'=>$_POST['nomClub'],
     'adresseClub'=>$_POST['adresseClub'],
     'cpClub'=>$_POST['cpClub'],

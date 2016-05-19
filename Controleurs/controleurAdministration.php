@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Modeles/administration.php';
-require_once 'Modeles/clubs.php';
 require_once 'Vues/vue.php';
 
 class controleurAdministration{
@@ -66,17 +65,17 @@ class controleurAdministration{
   public function clubsModifiables(){
     $admin = new administration();
     $club = new clubs();
-    $clubs = $admin->ListerClubs()->fetchAll();
+    $clubs = $admin->ListerClub()->fetchAll();
+
     if (isset($_POST['Choisir'])){
       $infos = $club->afficherCaracteristiquesClub($_POST['club'])->fetch();
     }
 
-
-    if (isset($_POST['Modifier'])){
-      $modif = $admin->modifierCaracteristiquesClub($_POST['nomClub']);
+    if (isset ($_POST['Modifier'])){
+      $modif = $admin->modifierCaracteristiquesClub($_POST['club']);
     }
     $vue = new Vue('ClubsAModifier');
-    $vue->generer(array('listeClubs'=>$clubs, 'caractClub'=>$infos, 'nom' =>$i));
+    $vue->generer(array('listeClubs'=>$clubs, 'caractClub'=>$infos));
   }
 
 }

@@ -89,8 +89,7 @@
                   }
                   if ($participants == 0){
                     echo "Aucun participant";
-                  }
-                  else{
+                  } else{
                     echo $participants." participants";
                   }
                 ?>
