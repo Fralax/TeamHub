@@ -144,5 +144,9 @@ class administration extends modele {
     $debannir = $this->executerRequete ($sql, array($nom));
   }
 
+  public function membresEnvoyerMail(){
+    
+  }
+
 }
 ?>
