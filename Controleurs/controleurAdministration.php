@@ -67,16 +67,73 @@ class controleurAdministration{
     $club = new clubs();
     $clubs = $admin->ListerClub()->fetchAll();
 
-    if (isset($_POST['Choisir'])){
-      $infos = $club->afficherCaracteristiquesClub($_POST['club'])->fetch();
-    }
+    $vue = new Vue('ClubsAModifierInfos');
+    $vue->generer(array('listeClubs'=>$clubs));
+  }
+
+  public function modificationClub($nomClub){
+    $club = new clubs();
+    $admin = new administration();
+    $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
 
     if (isset ($_POST['Modifier'])){
-      $modif = $admin->modifierCaracteristiquesClub($_POST['club']);
+      $modif = $admin->modifierCaracteristiquesClub($nomClub);
+      header("Location: index.php?page=administration");
     }
-    $vue = new Vue('ClubsAModifier');
-    $vue->generer(array('listeClubs'=>$clubs, 'caractClub'=>$infos));
+
+    $vue = new Vue('ModifClub');
+    $vue->generer(array('caractClub'=>$infos));
+
   }
+
+  public function photoModifiables(){
+    $admin = new administration();
+    $club = new clubs();
+    $clubs = $admin->ListerClub()->fetchAll();
+
+    $vue = new Vue('ClubsAModifierPhotos');
+    $vue->generer(array('listeClubs'=>$clubs));
+  }
+
+  public function modificationPhotoClub($nomClub){
+    $club = new clubs();
+    $admin = new administration();
+    $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
+
+    if (isset ($_POST['Modifier'])){
+      $modif = $admin->modifierPhotoClub($nomClub);
+      header("Location: index.php?page=administration");
+    }
+
+    $vue = new Vue('ModifPhotoClub');
+    $vue->generer(array('caractClub'=>$infos));
+  }
+
+  public function commentaireModifiables(){
+    $admin = new administration();
+    $club = new clubs();
+    $clubs = $admin->ListerClub()->fetchAll();
+
+    $vue = new Vue('ClubsAModifierCommentaires');
+    $vue->generer(array('listeClubs'=>$clubs));
+  }
+
+  public function moderationCommentairesClub($nomClub){
+    $club = new clubs();
+    $admin = new administration();
+    $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
+    $notes = $admin->afficherCommentairesClub($nomClub)->fetchAll();
+
+    $vue = new Vue('moderationCommentairesClub');
+    $vue->generer(array('caractClub'=>$infos, 'NoteClub'=>$notes));
+  }
+
+  public function suppressionCommentaire($id){
+    $admin = new administration();
+    $admin->supprimerCommentaireClub($id);
+    header("Location: index.php?page=administration");
+  }
+
 
 }
 

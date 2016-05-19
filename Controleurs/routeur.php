@@ -178,8 +178,32 @@
           $this->controleurAdministration->evenementsSupprimables();
           break;
 
-        case 'clubsamodifier':
+        case 'clubsamodifierinfos':
           $this->controleurAdministration->clubsModifiables();
+          break;
+
+        case 'modifclub':
+          $this->controleurAdministration->modificationClub($_GET['club']);
+          break;
+
+        case 'clubsamodifierphotos':
+          $this->controleurAdministration->photoModifiables();
+          break;
+
+        case 'modifphotoclub':
+          $this->controleurAdministration->modificationPhotoClub($_GET['club']);
+          break;
+
+        case 'clubsamodifiercommentaires':
+          $this->controleurAdministration->commentaireModifiables();
+          break;
+
+        case 'moderationcommentaire':
+          $this->controleurAdministration->moderationCommentairesClub($_GET['club']);
+          break;
+
+        case 'suppressioncommentaire':
+          $this->controleurAdministration->suppressionCommentaire($_GET['id']);
           break;
 
         default:

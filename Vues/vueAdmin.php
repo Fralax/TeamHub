@@ -28,9 +28,9 @@
 	    </div>
 	    <div class="adminClubs">
 	      <h3>Administration des Clubs</h3>
-	      <p> <a href="index.php?page=clubsamodifier">  Modifier les informations d'un Club </a> </p>
-				<p> Modifier la photo d'un Club <p>
-				<p> Modérer les commentaires <p>
+	      <p> <a href="index.php?page=clubsamodifierinfos"> Modifier les informations d'un Club </a> </p>
+				<p> <a href="index.php?page=clubsamodifierphotos"> Modifier la photo d'un Club </a> <p>
+				<p> <a href="index.php?page=clubsamodifiercommentaires"> Modérer les commentaires </a> <p>
 	      <p> Supprimer un Club</p>
 	    </div>
 	    <div class="adminGenerale">
