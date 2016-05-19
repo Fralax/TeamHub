@@ -160,8 +160,10 @@ class controleurAdministration{
     $afficherAdmins = $admin->afficherAdmins()->fetchAll();
 
     if (isset($_POST['designer'])){
-      $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
-      header("Location: index.php?page=administration");
+      if($_POST['nouvelAdmin'] != "-- Sélectionnez un membre à désigner comme administrateur --"){
+        $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
+        header("Location: index.php?page=administration");
+      }
     }
     $vue = new Vue('NouvelAdmin');
     $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins));

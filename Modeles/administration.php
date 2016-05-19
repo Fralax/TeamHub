@@ -128,7 +128,7 @@ class administration extends modele {
   }
 
   public function afficherAdmins(){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Admins WHERE u_pseudo != ? AND u_pseudo NOT IN(SELECT b_nom FROM teamhubp_teamhub.Bannis)';
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Admins WHERE u_pseudo != ?';
     $afficherAdmins = $this->executerRequete($sql, array($_SESSION['pseudo']));
     return $afficherAdmins;
   }
