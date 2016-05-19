@@ -19,7 +19,7 @@ class ControleurClubs{
           $club->ajouterClubBdd();
           header('refresh:1;url=index.php?page=accueil');
         } else {
-          echo "Des champs n'ont pas été rempli";
+          echo "Ce club existe déjà !";
         }
       }
       else {
@@ -53,7 +53,11 @@ class ControleurClubs{
   public function notationClub($nom){
     $club = new clubs();
     if (isset($_POST['Noter'])){
-      $ajoutNote = $club->noterClub($nom);
+      if ($_POST['noteClub'] != "" && $_POST['commentaireClub'] != ""){
+        $ajoutNote = $club->noterClub($nom);
+      } else {
+        echo "Des champs n'ont pas été rempli";
+      }
     }
   }
 

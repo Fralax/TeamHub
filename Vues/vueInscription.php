@@ -54,12 +54,7 @@
 				<p> Email : <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/>
 						Confirmez votre Email : <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/>
 				</p>
-
-				<p> Adresse : <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?= $_POST['Adresse'] ?>"/> </p>
-				<p> Ville : <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?= $_POST['Ville'] ?>"/> </p>
-				<p> Code Postal : <input type="text" name="CodePostal" placeholder="Code Postal" size="25" value = "<?= $_POST['CodePostal'] ?>"/> </p>
-
-
+				
 	<!--Pays
 				<p>
 					<select name="Pays" required>
