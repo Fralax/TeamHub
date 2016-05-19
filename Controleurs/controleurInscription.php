@@ -19,36 +19,41 @@ require_once 'Vues/vue.php';
      $mois = $_POST['mois'];
      $annee = $_POST['annee'];
      $sexe = $_POST['Sexe'];
-     $cp = $_POST['CodePostal'];
-     $ville = $_POST['Ville'];
-     $adresse = $_POST['Adresse'];
 
      if(isset($envoyer) && $envoyer == 'Envoyer'){
        if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
-       && ($confirmMotDePasse != "") && ($cp != "") && ($ville != "") && ($adresse != "")){
+       && ($confirmMotDePasse != "")){
          $user = new utilisateurs();
          $resultatP = $user->verifPseudo()->fetch();
          $resultatE = $user->verifEmail()->fetch();
          if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
            if (!$resultatP && !$resultatE){
-             $user->ajoutUtilisateurBdd();
+             if (iconv_strlen($motDePasse)>=8){
+               if (iconv_strlen($pseudo)<=12){
+                 $user->ajoutUtilisateurBdd();
 
-             $destinataire = $email;
-             $sujet = "Confirmation d'inscription" ;
-             $entete = "Inscription sur le site" ;
-             $message = 'Bienvenue sur TeamHub,
+                 $destinataire = $email;
+                 $sujet = "Confirmation d'inscription" ;
+                 $entete = "Inscription sur le site" ;
+                 $message = 'Bienvenue sur TeamHub,
 
-             Merci de votre inscription et bienvenue sur TeamHub !
+                 Merci de votre inscription et bienvenue sur TeamHub !
 
-             ---------------
-             Ceci est un mail automatique, Merci de ne pas y répondre.';
+                 ---------------
+                 Ceci est un mail automatique, Merci de ne pas y répondre.';
 
-             mail($destinataire, $sujet, $message, $entete);
+                 mail($destinataire, $sujet, $message, $entete);
 
-             session_start();
-             $_SESSION['pseudo'] = $pseudo;
+                 session_start();
+                 $_SESSION['pseudo'] = $pseudo;
 
-             header("Location: index.php?page=accueil");
+                 header("Location: index.php?page=accueil");
+               } else {
+                 echo "Votre Pseudo ne doit pas dépasser 12 caractères !";
+               }
+             } else {
+               echo "Votre mot de passe doit comporter plus de 8 caractères !";
+             }
            }
 
            else{

@@ -14,10 +14,6 @@
 
 		<form  name = "formulaireModifMonAdresse" method="post" action = "">
 
-      <p> <input type="text" name="Adresse" placeholder="Adresse" size="25" value = "<?php echo $infos[u_adresse]?>"/> </p>
-			<p> <input type="text" name="Ville" placeholder="Ville" size="25" value = "<?php echo $infos[u_ville]?>"/> </p>
-			<p> <input type="text" name="CodePostal" placeholder="CP" size="25" value = "<?php echo $infos[u_cp]?>"/> </p>
-
 			<p>
 				<select name="Departement" required>
 					<option value=""> -- Sélectionner votre Département -- </option>

@@ -62,10 +62,7 @@
 						<p> Date de Naissance : <?php echo $infos[u_naissance]?> </p>
 					</div>
 					<div class="monAdresse">
-						<h2> Mon Adresse</h2>
-						<p> Adresse : <?php echo $infos[u_adresse]?> </p>
-						<p> Code Postal : <?php echo $infos[u_cp]?> </p>
-						<p> Ville : <?php echo $infos[u_ville]?> </p>
+						<h2> Ma Localisation</h2>
 						<p> Département : <?php echo $infos[u_region]?> </p>
 					</div>
 					<div class="mesCoordonnees">
@@ -74,7 +71,7 @@
 			      <p> Email : <?php echo $infos[u_email]?> </p>
 					</div>
 					<div class="modifs">
-						<a href="index.php?page=modifmonadresse"><h3>Modifier mon Adresse</h3></a>
+						<a href="index.php?page=modifmonadresse"><h3>Modifier ma localisation</h3></a>
 						<a href="index.php?page=modifmescoordonnees"><h3>Modifier mes Coordonnées</h3></a>
 						<a href="index.php?page=ajoutsport"><h3>Ajouter un Sport</h3></a>
 						<a href="index.php?page=modifmonmdp"><h3> Modifier mon Mot de Passe </h3></a>
