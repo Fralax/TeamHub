@@ -30,11 +30,9 @@ class utilisateurs extends modele {
   public function verifEmail(){
 
     $envoiInscription = $_POST['Envoyer'];
-      if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
-        $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email ';
-        $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
-        return $resultatE;
-      }
+      $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email ';
+      $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
+      return $resultatE;
     }
 
   public function verifMdp(){

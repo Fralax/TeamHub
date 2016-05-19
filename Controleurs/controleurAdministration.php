@@ -122,7 +122,6 @@ class controleurAdministration{
     $admin = new administration();
     $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
     $notes = $admin->afficherCommentairesClub($nomClub)->fetchAll();
-
     $vue = new Vue('moderationCommentairesClub');
     $vue->generer(array('caractClub'=>$infos, 'NoteClub'=>$notes));
   }
@@ -160,7 +159,7 @@ class controleurAdministration{
     $afficherAdmins = $admin->afficherAdmins()->fetchAll();
 
     if (isset($_POST['designer'])){
-      if($_POST['nouvelAdmin'] != "-- Sélectionnez un membre à désigner comme administrateur --"){
+      if($_POST['nouvelAdmin'] != ""){
         $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
         header("Location: index.php?page=administration");
       }
