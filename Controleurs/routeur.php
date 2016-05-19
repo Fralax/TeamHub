@@ -215,12 +215,16 @@
           break;
 
         case 'nouveladmin':
-        $this->controleurAdministration->designerNouvelAdmin();
-        break;
+          $this->controleurAdministration->designerNouvelAdmin();
+          break;
 
         case 'deop':
-        $this->controleurAdministration->adminSupprime($_GET['pseudo']);
-        break;
+          $this->controleurAdministration->adminSupprime($_GET['pseudo']);
+          break;
+
+        case 'modifadmingroupes':
+          $this->controleurAdministration->adminGroupeModifiable();
+          break;
 
         default:
           $_SESSION = array();
