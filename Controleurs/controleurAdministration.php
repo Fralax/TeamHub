@@ -152,6 +152,37 @@ class controleurAdministration{
     $fichier = $admin->afficherFondEcran()->fetch();
   }
 
+  public function designerNouvelAdmin(){
+    $admin = new administration();
+    $user = new utilisateurs();
+
+    $afficherPossiblesAdmins = $user->listerMembresNouvelAdmin()->fetchAll();
+    $afficherAdmins = $admin->afficherAdmins()->fetchAll();
+
+    if (isset($_POST['designer'])){
+      $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
+      header("Location: index.php?page=administration");
+    }
+    $vue = new Vue('NouvelAdmin');
+    $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins));
+
+  }
+
+  public function verifAdmin(){
+    $admin = new administration();
+    $verifierAdmins = $admin->verifierAdmins()->fetchAll();
+    foreach ($verifierAdmins as list($nom)){
+      if ($nom == $_SESSION['pseudo']){
+        return true;
+      }
+    }
+  }
+
+  public function adminSupprime($nom){
+    $admin = new administration();
+    $deop = $admin->deop($nom);
+    header("Location: index.php?page=administration");
+  }
 
 
 }

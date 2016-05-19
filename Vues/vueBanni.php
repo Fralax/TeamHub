@@ -7,9 +7,9 @@
 
   <body>
 
-    <h2> Vous avez êtes Banni ! </h2>
+    <h2> Vous avez été Banni ! </h2>
 
-    <p> Si vous souhaitez plus de détail, contactez l'administrateur du site. </p>
+    <p> Si vous souhaitez plus de détailq, contactez l'administrateur du site. </p>
 
   </body>
 </html>

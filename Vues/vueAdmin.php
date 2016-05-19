@@ -4,11 +4,14 @@
 </head>
 
 <?php
-	if($_SESSION['pseudo'] == "admin"){
-		$a=0;
-	} else{
-		$a=1;
-	}
+	require_once 'Controleurs/controleurAdministration.php';
+	$admin = new controleurAdministration();
+	$verifAdmin = $admin->verifAdmin();
+		if($verifAdmin == true){
+			$a=0;
+		} else{
+			$a=1;
+		}
 ?>
 
 <?php if($a == 0){ ?>
@@ -16,15 +19,15 @@
 	  <div class="conteneur">
 	    <div class="adminMembres">
 	      <h3>Administration des Membres</h3>
-	      <p>Nommer un Administrateur</p>
+	      <p><a href="index.php?page=nouveladmin">Nommer un Administrateur</a></p>
 	      <p><a href="index.php?page=bannirmembre"> Bannir un Membre </a> </p>
-	      <p>Envoyer un mail</p>
+	      <p><a href="index.php?page=envoimail">Envoyer un mail</a> </p>
 	    </div>
 	    <div class="adminGroupes">
 	      <h3>Administration des Groupes</h3>
 	      <p> <a href="index.php?page=groupesasupprimer"> Supprimer un Groupe </a> </p>
 	      <p> <a href="index.php?page=evenementasupprimer"> Supprimer un Événement </a> </p>
-	      <p>Désigner un nouvel administrateur de groupe</p>
+	      <p><a href="#">Désigner un nouvel administrateur de groupe</a></p>
 	    </div>
 	    <div class="adminClubs">
 	      <h3>Administration des Clubs</h3>

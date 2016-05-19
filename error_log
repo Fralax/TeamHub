@@ -254,3 +254,74 @@ Stack trace:
 [18-May-2016 00:45:26 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
 [18-May-2016 00:45:57 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
 [18-May-2016 00:50:48 Europe/Paris] PHP Catchable fatal error:  Object of class groupes could not be converted to string in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 20:14:04 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(40): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[19-May-2016 21:02:28 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.Admins' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:9
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(9): PDO->query('SELECT u_pseudo...')
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(167): modele->executerRequete('SELECT u_pseudo...')
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(159): utilisateurs->listerMembresNouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 9
+[19-May-2016 21:07:42 Europe/Paris] PHP Warning:  Invalid argument supplied for foreach() in /home/teamhubp/public_html/Vues/vueNouvelAdmin.php on line 23
+[19-May-2016 21:16:31 Europe/Paris] PHP Fatal error:  Call to undefined function executerRequete() in /home/teamhubp/public_html/Modeles/administration.php on line 132
+[19-May-2016 21:19:01 Europe/Paris] PHP Fatal error:  Call to undefined function executerRequete() in /home/teamhubp/public_html/Modeles/administration.php on line 132
+[19-May-2016 21:28:47 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pseudoAdmin' in 'field list'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(127): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(163): administration->nouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 21:30:32 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pseudoAdmin' in 'field list'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(127): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(163): administration->nouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 21:31:07 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pseudoAdmin' in 'field list'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(127): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(163): administration->nouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 21:31:52 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pseudoAdmin' in 'field list'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(127): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(163): administration->nouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 21:41:39 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pseudoAdmin' in 'field list'' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(127): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(163): administration->nouvelAdmin()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 21:51:58 Europe/Paris] PHP Fatal error:  Call to undefined method administration::verifierAdmins() in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 173
+[19-May-2016 21:52:45 Europe/Paris] PHP Fatal error:  Call to undefined method administration::verifierAdmins() in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 173
+[19-May-2016 21:53:31 Europe/Paris] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 173
+[19-May-2016 21:54:24 Europe/Paris] PHP Fatal error:  Call to a member function fetchAll() on a non-object in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 173

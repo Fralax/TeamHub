@@ -6,17 +6,32 @@
 	</head>
 	<body>
 
-		<h2>Choisir quels commentaires de quel Club modifier </h2>
+		<?php
+			require_once 'Controleurs/controleurAdministration.php';
+			$admin = new controleurAdministration();
+			$verifAdmin = $admin->verifAdmin();
+				if($verifAdmin == true){
+					$a=0;
+				} else{
+					$a=1;
+				}
+		?>
 
-    <?php foreach ($listeClubs as list($nomclubs)) { ?>
-			<table>
-				<tr>
-					<td> <?php echo $nomclubs?> </td>
-					<td> <a href="index.php?page=moderationcommentaire&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="Modifier"> </a> </td>
-				</tr>
-			</table>
-    <?php } ?>
+		<?php if($a == 0){ ?>
+			<h2>Choisir quels commentaires de quel Club modifier </h2>
+	    <?php foreach ($listeClubs as list($nomclubs)) { ?>
+				<table>
+					<tr>
+						<td> <?php echo $nomclubs?> </td>
+						<td> <a href="index.php?page=moderationcommentaire&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="Modifier"> </a> </td>
+					</tr>
+				</table>
+	    <?php } ?>
+		<?php } ?>
 
-    </form>
+		<?php if($a == 1){ ?>
+			Vous n'avez pas accès à cette page.
+		<?php } ?>
+		
   </body>
 </html>

@@ -214,6 +214,14 @@
           $this->controleurAdministration->suppressionClub($_GET['club']);
           break;
 
+        case 'nouveladmin':
+        $this->controleurAdministration->designerNouvelAdmin();
+        break;
+
+        case 'deop':
+        $this->controleurAdministration->adminSupprime($_GET['pseudo']);
+        break;
+
         default:
           $_SESSION = array();
           session_destroy();

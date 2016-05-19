@@ -6,8 +6,19 @@
 	</head>
 	<body>
 
-		<h2>Choisir quel Club modifier </h2>
+		<?php
+			require_once 'Controleurs/controleurAdministration.php';
+			$admin = new controleurAdministration();
+			$verifAdmin = $admin->verifAdmin();
+				if($verifAdmin == true){
+					$a=0;
+				} else{
+					$a=1;
+				}
+		?>
 
+		<?php if($a == 0){ ?>
+		<h2>Choisir quel Club modifier </h2>
     <?php foreach ($listeClubs as list($nomclubs)) { ?>
 			<table>
 				<tr>
@@ -16,7 +27,11 @@
 				</tr>
 			</table>
     <?php } ?>
+	<?php } ?>
 
-    </form>
+	<?php if($a == 1){ ?>
+		Vous n'avez pas accès à cette page.
+	<?php } ?>
+	
   </body>
 </html>

@@ -122,15 +122,26 @@ class administration extends modele {
     $supprimerCommentaireClub = $this->executerRequete ($sql, array($id));
   }
 
-  public function supprimerClub($nom){
-    $sql ='DELETE FROM teamhubp_teamhub.Clubs WHERE c_nom = ?';
-    $supprimerClub = $this->executerRequete ($sql, array($nom));
+  public function nouvelAdmin($newAdmin){
+    $sql = 'INSERT INTO teamhubp_teamhub.Admins(u_pseudo) VALUES (:pseudoAdmin)';
+    $nouvelAdmin = $this->executerRequete($sql, array('pseudoAdmin' => $newAdmin));
   }
 
-  public function afficherFondEcran(){
-    $sql = 'SELECT f_nom FROM teamhubp_teamhub.fondEcran WHERE f_id = ?';
-    $afficherFondEcran = $this->executerRequete($sql, array("1"));
-    return $afficherFondEcran;
+  public function afficherAdmins(){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Admins WHERE u_pseudo != ? AND u_pseudo NOT IN(SELECT b_nom FROM teamhubp_teamhub.Bannis)';
+    $afficherAdmins = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $afficherAdmins;
+  }
+
+  public function verifierAdmins(){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Admins';
+    $verifierAdmins = $this->executerRequete($sql);
+    return $verifierAdmins;
+  }
+
+  public function deop($nom){
+    $sql = 'DELETE FROM teamhubp_teamhub.Admins WHERE u_pseudo= ?';
+    $debannir = $this->executerRequete ($sql, array($nom));
   }
 
 }

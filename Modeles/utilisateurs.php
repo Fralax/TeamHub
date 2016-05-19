@@ -162,4 +162,9 @@ class utilisateurs extends modele {
     return $listerMembresNote;
   }
 
+  public function listerMembresNouvelAdmin(){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN(SELECT u_pseudo FROM teamhubp_teamhub.Admins)';
+    $listerMembresNouvelAdmin = $this->executerRequete($sql);
+    return $listerMembresNouvelAdmin;
+  }
 }

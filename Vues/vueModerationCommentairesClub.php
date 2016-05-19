@@ -5,7 +5,20 @@
 		<link rel="stylesheet" href="Contenu/vueClub.css" />
 		<title>Liste des Clubs </title>
 	</head>
+
+	<?php
+		require_once 'Controleurs/controleurAdministration.php';
+		$admin = new controleurAdministration();
+		$verifAdmin = $admin->verifAdmin();
+			if($verifAdmin == true){
+				$a=0;
+			} else{
+				$a=1;
+			}
+	?>
 	<body>
+
+	<?php if($a == 0){ ?>
     <table>
       <th>
         <h3>Les commentaires de <?php echo $caractClub['c_nom']?> </h3>
@@ -32,5 +45,13 @@
             ___________________
           </td>
         </tr>
-  <?php } ?>
-</table>
+  		<?php } ?>
+			</table>
+		<?php } ?>
+
+		<?php if($a == 1){ ?>
+			Vous n'avez pas accès à cette page.
+		<?php } ?>
+
+
+	</body>

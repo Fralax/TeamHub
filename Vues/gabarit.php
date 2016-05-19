@@ -7,8 +7,12 @@
     <title><?= $titre ?></title>
 </head>
   <?php
+
+    require_once 'Controleurs/controleurAdministration.php';
+    $admin = new controleurAdministration();
+    $verifAdmin = $admin->verifAdmin();
     if(isset($_SESSION['pseudo'])){
-      if($_SESSION['pseudo'] == 'admin'){
+      if($verifAdmin == true){
         $j = 0;
       } else{
         $j = 1;
