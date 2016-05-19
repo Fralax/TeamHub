@@ -57,7 +57,7 @@ class administration extends modele {
   }
 
   public function ListerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire FROM teamhubp_teamhub.Clubs';
+    $sql = 'SELECT c_nom, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
     $ListerClub = $this->executerRequete ($sql);
     return $ListerClub;
   }
@@ -85,6 +85,41 @@ class administration extends modele {
     'c_hoDimancheFin'=>$_POST['c_hoDimancheFin'],
     'c_hoCommentaire'=>$_POST['c_hoCommentaire'],
     'Club'=>$nom));
+  }
+
+  public function modifierPhotoClub($nom){
+    $fichier = $_FILES['photo']['name'];
+    $dossier = 'imagesClubs/';
+    $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+    $extension = strrchr($fichier, '.');
+    if(!in_array($extension, $extensions)){
+     $erreur = 'Vous devez uploader un fichier de type png, gif, jpg ou jpeg...';
+    }
+
+    if(!isset($erreur)){
+     $fichier = strtr($fichier,'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+     $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+
+     if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier)){
+       $sql = 'UPDATE teamhubp_teamhub.Clubs SET c_image = :image WHERE c_nom = :Club';
+       $ajouterClubBdd = $this->executerRequete ($sql, array('image'=>$fichier, 'Club'=>$nom));
+     } else {
+       echo 'Echec de l\'upload !';
+     }
+    } else {
+     echo $erreur;
+    }
+  }
+
+  public function afficherCommentairesClub($nom){
+    $sql = 'SELECT n_id, u_pseudo, n_note, n_commentaire, n_date FROM teamhubp_teamhub.Note WHERE c_nom = ?';
+    $afficherCommentairesClub = $this->executerRequete ($sql, array($nom));
+    return $afficherCommentairesClub;
+  }
+
+  public function supprimerCommentaireClub($id){
+    $sql ='DELETE FROM teamhubp_teamhub.Note WHERE n_id = ?';
+    $supprimerCommentaireClub = $this->executerRequete ($sql, array($id));
   }
 
 }
