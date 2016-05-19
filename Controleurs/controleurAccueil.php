@@ -7,8 +7,9 @@ require_once 'Vues/vue.php';
 class accueil{
 
   public function affichageAccueil(){
-    // for ($i=0; $i < 100; $i++) {
-    //   $destinataire = "natacha.gerard@free.fr";
+
+    // for ($i=0; $i < 2; $i++) {
+    //   $destinataire = "laurederancourt@gmail.com";
     //   $sujet = "Confirmation d'inscription" ;
     //   $entete = "Inscription sur le site" ;
     //   $message = 'Bienvenue sur TeamHub,

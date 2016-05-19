@@ -24,7 +24,7 @@
 
 		<form action="" method="post">
 			<select name="nouvelAdmin">
-				<option value =""> -- Selectionnez un membre à désigner comme administrateur -- </option>
+				<option value =""> -- Sélectionnez un membre à désigner comme administrateur -- </option>
 				<?php foreach ($nouveauxAdmins as list($nom)) { ?>
 				<option value = "<?php echo $nom?>" > <?php echo $nom?> </option>
 				<?php } ?>
