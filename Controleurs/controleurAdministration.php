@@ -160,7 +160,7 @@ class controleurAdministration{
     $afficherAdmins = $admin->afficherAdmins()->fetchAll();
 
     if (isset($_POST['designer'])){
-      if($_POST['nouvelAdmin'] != "-- Sélectionnez un membre à désigner comme administrateur --"){
+      if($_POST['nouvelAdmin'] != ""){
         $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
         header("Location: index.php?page=administration");
       }

@@ -69,13 +69,18 @@ class membres{
 
   public function modificationMesCoordonnees(){
     $utilisateurs = new utilisateurs();
+    $resultatE = $utilisateurs->verifEmail()->fetch();
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
       if($_POST['Portable'] != "" && $_POST['Email'] != "" && $_POST['ConfirmEmail'] != ""){
         if ($_POST['Email'] != $_POST['ConfirmEmail']){
           echo 'Les adresses mail saisies sont différents !';
         } else{
+          if (!$resultatE){
           $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
           header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
+        } else {
+          echo "Cet Email est déjà utilisé !";
+          }
         }
       } else{
         echo "Des champs n'ont pas été remplis !";
@@ -104,25 +109,29 @@ class membres{
   public function modificationMonMdp(){
     $user = new utilisateurs();
     if (isset($_POST['modifMdp']) && $_POST['modifMdp'] == 'Modifier le Mot de Passe'){
-      if($_POST['AncienMotDePasse'] != "" && $_POST['NouveauMotDePasse'] != "" && $_POST['ConfirmNouveauMotDePasse'] != ""){
-        $resultatRecupMdp = $user->verifMdp()->fetch();
-        if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
-          echo 'Votre ancien Mot de Passe est incorrect !';
-        } else{
-          if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
-            echo "Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !";
+      if (iconv_strlen($motDePasse)>=8){
+        if($_POST['AncienMotDePasse'] != "" && $_POST['NouveauMotDePasse'] != "" && $_POST['ConfirmNouveauMotDePasse'] != ""){
+          $resultatRecupMdp = $user->verifMdp()->fetch();
+          if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
+            echo 'Votre ancien Mot de Passe est incorrect !';
           } else{
-            if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
-              echo 'Les nouveaux Mots de Passe saisis sont différents !';
+            if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
+              echo "Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !";
             } else{
-                $modifierMonMdp = $user->modifierMonMdp();
-                header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
+              if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
+                echo 'Les nouveaux Mots de Passe saisis sont différents !';
+              } else{
+                  $modifierMonMdp = $user->modifierMonMdp();
+                  header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
+                }
               }
             }
           }
-        } else{
-          echo "Des champs n'ont pas été remplis !";
+        } else {
+          echo "Le nouveau mot de passe doit contenir plus de 8 caractères !";
         }
+      } else{
+        echo "Des champs n'ont pas été remplis !";
       }
     $afficherMesInfos = $user->afficherInfos()->fetch();
     $vue = new Vue('ModifMonMdp');
