@@ -206,6 +206,14 @@
           $this->controleurAdministration->suppressionCommentaire($_GET['id']);
           break;
 
+        case 'clubsasupprimer':
+          $this->controleurAdministration->clubsSupprimables();
+          break;
+
+        case 'suppressionclub':
+          $this->controleurAdministration->suppressionClub($_GET['club']);
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

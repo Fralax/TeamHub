@@ -31,7 +31,7 @@
 	      <p> <a href="index.php?page=clubsamodifierinfos"> Modifier les informations d'un Club </a> </p>
 				<p> <a href="index.php?page=clubsamodifierphotos"> Modifier la photo d'un Club </a> <p>
 				<p> <a href="index.php?page=clubsamodifiercommentaires"> Modérer les commentaires </a> <p>
-	      <p> Supprimer un Club</p>
+	      <p> <a href="index.php?page=clubsasupprimer"> Supprimer un Club </a> </p>
 	    </div>
 	    <div class="adminGenerale">
 	      <h3>Administration du Site</h3>

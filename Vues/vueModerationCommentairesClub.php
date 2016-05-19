@@ -13,7 +13,7 @@
       </th>
       <?php foreach ($NoteClub as list($id, $pseudo, $note, $commentaire, $date)){?>
         <tr>
-          <td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : <a href="index.php?page=suppressioncommentaire&id=<?php echo $id ?>"> <input type ="button" value="Supprimer"> </a> </td>
+          <td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce commentaire ?')) window.location='index.php?page=suppressioncommentaire&id=<?php echo $id ?>'; return false"> <input type ="button" value="Supprimer"> </a> </td>
         </tr>
         <tr>
           <td>

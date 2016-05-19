@@ -111,7 +111,6 @@ class controleurAdministration{
 
   public function commentaireModifiables(){
     $admin = new administration();
-    $club = new clubs();
     $clubs = $admin->ListerClub()->fetchAll();
 
     $vue = new Vue('ClubsAModifierCommentaires');
@@ -133,6 +132,26 @@ class controleurAdministration{
     $admin->supprimerCommentaireClub($id);
     header("Location: index.php?page=administration");
   }
+
+  public function clubsSupprimables(){
+    $admin = new administration();
+    $clubs = $admin->ListerClub()->fetchAll();
+
+    $vue = new Vue('ClubsASupprimer');
+    $vue->generer(array('listeClubs'=>$clubs));
+  }
+
+  public function suppressionClub($nomClub){
+    $admin = new administration();
+    $admin->supprimerClub($nomClub);
+    header("Location: index.php?page=administration");
+  }
+
+  public function affichageFondEcran(){
+    $admin = new administration();
+    $fichier = $admin->afficherFondEcran()->fetch();
+  }
+
 
 
 }

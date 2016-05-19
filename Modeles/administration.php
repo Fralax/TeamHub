@@ -122,5 +122,16 @@ class administration extends modele {
     $supprimerCommentaireClub = $this->executerRequete ($sql, array($id));
   }
 
+  public function supprimerClub($nom){
+    $sql ='DELETE FROM teamhubp_teamhub.Clubs WHERE c_nom = ?';
+    $supprimerClub = $this->executerRequete ($sql, array($nom));
+  }
+
+  public function afficherFondEcran(){
+    $sql = 'SELECT f_nom FROM teamhubp_teamhub.fondEcran WHERE f_id = ?';
+    $afficherFondEcran = $this->executerRequete($sql, array("1"));
+    return $afficherFondEcran;
+  }
+
 }
 ?>
