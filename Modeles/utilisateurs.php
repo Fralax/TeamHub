@@ -165,4 +165,10 @@ class utilisateurs extends modele {
     $listerMembresNouvelAdmin = $this->executerRequete($sql);
     return $listerMembresNouvelAdmin;
   }
+
+  public function listerMembresSite(){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs';
+    $membresSite = $this->executerRequete($sql);
+    return $membresSite;
+  }
 }

@@ -144,8 +144,10 @@ class administration extends modele {
     $debannir = $this->executerRequete ($sql, array($nom));
   }
 
-  public function membresEnvoyerMail(){
-    
+  public function envoiMail($destinataire){
+    $sql = 'SELECT u_email FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $envoiMail = $this->executerRequete ($sql, array($destinataire));
+    return $envoiMail;
   }
 
 }

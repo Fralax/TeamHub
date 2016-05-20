@@ -7,20 +7,15 @@ require_once 'Vues/vue.php';
 class accueil{
 
   public function affichageAccueil(){
-
-    // for ($i=0; $i < 2; $i++) {
-    //   $destinataire = "laurederancourt@gmail.com";
-    //   $sujet = "Confirmation d'inscription" ;
-    //   $entete = "Inscription sur le site" ;
-    //   $message = 'Bienvenue sur TeamHub,
-    //
-    //   Merci de votre inscription et bienvenue sur TeamHub !
-    //
-    //   ---------------
-    //   Ceci est un mail automatique, Merci de ne pas y répondre.';
-    //
-    //   mail($destinataire, $sujet, $message, $entete);
-    // }
+//     for ($i=0; $i < 10; $i++) {
+//       $destinataire = "alexandre.121095@gmail.com";
+//       $sujet = "Ceci est un spam";
+//       $message ="
+// Coucou Alexandre ! Bienvenue sur TeamHub ! Ceci est un spam !
+// --------------------------------
+// Merci de ne pas répondre à ce mail.";
+//       mail($destinataire, $sujet, $message);
+//     }
 
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();

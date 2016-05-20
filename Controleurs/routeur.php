@@ -222,6 +222,14 @@
         $this->controleurAdministration->adminSupprime($_GET['pseudo']);
         break;
 
+        case 'envoimail':
+        $this->controleurAdministration->envoiMail();
+        break;
+
+        // case 'envoimailmembres':
+        //
+        // break;
+
         default:
           $_SESSION = array();
           session_destroy();

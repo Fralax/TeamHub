@@ -21,7 +21,8 @@
 	      <h3>Administration des Membres</h3>
 	      <p><a href="index.php?page=nouveladmin">Nommer un Administrateur</a></p>
 	      <p><a href="index.php?page=bannirmembre"> Bannir un Membre </a> </p>
-	      <p><a href="index.php?page=envoimail">Envoyer un mail</a> </p>
+	      <p><a href="index.php?page=envoimail">Envoyer un mail à un membre</a> </p>
+				<p><a href="index.php?page=envoimailmembres">Envoyer un mail aux membres du site</a> </p>
 	    </div>
 	    <div class="adminGroupes">
 	      <h3>Administration des Groupes</h3>

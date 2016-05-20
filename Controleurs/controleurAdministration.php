@@ -185,6 +185,27 @@ class controleurAdministration{
     header("Location: index.php?page=administration");
   }
 
+  public function envoiMail(){
+    $user = new utilisateurs();
+    $admin = new administration();
+    $membresSite = $user->listerMembresSite()->fetchAll();
+    if(isset($_POST['envoyer'])){
+      if($_POST['membresSite'] != ""){
+        $envoiMail = $admin->envoiMail($_POST['membresSite'])->fetch();
+        $destinataire = $envoiMail[0];
+        $sujet = $_POST['sujet'] ;
+        $message = $_POST['mail']."
+--------------------------------
+Merci de ne pas répondre à ce mail.";
+        mail($destinataire, $sujet, $message);
+        header("Location: index.php?page=administration");
+      }
+    }
+
+
+    $vue = new Vue('EnvoiMail');
+    $vue->generer(array('membres' => $membresSite));
+  }
 
 }
 

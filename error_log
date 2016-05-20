@@ -334,3 +334,24 @@ Stack trace:
 #4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
 #5 {main}
   thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 23:04:34 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE u_pseudo NOT IN(SELECT b_nom FROM teamhubp_teamhub.Bannis)' at line 1' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/administration.php(132): modele->executerRequete('SELECT u_pseudo...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAdministration.php(160): administration->afficherAdmins()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(218): controleurAdministration->designerNouvelAdmin()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[19-May-2016 23:21:44 Europe/Paris] PHP Parse error:  syntax error, unexpected end of file in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 126
+[20-May-2016 00:33:27 Europe/Paris] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 00:33:27 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:193) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 207
+[20-May-2016 00:34:47 Europe/Paris] PHP Fatal error:  Class 'controleurAdministration' not found in /home/teamhubp/public_html/Controleurs/routeur.php on line 35
+[20-May-2016 00:35:09 Europe/Paris] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 00:35:10 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Modeles/modele.php:13) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 206
+[20-May-2016 00:37:03 Europe/Paris] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 00:37:04 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Modeles/modele.php:13) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 204
+[20-May-2016 00:37:51 Europe/Paris] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 00:37:53 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:194) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 205
+[20-May-2016 00:42:12 Europe/Paris] PHP Warning:  mail() expects parameter 1 to be string, array given in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 204
+[20-May-2016 00:42:12 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:194) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 205
