@@ -114,7 +114,6 @@
 			<?php if ($suggestionsports[0][0] == ""){ ?>
 				<?php if ($sport[0][0] != ""){ ?>
 					<div class="pasDeGroupe">
-						<h3> Parce que vous pratiquez : <?php echo $sport[0][0] ?> Nous vous suggérons les groupes : </h3>
 						<b>Il n'y a aucun groupe disponible relatif à vos sports </b> <br> </br>
 						<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
 					</div>
@@ -124,6 +123,8 @@
 						<a href="index.php?page=ajoutsport"> <h4>Ajoutez un sport</h4> </a>
 					</div>
 				<?php } ?>
+			<?php } else { ?>
+				<h3> Parce que vous pratiquez : <?php echo $sport[0][0] ?> Nous vous suggérons les groupes : </h3>
 			<?php } ?>
 			<table>
 				<?php foreach ($suggestionsports as list($nomSportsSugérés)) { ?>
