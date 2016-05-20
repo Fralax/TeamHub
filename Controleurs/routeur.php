@@ -230,9 +230,9 @@
         $this->controleurAdministration->envoiMail();
         break;
 
-        // case 'envoimailmembres':
-        //
-        // break;
+        case 'envoimailmembres':
+        $this->controleurAdministration->envoiMailMembres();
+        break;
 
         default:
           $_SESSION = array();

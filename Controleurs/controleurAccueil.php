@@ -8,10 +8,10 @@ class accueil{
 
   public function affichageAccueil(){
 //     for ($i=0; $i < 10; $i++) {
-//       $destinataire = "alexandre.121095@gmail.com";
+//       $destinataire = "frayssinetr@gmail.com";
 //       $sujet = "Ceci est un spam";
 //       $message ="
-// Coucou Alexandre ! Bienvenue sur TeamHub ! Ceci est un spam !
+// Coucou Romain ! Bienvenue sur TeamHub ! Ceci est un spam !
 // --------------------------------
 // Merci de ne pas répondre à ce mail.";
 //       mail($destinataire, $sujet, $message);
