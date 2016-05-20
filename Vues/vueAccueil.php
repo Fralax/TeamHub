@@ -114,7 +114,7 @@
 			<?php if ($suggestionsports[0][0] == ""){ ?>
 				<?php if ($sport[0][0] != ""){ ?>
 					<div class="pasDeGroupe">
-						<b>Il n'y a aucun groupe disponible relatif à vos sports </b> <br> </br>
+						<h3>Il n'y a aucun groupe disponible relatif à vos sports </h3> <br> </br>
 						<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
 					</div>
 				<?php } else {?>

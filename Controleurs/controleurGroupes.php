@@ -17,6 +17,7 @@ class controleurGroupes{
     $creer = $_POST['creer'];
     $groupe = new groupes();
     $appartient = new utilisateurs();
+    $departements = $appartient->recupDepartements()->fetchAll();
 
     if(!empty($creer)){
       if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
@@ -42,7 +43,7 @@ class controleurGroupes{
       }
     }
     $vue = new Vue('CreationGroupe');
-    $vue->generer();
+    $vue->generer(['departements'=>$departements]);
   }
 
   public function suppressionGroupe($nom){

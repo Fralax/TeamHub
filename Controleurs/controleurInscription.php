@@ -19,11 +19,12 @@ require_once 'Vues/vue.php';
      $mois = $_POST['mois'];
      $annee = $_POST['annee'];
      $sexe = $_POST['Sexe'];
+     $user = new utilisateurs();
+     $departements = $user->recupDepartements()->fetchAll();
 
      if(isset($envoyer) && $envoyer == 'Envoyer'){
        if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
        && ($confirmMotDePasse != "")){
-         $user = new utilisateurs();
          $resultatP = $user->verifPseudo()->fetch();
          $resultatE = $user->verifEmail()->fetch();
          if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
@@ -54,38 +55,31 @@ Ceci est un mail automatique, Merci de ne pas y répondre.";
                echo "Votre mot de passe doit comporter plus de 8 caractères !";
              }
            }
-
            else{
              if ($resultatP) {
                 echo "Ce pseudo est déjà utilisé";
               }
-
              elseif ($resultatE) {
                 echo "Vous êtes déjà inscrit";
               }
-
            }
          }
-
          else{
            if ($email != $confirmemail){
              echo "Les adresses mail saisies ne sont pas identiques.";
            }
-
            if ($motDePasse != $confirmMotDePasse){
              echo "Les mots de passe saisis ne sont pas identiques.";
            }
-
          }
        }
 
        else{
          echo "Des champs n'ont pas été remplis";
        }
-
      }
      $vue = new Vue('Inscription');
-     $vue->generer();
+     $vue->generer(['departements'=>$departements]);
    }
 
    public function affichageNonConfirme(){

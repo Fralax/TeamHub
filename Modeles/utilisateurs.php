@@ -188,4 +188,10 @@ class utilisateurs extends modele {
     $verifActif = $this->executerRequete($sql, array($_POST['pseudo']));
     return $verifActif;
   }
+
+  public function recupDepartements(){
+    $sql = 'SELECT d_nom FROM Departements';
+    $recupDepartements = $this->executerRequete($sql);
+    return $recupDepartements;
+  }
 }
