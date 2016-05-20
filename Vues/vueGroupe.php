@@ -39,6 +39,7 @@
   <div class="groupe">
 
     <?php if ($i == 1){ ?>
+      <img src="imageSports/<?php echo $image['s_image']; ?>"/>
       <div class="infos">
         <div class="nomEtDescription">
           <h2>Groupe <?php echo $caract['g_nom']?> </h2>
@@ -170,6 +171,7 @@
   <?php } ?>
 
   <?php if ($i == 2){ ?>
+    <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     <div class="infos">
       <div class="nomEtDescription">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
@@ -297,6 +299,7 @@
   <?php } ?>
 
   <?php if ($i == 3){ ?>
+    <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     <div class="infos">
       <div class="nomEtDescription">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
@@ -378,6 +381,7 @@
   <?php } ?>
 
   <?php if ($i == 4){ ?>
+    <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     <div class="infos">
       <div class="nomEtDescription">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
@@ -459,6 +463,7 @@
   <?php } ?>
 
   <?php if ($i == 5){ ?>
+    <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     <div class="infos">
       <div class="nomEtDescription">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>

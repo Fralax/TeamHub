@@ -145,4 +145,41 @@ class groupes extends modele {
     $recupPlacesTotal = $this->executerRequete ($sql, array('nom'=>$nom));
     return $recupPlacesTotal;
   }
+
+  public function afficherGroupeRegion(){
+    $sql = 'SELECT u_region FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $recupDepartement = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    $departement = $recupDepartement->fetch();
+    $sql1 = 'SELECT DISTINCT(g_nom), g_sport, g_admin, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom NOT IN (SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?) AND g_departement = ? ORDER BY g_placesLibres DESC';
+    $afficherGroupeRegion = $this->executerRequete ($sql1, array($_SESSION['pseudo'], $departement[0]));
+    return $afficherGroupeRegion;
+  }
+
+  public function recupDepartement(){
+    $sql = 'SELECT u_region FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $recupDepartement = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $recupDepartement;
+  }
+
+  public function recupSportRandom(){
+    $sql = 'SELECT s_nom FROM teamhubp_teamhub.Pratique WHERE u_pseudo = ? ORDER BY rand() LIMIT 1';
+    $recupSportRandom = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $recupSportRandom;
+  }
+
+  public function afficherGroupeSport($sport){
+    $sql1 = 'SELECT DISTINCT(g_nom), g_sport, g_admin, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom NOT IN (SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?) AND g_sport = ? ORDER BY g_placesLibres DESC';
+    $afficherGroupeRegion = $this->executerRequete ($sql1, array($_SESSION['pseudo'], $sport));
+    return $afficherGroupeRegion;
+  }
+
+  public function afficherImage($nomGroupe){
+    $sql = 'SELECT g_sport FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
+    $recupSport = $this->executerRequete ($sql, array($nomGroupe));
+    $sport = $recupSport->fetch();
+
+    $sql1 = 'SELECT s_image FROM teamhubp_teamhub.Sports WHERE s_nom = ?';
+    $afficherImage = $this->executerRequete ($sql1, array($sport[0]));
+    return $afficherImage;
+  }
 }

@@ -11,7 +11,7 @@ class controleurEvenements{
     $evenement = new evenements();
     $groupes = new groupes();
     $club = new clubs();
-    $listeClubs = $club->listerClub()->fetchAll();
+    $listeClubs = $club->listerClubDepartement($groupe)->fetchAll();
     $dateAuj = date("d-m-Y");
     $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
     $heureAuj = date("H:i:s");

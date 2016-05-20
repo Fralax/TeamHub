@@ -91,6 +91,51 @@
 			</table>
 		</div>
 	</div>
+	<div class="conteneur2">
+		<div class="suggestionGroupes">
+			<h3> Parce que vous êtes à <?php echo $departement[0] ?> Nous vous suggérons les groupes : </h3>
+			<?php if ($suggestiongroupes[0][0] == ""){ ?>
+				<div class="pasDeGroupe">
+					<b>Il n'y a aucun groupe disponible dans votre région </b> <br> </br>
+					<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
+				</div>
+			<?php } ?>
+			<table>
+				<?php foreach ($suggestiongroupes as list($nomGroupesSugérés)) { ?>
+					<tr>
+						<td>
+							<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSugérés?>"> <?php echo $nomGroupesSugérés?> </a>
+						</td>
+					</tr>
+				<?php } ?>
+			</table>
+		</div>
+		<div class="suggestionSports">
+			<?php if ($suggestionsports[0][0] == ""){ ?>
+				<?php if ($sport[0][0] != ""){ ?>
+					<div class="pasDeGroupe">
+						<h3> Parce que vous pratiquez : <?php echo $sport[0][0] ?> Nous vous suggérons les groupes : </h3>
+						<b>Il n'y a aucun groupe disponible relatif à vos sports </b> <br> </br>
+						<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
+					</div>
+				<?php } else {?>
+					<div class="pasDeSport">
+						<h3>  Vous n'avez pas renseigné de sport ! Nous vous suggérons d'en ajouter un ! </h3>
+						<a href="index.php?page=ajoutsport"> <h4>Ajoutez un sport</h4> </a>
+					</div>
+				<?php } ?>
+			<?php } ?>
+			<table>
+				<?php foreach ($suggestionsports as list($nomSportsSugérés)) { ?>
+					<tr>
+						<td>
+							<a href="index.php?page=groupe&nom=<?php echo $nomSportsSugérés?>"> <?php echo $nomSportsSugérés?> </a>
+						</td>
+					</tr>
+				<?php } ?>
+			</table>
+		</div>
+	</div>
 <?php } ?>
 
 <?php if ($n == 2){ ?>
