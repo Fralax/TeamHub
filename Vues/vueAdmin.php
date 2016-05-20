@@ -28,7 +28,7 @@
 	      <h3>Administration des Groupes</h3>
 	      <p> <a href="index.php?page=groupesasupprimer"> Supprimer un Groupe </a> </p>
 	      <p> <a href="index.php?page=evenementasupprimer"> Supprimer un Événement </a> </p>
-	      <p><a href="#">Désigner un nouvel administrateur de groupe</a></p>
+	      <p><a href="index.php?page=modifadmingroupes">Désigner un nouvel administrateur de groupe</a></p>
 	    </div>
 	    <div class="adminClubs">
 	      <h3>Administration des Clubs</h3>

@@ -3,6 +3,7 @@
 require_once 'Modeles/groupes.php';
 require_once 'Modeles/utilisateurs.php';
 require_once 'Modeles/evenements.php';
+require_once 'Controleurs/controleurAdministration.php';
 require_once 'Vues/vue.php';
 
 class controleurGroupes{
@@ -80,7 +81,13 @@ class controleurGroupes{
 
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+    	$admin = new controleurAdministration();
+    	$verifAdmin = $admin->verifAdmin();
+      if ($verifAdmin == true){
+        header("Location: index.php?page=administration");
+      } else {
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      }
     }
 
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
