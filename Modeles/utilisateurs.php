@@ -4,17 +4,17 @@ require_once "Modeles/modele.php";
 
 class utilisateurs extends modele {
 
-  public function ajoutUtilisateurBdd(){
+  public function ajoutUtilisateurBdd($cle){
 
       $pass_hache = password_hash($_POST['MotDePasse'], PASSWORD_BCRYPT);
       $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
       $photo = "avatar.png";
 
-      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo)
-              VALUES (:pseudo, :nom, :prenom, :sexe, :departement, :portable, :email, :naissance, :mdp, :photo)';
+      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
+              VALUES (:pseudo, :nom, :prenom, :sexe, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
 
       $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'],
-        'departement' => $_POST['departement'],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo));
+        'departement' => $_POST['departement'],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
   }
 
   public function verifPseudo(){
@@ -170,5 +170,22 @@ class utilisateurs extends modele {
     $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs';
     $membresSite = $this->executerRequete($sql);
     return $membresSite;
+  }
+
+  public function recupCleActifCompte(){
+    $sql = 'SELECT u_cle, u_actif FROM Utilisateurs WHERE u_pseudo = :pseudo';
+    $recupCleActif =$this->executerRequete($sql, array('pseudo'=>$_GET['pseudo']));
+    return $recupCleActif;
+  }
+
+  public function validerCompte(){
+    $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_actif = :actif WHERE u_pseudo = :pseudo';
+    $validerCompte = $this->executerRequete($sql, array('actif' => 1, 'pseudo' => $_GET['pseudo']));
+  }
+
+  public function verifActif(){
+    $sql = 'SELECT u_actif FROM Utilisateurs WHERE u_pseudo = ?';
+    $verifActif = $this->executerRequete($sql, array($_POST['pseudo']));
+    return $verifActif;
   }
 }

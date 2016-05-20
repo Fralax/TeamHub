@@ -30,24 +30,23 @@ require_once 'Vues/vue.php';
            if (!$resultatP && !$resultatE){
              if (iconv_strlen($motDePasse)>=8){
                if (iconv_strlen($pseudo)<=12){
-                 $user->ajoutUtilisateurBdd();
+                 $cle = md5(microtime(TRUE)*100000);
+                 $user->ajoutUtilisateurBdd($cle);
 
                  $destinataire = $email;
                  $sujet = "Confirmation d'inscription" ;
                  $entete = "Inscription sur le site" ;
-                 $message = 'Bienvenue sur TeamHub,
+                 $message = "Bienvenue sur TeamHub,
 
-                 Merci de votre inscription et bienvenue sur TeamHub !
-
-                 ---------------
-                 Ceci est un mail automatique, Merci de ne pas y répondre.';
+Merci de votre inscription et bienvenue sur TeamHub !
+Pour confirmer votre inscription, veuillez cliquer sur le lien ci-dessous :
+http://teamhub.pingfiles.fr/index.php?page=validationcompte&pseudo=".$_POST['pseudo']."&cle=".$cle."
+---------------
+Ceci est un mail automatique, Merci de ne pas y répondre.";
 
                  mail($destinataire, $sujet, $message, $entete);
 
-                 session_start();
-                 $_SESSION['pseudo'] = $pseudo;
-
-                 header("Location: index.php?page=accueil");
+                 header("Location: index.php?page=mailnonconfirme");
                } else {
                  echo "Votre Pseudo ne doit pas dépasser 12 caractères !";
                }
@@ -86,6 +85,24 @@ require_once 'Vues/vue.php';
 
      }
      $vue = new Vue('Inscription');
+     $vue->generer();
+   }
+
+   public function affichageNonConfirme(){
+     $vue = new Vue('MailNonConfirme');
+     $vue->generer();
+   }
+
+   public function validationCompte(){
+     $user = new utilisateurs();
+     $cleActif = $user->recupCleActifCompte()->fetch();
+     if (isset($_POST['validation'])){
+       if ($cleActif[u_cle] == $_GET['cle']){
+         $activationCompte = $user->validerCompte();
+         header("Location: index.php?page=accueil");
+       }
+     }
+     $vue = new Vue('ValidationCompte');
      $vue->generer();
    }
  }

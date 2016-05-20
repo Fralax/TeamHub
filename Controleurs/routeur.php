@@ -227,12 +227,20 @@
           break;
 
         case 'envoimail':
-        $this->controleurAdministration->envoiMail();
-        break;
+          $this->controleurAdministration->envoiMail();
+          break;
 
         case 'envoimailmembres':
-        $this->controleurAdministration->envoiMailMembres();
+          $this->controleurAdministration->envoiMailMembres();
+          break;
+
+        case 'validationcompte':
+        $this->controleurInscription->validationCompte();
         break;
+
+        case 'mailnonconfirme':
+          $this->controleurInscription->affichageNonConfirme();
+          break;
 
         default:
           $_SESSION = array();

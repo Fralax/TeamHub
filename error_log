@@ -355,3 +355,79 @@ Stack trace:
 [20-May-2016 00:37:53 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:194) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 205
 [20-May-2016 00:42:12 Europe/Paris] PHP Warning:  mail() expects parameter 1 to be string, array given in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 204
 [20-May-2016 00:42:12 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:194) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 205
+[20-May-2016 00:46:53 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Controleurs/controleurAdministration.php:195) in /home/teamhubp/public_html/Controleurs/controleurAdministration.php on line 205
+[20-May-2016 09:06:17 Europe/Paris] PHP Fatal error:  Call to a member function envoiMail() on a non-object in /home/teamhubp/public_html/Controleurs/controleurAccueil.php on line 11
+[20-May-2016 13:04:43 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamhubp_teamhub.Utilisateur' doesn't exist' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(188): modele->executerRequete('SELECT u_actif ...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurConnexion.php(17): utilisateurs->verifActif()
+#3 /home/teamhubp/public_html/Vues/gabarit.php(216): connexion->connexionUtilisateurs()
+#4 /home/teamhubp/public_html/Vues/vue.php(29): require('/home/teamhubp/...')
+#5 /home/teamhubp/public_html/Vues/vue.php(18): Vue->genererFichier('Vues/gabarit.ph...', Array)
+#6 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(25): Vue->generer(Array)
+#7 /home/teamhubp/public_html/Controleurs/routeur.php(248): accueil->affichageAccueil()
+#8 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#9  in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:11:09 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(17): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(34): utilisateurs->ajoutUtilisateurBdd()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:12:35 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'u_cle' cannot be null' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(17): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(34): utilisateurs->ajoutUtilisateurBdd()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(44): inscription->verif()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:14:20 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Fichier 'Vues/vueMailNonconfirme.php' introuvable' in /home/teamhubp/public_html/Vues/vue.php:34
+Stack trace:
+#0 /home/teamhubp/public_html/Vues/vue.php(17): Vue->genererFichier('Vues/vueMailNon...', Array)
+#1 /home/teamhubp/public_html/Controleurs/controleurInscription.php(94): Vue->generer()
+#2 /home/teamhubp/public_html/Controleurs/routeur.php(242): inscription->affichageNonConfirme()
+#3 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#4 {main}
+  thrown in /home/teamhubp/public_html/Vues/vue.php on line 34
+[20-May-2016 13:16:33 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(177): modele->executerRequete('SELECT u_cle, u...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(99): utilisateurs->recupCleActifCompte()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(238): inscription->validationCompte()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:17:24 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(177): modele->executerRequete('SELECT u_cle, u...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(99): utilisateurs->recupCleActifCompte()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(238): inscription->validationCompte()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:22:47 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(177): modele->executerRequete('SELECT u_cle, u...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(99): utilisateurs->recupCleActifCompte()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(238): inscription->validationCompte()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[20-May-2016 13:24:26 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM teamhubp_teamhub.Utilisateurs SET u_actif = '1' WHERE u_pseudo = 'tata'' at line 1' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/utilisateurs.php(183): modele->executerRequete('UPDATE FROM tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurInscription.php(102): utilisateurs->validerCompte()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(238): inscription->validationCompte()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13

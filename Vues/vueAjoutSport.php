@@ -19,7 +19,7 @@
 	          <option value="Aviron"> Aviron </option>
 	          <option value="Aérobic"> Aérobic </option>
 	          <option value="Apnée"> Apnée </option>
-	          <option value="BadmINTO teamhubp_teamhub.n"> BadmINTO teamhubp_teamhub.n </option>
+	          <option value="Badminton"> Badminton </option>
 	          <option value="Balle au tambourin"> Balle au tambourin </option>
 	          <option value="Bando"> Bando </option>
 	          <option value="Baseball"> Baseball </option>
