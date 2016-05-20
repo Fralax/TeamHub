@@ -34,6 +34,7 @@ class membres{
 
   public function ajoutSport(){
     $utilisateurs = new utilisateurs();
+    $sportsNonPratiqués = $utilisateurs->recupSports()->fetchAll();
     if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == 'Ajouter'){
       if($_POST['sport'] != ""){
         $ajouterSport = $utilisateurs->ajouterSport();
@@ -45,7 +46,7 @@ class membres{
     }
 
     $vue = new Vue('AjoutSport');
-    $vue->generer();
+    $vue->generer(array('sports'=>$sportsNonPratiqués));
   }
 
   public function suppressionSport($sport){

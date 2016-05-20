@@ -173,7 +173,7 @@ class utilisateurs extends modele {
   }
 
   public function recupCleActifCompte(){
-    $sql = 'SELECT u_cle, u_actif FROM Utilisateurs WHERE u_pseudo = :pseudo';
+    $sql = 'SELECT u_cle, u_actif FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :pseudo';
     $recupCleActif =$this->executerRequete($sql, array('pseudo'=>$_GET['pseudo']));
     return $recupCleActif;
   }
@@ -184,8 +184,20 @@ class utilisateurs extends modele {
   }
 
   public function verifActif(){
-    $sql = 'SELECT u_actif FROM Utilisateurs WHERE u_pseudo = ?';
+    $sql = 'SELECT u_actif FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $verifActif = $this->executerRequete($sql, array($_POST['pseudo']));
     return $verifActif;
+  }
+
+  public function recupSports(){
+    $sql = 'SELECT s_nom FROM teamhubp_teamhub.Sports WHERE s_nom NOT IN (SELECT s_nom FROM teamhubp_teamhub.Pratique WHERE u_pseudo = ?)';
+    $recupSports = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $recupSports;
+  }
+
+  public function sportsPraticables(){
+    $sql = 'SELECT s_nom FROM teamhubp_teamhub.Sports';
+    $sportsPraticables = $this->executerRequete($sql);
+    return $sportsPraticables;
   }
 }
