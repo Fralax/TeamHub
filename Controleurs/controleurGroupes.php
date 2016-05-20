@@ -62,8 +62,9 @@ class controleurGroupes{
     $afficherMembresGroupe = $user->listerMembresGroupe($nom)->fetchAll();
     $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
     $afficherEvenementsGroupe = $evenements->listerEvenementsGroupe($nom)->fetchAll();
+    $afficherImageSport = $groupe->afficherImage($nom)->fetch();
     $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport));
   }
 
   public function modificationDescriptionGroupe($nom){

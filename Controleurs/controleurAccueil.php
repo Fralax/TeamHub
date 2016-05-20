@@ -21,8 +21,12 @@ class accueil{
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
     $evenements = new evenements();
     $afficherEvenements = $evenements->listerEvenementsAccueil()->fetchAll();
+    $afficherSugestionGroupes = $groupe->afficherGroupeRegion()->fetchAll();
+    $département = $groupe->recupDepartement()->fetch();
+    $sports = $groupe->recupSportRandom()->fetchAll();
+    $afficherSugestionSports = $groupe->afficherGroupeSport($sports[0][0])->fetchAll();
     $vue = new Vue('Accueil');
-    $vue->generer(array("groupes" => $afficherMesGroupes, "evenements" => $afficherEvenements));
+    $vue->generer(array("groupes" => $afficherMesGroupes, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$département, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
   }
 
   public function affichageAPropos(){
