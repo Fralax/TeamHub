@@ -21,6 +21,12 @@ class clubs extends modele {
     $hoSamediFin = "{$_POST['hSamediFin']}:{$_POST['mSamediFin']}:00";
     $hoDimancheFin = "{$_POST['hDimancheFin']}:{$_POST['mDimancheFin']}:00";
 
+    //recup département du club
+    $numero = substr($_POST['cpClub'], 0, 2);
+    $sql1 = 'SELECT d_nom FROM Departements WHERE d_code =?';
+    $recupDepartement = $this->executerRequete ($sql1, array($numero));
+    $departement = $recupDepartement->fetch();
+
     $fichier = $_FILES['photo']['name'];
     $dossier = 'imagesClubs/';
     $extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -34,14 +40,15 @@ class clubs extends modele {
      $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
 
      if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier)){
-       $sql = 'INSERT INTO teamhubp_teamhub.Clubs(c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
+       $sql = 'INSERT INTO teamhubp_teamhub.Clubs(c_nom, c_adresse, c_cp, c_departement, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
 
-               VALUES (:nomClub, :adresseClub, :cpClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
+               VALUES (:nomClub, :adresseClub, :cpClub, :departementClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
                        :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub, :image)';
        $ajouterClubBdd = $this->executerRequete ($sql, array(
          'nomClub'=>$_POST['nomClub'],
          'adresseClub'=>$_POST['adresseClub'],
          'cpClub'=>$_POST['cpClub'],
+         'departementClub'=>$departement[0],
          'numeroClub'=>$_POST['numeroClub'],
          'hoLundiDebutClub'=>$hoLundiDebut,
          'hoMardiDebutClub'=>$hoMardiDebut,
@@ -79,6 +86,12 @@ class clubs extends modele {
     $sql = 'SELECT c_nom, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
     $listerClub = $this->executerRequete ($sql);
     return $listerClub;
+  }
+
+  public function listerClubDepartement($groupe){
+    $sql = 'SELECT c_nom FROM teamhubp_teamhub.Clubs WHERE c_departement IN (SELECT g_departement FROM teamhubp_teamhub.Groupes WHERE g_nom = ?)';
+    $listerClubDepartement = $this->executerRequete ($sql, array($groupe));
+    return $listerClubDepartement;
   }
 
   public function afficherCaracteristiquesClub($nom){
