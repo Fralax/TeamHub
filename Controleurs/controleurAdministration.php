@@ -201,9 +201,27 @@ Merci de ne pas répondre à ce mail.";
         header("Location: index.php?page=administration");
       }
     }
-
-
     $vue = new Vue('EnvoiMail');
+    $vue->generer(array('membres' => $membresSite));
+  }
+
+  public function envoiMailMembres(){
+    $user = new utilisateurs();
+    $admin = new administration();
+    $membresSite = $user->listerMembresSite()->fetchAll();
+    if(isset($_POST['envoyer'])){
+      foreach($membresSite as list($membre)){
+        $envoiMail = $admin->envoiMail($membre)->fetch();
+        $destinataire = $envoiMail[0];
+        $sujet = $_POST['sujet'] ;
+        $message = $_POST['mail']."
+--------------------------------
+Merci de ne pas répondre à ce mail.";
+        mail($destinataire, $sujet, $message);
+      }
+        header("Location: index.php?page=administration");
+    }
+    $vue = new Vue('EnvoiMailMembres');
     $vue->generer(array('membres' => $membresSite));
   }
 
