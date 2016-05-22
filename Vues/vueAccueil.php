@@ -40,6 +40,26 @@
 ?>
 
 <?php if ($n == 1){ ?>
+	<?php if ($invit[0][0] != ""){ ?>
+		<div class="Notification">
+			<p> Mes Notifications : <p>
+			<table>
+				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
+					<tr>
+						<td>
+							<?php echo $admin?> vous invite à rejoindre son Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $invitationGroupe?>"> <?php echo $invitationGroupe?> </a>
+						</td>
+						<td>
+							<a href="index.php?page=confirmationgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
+						</td>
+						<td>
+							<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Refuser </a>
+						</td>
+					</tr>
+				<?php } ?>
+			</table>
+		</div>
+	<?php } ?>
 	<div class="calendrierEvents">
 		<div class="calendrier">
 			<?php

@@ -74,6 +74,7 @@
 
         case 'confirmationgroupe':
           $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
+          $this->controleurAccueil->suppressionNotif($_GET['nom']);
           break;
 
         case 'quittergroupe':
@@ -244,6 +245,14 @@
 
         case 'rechercheavance':
           $this->controleurRecherche->affichageRechercheAvancee();
+          break;
+
+        case 'inviterutilisateur':
+          $this->controleurGroupes->invitationUtilisateur($_GET['nom']);
+          break;
+
+        case 'supprimernotif':
+          $this->controleurAccueil->suppressionNotif($_GET['nom']);
           break;
 
         default:

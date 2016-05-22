@@ -182,4 +182,26 @@ class groupes extends modele {
     $afficherImage = $this->executerRequete ($sql1, array($sport[0]));
     return $afficherImage;
   }
+
+  public function inviterUtilisateur($nomGroupe){
+    $sql = 'INSERT INTO teamhubp_teamhub.Invite(g_admin, u_pseudo, g_nom) VALUES (:nomAdmin, :nomInvite, :nomGroupe)';
+    $inviterUtilisateur = $this->executerRequete ($sql, array('nomAdmin'=>$_SESSION['pseudo'], 'nomInvite'=>$_POST['nomInvite'], 'nomGroupe'=>$nomGroupe));
+  }
+
+  public function invitePossible($nomGroupe){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE g_nom = ?)';
+    $invitePossible = $this->executerRequete ($sql, array($nomGroupe));
+    return $invitePossible;
+  }
+
+  public function invitation($nom){
+    $sql = 'SELECT g_admin, g_nom FROM teamhubp_teamhub.Invite WHERE u_pseudo = ?';
+    $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    return $invitation;
+  }
+
+  public function supprimerInvitation($nomGroupe){
+    $sql = 'DELETE FROM teamhubp_teamhub.Invite WHERE u_pseudo = ? AND g_nom = ?';
+    $supprimerInvitation= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));
+  }
 }
