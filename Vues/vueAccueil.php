@@ -62,7 +62,7 @@
 			<div class="periods">
 				<?php $dates = current($dates); ?>
 				<?php foreach ($dates as $m => $days) { ?>
-					<div class="month" id="month<?php echo $m ?>">
+					<div class="month relative" id="month<?php echo $m ?>">
 						<table>
 							<thead>
 								<tr>
@@ -85,16 +85,20 @@
 											</td>
 										<?php endif; ?>
 											<td>
-												<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
-													<?php echo $d ?>
+												<div class="relative">
+													<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
+														<?php echo $d ?>
+													</div>
 												</div>
 												<ul class="events">
 													<?php if (isset($events[$time])): ?>
-														<?php var_dump($events[$time]) ?>
-														<?php foreach ($events as $event): ?>
+														<?php foreach ($events[$time] as $event): ?>
 															<li><?php echo $event; ?></li>
 														<?php endforeach; ?>
 													<?php endif; ?>
+													<div class="daytitle">
+														<?php echo $date->days[$w-1] ?>	<?php echo $d ?> <?php echo $date->months[$m-1] ?>
+													</div>
 												</ul>
 											</td>
 										<?php if ($w == 7): ?>

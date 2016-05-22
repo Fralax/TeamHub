@@ -108,7 +108,7 @@ class evenements extends modele {
   }
 
   public function listerEvenementsAccueil(){
-    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?)';
+    $sql = 'SELECT e_id, e_nom, e_createur, e_date, e_heure, c_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?)';
     $listerEvenementsAccueil = $this->executerRequete($sql, array($_SESSION['pseudo']));
     return $listerEvenementsAccueil;
   }

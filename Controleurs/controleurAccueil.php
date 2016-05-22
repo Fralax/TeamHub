@@ -44,12 +44,9 @@ class accueil{
   public function recupEvents(){
     $event = new evenements();
     $r = array();
-    $mesEvents = $event->listerEvenementsAccueil()->fetchAll();
-    foreach($mesEvents as list($nom, $createur, $date, $heure)){
-      $r[strtotime($date)] = $nom;
-      echo "<pre>";
-      var_dump($r);
-      echo  "</pre>";
+    $mesEvents = $event->listerEvenementsAccueil();
+    while ($donnees = $mesEvents->fetch()) {
+      $r[strtotime($donnees['e_date'])][$donnees['e_id']] = $donnees['e_nom'];
     }
     return $r;
   }
