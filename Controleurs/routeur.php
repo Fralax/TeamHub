@@ -242,6 +242,10 @@
           $this->controleurInscription->affichageNonConfirme();
           break;
 
+        case 'rechercheavance':
+          $this->controleurRecherche->affichageRechercheAvancee();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

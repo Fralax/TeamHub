@@ -22,6 +22,13 @@ class controleurRecherche{
     $vue = new Vue('ResultatsRecherche');
     $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres, 'clubs' => $resultatRechercheClubs]);
   }
+
+  public function affichageRechercheAvancee(){
+    $recherche = new recherche();
+
+    $vue = new Vue('RechercheAvancee');
+    $vue->generer();
+  }
 }
 
 ?>

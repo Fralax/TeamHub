@@ -36,20 +36,20 @@
         <nav>
           <ul id="barreMenu">
           <li> <a href="index.php?page=accueil"> ACCUEIL </a> </li><!--
-       --><li> <a href=""> GROUPE </a>
+       --><li> GROUPE
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
               <li><a href="index.php?page=groupes"> Rejoindre un Groupe </a> </li>
               <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li><!--
-       --><li> <a href=""> CLUB </a>
+       --><li> CLUB
             <ul>
               <li><a href="index.php?page=listeclubs"> Voir la liste des clubs </a> </li>
               <li><a href="index.php?page=ajoutclub"> Ajout d'un club </a> </li>
             </ul>
           </li><!--
-       --><li> <a href=""> RECHERCHER </a>
+       --><li> RECHERCHER
             <ul>
               <li>
                 <?php
@@ -61,10 +61,12 @@
                   <input type="text" name="BarreRecherche" placeholder="Rechercher">
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
+                <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                </li>
             </ul>
+            <ul>
           </li><!--
-       --><li> <a href="">  <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?> </a>
+       --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
               $photo = new membres();
@@ -115,20 +117,20 @@
         <nav>
           <ul id="barreMenu">
           <li> <a href="index.php?page=accueil"> ACCUEIL </a> </li><!--
-       --><li> <a href=""> GROUPE </a>
+       --><li> GROUPE
             <ul>
               <li><a href="index.php?page=creationgroupe"> Créer un Groupe </a> </li>
               <li><a href="index.php?page=groupes"> Rejoindre un Groupe </a> </li>
               <li><a href="index.php?page=mesgroupes"> Mes Groupes </a> </li>
             </ul>
           </li><!--
-       --><li> <a href=""> CLUB </a>
+       --><li> CLUB
             <ul>
               <li><a href="index.php?page=listeclubs"> Voir la liste des clubs </a> </li>
               <li><a href="index.php?page=ajoutclub"> Ajout d'un club </a> </li>
             </ul>
           </li><!--
-       --><li> <a href=""> RECHERCHER </a>
+       --><li> RECHERCHER
             <ul>
               <li>
                 <?php
@@ -140,10 +142,11 @@
                   <input type="text" name="BarreRecherche" placeholder="Rechercher">
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
+                <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                </li>
             </ul>
           </li><!--
-       --><li> <a href="">  <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?> </a>
+       --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
               $photo = new membres();
@@ -192,7 +195,7 @@
         <nav>
           <ul id="barreMenu">
             <li> <a href="index.php"> ACCUEIL </a> </li><!--
-         --><li> <a href="">  RECHERCHER </a>
+         --><li>  RECHERCHER
               <ul>
                 <li>
                   <?php
@@ -204,10 +207,11 @@
                     <input type="text" name="BarreRecherche" placeholder="Rechercher">
                     <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
                   </form>
+                  <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                  </li>
               </ul>
             </li><!--
-         --><li> <a href=""> CONNEXION </a>
+         --><li> CONNEXION
               <ul>
                 <li>
                   <?php
