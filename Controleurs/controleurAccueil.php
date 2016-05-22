@@ -6,16 +6,10 @@ require_once 'Vues/vue.php';
 
 class accueil{
 
+  var $days = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+  var $months = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+
   public function affichageAccueil(){
-//     for ($i=0; $i < 10; $i++) {
-//       $destinataire = "frayssinetr@gmail.com";
-//       $sujet = "Ceci est un spam";
-//       $message ="
-// Coucou Romain ! Bienvenue sur TeamHub ! Ceci est un spam !
-// --------------------------------
-// Merci de ne pas répondre à ce mail.";
-//       mail($destinataire, $sujet, $message);
-//     }
 
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
@@ -32,6 +26,29 @@ class accueil{
   public function affichageAPropos(){
     $vue = new Vue('APropos');
     $vue->generer();
+  }
+
+  public function calendrier($year){
+    $date = new DateTime($year.'-01-01');
+    while ($date->format('Y') <= $year){
+      $y = $date->format('Y');
+      $m = $date->format('n');
+      $d = $date->format('j');
+      $w = str_replace('0', '7', $date->format('w'));
+      $r[$y][$m][$d] = $w;
+      $date->add(new DateInterval('P1D'));
+    }
+    return $r;
+  }
+
+  public function recupEvents(){
+    $event = new evenements();
+    $r = array();
+    $mesEvents = $event->listerEvenementsAccueil()->fetchAll();
+    foreach($mesEvents as list($nom, $createur, $date, $heure)){
+      $r[strtotime($date)] = $nom;
+    }
+    return $r;
   }
 }
 
