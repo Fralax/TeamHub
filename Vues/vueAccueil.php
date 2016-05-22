@@ -90,12 +90,10 @@
 												</div>
 												<ul class="events">
 													<?php if (isset($events[$time])): ?>
+														<?php var_dump($events[$time]) ?>
 														<?php foreach ($events as $event): ?>
-															<?php echo $event; ?>
+															<li><?php echo $event; ?></li>
 														<?php endforeach; ?>
-														<div class="daytitle">
-															<?php echo $date->days[$w-1] ?>	<?php echo $d ?> <?php echo $date->months[$m-1] ?>
-														</div>
 													<?php endif; ?>
 												</ul>
 											</td>
