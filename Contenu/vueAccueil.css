@@ -111,16 +111,28 @@ table td .daytitle{
   display:none;
 }
 
-table td .events{
-  display: none;
-}
-
-table td:hover .events{
-  display: inherit;
-}
-
 table td:hover .daytitle{
   display: inherit;
+}
+
+table td .events{
+  position:relative;
+  height:0px;
+  margin:-39px 0px 0px;
+  padding:0px;
+}
+
+table td .events li{
+  width:10px;
+  height:10px;
+  float:left;
+  background: red;
+  -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+      -khtml-border-radius:10px;
+  border-radius:10px 10px 10px 10px;
+  margin-left:6px; overflow:hidden;
+  text-indent:-3000px;
 }
 
 .months li{

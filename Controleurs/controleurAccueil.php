@@ -47,6 +47,9 @@ class accueil{
     $mesEvents = $event->listerEvenementsAccueil()->fetchAll();
     foreach($mesEvents as list($nom, $createur, $date, $heure)){
       $r[strtotime($date)] = $nom;
+      echo "<pre>";
+      var_dump($r);
+      echo  "</pre>";
     }
     return $r;
   }
