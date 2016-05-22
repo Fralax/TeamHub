@@ -40,11 +40,11 @@
 
     <?php if ($i == 1){ ?>
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-      <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom'] ?>"
-    		 target="_blank"
-    		 title="Partager sur Facebook">
-    	<img src="Autres/facebook-partage.png"/>
-    	</a>
+      <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"
+         target="_blank"
+         title="Partager sur Facebook">
+      <img src="Autres/facebook-partage.png"/>
+      </a>
       <div class="infos">
         <div class="nomEtDescription">
           <h2>Groupe <?php echo $caract['g_nom']?> </h2>
@@ -63,6 +63,7 @@
           <a href="index.php?page=affichagemodificationplaces&nom=<?php echo $caract['g_nom']?>"><h3>Modifier le nombre de places dans le groupe</h3></a>
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
+          <a href="index.php?page=inviterutilisateur&nom=<?php echo $caract['g_nom']?>"> <h3> Inviter à rejoindre le groupe</h3></a>
           <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo $_GET['nom'] ?>'; return false"><h3>Supprimer le groupe</h3></a>
         </div>
       </div>
@@ -177,9 +178,9 @@
 
   <?php if ($i == 2){ ?>
     <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom'] ?>"
+    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"
        target="_blank"
-       title="Partager sur Facebook">
+       title="Partager sur Facebook http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Cheval%20sur%20Place">
     <img src="Autres/facebook-partage.png"/>
     </a>
     <div class="infos">
@@ -310,7 +311,7 @@
 
   <?php if ($i == 3){ ?>
     <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom'] ?>"
+    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"
        target="_blank"
        title="Partager sur Facebook">
     <img src="Autres/facebook-partage.png"/>
@@ -397,7 +398,7 @@
 
   <?php if ($i == 4){ ?>
     <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom'] ?>"
+    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"
        target="_blank"
        title="Partager sur Facebook">
     <img src="Autres/facebook-partage.png"/>
@@ -484,11 +485,6 @@
 
   <?php if ($i == 5){ ?>
     <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-    <a href="https://www.facebook.com/sharer.php?u=http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom'] ?>"
-       target="_blank"
-       title="Partager sur Facebook">
-    <img src="Autres/facebook-partage.png"/>
-    </a>
     <div class="infos">
       <div class="nomEtDescription">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>

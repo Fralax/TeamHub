@@ -153,6 +153,20 @@ class controleurGroupes{
     $vue->generer(["nom"=>$nom]);
   }
 
+  public function invitationUtilisateur($nomGroupe){
+    $groupe = new groupes();
+    $invite = $groupe->invitePossible($nomGroupe)->fetchAll();
+    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == "Envoyer"){
+      if ($_POST['nomInvite'] != ""){
+        $groupe->inviterUtilisateur($nomGroupe);
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      }
+    }
+
+    $vue = new Vue('InvitationUtilisateur');
+    $vue->generer(array('aInvite'=>$invite));
+  }
+
 }
 
 ?>
