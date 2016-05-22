@@ -194,7 +194,7 @@ class groupes extends modele {
     return $invitePossible;
   }
 
-  public function invitation($nom){
+  public function invitation(){
     $sql = 'SELECT g_admin, g_nom FROM teamhubp_teamhub.Invite WHERE u_pseudo = ?';
     $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $invitation;
