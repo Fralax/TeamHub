@@ -2,6 +2,31 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="Contenu/vueAccueil.css" />
 	<title>Accueil</title>
+
+	<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			var Tmonth = new Date();
+			var month = Tmonth.getMonth()+1
+			$('.month').hide();
+			$('#month'+month).show();
+			$('#linkMonth'+month).show();
+			$('#linkMonth'+month).addClass('active');
+			var current = month;
+			$('.months a').click(function(){
+				var month = $(this).attr('id').replace('linkMonth', '');
+				if(month != current){
+					$('#month'+current).slideUp();
+					$('#month'+month).slideDown();
+					$('.months a').removeClass('active');
+					$('.months a#linkMonth'+month).addClass('active');
+					current = month;
+				}
+				return false;
+			});
+		});
+	</script>
+
 </head>
 
 <body>
@@ -15,82 +40,109 @@
 ?>
 
 <?php if ($n == 1){ ?>
-	<div class="conteneur">
+	<div class="calendrierEvents">
 		<div class="calendrier">
-			<?php $days=array('Lun','Mar','Mer','Jeu','Ven','Sam','Dim');
-		$debut = new DateTime('first day of this month');
-		//echo 'debut : '.$debut->format('Y-m-d').'<br />';
-		$fin = clone $debut;
-		$fin->modify('+1month');
-		//echo 'fin : '.$debut->format('Y-m-d').'<br />';
-		$premiereBoucleInterval = new DateInterval('P1M');
-		$secondeBoucleInterval = new DateInterval('P1D');
-		$i=6;
-		foreach(new DatePeriod($debut,$premiereBoucleInterval,$fin) as $moisCourant){
-	    //donne un affichage au petit calendrier pour Un mois.
-	    $finDeMois = clone $moisCourant;
-	    $finDeMois->modify('first day of next month');
-	            echo '<br />'.$moisCourant->format('M Y').'<br />';
-			 echo '<table><tr>';
-			 foreach($days as $day){
-				 echo '<td>'.$day.'</td>';
-			 }
-			 echo '</tr><tr>';
-			 //$end=end($moisCourant);
-			 for($j=0;$j<$i;$j++){
-				 echo '<td></td>';
-			 }
-	     foreach(new DatePeriod($moisCourant, $secondeBoucleInterval,$finDeMois) as $jour){
-	            //afficher le jour
-							echo '<td id="mois">'.$jour->format('d').'</td>';
-							$i++;
-							if($i==7):
-								echo '</tr><tr>';
-								$i=0;
-							endif;
-	    }
-			echo '</tr></table>';
-			echo '</br>';
-		}
-		?>
-		</div>
-
-		<div class="mesEvenements">
-			<h3> Mes Événements </h3>
-			<table>
-				<?php foreach ($evenements as list($nomMesEvenements)) { ?>
-						<tr>
-							<td>
-								<a href=""> <?php echo $nomMesEvenements?> </a>
-							</td>
-						</tr>
-
-				<?php } ?>
-			</table>
-		</div>
-
-		<div class="mesGroupes">
-			<h3> Mes Groupes </h3>
-			<?php if ($groupes[0][0] == ""){ ?>
-				<div class="pasDeGroupe">
-					<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
-					Rejoignez-en un vite ! <br> </br>
-					<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
-					Ou créez votre propre groupe ! <br> </br>
-					<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+			<?php
+				$date = new accueil();
+				$year = Date('Y');
+				$dates = $date->calendrier($year);
+				$events = $date->recupEvents();
+			?>
+			<div class="year">
+				<h3><?php echo $year ?></h3>
+			</div>
+				<div class="months">
+					<ul>
+						<?php foreach ($date->months as $id => $m): ?>
+							<li> <a href="#" id="linkMonth<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m), 0, 3)) ?></a> </li>
+						<?php endforeach; ?>
+					</ul>
 				</div>
-			<?php } ?>
-			<table>
-				<?php foreach ($groupes as list($nomMesGroupe)) { ?>
-					<tr>
-						<td>
-							<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
-						</td>
-					</tr>
+
+			<div class="periods">
+				<?php $dates = current($dates); ?>
+				<?php foreach ($dates as $m => $days) { ?>
+					<div class="month" id="month<?php echo $m ?>">
+						<table>
+							<thead>
+								<tr>
+									<?php foreach ($date->days as $d): ?>
+										<th>
+											<?php echo substr($d, 0, 3) ?>
+										</th>
+									<?php endforeach; ?>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<?php
+									$end = end($days);
+									foreach ($days as $d => $w):
+									?>
+										<?php $time = strtotime("$year-$m-$d"); ?>
+										<?php if ($d == 1 && $d != $w ): ?>
+											<td colspan="<?php echo $w - 1 ?>" class = "padding">
+											</td>
+										<?php endif; ?>
+											<td>
+												<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
+													<?php echo $d ?>
+												</div>
+												<ul class="events">
+													<?php if (isset($events[$time])): ?>
+														<?php foreach ($events as $event): ?>
+															<?php echo $event; ?>
+														<?php endforeach; ?>
+														<div class="daytitle">
+															<?php echo $date->days[$w-1] ?>	<?php echo $d ?> <?php echo $date->months[$m-1] ?>
+														</div>
+													<?php endif; ?>
+												</ul>
+											</td>
+										<?php if ($w == 7): ?>
+											</tr>
+											<tr>
+										<?php endif; ?>
+									<?php endforeach; ?>
+									<?php if ($end != 7): ?>
+										<td colspan="<?php echo 7 - $end ?>" class="padding">
+										</td>
+									<?php endif; ?>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				<?php } ?>
-			</table>
+			</div>
+		</div>
+
+		<div class="evenements">
+			<h3> Événements </h3>
 		</div>
 	</div>
+
+	<div class="mesGroupes">
+		<h3> Mes Groupes </h3>
+		<?php if ($groupes[0][0] == ""){ ?>
+			<div class="pasDeGroupe">
+				<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
+				Rejoignez-en un vite ! <br> </br>
+				<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
+				Ou créez votre propre groupe ! <br> </br>
+				<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+			</div>
+		<?php } ?>
+		<table>
+			<?php foreach ($groupes as list($nomMesGroupe)) { ?>
+				<tr>
+					<td>
+						<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
+					</td>
+				</tr>
+			<?php } ?>
+		</table>
+	</div>
+
 	<div class="conteneur2">
 		<div class="suggestionGroupes">
 			<h3> Parce que vous êtes à <?php echo $departement[0] ?> Nous vous suggérons les groupes : </h3>

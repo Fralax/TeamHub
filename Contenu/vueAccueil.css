@@ -1,6 +1,17 @@
-.mesGroupes a, h3{
+.messageBienvenue h2{
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  text-align: center;
   color : white;
-  padding-left: 10px;
+}
+
+.mesGroupes h3{
+  color : white;
+  text-align: center;
+}
+
+.mesGroupes a{
+  padding-left: 0.7em;
 }
 
 .mesGroupes{
@@ -12,46 +23,111 @@
   height: auto;
 }
 
-.mesEvenements a, h3{
-  text-decoration: none;
-  text-align: center;
-  color : white;
-  padding-left: 10px;
-}
-
-.mesEvenements{
-  border-radius: 1em;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 30em;
-  height: auto;
-}
-
 .pasDeGroupe{
   color: white;
   text-align: center;
 }
 
-.conteneur{
+.calendrierEvents{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
+  margin-bottom: 1em;
 }
 
-.messageBienvenue h2{
-  background-color: rgba(0, 0, 0, 0.8);
+.evenements{
   border-radius: 1em;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 55%;
+}
+
+.evenements h3{
   color : white;
+  text-align: center;
 }
 
 .calendrier{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
-  padding-top: 1%%;
-  padding-bottom: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  width: 14em;
+  padding-top: 0.5%;
+  padding-bottom: 1.5%;
+  width: 36%;
   height: auto;
   color : white;
+}
+
+
+.calendrier table{
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.calendrier table td{
+  border: 1px solid;
+  width: 3em;
+  height: 3em;
+}
+
+.calendrier table td:hover{
+  background: white;
+  color: black;
+  cursor:pointer;
+}
+
+.calendrier table td.padding{
+  background: inherit;
+  cursor: inherit;
+  border: 0px solid;
+  width: 3em;
+  height: 3em;
+}
+
+.calendrier table thead{
+  font-weight: normal;
+}
+
+.year{
+  text-align: center;
+  font-weight: bold;
+}
+
+.day, .today{
+  text-align: right;
+  vertical-align: bottom;
+  padding-right: 0.1em;
+}
+
+.today{
+  font-weight: bold;
+  color: red;
+}
+
+table th{
+  font-weight:normal;
+  color:#A8A8A8;
+}
+
+table td .daytitle{
+  display:none;
+}
+
+table td .events{
+  display: none;
+}
+
+table td:hover .events{
+  display: inherit;
+}
+
+table td:hover .daytitle{
+  display: inherit;
+}
+
+.months li{
+  display: inline;
+}
+
+.months ul{
+  text-align: center;
+  padding: 0;
 }
