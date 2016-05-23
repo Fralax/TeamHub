@@ -77,6 +77,12 @@
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
           break;
 
+        case 'acceptgroupe':
+          $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
+          $this->controleurAccueil->suppressionNotif($_GET['nom']);
+          //$this->controleurAccueil->envoieConfirm($_GET['nom']);
+          break;
+
         case 'quittergroupe':
           $this->controleurGroupes->quitterGroupe($_GET['nom']);
           break;

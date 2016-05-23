@@ -57,6 +57,11 @@ class accueil{
     $groupe->supprimerInvitation($nomGroupe);
     header("Location: index.php?page=accueil");
   }
+
+  // public function envoieConfirm($nomGroupe){
+  //   $groupe = new groupes();
+  //   $groupe->confirmerInvitation($nomGroupe);
+  // }
 }
 
 ?>
