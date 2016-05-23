@@ -250,7 +250,7 @@
           $this->controleurInscription->affichageNonConfirme();
           break;
 
-        case 'rechercheavance':
+        case 'rechercheavancee':
           $this->controleurRecherche->affichageRechercheAvancee();
           break;
 
