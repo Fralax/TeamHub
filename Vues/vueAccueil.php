@@ -143,23 +143,14 @@
 
 		<div class="evenements">
 			<h3> Événements </h3>
-			<table>
-				<?php foreach ($evenements as list($idEvent, $nomMesEvenements, $createur, $date, $heure)) { ?>
-						<tr>
-							<td>
-								<?php echo substr($heure, 0, 5)." - " ?>
-							</td>
-							<td>
-								<a href=""> <?php echo $nomMesEvenements?> </a>
-							</td>
-						</tr>
-				<?php } ?>
-			</table>
 		</div>
 	</div>
 
 	<div class="mesGroupes">
 		<h3> Mes Groupes </h3>
+		<?php $groupe = new groupes() ?>
+		<?php $event = new evenements() ?>
+
 		<?php if ($groupes[0][0] == ""){ ?>
 			<div class="pasDeGroupe">
 				<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
@@ -169,15 +160,35 @@
 				<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
 			</div>
 		<?php } ?>
+
+		<?php foreach ($groupes as list($nomGroupe, $nomAdmin, $nomSport)){ ?>
 		<table>
-			<?php foreach ($groupes as list($nomMesGroupe)) { ?>
 				<tr>
 					<td>
-						<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>" style="font-weight: bold;"> <?php echo $nomMesGroupe?> </a>
+						<?php $afficherImageSport = $groupe->afficherImage($nomGroupe)->fetch(); ?>
+						<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+					</td>
+					<td>
+						<a href="index.php?page=groupe&nom=<?php echo $nomGroupe?>" style="font-weight: bold;"> <?php echo $nomGroupe?> </a>
 					</td>
 				</tr>
-			<?php } ?>
+				<?php
+					$afficherEvent = $event->listerEvenementsUtilisateur($nomGroupe)->fetchAll();
+					foreach ($afficherEvent as list($nomEvent, $createurEvent, $dateEvent, $heureEvent,$nomclub)){
+						$dateEvent = date_create($dateEvent);
+				?>
+				<tr class = "evenementsGroupe">
+					<td>
+					</td>
+					<td >
+						<?php
+							echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
+						?>
+					</td>
+				</tr>
+				<?php } ?>
 		</table>
+		<?php } ?>
 	</div>
 
 	<div class="conteneur2">
@@ -190,10 +201,14 @@
 				</div>
 			<?php } ?>
 			<table>
-				<?php foreach ($suggestiongroupes as list($nomGroupesSugérés, $nomSport)) { ?>
+				<?php foreach ($suggestiongroupes as list($nomGroupesSuggeres, $nomSport)) { ?>
 					<tr>
 						<td>
-							<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSugérés?>" style="font-weight: bold;"> <?php echo $nomGroupesSugérés?> </a> pour pratiquer <?php echo $nomSport ?>
+							<?php $afficherImageSport = $groupe->afficherImage($nomGroupesSuggeres)->fetch(); ?>
+							<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+						</td>
+						<td>
+							<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSuggeres?>" style="font-weight: bold;"> <?php echo $nomGroupesSuggeres?> </a> pour pratiquer <?php echo $nomSport ?>
 						</td>
 					</tr>
 				<?php } ?>
@@ -215,10 +230,14 @@
 				<?php } ?>
 			<?php } ?>
 			<table>
-				<?php foreach ($suggestionsports as list($nomSportsSugérés)) { ?>
+				<?php foreach ($suggestionsports as list($nomSportsSuggeres)) { ?>
 					<tr>
 						<td>
-							<a href="index.php?page=groupe&nom=<?php echo $nomSportsSugérés?>" style="font-weight: bold;"> <?php echo $nomSportsSugérés?> </a>
+							<?php $afficherImageSport = $groupe->afficherImage($nomSportsSuggeres)->fetch(); ?>
+							<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+						</td>
+						<td>
+							<a href="index.php?page=groupe&nom=<?php echo $nomSportsSuggeres?>" style="font-weight: bold;"> <?php echo $nomSportsSuggeres?> </a>
 						</td>
 					</tr>
 				<?php } ?>

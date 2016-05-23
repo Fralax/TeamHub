@@ -9,6 +9,7 @@
 
 	<body>
 		<div class="conteneur">
+			<?php $groupe = new groupes() ?>
 			<h2><?php echo"Résultats pour la recherche : ".$_GET['resultatsrecherche'] ?></h2>
 			<div class="resultats">
 				<div class="resultatGroupes">
@@ -23,6 +24,10 @@
 						<?php } else{ ?>
 						<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
 						<tr>
+							<td>
+								<?php $afficherImageSport = $groupe->afficherImage($nom)->fetch(); ?>
+								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+							</td>
 							<td>
 								<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 							</td>

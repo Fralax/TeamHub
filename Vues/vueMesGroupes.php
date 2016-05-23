@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<div class="mesGroupes">
+			<?php $groupe = new groupes() ?>
 			<h2>Mes Groupes</h2>
 				<table>
 					<?php if ($groupesAccueil[0][0] == ""){ ?>
@@ -30,6 +31,10 @@
 					<?php foreach ($groupesAdmin as list($nomMesGroupeAdmin, $nbrEvenements)) { ?>
 							<tr>
 								<td>
+									<?php $afficherImageSport = $groupe->afficherImage($nomMesGroupeAdmin)->fetch(); ?>
+									<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+								</td>
+								<td>
 									<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupeAdmin?>"> <?php echo $nomMesGroupeAdmin?> </a>
 								</td>
 								<td>
@@ -43,6 +48,10 @@
 					<?php } ?>
 					<?php foreach ($groupes as list($nomMesGroupe, $nbrEvenements)) { ?>
 						<tr>
+							<td>
+								<?php $afficherImageSport = $groupe->afficherImage($nomMesGroupe)->fetch(); ?>
+								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+							</td>
 							<td>
 								<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
 							</td>
