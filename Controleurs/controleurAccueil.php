@@ -21,6 +21,7 @@ class accueil{
     $sports = $groupe->recupSportRandom()->fetchAll();
     $afficherSugestionSports = $groupe->afficherGroupeSport($sports[0][0])->fetchAll();
     $vue = new Vue('Accueil');
+
     $vue->generer(array("groupes" => $afficherMesGroupes, 'invit'=>$invitations, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$departement, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
   }
 
