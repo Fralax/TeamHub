@@ -136,7 +136,6 @@ class groupes extends modele {
         $diminuerPlacesLibresGroupes = $this->executerRequete ($sql2, array('libres'=> $placesLibres,'nom'=>$nom));
 
       }
-
     }
   }
 
@@ -189,13 +188,13 @@ class groupes extends modele {
   }
 
   public function invitePossible($nomGroupe){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE g_nom = ?)';
-    $invitePossible = $this->executerRequete ($sql, array($nomGroupe));
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE g_nom = ?) AND u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Invite WHERE g_nom = ?)';
+    $invitePossible = $this->executerRequete ($sql, array($nomGroupe, $nomGroupe));
     return $invitePossible;
   }
 
   public function invitation(){
-    $sql = 'SELECT g_admin, g_nom FROM teamhubp_teamhub.Invite WHERE u_pseudo = ?';
+    $sql = 'SELECT g_admin, g_nom, u_pseudo FROM teamhubp_teamhub.Invite WHERE u_pseudo = ?';
     $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     return $invitation;
   }
@@ -203,5 +202,14 @@ class groupes extends modele {
   public function supprimerInvitation($nomGroupe){
     $sql = 'DELETE FROM teamhubp_teamhub.Invite WHERE u_pseudo = ? AND g_nom = ?';
     $supprimerInvitation= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));
+  }
+
+  public function confirmerInvitation($nomGroupe){
+    $sql = 'SELECT g_admin FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
+    $recupAdmin = $this->executerRequete ($sql, array($nomGroupe));
+    $adminGroupe = $recupAdmin->fetch();
+
+    $sql1 = 'INSERT INTO teamhubp_teamhub.Invite(g_admin, u_pseudo, g_nom) VALUES (:nomAdmin, :nomInvite, :nomGroupe)';
+    $inviterUtilisateur = $this->executerRequete ($sql1, array('nomAdmin'=>$adminGroupe['0'], 'nomInvite'=>$_SESSION['pseudo'], 'nomGroupe'=>$nomGroupe));
   }
 }

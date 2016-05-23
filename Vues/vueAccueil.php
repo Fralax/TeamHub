@@ -44,18 +44,30 @@
 		<div class="Notification">
 			<p> Mes Notifications : <p>
 			<table>
-				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
-					<tr>
-						<td>
-							<?php echo $admin?> vous invite à rejoindre son Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $invitationGroupe?>"> <?php echo $invitationGroupe?> </a>
-						</td>
-						<td>
-							<a href="index.php?page=confirmationgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
-						</td>
-						<td>
-							<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Refuser </a>
-						</td>
-					</tr>
+				<?php foreach ($invit as list($admin, $invitationGroupe, $pseudo)) { ?>
+					<?php if ($pseudo == $_SESSION['pseudo']){ ?>
+						<tr>
+							<td>
+								<?php echo $admin?> vous invite à rejoindre son Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $invitationGroupe?>"> <?php echo $invitationGroupe?> </a>
+							</td>
+							<td>
+								<a href="index.php?page=acceptgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
+							</td>
+							<td>
+								<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Refuser </a>
+							</td>
+						</tr>
+					<?php } elseif ($admin == $_SESSION['pseudo']) {?>
+
+						<tr>
+							<td>
+								<?php echo $admin?> a accepter de rejoindre votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $invitationGroupe?>"> <?php echo $invitationGroupe?> </a>
+							</td>
+							<td>
+								<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Ok </a>
+							</td>
+						</tr>
+					<?php } ?>
 				<?php } ?>
 			</table>
 		</div>

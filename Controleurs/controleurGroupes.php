@@ -162,7 +162,6 @@ class controleurGroupes{
         header("Location: index.php?page=groupe&nom=".$_GET['nom']);
       }
     }
-
     $vue = new Vue('InvitationUtilisateur');
     $vue->generer(array('aInvite'=>$invite));
   }
