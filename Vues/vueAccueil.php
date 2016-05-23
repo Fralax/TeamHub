@@ -141,54 +141,50 @@
 			</div>
 		</div>
 
-		<div class="evenements">
-			<h3> Événements </h3>
+		<div class="mesGroupes">
+			<h3> Mes Groupes </h3>
+			<?php $groupe = new groupes() ?>
+			<?php $event = new evenements() ?>
+
+			<?php if ($groupes[0][0] == ""){ ?>
+				<div class="pasDeGroupe">
+					<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
+					Rejoignez-en un vite ! <br> </br>
+					<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
+					Ou créez votre propre groupe ! <br> </br>
+					<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+				</div>
+			<?php } ?>
+
+			<?php foreach ($groupes as list($nomGroupe, $nomAdmin, $nomSport)){ ?>
+			<table>
+					<tr>
+						<td>
+							<?php $afficherImageSport = $groupe->afficherImage($nomGroupe)->fetch(); ?>
+							<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+						</td>
+						<td>
+							<a href="index.php?page=groupe&nom=<?php echo $nomGroupe?>" style="font-weight: bold;"> <?php echo $nomGroupe?> </a>
+						</td>
+					</tr>
+					<?php
+						$afficherEvent = $event->listerEvenementsUtilisateur($nomGroupe)->fetchAll();
+						foreach ($afficherEvent as list($nomEvent, $createurEvent, $dateEvent, $heureEvent,$nomclub)){
+							$dateEvent = date_create($dateEvent);
+					?>
+					<tr class = "evenementsGroupe">
+						<td>
+						</td>
+						<td >
+							<?php
+								echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
+							?>
+						</td>
+					</tr>
+					<?php } ?>
+			</table>
+			<?php } ?>
 		</div>
-	</div>
-
-	<div class="mesGroupes">
-		<h3> Mes Groupes </h3>
-		<?php $groupe = new groupes() ?>
-		<?php $event = new evenements() ?>
-
-		<?php if ($groupes[0][0] == ""){ ?>
-			<div class="pasDeGroupe">
-				<b>Vous ne faites pas encore partie d'un groupe ... </b> <br> </br>
-				Rejoignez-en un vite ! <br> </br>
-				<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
-				Ou créez votre propre groupe ! <br> </br>
-				<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
-			</div>
-		<?php } ?>
-
-		<?php foreach ($groupes as list($nomGroupe, $nomAdmin, $nomSport)){ ?>
-		<table>
-				<tr>
-					<td>
-						<?php $afficherImageSport = $groupe->afficherImage($nomGroupe)->fetch(); ?>
-						<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
-					</td>
-					<td>
-						<a href="index.php?page=groupe&nom=<?php echo $nomGroupe?>" style="font-weight: bold;"> <?php echo $nomGroupe?> </a>
-					</td>
-				</tr>
-				<?php
-					$afficherEvent = $event->listerEvenementsUtilisateur($nomGroupe)->fetchAll();
-					foreach ($afficherEvent as list($nomEvent, $createurEvent, $dateEvent, $heureEvent,$nomclub)){
-						$dateEvent = date_create($dateEvent);
-				?>
-				<tr class = "evenementsGroupe">
-					<td>
-					</td>
-					<td >
-						<?php
-							echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
-						?>
-					</td>
-				</tr>
-				<?php } ?>
-		</table>
-		<?php } ?>
 	</div>
 
 	<div class="conteneur2">

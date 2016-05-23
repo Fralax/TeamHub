@@ -37,7 +37,7 @@
     }
 
     public function routerRequete(){
-      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
@@ -250,7 +250,7 @@
           $this->controleurInscription->affichageNonConfirme();
           break;
 
-        case 'rechercheavance':
+        case 'rechercheavancee':
           $this->controleurRecherche->affichageRechercheAvancee();
           break;
 

@@ -63,7 +63,7 @@
                 </form>
                </li>
                <li>
-                 <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
+                 <a href="index.php?page=rechercheavancee"> Recherche Avancée </a>
                </li>
             </ul>
           </li><!--
