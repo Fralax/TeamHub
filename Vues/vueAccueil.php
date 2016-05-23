@@ -40,9 +40,15 @@
 ?>
 
 <?php if ($n == 1){ ?>
+
 	<?php if ($invit[0][0] != ""){ ?>
-		<div class="Notification">
-			<p> Mes Notifications : <p>
+		<div class="notifications">
+			<?php if (count($invit) == 1): ?>
+				<h3> Vous avez <?php echo count($invit) ?> notification ! </h3>
+			<?php endif; ?>
+			<?php if (count($invit) != 1): ?>
+				<h3> Vous avez <?php echo count($invit) ?> notifications ! </h3>
+			<?php endif; ?>
 			<table>
 				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
 					<tr>
@@ -51,8 +57,6 @@
 						</td>
 						<td>
 							<a href="index.php?page=confirmationgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
-						</td>
-						<td>
 							<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Refuser </a>
 						</td>
 					</tr>
@@ -60,6 +64,7 @@
 			</table>
 		</div>
 	<?php } ?>
+
 	<div class="calendrierEvents">
 		<div class="calendrier">
 			<?php
@@ -105,10 +110,8 @@
 											</td>
 										<?php endif; ?>
 											<td>
-												<div class="relative">
-													<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
-														<?php echo $d ?>
-													</div>
+												<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
+													<?php echo $d ?>
 												</div>
 												<ul class="events">
 													<?php if (isset($events[$time])): ?>
@@ -140,6 +143,18 @@
 
 		<div class="evenements">
 			<h3> Événements </h3>
+			<table>
+				<?php foreach ($evenements as list($idEvent, $nomMesEvenements, $createur, $date, $heure)) { ?>
+						<tr>
+							<td>
+								<?php echo substr($heure, 0, 5)." - " ?>
+							</td>
+							<td>
+								<a href=""> <?php echo $nomMesEvenements?> </a>
+							</td>
+						</tr>
+				<?php } ?>
+			</table>
 		</div>
 	</div>
 
@@ -158,7 +173,7 @@
 			<?php foreach ($groupes as list($nomMesGroupe)) { ?>
 				<tr>
 					<td>
-						<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>"> <?php echo $nomMesGroupe?> </a>
+						<a href="index.php?page=groupe&nom=<?php echo $nomMesGroupe?>" style="font-weight: bold;"> <?php echo $nomMesGroupe?> </a>
 					</td>
 				</tr>
 			<?php } ?>
@@ -167,35 +182,35 @@
 
 	<div class="conteneur2">
 		<div class="suggestionGroupes">
-			<h3> Parce que vous êtes à <?php echo $departement[0] ?> Nous vous suggérons les groupes : </h3>
+			<h3> Vous habitez <?php echo $departement[0] ?> ? Essayez un nouveau sport ! </h3>
 			<?php if ($suggestiongroupes[0][0] == ""){ ?>
 				<div class="pasDeGroupe">
-					<b>Il n'y a aucun groupe disponible dans votre région </b> <br> </br>
-					<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
+					<p> <b>Il n'y a aucun groupe disponible dans votre région </b> </p>
+					<p> <a href="index.php?page=creationgroupe">Créez votre propre groupe !</a> </p>
 				</div>
 			<?php } ?>
 			<table>
-				<?php foreach ($suggestiongroupes as list($nomGroupesSugérés)) { ?>
+				<?php foreach ($suggestiongroupes as list($nomGroupesSugérés, $nomSport)) { ?>
 					<tr>
 						<td>
-							<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSugérés?>"> <?php echo $nomGroupesSugérés?> </a>
+							<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSugérés?>" style="font-weight: bold;"> <?php echo $nomGroupesSugérés?> </a> pour pratiquer <?php echo $nomSport ?>
 						</td>
 					</tr>
 				<?php } ?>
 			</table>
 		</div>
 		<div class="suggestionSports">
-			<h3> Parce que vous pratiquez : <?php echo $sport[0][0] ?> Nous vous suggérons les groupes : </h3>
+			<h3> Pratiquez le <?php echo $sport[0][0] ?> près de chez vous : </h3>
 			<?php if ($suggestionsports[0][0] == ""){ ?>
 				<?php if ($sport[0][0] != ""){ ?>
 					<div class="pasDeGroupe">
-						<h3>Il n'y a aucun groupe disponible relatif à vos sports </h3> <br> </br>
-						<a href="index.php?page=creationgroupe">Créez votre propre groupe !</a>
+						<p><b> Il n'y a aucun groupe disponible relatif à vos sports </b> </p>
+						<p><a href="index.php?page=creationgroupe">Créez votre propre groupe !</a></p>
 					</div>
 				<?php } else {?>
 					<div class="pasDeSport">
-						<h3>  Vous n'avez pas renseigné de sport ! Nous vous suggérons d'en ajouter un ! </h3>
-						<a href="index.php?page=ajoutsport"> <h4>Ajoutez un sport</h4> </a>
+						<p> <b>  Vous n'avez pas renseigné de sport ! Nous vous suggérons d'en ajouter un ! </b> </p>
+						<p> <a href="index.php?page=ajoutsport"> Ajoutez un sport </a> </p>
 					</div>
 				<?php } ?>
 			<?php } ?>
@@ -203,7 +218,7 @@
 				<?php foreach ($suggestionsports as list($nomSportsSugérés)) { ?>
 					<tr>
 						<td>
-							<a href="index.php?page=groupe&nom=<?php echo $nomSportsSugérés?>"> <?php echo $nomSportsSugérés?> </a>
+							<a href="index.php?page=groupe&nom=<?php echo $nomSportsSugérés?>" style="font-weight: bold;"> <?php echo $nomSportsSugérés?> </a>
 						</td>
 					</tr>
 				<?php } ?>

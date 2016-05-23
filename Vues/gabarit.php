@@ -61,10 +61,8 @@
                   <input type="text" name="BarreRecherche" placeholder="Rechercher">
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
-                <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                </li>
             </ul>
-            <ul>
           </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
@@ -80,7 +78,6 @@
               <li><a href="index.php"> Déconnexion </a></li>
             </ul>
           </li>
-        </ul>
         </nav>
       </header>
 
@@ -142,7 +139,6 @@
                   <input type="text" name="BarreRecherche" placeholder="Rechercher">
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
-                <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                </li>
             </ul>
           </li><!--
@@ -207,7 +203,6 @@
                     <input type="text" name="BarreRecherche" placeholder="Rechercher">
                     <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
                   </form>
-                  <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
                  </li>
               </ul>
             </li><!--

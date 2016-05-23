@@ -13,25 +13,6 @@ class membres{
     $vue->generer(array('infos' => $afficherMesInfos, 'sports'=> $afficherMesSports));
   }
 
-  public function affichageModificationMesCoordonnes(){
-    $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
-    $vue = new Vue('ModifMesCoordonnees');
-    $vue->generer(["infos" => $afficherMesInfos]);
-  }
-
-  public function affichageModificationMonAdresse(){
-    $utilisateurs = new utilisateurs();
-    $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
-    $vue = new Vue('ModifMonAdresse');
-    $vue->generer(["infos" => $afficherMesInfos]);
-  }
-
-  public function affichageModificationMonMdp(){
-    $vue = new Vue('ModifMonMdp');
-    $vue->generer();
-  }
-
   public function ajoutSport(){
     $utilisateurs = new utilisateurs();
     $sportsNonPratiqués = $utilisateurs->recupSports()->fetchAll();
@@ -94,9 +75,10 @@ class membres{
 
   public function modificationMonAdresse(){
     $utilisateurs = new utilisateurs();
+    $departements = $utilisateurs->recupDepartements()->fetchAll();
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
-      if($_POST['Adresse'] != "" && $_POST['Ville'] != "" && $_POST['CodePostal'] != "" && $_POST['Departement'] != ""){
-        $modifierMesCoord = $utilisateurs->modifierMonAdresse();
+      if($_POST['departement'] != ""){
+        $modifierMonAdresse = $utilisateurs->modifierMonAdresse();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else{
         echo "Des champs n'ont pas été remplis";
@@ -104,7 +86,7 @@ class membres{
     }
     $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $vue = new Vue('ModifMonAdresse');
-    $vue->generer(["infos" => $afficherMesInfos]);
+    $vue->generer(["infos" => $afficherMesInfos, "departements" => $departements]);
   }
 
   public function modificationMonMdp(){

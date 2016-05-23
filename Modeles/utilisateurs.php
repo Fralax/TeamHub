@@ -136,7 +136,7 @@ class utilisateurs extends modele {
 
   public function modifierMonAdresse(){
     $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_region = :departement WHERE u_pseudo = :pseudo';
-    $modifierMesInfos = $this->executerRequete ($sql, array('departement' => $_POST['Departement'],'pseudo' => $_SESSION['pseudo']));
+    $modifierMesInfos = $this->executerRequete ($sql, array('departement' => $_POST['departement'],'pseudo' => $_SESSION['pseudo']));
   }
 
   public function modifierMonMdp(){
@@ -207,5 +207,5 @@ class utilisateurs extends modele {
     $sportsPraticables = $this->executerRequete($sql);
     return $sportsPraticables;
   }
-  
+
 }
