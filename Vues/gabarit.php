@@ -62,6 +62,9 @@
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
                </li>
+               <li>
+                 <a href="index.php?page=rechercheavance"> Recherche Avancée </a>
+               </li>
             </ul>
           </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
