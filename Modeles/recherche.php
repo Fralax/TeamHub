@@ -22,6 +22,14 @@ class recherche extends modele {
     return $rechercherClubs;
   }
 
+  public function rechercherAvanceeGroupes(){
+    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_placesLibres, g_nbrEvenements FROM teamhubp_teamhub.Groupes WHERE g_nom LIKE :requetea';
+    $rechercherAvanceeGroupes = $this->executerRequete($sql, array(
+      'requetea' => '%'.$_POST['nomGroupe'].'%',
+      ));
+    return $rechercherAvanceeGroupes;
+  }
+
 
 }
 

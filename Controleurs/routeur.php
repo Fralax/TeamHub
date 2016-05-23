@@ -254,6 +254,10 @@
           $this->controleurRecherche->affichageRechercheAvancee();
           break;
 
+        case 'resultatsrechercheavancee':
+          $this->controleurRecherche->resultatRechercheAvancee();
+          break;
+
         case 'inviterutilisateur':
           $this->controleurGroupes->invitationUtilisateur($_GET['nom']);
           break;

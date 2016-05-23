@@ -24,10 +24,20 @@ class controleurRecherche{
   }
 
   public function affichageRechercheAvancee(){
-    $recherche = new recherche();
-
+    if (isset($_POST['Rechercher1']) && $_POST['Rechercher1'] == 'Rechercher'){
+      header('Location: index.php?page=resultatsrechercheavancee');
+    }
     $vue = new Vue('RechercheAvancee');
     $vue->generer();
+  }
+
+  public function resultatRechercheAvancee(){
+    var_dump($_POST['nomGroupe']);
+    $recherche = new recherche();
+    $resultatRechercheAvanceeGroupes = $recherche->rechercherAvanceeGroupes()->fetchAll();
+
+    $vue = new Vue('ResultatsRechercheAvancee');
+    $vue->generer(['groupes' => $resultatRechercheAvanceeGroupes]);
   }
 }
 
