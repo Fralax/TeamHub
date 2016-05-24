@@ -84,7 +84,7 @@ class groupes extends modele {
   }
 
   public function afficherAdminPossible($nom){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE u_pseudo NOT IN (SELECT g_admin FROM teamhubp_teamhub.Groupes WHERE g_nom = :nom) AND g_nom = :nom' ;
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE u_pseudo NOT IN (SELECT g_admin FROM teamhubp_teamhub.Groupes WHERE g_nom = :nom) AND g_nom = :nom';
     $afficherAdminPossible = $this->executerRequete ($sql, array('nom' => $nom));
     return $afficherAdminPossible;
   }

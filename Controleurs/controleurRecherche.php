@@ -25,7 +25,7 @@ class controleurRecherche{
 
   public function affichageRechercheAvancee(){
     if (isset($_POST['Rechercher1']) && $_POST['Rechercher1'] == 'Rechercher'){
-      header('Location: index.php?page=resultatsrechercheavancee1&recherche1='.$_POST['nomGroupe'].'&recherche2='.$_POST['departement'].'&recherche3='.$_POST['sport'].'&recherche4='.$_POST['administrateur']);
+      header('Location: index.php?page=resultatsrechercheavancee1&recherche1='.$_POST['nomGroupe'].'&recherche2='.$_POST['departementGroupe'].'&recherche3='.$_POST['sport'].'&recherche4='.$_POST['administrateur']);
     }
     if (isset($_POST['Rechercher2']) && $_POST['Rechercher2'] == 'Rechercher'){
       header('Location: index.php?page=resultatsrechercheavancee2&recherche1='.$_POST['nomMembre'].'&recherche2='.$_POST['localisationMembre']);

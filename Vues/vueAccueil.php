@@ -2,31 +2,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="Contenu/vueAccueil.css" />
 	<title>Accueil</title>
-
-	<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		jQuery(function($){
-			var Tmonth = new Date();
-			var month = Tmonth.getMonth()+1
-			$('.month').hide();
-			$('#month'+month).show();
-			$('#linkMonth'+month).show();
-			$('#linkMonth'+month).addClass('active');
-			var current = month;
-			$('.months a').click(function(){
-				var month = $(this).attr('id').replace('linkMonth', '');
-				if(month != current){
-					$('#month'+current).slideUp();
-					$('#month'+month).slideDown();
-					$('.months a').removeClass('active');
-					$('.months a#linkMonth'+month).addClass('active');
-					current = month;
-				}
-				return false;
-			});
-		});
-	</script>
-
 </head>
 
 <body>
@@ -109,7 +84,7 @@
 											<td colspan="<?php echo $w - 1 ?>" class = "padding">
 											</td>
 										<?php endif; ?>
-											<td>
+											<td onmouseover="focusEvent('<?php echo "date$d".sprintf('%02d',$m)."$year" ?>')" onmouseout="unfocusEvent('<?php echo "date$d".sprintf('%02d',$m)."$year" ?>')">
 												<div <?php if ($time == strtotime(date('Y-m-d'))){ ?> class="today" <?php } else{ ?> class="day" <?php } ?>>
 													<?php echo $d ?>
 												</div>
@@ -175,7 +150,7 @@
 					<tr class = "evenementsGroupe">
 						<td>
 						</td>
-						<td >
+						<td id="<?php echo "date".date_format($dateEvent, 'dmY') ?>">
 							<?php
 								echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
 							?>
@@ -249,3 +224,47 @@
 		</div>
 	</body>
 <?php } ?>
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	function focusEvent(date) {
+		var events = document.querySelectorAll('#'+date.toString())
+		for (var i = 0; i < events.length; i++) {
+			events[i].style.fontWeight = "bold"
+			events[i].style.fontSize = "1.2em"
+		}
+	}
+
+	function unfocusEvent(date) {
+		var events = document.querySelectorAll('#'+date.toString())
+		for (var i = 0; i < events.length; i++) {
+			events[i].style.fontWeight = ""
+			events[i].style.fontSize = ""
+		}
+	}
+
+	jQuery(function($){
+		var Tmonth = new Date();
+		var month = Tmonth.getMonth()+1
+		$('.month').hide();
+		$('#month'+month).show();
+		$('#linkMonth'+month).show();
+		$('#linkMonth'+month).addClass('active');
+		var current = month;
+		$('.months a').click(function(){
+			var month = $(this).attr('id').replace('linkMonth', '');
+			if(month != current){
+				$('#month'+current).slideUp();
+				$('#month'+month).slideDown();
+				$('.months a').removeClass('active');
+				$('.months a#linkMonth'+month).addClass('active');
+				current = month;
+			}
+			return false;
+		});
+	});
+</script>

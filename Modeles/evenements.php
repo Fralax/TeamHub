@@ -90,7 +90,7 @@ class evenements extends modele {
   }
 
   public function listerEvenementsUtilisateur($groupe){
-    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom, e_placesTotal, e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $sql = 'SELECT e_nom, e_createur, e_date, e_heure, c_nom, e_placesTotal, e_placesLibres FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ? ORDER BY e_date';
     $listerMembresEvenement = $this->executerRequete($sql, array($_SESSION['pseudo'], $groupe));
     return $listerMembresEvenement;
   }
