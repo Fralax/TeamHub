@@ -64,6 +64,7 @@
 					<div class="monAdresse">
 						<h2> Ma Localisation</h2>
 						<p> Département : <?php echo $infos[u_region]?> </p>
+						<p> Code Postal : <?php echo $infos[u_cp]?> </p>
 					</div>
 					<div class="mesCoordonnees">
 						<h2>Mes Coordonnées</h2>

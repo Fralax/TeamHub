@@ -82,7 +82,7 @@ class utilisateurs extends modele {
   }
 
   public function afficherInfos(){
-    $sql = 'SELECT u_prenom, u_nom, u_sexe, u_region, u_portable, u_email, u_naissance, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $sql = 'SELECT u_prenom, u_nom, u_sexe, u_cp, u_region, u_portable, u_email, u_naissance, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $afficherMesInfos = $this->executerRequete ($sql, array($_GET['nom']));
     return $afficherMesInfos;
   }
