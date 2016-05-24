@@ -10,11 +10,16 @@ class utilisateurs extends modele {
       $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
       $photo = "avatar.png";
 
-      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
-              VALUES (:pseudo, :nom, :prenom, :sexe, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
+      $numero = substr($_POST['cp'], 0, 2);
+      $sql1 = 'SELECT d_nom FROM Departements WHERE d_code =?';
+      $recupDepartement = $this->executerRequete ($sql1, array($numero));
+      $departement = $recupDepartement->fetch();
 
-      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'],
-        'departement' => $_POST['departement'],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
+      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_cp, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
+              VALUES (:pseudo, :nom, :prenom, :sexe, :cp, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
+
+      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'], 'cp' => $_POST['cpClub'],
+        'departement' => $departement[0],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
   }
 
   public function verifPseudo(){
@@ -135,8 +140,13 @@ class utilisateurs extends modele {
   }
 
   public function modifierMonAdresse(){
-    $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_region = :departement WHERE u_pseudo = :pseudo';
-    $modifierMesInfos = $this->executerRequete ($sql, array('departement' => $_POST['departement'],'pseudo' => $_SESSION['pseudo']));
+    $numero = substr($_POST['cp'], 0, 2);
+    $sql1 = 'SELECT d_nom FROM Departements WHERE d_code =?';
+    $recupDepartement = $this->executerRequete ($sql1, array($numero));
+    $departement = $recupDepartement->fetch();
+
+    $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_region = :departement, u_cp = :cp WHERE u_pseudo = :pseudo';
+    $modifierMesInfos = $this->executerRequete ($sql, array('departement' => $departement[0], 'cp' => $_POST['cp'],'pseudo' => $_SESSION['pseudo']));
   }
 
   public function modifierMonMdp(){
