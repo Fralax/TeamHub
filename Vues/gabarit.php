@@ -143,6 +143,9 @@
                   <input type="submit" name="Recherche" value="Rechercher">
                 </form>
                </li>
+               <li>
+                 <a href="index.php?page=rechercheavancee"> Recherche Avancée </a>
+               </li>
             </ul>
           </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
@@ -206,6 +209,9 @@
                     <input type="text" name="BarreRecherche" placeholder="Rechercher">
                     <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
                   </form>
+                 </li>
+                 <li>
+                   <a href="index.php?page=rechercheavancee"> Recherche Avancée </a>
                  </li>
               </ul>
             </li><!--
