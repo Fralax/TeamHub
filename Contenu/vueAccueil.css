@@ -18,14 +18,27 @@
   border-radius: 1em;
   padding-top: 0.5%;
   padding-bottom: 1%;
-  width: 65%;
-  height: auto;
-  margin: auto;
-  margin-bottom: 1em;
+  padding-left: 1em;
+  width: 60%;
+  color : white;
+}
+
+.mesGroupes img{
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.conteneur2 img{
+  width: 2.5em;
+  height: 2.5em;
 }
 
 .mesGroupes table{
-  margin: auto;
+  margin-bottom: 1em;
+}
+
+.evenementsGroupe{
+  font-size: 0.8em;
 }
 
 .pasDeGroupe{
@@ -181,7 +194,6 @@ table td .events li{
 }
 
 .suggestionGroupes{
-  text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-top: 0.5%;
@@ -199,7 +211,6 @@ table td .events li{
 
 .suggestionGroupes table{
   margin: auto;
-  text-align: center;
 }
 
 .notifications{

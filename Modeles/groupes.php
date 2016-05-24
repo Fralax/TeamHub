@@ -62,7 +62,7 @@ class groupes extends modele {
   }
 
   public function afficherGroupesAccueil(){
-    $sql = 'SELECT DISTINCT(g_nom) FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?';
+    $sql = 'SELECT g_nom, g_admin, g_sport FROM teamhubp_teamhub.Groupes WHERE g_nom IN (SELECT DISTINCT(g_nom) FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?)';
     $afficherGroupesAccueil = $this ->executerRequete($sql, array($_SESSION['pseudo']));
     return $afficherGroupesAccueil;
   }
@@ -149,8 +149,8 @@ class groupes extends modele {
     $sql = 'SELECT u_region FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $recupDepartement = $this->executerRequete ($sql, array($_SESSION['pseudo']));
     $departement = $recupDepartement->fetch();
-    $sql1 = 'SELECT DISTINCT(g_nom), g_sport, g_admin, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom NOT IN (SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?) AND g_departement = ? ORDER BY g_placesLibres DESC LIMIT 5';
-    $afficherGroupeRegion = $this->executerRequete ($sql1, array($_SESSION['pseudo'], $departement[0]));
+    $sql1 = 'SELECT DISTINCT(g_nom), g_sport, g_admin, g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom NOT IN (SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?) AND g_sport NOT IN (SELECT s_nom FROM teamhubp_teamhub.Pratique WHERE u_pseudo = ?) AND g_departement = ? ORDER BY g_placesLibres DESC LIMIT 5';
+    $afficherGroupeRegion = $this->executerRequete ($sql1, array($_SESSION['pseudo'], $_SESSION['pseudo'], $departement[0]));
     return $afficherGroupeRegion;
   }
 

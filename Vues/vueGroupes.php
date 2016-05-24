@@ -8,6 +8,7 @@
 
 	<body>
     <div class="groupes">
+			<?php $groupe = new groupes() ?>
   		<h2>Groupes</h2>
 
   		<table>
@@ -25,6 +26,10 @@
 				<?php } ?>
   			<?php foreach ($groupes as list($nom, $admin, $placesLibres)){ ?>
   			<tr>
+					<td>
+						<?php $afficherImageSport = $groupe->afficherImage($nom)->fetch(); ?>
+						<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+					</td>
   				<td>
   					<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
   				</td>
