@@ -9,7 +9,7 @@
 
 	<body>
 		<div class="conteneur">
-			<h2><?php echo"Résultats pour la recherche : ".$_GET['resultatsrecherche'] ?></h2>
+			<h2><?php echo"Résultats pour la recherche : "?></h2>
 			<div class="resultats">
 				<div class="resultatClubs">
 					<table>
