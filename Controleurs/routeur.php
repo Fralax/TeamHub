@@ -254,8 +254,16 @@
           $this->controleurRecherche->affichageRechercheAvancee();
           break;
 
-        case 'resultatsrechercheavancee':
-          $this->controleurRecherche->resultatRechercheAvancee();
+        case 'resultatsrechercheavancee1':
+          $this->controleurRecherche->resultatRechercheAvanceeGroupes();
+          break;
+
+        case 'resultatsrechercheavancee2':
+          $this->controleurRecherche->resultatRechercheAvanceeMembres();
+          break;
+
+        case 'resultatsrechercheavancee3':
+          $this->controleurRecherche->resultatRechercheAvanceeClubs();
           break;
 
         case 'inviterutilisateur':
