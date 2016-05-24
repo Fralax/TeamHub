@@ -63,11 +63,17 @@ class administration extends modele {
   }
 
   public function modifierCaracteristiquesClub($nom){
-    $sql = 'UPDATE teamhubp_teamhub.Clubs SET c_nom = :nomClub, c_adresse = :adresseClub, c_cp = :cpClub, c_numero = :numeroClub, c_hoLundiDebut = :c_hoLundiDebut, c_hoMardiDebut = :c_hoMardiDebut, c_hoMercrediDebut = :c_hoMercrediDebut, c_hoJeudiDebut = :c_hoJeudiDebut, c_hoVendrediDebut = :c_hoVendrediDebut, c_hoSamediDebut = :c_hoSamediDebut, c_hoDimancheDebut = :c_hoDimancheDebut, c_hoLundiFin = :c_hoLundiFin, c_hoMardiFin = :c_hoMardiFin, c_hoMercrediFin = :c_hoMercrediFin, c_hoJeudiFin = :c_hoJeudiFin, c_hoVendrediFin = :c_hoVendrediFin, c_hoSamediFin = :c_hoSamediFin, c_hoDimancheFin = :c_hoDimancheFin, c_hoCommentaire = :c_hoCommentaire WHERE c_nom = :Club';
+    $numero = substr($_POST['cpClub'], 0, 2);
+    $sql1 = 'SELECT d_nom FROM Departements WHERE d_code =?';
+    $recupDepartement = $this->executerRequete ($sql1, array($numero));
+    $departement = $recupDepartement->fetch();
+
+    $sql = 'UPDATE teamhubp_teamhub.Clubs SET c_nom = :nomClub, c_adresse = :adresseClub, c_cp = :cpClub, c_departement = :departementClub, c_numero = :numeroClub, c_hoLundiDebut = :c_hoLundiDebut, c_hoMardiDebut = :c_hoMardiDebut, c_hoMercrediDebut = :c_hoMercrediDebut, c_hoJeudiDebut = :c_hoJeudiDebut, c_hoVendrediDebut = :c_hoVendrediDebut, c_hoSamediDebut = :c_hoSamediDebut, c_hoDimancheDebut = :c_hoDimancheDebut, c_hoLundiFin = :c_hoLundiFin, c_hoMardiFin = :c_hoMardiFin, c_hoMercrediFin = :c_hoMercrediFin, c_hoJeudiFin = :c_hoJeudiFin, c_hoVendrediFin = :c_hoVendrediFin, c_hoSamediFin = :c_hoSamediFin, c_hoDimancheFin = :c_hoDimancheFin, c_hoCommentaire = :c_hoCommentaire WHERE c_nom = :Club';
     $modifierCaracteristiquesClub = $this->executerRequete ($sql, array(
     'nomClub'=>$_POST['nomClub'],
     'adresseClub'=>$_POST['adresseClub'],
     'cpClub'=>$_POST['cpClub'],
+    'departementClub'=>$departement[0],
     'numeroClub'=>$_POST['numeroClub'],
     'c_hoLundiDebut'=>$_POST['c_hoLundiDebut'],
     'c_hoMardiDebut'=>$_POST['c_hoMardiDebut'],

@@ -77,7 +77,7 @@ class membres{
     $utilisateurs = new utilisateurs();
     $departements = $utilisateurs->recupDepartements()->fetchAll();
     if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer'){
-      if($_POST['departement'] != ""){
+      if($_POST['cp'] != ""){
         $modifierMonAdresse = $utilisateurs->modifierMonAdresse();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else{
