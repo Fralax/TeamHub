@@ -27,6 +27,9 @@
 								<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 							</td>
 							<td>
+								<?php echo $sport?>
+							</td>
+							<td>
 								<?php
 								if($placesLibres > 1){
 									echo $placesLibres." places restantes";

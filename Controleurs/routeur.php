@@ -9,6 +9,7 @@
   require_once 'Controleurs/controleurEvenements.php';
   require_once 'Controleurs/controleurClubs.php';
   require_once 'Controleurs/controleurAdministration.php';
+  require_once 'Controleurs/controleurForum.php';
   require_once 'Vues/vue.php';
 
   class routeur{
@@ -22,6 +23,7 @@
     private $controleurEvenements;
     private $ControleurClubs;
     private $controleurAdministration;
+    private $controleurForum;
 
     public function __construct(){
       $this->controleurConnexion = new connexion();
@@ -33,6 +35,7 @@
       $this->controleurEvenements = new controleurEvenements();
       $this->controleurClubs = new controleurClubs();
       $this->controleurAdministration = new controleurAdministration();
+      $this->controleurForum = new controleurForum();
       session_start();
     }
 
@@ -280,6 +283,14 @@
 
         case 'confirmationbannissementmembre':
           $this->controleurGroupes->bannissementMembre();
+          break;
+          
+        case 'afficherAccueilForum':
+          $this->controleurForum->afficherAccueilForum();
+          break;
+
+        case 'forum':
+          $this->controleurForum->afficherSujet($_GET['categorie']);
           break;
 
         default:

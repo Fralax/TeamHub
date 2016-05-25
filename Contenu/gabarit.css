@@ -46,7 +46,7 @@ header #barreMenu li {
 	/* on place les liens du menu horizontalement */
 	display: inline-block;
 	position: relative;
-	width: 15em;
+	width: 12.7em;
 }
 
 header #barreMenu p{

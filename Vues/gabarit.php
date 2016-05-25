@@ -67,6 +67,8 @@
                </li>
             </ul>
           </li><!--
+        --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
+           </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
@@ -148,6 +150,8 @@
                </li>
             </ul>
           </li><!--
+        --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
+           </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
@@ -215,6 +219,8 @@
                  </li>
               </ul>
             </li><!--
+          --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
+             </li><!--
          --><li> CONNEXION
               <ul>
                 <li>
