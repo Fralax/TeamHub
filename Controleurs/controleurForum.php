@@ -24,7 +24,7 @@ class controleurForum{
       $forum->creerSujet($categorie);
       header("Location: index.php?page=forum&categorie=".$categorie);
     }
-    $vue = new Vue($categorie.'Forum');
+    $vue = new Vue('CreationSujetForum');
     $vue->generer();
   }
 

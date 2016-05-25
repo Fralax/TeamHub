@@ -9,6 +9,7 @@
 
 	<body>
     <h2> Organiser des Cours </h2>
+		<p> <a href="index.php?page=creersujet&categorie=Cours" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>
