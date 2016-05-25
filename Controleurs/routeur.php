@@ -37,7 +37,7 @@
     }
 
     public function routerRequete(){
-      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
@@ -272,6 +272,14 @@
 
         case 'supprimernotif':
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
+          break;
+
+        case 'bannirmembregroupe':
+          $this->controleurGroupes->affichageBannissementMembre($_GET['nom']);
+          break;
+
+        case 'confirmationbannissementmembre':
+          $this->controleurGroupes->bannissementMembre();
           break;
 
         default:

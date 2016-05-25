@@ -196,7 +196,7 @@
 
         <nav>
           <ul id="barreMenu">
-            <li> <a href="index.php"> ACCUEIL </a> </li><!--
+            <li> <a href="index.php?page=accueil"> ACCUEIL </a> </li><!--
          --><li>  RECHERCHER
               <ul>
                 <li>
