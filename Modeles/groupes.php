@@ -216,4 +216,9 @@ class groupes extends modele {
     $sql1 = 'INSERT INTO teamhubp_teamhub.Invite(g_admin, u_pseudo, g_nom) VALUES (:nomAdmin, :nomInvite, :nomGroupe)';
     $inviterUtilisateur = $this->executerRequete ($sql1, array('nomAdmin'=>$adminGroupe['0'], 'nomInvite'=>$_SESSION['pseudo'], 'nomGroupe'=>$nomGroupe));
   }
+
+  public function bannirMembre($nomGroupe, $pseudo){
+    $sql = 'DELETE FROM teamhubp_teamhub.Appartient WHERE u_pseudo = :pseudo AND g_nom = :nomGroupe';
+    $bannirMembre = $this->executerRequete ($sql, array('pseudo' => $pseudo, 'nomGroupe' => $nomGroupe));
+  }
 }

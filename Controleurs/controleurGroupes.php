@@ -166,6 +166,23 @@ class controleurGroupes{
     $vue->generer(array('aInvite'=>$invite));
   }
 
+  public function affichageBannissementMembre($nom){
+    $appartient = new utilisateurs();
+    $groupe = new groupes();
+    $afficherMembres = $appartient->listerMembresGroupe($nom)-> fetchAll();
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+
+    $vue = new Vue('BannirMembreGroupe');
+    $vue->generer(array("nom"=>$nom, "membres" => $afficherMembres, "caract" => $afficherCaracteristiquesGroupe));
+  }
+
+  public function bannissementMembre(){
+    $groupe = new groupes();
+    $bannirMembre = $groupe->bannirMembre($_GET['nom'], $_GET['pseudo']);
+    $vue = new Vue('ConfirmationBannissementMembre');
+    $vue->generer(array('pseudo' => $_GET['pseudo'], 'nom' => $_GET['nom']));
+  }
+
 }
 
 ?>
