@@ -67,7 +67,11 @@
                </li>
             </ul>
           </li><!--
-        --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
+        --><li> AIDE
+              <ul>
+                <li><a href="index.php?page=afficheraccueilforum"> Forum </a> </li>
+                <li><a href="index.php?page=affichagefaq"> FAQ </a> </li>
+              </ul>
            </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
@@ -150,8 +154,12 @@
                </li>
             </ul>
           </li><!--
-        --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
-           </li><!--
+          --><li> AIDE
+                <ul>
+                  <li><a href="index.php?page=afficheraccueilforum"> Forum </a> </li>
+                  <li><a href="index.php?page=affichagefaq"> FAQ </a> </li>
+                </ul>
+             </li><!--
        --><li> <?php echo "BONJOUR, ", strtoupper($_SESSION['pseudo']) ?>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
@@ -219,8 +227,12 @@
                  </li>
               </ul>
             </li><!--
-          --><li> <a href="index.php?page=afficherAccueilForum"> FORUM </a>
-             </li><!--
+            --><li> AIDE
+                  <ul>
+                    <li><a href="index.php?page=afficheraccueilforum"> Forum </a> </li>
+                    <li><a href="index.php?page=affichagefaq"> FAQ </a> </li>
+                  </ul>
+               </li><!--
          --><li> CONNEXION
               <ul>
                 <li>

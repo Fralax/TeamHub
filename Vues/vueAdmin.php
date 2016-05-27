@@ -38,9 +38,10 @@
 	      <p> <a href="index.php?page=clubsasupprimer"> Supprimer un Club </a> </p>
 	    </div>
 	    <div class="adminGenerale">
-	      <h3>Administration du Site</h3>
-	      <p>Modifier les Messages de l'Accueil</p>
-	      <p>Modifier l'image de fond du Site</p>
+	      <h3>Administration de l'Aide</h3>
+	      <p> <a href="index.php?page=afficheraccueilforum"> Modérer le Forum  </a> </p>
+				<p> <a href="index.php?page=ajouterquestion"> Ajouter une question </a> </p>
+	      <p> <a href="index.php?page=affichagefaq">Supprimer une question </a> </p>
 	    </div>
 	  </div>
 	</body>

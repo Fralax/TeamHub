@@ -293,7 +293,7 @@
           $this->controleurGroupes->neRejointPlusAutoGroupe();
           break;
 
-        case 'afficherAccueilForum':
+        case 'afficheraccueilforum':
           $this->controleurForum->afficherAccueilForum();
           break;
 
@@ -303,6 +303,34 @@
 
         case 'creersujet':
           $this->controleurForum->creationSujet($_GET['categorie']);
+          break;
+
+        case 'sujetforum':
+          $this->controleurForum->affichageDetailleSujet($_GET['id']);
+          break;
+
+        case 'cloreSujet':
+          $this->controleurForum->fermetureSujet($_GET['id']);
+          break;
+
+        case 'supprimermessage':
+          $this->controleurAdministration->suppressionMessageForum($_GET['id']);
+          break;
+
+        case 'supprimersujet':
+          $this->controleurAdministration->suppressionSujetForum($_GET['id']);
+          break;
+
+        case 'affichagefaq':
+          $this->controleurForum->affichageFAQ();
+          break;
+
+        case 'ajouterquestion':
+          $this->controleurAdministration->ajoutQuestion();
+          break;
+
+        case 'supprimerquestion':
+          $this->controleurAdministration->suppressionQuestion($_GET['id']);
           break;
 
         default:

@@ -156,5 +156,27 @@ class administration extends modele {
     return $envoiMail;
   }
 
+  public function supprimerMessageForum($id){
+    $sql = 'DELETE FROM teamhubp_teamhub.messageForum WHERE m_id = ?';
+    $supprimerMessageForum = $this->executerRequete ($sql, array($id));
+  }
+
+  public function supprimerSujetForum($id){
+    $sql = 'DELETE FROM teamhubp_teamhub.sujetForum WHERE f_id = ?';
+    $supprimerSujetForum = $this->executerRequete ($sql, array($id));
+    $sql1 = 'DELETE FROM teamhubp_teamhub.messageForum WHERE f_id = ?';
+    $supprimerMessageForum = $this->executerRequete ($sql1, array($id));
+  }
+
+  public function ajouterQuestion(){
+    $sql = 'INSERT INTO teamhubp_teamhub.FAQ(faq_question, faq_reponse) VALUES (:question, :reponse)';
+    $ajouterQuestion = $this->executerRequete ($sql, array('question'=>$_POST['question'], 'reponse'=>$_POST['reponse']));
+  }
+
+  public function supprimerQuestion($id){
+    $sql = 'DELETE FROM teamhubp_teamhub.FAQ WHERE faq_id = ?';
+    $supprimerQuestion = $this->executerRequete ($sql, array($id));
+  }
+
 }
 ?>

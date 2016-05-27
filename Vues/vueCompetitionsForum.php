@@ -8,8 +8,25 @@
 	</head>
 
 	<body>
+		<?php
+		require_once 'Controleurs/controleurAdministration.php';
+    $admin = new controleurAdministration();
+    $verifAdmin = $admin->verifAdmin();
+			if(isset($_SESSION['pseudo'])){
+				if($verifAdmin == true){
+					$n = 3;
+				} else {
+					$n = 1;
+				}
+			} else{
+				$n = 2;
+			}
+		?>
+
     <h2> Organisation d'une Competition </h2>
+		<?php if ($n == 1){ ?>
 		<p> <a href="index.php?page=creersujet&categorie=Competitions" > Créer un nouveau Sujet </a> </p>
+		<?php } ?>
     <table>
       <tr>
         <td>
@@ -32,10 +49,10 @@
           Etat
         </td>
       </tr>
-      <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $heureSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
+      <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
       <tr>
         <td>
-          <?php echo $nomSujet?>
+          <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
         </td>
 
         <td>
@@ -47,7 +64,7 @@
         </td>
 
         <td>
-          <?php echo $dateSujet ?>  <?php echo $heureSujet ?>
+          <?php echo $dateSujet ?> 
         </td>
 
         <td>
@@ -57,6 +74,11 @@
             Clos
           <?php } ?>
         </td>
+				<td>
+					<?php if ($n == 3){ ?>
+						<a href="index.php?page=supprimersujet&id=<?php echo $id ?>"> Supprimer </a>
+					<?php } ?>
+				</td>
       </tr>
       <?php } ?>
     </table>

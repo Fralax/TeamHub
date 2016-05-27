@@ -225,6 +225,37 @@ Merci de ne pas répondre à ce mail.";
     $vue->generer(array('membres' => $membresSite));
   }
 
+  public function suppressionMessageForum($id){
+    $admin = new administration();
+    $forum = new forum();
+    $admin->supprimerMessageForum($id);
+    $forum->decrementeNbReponses($id);
+    header("Location: index.php?page=administration");
+  }
+
+  public function suppressionSujetForum($id){
+    $admin = new administration();
+    $admin->supprimerSujetForum($id);
+    header("Location: index.php?page=administration");
+  }
+
+  public function ajoutQuestion(){
+    $admin = new administration();
+    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] != ""){
+      $admin->ajouterQuestion();
+      header("Location: index.php?page=administration");
+    }
+
+    $vue = new Vue('AjoutFAQ');
+    $vue->generer(array('membres' => $membresSite));
+  }
+
+  public function suppressionQuestion($id){
+    $admin = new administration();
+    $admin->supprimerQuestion($id);
+    header("Location: index.php?page=administration");
+  }
+
 }
 
 

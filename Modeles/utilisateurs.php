@@ -223,6 +223,11 @@ class utilisateurs extends modele {
     return $sportsPraticables;
   }
 
+  public function afficherPhotoForum($nom){
+    $sql = 'SELECT u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $afficherPhoto = $this->executerRequete($sql, array($nom));
+    return $afficherPhoto;
+  }
   public function ajoutGroupeAuto($nomGroupe, $pseudo){
     $sql = 'INSERT INTO Appartient (u_pseudo, g_nom, a_admin) VALUES (:pseudo, :nomGroupe, :adminBool)';
     $ajouterMembreAuto = $this->executerRequete($sql, array('pseudo' => $pseudo, 'nomGroupe' => $nomGroupe, 'a_admin' => "nonAdmin"));
