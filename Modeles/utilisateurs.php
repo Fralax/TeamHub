@@ -218,4 +218,10 @@ class utilisateurs extends modele {
     return $sportsPraticables;
   }
 
+  public function afficherPhotoForum($nom){
+    $sql = 'SELECT u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $afficherPhoto = $this->executerRequete($sql, array($nom));
+    return $afficherPhoto;
+  }
+
 }
