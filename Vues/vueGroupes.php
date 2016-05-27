@@ -51,9 +51,27 @@
   				<td>
   					<?php if($placesLibres != 0){ ?>
 						<a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $nom ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $nom; ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
-  					<?php } else{?>
-							<a href="#" onclick="if (confirm('Voulez vraiment être notifié quand une place se libère dans le groupe <?php echo $nom ?> ?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo $nom; ?>'; return false"> <input name="notifier" type="button" value="Me notifier quand une place se libère"> </a>
+  					<?php }
+							else{
+								$g=0;
+								if ($groupesAttend == array()) {
+									$g=2;
+								}
+								foreach ($groupesAttend as list($nomGroupeAttend)) {
+									if ($nomGroupeAttend == $nom) { ?>
+						<a href="#" onclick="if (confirm('Voulez vous vraiment ne plus rejoindre automatiquement le groupe <?php echo $nom ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo $nom; ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="nePlusNotifier" type="button" value="Ne plus Rejoindre"> </a>
+						<?php
+										$g=1;
+										break;
+									} else{
+										$g=2;
+									}
+								}
+						?>
+						<?php if($g == 2){ ?>
+							<a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre le groupe <?php echo $nom ?> quand une place se libère ?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo $nom; ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="notifier" type="button" value="Rejoindre Automatiquement"> </a>
 						<?php } ?>
+				<?php } ?>
   				</td>
   			</tr>
   			<?php } ?>

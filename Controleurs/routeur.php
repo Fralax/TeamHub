@@ -285,6 +285,14 @@
           $this->controleurGroupes->bannissementMembre();
           break;
 
+        case 'confirmationnotifgroupe':
+          $this->controleurGroupes->rejointAutoGroupe();
+          break;
+
+        case 'annulationnotifgroupe':
+          $this->controleurGroupes->neRejointPlusAutoGroupe();
+          break;
+
         case 'afficheraccueilforum':
           $this->controleurForum->afficherAccueilForum();
           break;

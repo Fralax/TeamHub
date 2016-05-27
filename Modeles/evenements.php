@@ -133,7 +133,7 @@ class evenements extends modele {
     settype($placesLibres[0], "integer");
     $placesLibres[0] = $placesLibres[0] + 1;
 
-    $sql2='UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = :placesLibres WHERE g_nom = :nom';
+    $sql2='UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = :placesLibres WHERE e_nom = :nom';
     $diminuerPlacesLibres = $this->executerRequete ($sql2, array('placesLibres'=>$placesLibres[0], 'nom'=>$nom ));
   }
 

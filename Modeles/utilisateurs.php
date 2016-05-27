@@ -56,10 +56,10 @@ class utilisateurs extends modele {
     return $resultat;
   }
 
-  public function ajoutAppartientBdd($nom, $adminBool){
+  public function ajoutAppartientBdd($pseudo, $nomGroupe, $adminBool){
     $sql = 'INSERT INTO teamhubp_teamhub.Appartient(u_pseudo, g_nom, a_admin)
              VALUES (:pseudo, :nomGroupe, :adminBool)';
-    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $_SESSION['pseudo'], 'nomGroupe'=> $nom, 'adminBool' => $adminBool));
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('pseudo'=> $pseudo, 'nomGroupe'=> $nomGroupe, 'adminBool' => $adminBool));
 
   }
 
@@ -71,14 +71,19 @@ class utilisateurs extends modele {
   public function supprimerAppartientBddNonAdmin($nom){ //Quitter un groupe
     $sql = 'DELETE FROM teamhubp_teamhub.Appartient WHERE g_nom = :nom AND u_pseudo = :pseudo';
     $supprimerAppartientBdd = $this ->executerRequete ($sql, array('nom' => $nom, 'pseudo'=>$_SESSION['pseudo']));
-    $sql2 = 'SELECT e_nom FROM teamhubp_teamhub. Evenements WHERE g_nom = ?';
-    $recupEvenementASupprimer = $this->executerRequete ($sql2, array($nom));
-    $evenements = $recupEvenementASupprimer->fetchAll();
-    $nb = count($evenements);
-    for ($i = 0; $i < $nb; $i++){
-      $sql3 = 'DELETE FROM teamhubp_teamhub.Participe WHERE e_nom = ?';
-      $supprimerGroupeParticipe = $this->executerRequete ($sql3, array($evenements[$i][0]));
+
+    $sql2 = 'SELECT e_placesLibres, e_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?)';
+    $recupPlacesEvent = $this->executerRequete($sql2, array($_SESSION['pseudo']));
+
+    $placesLibresEvent = $recupPlacesEvent->fetchAll();
+    foreach ($placesLibresEvent as list($placesLibresEvenement, $nomEvent)) {
+      settype($placesLibresEvenement, "integer");
+      $sql3 = 'UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = ? WHERE e_nom = ?';
+      $insererePlacesLibresEvent = $this->executerRequete($sql3, array($placesLibresEvenement+1, $nomEvent));
     }
+
+    $sql4 = 'DELETE FROM teamhubp_teamhub.Participe WHERE u_pseudo = ? AND e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Evenements WHERE g_nom = ?)';
+    $supprimerFromParticipe = $this->executerRequete($sql4, array($_SESSION['pseudo'], $nom));
   }
 
   public function afficherInfos(){
@@ -222,6 +227,13 @@ class utilisateurs extends modele {
     $sql = 'SELECT u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $afficherPhoto = $this->executerRequete($sql, array($nom));
     return $afficherPhoto;
+  }
+  public function ajoutGroupeAuto($nomGroupe, $pseudo){
+    $sql = 'INSERT INTO Appartient (u_pseudo, g_nom, a_admin) VALUES (:pseudo, :nomGroupe, :adminBool)';
+    $ajouterMembreAuto = $this->executerRequete($sql, array('pseudo' => $pseudo, 'nomGroupe' => $nomGroupe, 'a_admin' => "nonAdmin"));
+
+    $sql2 = 'DELETE FROM teamhubp_teamhub.Attend WHERE g_nom = ? AND u_pseudo = ?';
+    $supprimerMembreAttend = $this->executerRequete($sql2, array($nomGroupe, $pseudo));
   }
 
 }

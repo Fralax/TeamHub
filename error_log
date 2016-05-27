@@ -793,3 +793,148 @@ Stack trace:
 #6 {main}
   thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
 [24-May-2016 18:51:13 Europe/Paris] PHP Parse error:  syntax error, unexpected ''pse' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/teamhubp/public_html/Modeles/groupes.php on line 66
+[24-May-2016 18:56:45 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT(g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = 'Defarax')))' at line 1' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(15): groupes->afficherGroupesAccueil()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(49): accueil->affichageAccueil()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[24-May-2016 18:57:52 Europe/Paris] PHP Parse error:  syntax error, unexpected ''SELECT u_pseudo FROM teamhubp' (T_ENCAPSED_AND_WHITESPACE) in /home/teamhubp/public_html/Modeles/groupes.php on line 87
+[24-May-2016 18:58:18 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(15): groupes->afficherGroupesAccueil()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(49): accueil->affichageAccueil()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[24-May-2016 18:58:58 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(15): groupes->afficherGroupesAccueil()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(49): accueil->affichageAccueil()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[24-May-2016 18:59:00 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(66): modele->executerRequete('SELECT g_nom, g...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurAccueil.php(15): groupes->afficherGroupesAccueil()
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(49): accueil->affichageAccueil()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[24-May-2016 23:20:36 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[24-May-2016 23:21:52 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[24-May-2016 23:22:00 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[24-May-2016 23:22:45 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[24-May-2016 23:22:55 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[24-May-2016 23:22:55 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/teamhubp/public_html/Modeles/modele.php:21
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(21): PDO->__construct('mysql:host=loca...', 'root', 'root', Array)
+#1 /home/teamhubp/public_html/Modeles/modele.php(9): modele->getBdd()
+#2 /home/teamhubp/public_html/Modeles/evenements.php(106): modele->executerRequete('SELECT e_nom FR...')
+#3 /home/teamhubp/public_html/Controleurs/controleurEvenements.php(87): evenements->listerEvenements()
+#4 /home/teamhubp/public_html/Controleurs/routeur.php(41): controleurEvenements->suppressionEvenementsPasses()
+#5 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#6 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 21
+[25-May-2016 14:22:15 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/teamhubp/public_html/Vues/vue.php:19) in /home/teamhubp/public_html/Controleurs/controleurAccueil.php on line 59
+[25-May-2016 17:01:49 Europe/Paris] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/teamhubp/public_html/Controleurs/controleurGroupes.php:2) in /home/teamhubp/public_html/Controleurs/routeur.php on line 39
+[25-May-2016 18:20:35 Europe/Paris] PHP Fatal error:  Call to a member function ajouterAttendPlace() on a non-object in /home/teamhubp/public_html/Controleurs/controleurGroupes.php on line 189
+[25-May-2016 18:21:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(227): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(189): groupes->ajouterAttendPlace('\xC3\x80 fond la form...', '', '2016-05-25 18:2...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(289): controleurGroupes->rejointAutoGroupe()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[25-May-2016 18:29:21 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(227): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(189): groupes->ajouterAttendPlace('\xC3\x80 fond la form...', '', '2016-05-25 18:2...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(289): controleurGroupes->rejointAutoGroupe()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[25-May-2016 18:33:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(227): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(189): groupes->ajouterAttendPlace('\xC3\x80 fond la form...', '', '2016-05-25 18:3...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(289): controleurGroupes->rejointAutoGroupe()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[25-May-2016 18:34:07 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(227): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(189): groupes->ajouterAttendPlace('\xC3\x80 fond la form...', 'Defarax', '2016-05-25 18:3...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(289): controleurGroupes->rejointAutoGroupe()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13
+[25-May-2016 18:40:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/teamhubp/public_html/Modeles/modele.php:13
+Stack trace:
+#0 /home/teamhubp/public_html/Modeles/modele.php(13): PDOStatement->execute(Array)
+#1 /home/teamhubp/public_html/Modeles/groupes.php(227): modele->executerRequete('INSERT INTO tea...', Array)
+#2 /home/teamhubp/public_html/Controleurs/controleurGroupes.php(189): groupes->ajouterAttendPlace('\xC3\x80 fond la form...', 'Defarax', '2016-05-25 18:4...')
+#3 /home/teamhubp/public_html/Controleurs/routeur.php(289): controleurGroupes->rejointAutoGroupe()
+#4 /home/teamhubp/public_html/index.php(4): routeur->routerRequete()
+#5 {main}
+  thrown in /home/teamhubp/public_html/Modeles/modele.php on line 13

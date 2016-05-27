@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modeles/recherche.php';
+require_once 'Modeles/groupes.php';
 require_once 'Vues/vue.php';
 
 class controleurRecherche{
@@ -15,12 +16,14 @@ class controleurRecherche{
 
   public function affichageResultatsRecherche(){
     $recherche = new recherche();
+    $groupe = new groupes();
+    $recupGroupesAttend = $groupe->recupGroupesAttend()->fetchAll();
     $resultatRechercheGroupes = $recherche->rechercherGroupes()->fetchAll();
     $resultatRechercheMembres = $recherche->rechercherMembres()->fetchAll();
     $resultatRechercheClubs = $recherche->rechercherClubs()->fetchAll();
 
     $vue = new Vue('ResultatsRecherche');
-    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres, 'clubs' => $resultatRechercheClubs]);
+    $vue->generer(['groupes' => $resultatRechercheGroupes, 'membres' => $resultatRechercheMembres, 'clubs' => $resultatRechercheClubs, 'groupesAttend' => $recupGroupesAttend]);
   }
 
   public function affichageRechercheAvancee(){
@@ -39,10 +42,12 @@ class controleurRecherche{
 
   public function resultatRechercheAvanceeGroupes(){
     $recherche = new recherche();
+    $groupe = new groupes();
+    $recupGroupesAttend = $groupe->recupGroupesAttend()->fetchAll();
     $resultatRechercheAvanceeGroupes = $recherche->rechercherAvanceeGroupes($_GET['recherche1'], $_GET['recherche2'], $_GET['recherche3'], $_GET['recherche4'])->fetchAll();
 
     $vue = new Vue('ResultatRechercheAvanceeGroupes');
-    $vue->generer(['groupes' => $resultatRechercheAvanceeGroupes]);
+    $vue->generer(['groupes' => $resultatRechercheAvanceeGroupes, 'groupesAttend' => $recupGroupesAttend]);
   }
 
   public function resultatRechercheAvanceeMembres(){

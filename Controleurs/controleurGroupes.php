@@ -31,7 +31,7 @@ class controleurGroupes{
             echo "Votre groupe ne peut pas contenir plus de 100 places !";
             } else{
               $groupe->ajoutGroupeBdd();
-              $appartient->ajoutAppartientBdd($_POST['nomGroupe'], "admin");
+              $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $_POST['nomGroupe'], "admin");
               $groupe->diminuerPlacesLibres($nomGroupe);
               header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
             }
@@ -101,6 +101,7 @@ class controleurGroupes{
 
   public function modificationPlacesGroupe($nom){
     $groupe = new groupes();
+    $appartient = new utilisateurs();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       if($_POST['placesTotales'] < 2) {
         echo "Votre groupe doit contenir au moins deux places !";
@@ -109,6 +110,14 @@ class controleurGroupes{
           echo "Votre groupe ne peut pas contenir plus de 100 places !";
         } else{
         $groupe->modifierPlacesGroupe($nom);
+        $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
+        settype($placesLibres[0], "integer");
+        $membresEnAttente = $groupe->ajouterAutoGroupe($nom, $placesLibres[0])->fetchAll();
+        foreach ($membresEnAttente as list($nomMembre)) {
+          $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
+          $groupe->diminuerPlacesLibres($nom);
+          $groupe->supprimerAttendPlace($nom, $nomMembre);
+        }
         header("Location: index.php?page=groupe&nom=".$_GET['nom']);
         }
       }
@@ -130,14 +139,15 @@ class controleurGroupes{
 
   public function affichageGroupes(){
     $groupe = new groupes();
+    $recupGroupesAttend = $groupe->recupGroupesAttend()->fetchAll();
     $afficherGroupes = $groupe->afficherGroupes()->fetchAll();
     $vue = new Vue('Groupes');
-    $vue->generer(["groupes" => $afficherGroupes]);
+    $vue->generer(["groupes" => $afficherGroupes, "groupesAttend" => $recupGroupesAttend]);
   }
 
   public function rejoindreGroupe($nom){
     $appartient = new utilisateurs();
-    $appartient->ajoutAppartientBdd($nom, "nonAdmin");
+    $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $nom, "nonAdmin");
     $groupe = new groupes();
     $groupe->diminuerPlacesLibres($nom);
     $vue = new Vue('ConfirmationGroupe');
@@ -149,6 +159,14 @@ class controleurGroupes{
     $appartient->supprimerAppartientBddNonAdmin($nom);
     $groupe = new groupes();
     $groupe->augmenterPlacesLibres($nom);
+    $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
+    settype($placesLibres[0], "integer");
+    $membresEnAttente = $groupe->ajouterAutoGroupe($nom, $placesLibres[0])->fetchAll();
+    foreach ($membresEnAttente as list($nomMembre)) {
+      $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
+      $groupe->diminuerPlacesLibres($nom);
+      $groupe->supprimerAttendPlace($nom, $nomMembre);
+    }
     $vue = new Vue('QuitterGroupe');
     $vue->generer(["nom"=>$nom]);
   }
@@ -178,10 +196,36 @@ class controleurGroupes{
 
   public function bannissementMembre(){
     $groupe = new groupes();
+    $appartient = new utilisateurs();
     $bannirMembre = $groupe->bannirMembre($_GET['nom'], $_GET['pseudo']);
+    $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
+    settype($placesLibres[0], "integer");
+    $membresEnAttente = $groupe->ajouterAutoGroupe($_GET['nom'], $placesLibres[0])->fetchAll();
+    foreach ($membresEnAttente as list($nomMembre)) {
+      $appartient->ajoutAppartientBdd($nomMembre, $_GET['nom'], "nonAdmin");
+      $groupe->diminuerPlacesLibres($_GET['nom']);
+      $groupe->supprimerAttendPlace($_GET['nom'], $nomMembre);
+    }
     $vue = new Vue('ConfirmationBannissementMembre');
     $vue->generer(array('pseudo' => $_GET['pseudo'], 'nom' => $_GET['nom']));
   }
+
+  public function rejointAutoGroupe(){
+    $groupe = new groupes();
+    $dateBouton = Date('Y-m-d H:i:s');
+    $ajoutAttendPlace = $groupe->ajouterAttendPlace($_GET['nom'], $_GET['pseudo'], $dateBouton);
+
+    $vue = new Vue('ConfirmationNotifGroupe');
+    $vue->generer(array('nom' => $_GET['nom']));
+  }
+
+  public function neRejointPlusAutoGroupe(){
+    $groupe = new groupes();
+    $supprimeAttendPlace = $groupe->supprimerAttendPlace($_GET['nom'], $_GET['pseudo']);
+    $vue = new Vue('AnnulationNotifGroupe');
+    $vue->generer(array('nom' => $_GET['nom']));
+  }
+
 
 }
 
