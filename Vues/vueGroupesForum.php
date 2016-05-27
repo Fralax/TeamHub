@@ -9,6 +9,7 @@
 
 	<body>
     <h2> Groupes </h2>
+		<p> <a href="index.php?page=creersujet&categorie=Groupes" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>

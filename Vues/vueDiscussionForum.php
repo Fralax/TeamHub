@@ -9,6 +9,7 @@
 
 	<body>
     <h2> Discussion Générale  </h2>
+		<p> <a href="index.php?page=creersujet&categorie=Discussion" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>

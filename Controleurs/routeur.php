@@ -301,6 +301,10 @@
           $this->controleurForum->afficherSujet($_GET['categorie']);
           break;
 
+        case 'creersujet':
+          $this->controleurForum->creationSujet($_GET['categorie']);
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();

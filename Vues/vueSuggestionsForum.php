@@ -9,6 +9,7 @@
 
 	<body>
     <h2> Suggestions pour le site </h2>
+    <p> <a href="index.php?page=creersujet&categorie=Suggestions" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>

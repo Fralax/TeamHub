@@ -9,6 +9,7 @@
 
 	<body>
     <h2> Organisation d'une Competition </h2>
+		<p> <a href="index.php?page=creersujet&categorie=Competitions" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>

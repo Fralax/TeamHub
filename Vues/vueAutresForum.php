@@ -4,11 +4,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="Contenu/" />
-		<title>Suggestions</title>
+		<title>Autres</title>
 	</head>
 
 	<body>
     <h2> Autres </h2>
+		<p> <a href="index.php?page=creersujet&categorie=Autres" > Créer un nouveau Sujet </a> </p>
     <table>
       <tr>
         <td>
