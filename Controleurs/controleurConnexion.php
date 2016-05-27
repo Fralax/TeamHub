@@ -19,7 +19,7 @@ class connexion{
         if (!$resultatBanni){
           if ($resultatActif[0] == 1){
             session_start();
-            $_SESSION['pseudo'] = $_POST['pseudo'];
+            $_SESSION['pseudo'] = $resultatConnexion['u_pseudo'];
             header("Location: index.php?page=accueil");
           } else{
             header("Location: index.php?page=mailnonconfirme");

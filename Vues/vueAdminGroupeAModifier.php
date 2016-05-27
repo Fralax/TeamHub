@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Modifier l'admin d'un groupe</title>
+		<title>Modifier l'administrateur d'un groupe</title>
 	</head>
 	<body>
 

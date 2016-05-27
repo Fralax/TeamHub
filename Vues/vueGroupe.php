@@ -96,7 +96,8 @@
                   }
                   if ($participants == 0){
                     echo "Aucun participant";
-                  } else{
+                  }
+                  if($participants > 1){
                     echo $participants." participants";
                   }
                 ?>
@@ -140,7 +141,8 @@
                   }
                   if ($participants == 0){
                     echo "Aucun participant";
-                  } else{
+                  }
+                  if($participants > 1){
                     echo $participants." participants";
                   }
                 ?>
@@ -230,7 +232,8 @@
                 }
                 if ($participants == 0){
                   echo "Aucun participant";
-                } else{
+                }
+                if($participants > 1){
                   echo $participants." participants";
                 }
               ?>
@@ -276,7 +279,8 @@
                 }
                 if ($participants == 0){
                   echo "Aucun participant";
-                } else{
+                }
+                if($participants > 1){
                   echo $participants." participants";
                 }
               ?>
@@ -366,7 +370,8 @@
                 }
                 if ($participants == 0){
                   echo "Aucun participant";
-                } else{
+                }
+                if($participants > 1){
                   echo $participants." participants";
                 }
               ?>
@@ -453,7 +458,8 @@
                 }
                 if ($participants == 0){
                   echo "Aucun participant";
-                } else{
+                }
+                if($participants > 1){
                   echo $participants." participants";
                 }
               ?>
@@ -535,7 +541,8 @@
                 }
                 if ($participants == 0){
                   echo "Aucun participant";
-                } else{
+                }
+                if($participants > 1){
                   echo $participants." participants";
                 }
               ?>
