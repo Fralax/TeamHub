@@ -35,7 +35,7 @@ class utilisateurs extends modele {
   public function verifEmail(){
 
     $envoiInscription = $_POST['Envoyer'];
-      $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email ';
+      $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email';
       $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
       return $resultatE;
     }
@@ -44,7 +44,7 @@ class utilisateurs extends modele {
     $envoiConnexion = $_POST['connexion'];
     $envoiModifMdp = $_POST['modifMdp'];
     if ((isset($envoiConnexion) && $envoiConnexion == 'Connexion') || (isset($envoiModifMdp) && $envoiModifMdp == 'Modifier le Mot de Passe')){
-      $sql = 'SELECT u_mdp FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :connexionPseudo OR u_pseudo = :modifPseudo';
+      $sql = 'SELECT u_mdp, u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :connexionPseudo OR u_pseudo = :modifPseudo';
       $resultat = $this->executerRequete($sql, array('connexionPseudo' => $_POST['pseudo'], 'modifPseudo' => $_SESSION['pseudo']));
       return $resultat;
     }

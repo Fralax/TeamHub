@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div class="club">
-      <h2>Club <?php echo $caractClub['c_nom']?> </h2>
+      <h2><?php echo $caractClub['c_nom']?> </h2>
       <img src="imagesClubs/<?php echo $caractClub['c_image']; ?>"/>
       <p> Adresse :
       <?php echo $caractClub['c_adresse'] ?>
