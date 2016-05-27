@@ -10,7 +10,6 @@ class accueil{
   var $months = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
 
   public function affichageAccueil(){
-
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
     $invitations = $groupe->invitation()->fetchAll();

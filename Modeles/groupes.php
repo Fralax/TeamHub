@@ -220,5 +220,57 @@ class groupes extends modele {
   public function bannirMembre($nomGroupe, $pseudo){
     $sql = 'DELETE FROM teamhubp_teamhub.Appartient WHERE u_pseudo = :pseudo AND g_nom = :nomGroupe';
     $bannirMembre = $this->executerRequete ($sql, array('pseudo' => $pseudo, 'nomGroupe' => $nomGroupe));
+
+    $sql5 = 'SELECT e_placesLibres, e_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?)';
+    $recupPlacesEvent = $this->executerRequete($sql5, array($pseudo));
+
+    $placesLibresEvent = $recupPlacesEvent->fetchAll();
+    foreach ($placesLibresEvent as list($placesLibresEvenement, $nomEvent)) {
+      settype($placesLibresEvenement, "integer");
+      $sql6 = 'UPDATE teamhubp_teamhub.Evenements SET e_placesLibres = ? WHERE e_nom = ?';
+      $insererePlacesLibresEvent = $this->executerRequete($sql6, array($placesLibresEvenement+1, $nomEvent));
+    }
+
+    $sql2 = 'DELETE FROM teamhubp_teamhub.Participe WHERE u_pseudo = ? AND e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Evenements WHERE g_nom = ?)';
+    $supprimerFromParticipe = $this->executerRequete($sql2, array($pseudo, $nomGroupe));
+
+    $sql3 = 'SELECT g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
+    $recupPlacesLibresBan = $this->executerRequete($sql3, array($nomGroupe));
+
+    $placesLibres = $recupPlacesLibresBan->fetch();
+    settype($placesLibres[0], "integer");
+
+    $sql4 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = ?';
+    $insererPlacesLibres = $this->executerRequete($sql4, array($placesLibres[0]+1));
+
   }
+
+  public function ajouterAttendPlace($nomGroupe, $pseudo, $dateBouton){
+    $sql = 'INSERT INTO teamhubp_teamhub.Attend (u_pseudo, g_nom, a_date) VALUES (:pseudo, :nomGroupe, :dateBouton)';
+    $ajouterAttendPlace = $this->executerRequete($sql, array('pseudo' => $pseudo, 'nomGroupe' => $nomGroupe, 'dateBouton' => $dateBouton));
+  }
+
+  public function recupGroupesAttend(){
+    $sql = 'SELECT g_nom FROM Attend WHERE u_pseudo = ?';
+    $recupGroupesAttend = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $recupGroupesAttend;
+  }
+
+  public function supprimerAttendPlace($nomGroupe, $pseudo){
+    $sql = 'DELETE FROM teamhubp_teamhub.Attend WHERE g_nom = ? AND u_pseudo = ?';
+    $supprimerAttendPlace = $this->executerRequete($sql, array($nomGroupe, $pseudo));
+  }
+
+  public function recupPlacesLibres($nomGroupe){
+    $sql = "SELECT g_placesLibres FROM teamhubp_teamhub.Groupes WHERE g_nom = ?";
+    $recupPlacesLibres = $this->executerRequete($sql, array($nomGroupe));
+    return $recupPlacesLibres;
+  }
+
+  public function ajouterAutoGroupe($nomGroupe, $nbrPlacesLibres){
+    $sql = 'SELECT u_pseudo, g_nom FROM teamhubp_teamhub.Attend WHERE g_nom = ? ORDER BY a_date LIMIT '.$nbrPlacesLibres.'';
+    $recupAutoGroupe = $this->executerRequete($sql, array($nomGroupe));
+    return $recupAutoGroupe;
+  }
+
 }

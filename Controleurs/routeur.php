@@ -40,7 +40,7 @@
     }
 
     public function routerRequete(){
-      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
@@ -284,7 +284,15 @@
         case 'confirmationbannissementmembre':
           $this->controleurGroupes->bannissementMembre();
           break;
-          
+
+        case 'confirmationnotifgroupe':
+          $this->controleurGroupes->rejointAutoGroupe();
+          break;
+
+        case 'annulationnotifgroupe':
+          $this->controleurGroupes->neRejointPlusAutoGroupe();
+          break;
+
         case 'afficherAccueilForum':
           $this->controleurForum->afficherAccueilForum();
           break;
