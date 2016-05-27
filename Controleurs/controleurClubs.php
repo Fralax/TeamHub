@@ -17,7 +17,7 @@ class ControleurClubs{
         $resultatC = $club->verifClub()->fetch();
         if (!$resultatC){
           $club->ajouterClubBdd();
-          header('refresh:1;url=index.php?page=accueil');
+          header("Location: index.php?page=confirmationclub");
         } else {
           echo "Ce club existe déjà !";
         }
@@ -30,6 +30,12 @@ class ControleurClubs{
     $vue = new Vue('AjoutClub');
     $vue->generer();
   }
+
+
+    public function confirmationClub(){
+      $vue = new Vue('ConfirmationClub');
+      $vue->generer();
+    }
 
   public function listeclubs(){
     $club = new clubs();

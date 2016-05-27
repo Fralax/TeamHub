@@ -156,6 +156,10 @@
           $this->controleurClubs->ajoutClub();
           break;
 
+        case 'confirmationclub':
+          $this->controleurClubs->confirmationClub();
+          break;
+
         case 'listeclubs':
           $this->controleurClubs->listeclubs();
           break;
