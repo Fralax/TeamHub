@@ -49,7 +49,7 @@
           Etat
         </td>
       </tr>
-      <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $heureSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
+      <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
       <tr>
         <td>
           <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
@@ -64,7 +64,7 @@
         </td>
 
         <td>
-          <?php echo $dateSujet ?>  <?php echo $heureSujet ?>
+          <?php echo $dateSujet ?>
         </td>
 
         <td>
