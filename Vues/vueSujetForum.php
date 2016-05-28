@@ -3,8 +3,8 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/" />
-		<title>Autres</title>
+		<link rel="stylesheet" href="Contenu/vueSujetForum.css" />
+		<title>Sujet</title>
 	</head>
 
 	<body>

@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Modifier l'administrateur</title>
+		<link rel="stylesheet" href="Contenu/vueModifAdmin.css" />
+		<title>Modifier l'Administrateur</title>
 	</head>
 	<body>
 

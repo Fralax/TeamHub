@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
-		<title>Listes des Membres </title>
+		<link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
+		<title> Bannir un membre du Groupe </title>
 	</head>
 	<body>
 

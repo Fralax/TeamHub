@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title> Vous ne rejoindrez plus ce groupe automatiquement </title>
+    <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" />
   </head>
 
   <body>

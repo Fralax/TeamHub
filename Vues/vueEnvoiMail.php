@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueClub.css" />
-		<title>Liste des Clubs </title>
+		<link rel="stylesheet" href="Contenu/vueEnvoiMail.css" />
+		<title> Envoyer un mail </title>
 	</head>
 
   <?php
@@ -16,7 +16,7 @@
         $z=1;
       }
   ?>
-  
+
   <body>
     <?php if($z == 0){ ?>
       <h2>Envoyer un mail à un Membre</h2>

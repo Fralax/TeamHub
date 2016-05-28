@@ -1,7 +1,6 @@
 .conteneur{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
-  padding-left: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
   width: 45%;
@@ -14,5 +13,21 @@
 }
 
 .jeRecherche table{
+  margin: auto;
+}
+
+.jeRecherche table td{
+  padding-right: 1.5em;
+}
+
+.forms{
+  margin-top: 1em;
+}
+
+.forms p{
+  text-align: center;
+}
+
+.forms table{
   margin: auto;
 }

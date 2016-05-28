@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Supprimer un Evénement </title>
+		<link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
+		<title>Supprimer un Evénement</title>
 	</head>
 	<body>
 

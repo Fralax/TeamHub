@@ -40,18 +40,9 @@
   cursor: pointer;
 }
 
-.maPhoto span{
-  margin-left: 12em;
-  vertical-align: middle;
-  visibility: hidden;
-}
-
-.maPhoto img:hover + span {
-    visibility: visible;
-}
-
 .mesInfos{
   margin-top: 1em;
+  margin-bottom: 1em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -78,8 +69,26 @@
 
 .mesSports table{
   margin: auto;
+  color: white;
 }
 
 .mesSports td{
   padding-bottom: 1em;
+}
+
+#form2, #form3, #form4{
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  margin: auto;
+  width: 33%;
+}
+
+.ajoutSport{
+  text-align: center;
+  font-weight: bold;
 }

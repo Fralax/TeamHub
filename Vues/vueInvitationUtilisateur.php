@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Inviter un Utilisateur à votre Groupe </title>
+		<link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
+		<title>Inviter un Utilisateur à votre Groupe</title>
 	</head>
 	<body>
 

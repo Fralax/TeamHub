@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueClub.css" />
-		<title>Liste des Clubs </title>
+		<link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" />
+		<title>Envoyer un mail aux Membres</title>
 	</head>
 
   <?php

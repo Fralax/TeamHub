@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueClub.css" />
-		<title>Liste des Clubs </title>
+		<link rel="stylesheet" href="Contenu/vueModerationCommentairesClub.css" />
+		<title>Modérer des commentaires</title>
 	</head>
 
 	<?php

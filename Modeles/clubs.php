@@ -83,7 +83,7 @@ class clubs extends modele {
   }
 
   public function listerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
+    $sql = 'SELECT c_nom, c_adresse, c_cp, c_image FROM teamhubp_teamhub.Clubs';
     $listerClub = $this->executerRequete ($sql);
     return $listerClub;
   }

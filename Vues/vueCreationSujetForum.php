@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/" />
-		<title>Inscription</title>
+		<link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
+		<title>Créer un Sujet</title>
 	</head>
 	<body>
 		<div class="formulaire" >

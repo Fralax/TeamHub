@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Modifer un Club </title>
+		<link rel="stylesheet" href="Contenu/vueClubsAModifierInfos.css" />
+		<title>Modifer Photo du Club </title>
 	</head>
 	<body>
 
@@ -32,6 +33,6 @@
 	<?php if($a == 1){ ?>
 		Vous n'avez pas accès à cette page.
 	<?php } ?>
-	
+
   </body>
 </html>

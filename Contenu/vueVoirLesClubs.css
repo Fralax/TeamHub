@@ -1,4 +1,9 @@
+.liste{
+  text-align: center;
+}
+
 .clubs{
+  margin: auto;
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 1%;
@@ -6,4 +11,21 @@
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   color : white;
+  width: 80%;
+}
+
+.clubs table{
+  margin: auto;
+}
+
+.clubs table td{
+  padding-bottom: 1em;
+  padding-right: 1em;
+}
+
+
+.clubs img{
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
 }

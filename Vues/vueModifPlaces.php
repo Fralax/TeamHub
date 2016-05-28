@@ -1,7 +1,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Changement du nombre de places libres</title>
+		<link rel="stylesheet" href="Contenu/vueModifPlaces.css" />
+		<title>Changement du nombre de places dans le Groupe</title>
 	</head>
 	<body>
 

@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Quitter Groupe </title>
+    <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
+    <title> Supprimer un groupe </title>
   </head>
 
   <body>

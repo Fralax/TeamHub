@@ -7,11 +7,25 @@
 	</head>
 	<body>
 		<div class="clubs">
-			<h2>Liste des Clubs </h2>
+			<div class="liste">
+				<h2>Liste des Clubs </h2>
+			</div>
 
-	    <?php foreach ($club as list($nomClub, $adresseClub, $cpClub)) { ?>
-	    	<p> <a href="index.php?page=club&nom=<?php echo $nomClub?>"> <?php echo $nomClub?></a> situé au <?php echo $adresseClub?> <?php echo $cpClub?> </p>
-	    <?php } ?>
+			<table>
+				<?php foreach ($club as list($nomClub, $adresseClub, $cpClub, $image)) { ?>
+				<tr>
+					<td>
+						<img src="imagesClubs/<?php echo $image ?>"/>
+					</td>
+					<td>
+						<a href="index.php?page=club&nom=<?php echo $nomClub?>"> <?php echo $nomClub?></a>
+					</td>
+					<td>
+						situé au <?php echo $adresseClub?> <?php echo $cpClub?>
+					</td>
+				</tr>
+				<?php } ?>
+			</table>
 		</div>
 
   </body>

@@ -3,8 +3,8 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/" />
-		<title>Suggestions</title>
+		<link rel="stylesheet" href="Contenu/vueCompetitionsForum.css" />
+		<title>Compétitions</title>
 	</head>
 
 	<body>
@@ -64,7 +64,7 @@
         </td>
 
         <td>
-          <?php echo $dateSujet ?> 
+          <?php echo $dateSujet ?>
         </td>
 
         <td>

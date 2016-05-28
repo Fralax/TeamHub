@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Modifier l'administrateur d'un groupe</title>
+		<link rel="stylesheet" href="Contenu/vueAdminGroupeAModifier.css" />
 	</head>
 	<body>
 

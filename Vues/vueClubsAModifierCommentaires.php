@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
 		<title>Modifer un Club </title>
 	</head>
 	<body>
@@ -32,6 +33,6 @@
 		<?php if($a == 1){ ?>
 			Vous n'avez pas accès à cette page.
 		<?php } ?>
-		
+
   </body>
 </html>

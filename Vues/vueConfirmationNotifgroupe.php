@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" />
     <title> Vous rejoindrez ce groupe automatiquement </title>
   </head>
 

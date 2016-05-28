@@ -3,8 +3,8 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/" />
-		<title>Suggestions</title>
+		<link rel="stylesheet" href="Contenu/vueDiscussionForum.css" />
+		<title>Discussion</title>
 	</head>
 
 	<body>

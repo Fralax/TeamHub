@@ -33,12 +33,17 @@ class utilisateurs extends modele {
   }
 
   public function verifEmail(){
-
     $envoiInscription = $_POST['Envoyer'];
-      $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email';
-      $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
-      return $resultatE;
-    }
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = :Email';
+    $resultatE = $this->executerRequete($sql, array( 'Email' => $_POST['Email']));
+    return $resultatE;
+  }
+
+  public function recupEmailUtilisateur(){
+    $sql = 'SELECT u_email FROM Utilisateurs WHERE u_pseudo = ?';
+    $recupEmailUtilisateur = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    return $recupEmailUtilisateur;
+  }
 
   public function verifMdp(){
     $envoiConnexion = $_POST['connexion'];
@@ -72,8 +77,8 @@ class utilisateurs extends modele {
     $sql = 'DELETE FROM teamhubp_teamhub.Appartient WHERE g_nom = :nom AND u_pseudo = :pseudo';
     $supprimerAppartientBdd = $this ->executerRequete ($sql, array('nom' => $nom, 'pseudo'=>$_SESSION['pseudo']));
 
-    $sql2 = 'SELECT e_placesLibres, e_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?)';
-    $recupPlacesEvent = $this->executerRequete($sql2, array($_SESSION['pseudo']));
+    $sql2 = 'SELECT e_placesLibres, e_nom FROM teamhubp_teamhub.Evenements WHERE e_nom IN (SELECT e_nom FROM teamhubp_teamhub.Participe WHERE u_pseudo = ?) AND g_nom = ?';
+    $recupPlacesEvent = $this->executerRequete($sql2, array($_SESSION['pseudo'], $nom));
 
     $placesLibresEvent = $recupPlacesEvent->fetchAll();
     foreach ($placesLibresEvent as list($placesLibresEvenement, $nomEvent)) {

@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>bannir un membre </title>
+		<link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
+		<title> Bannir un membre </title>
 	</head>
 	<body>
 

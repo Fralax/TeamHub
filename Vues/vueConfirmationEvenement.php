@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title> Confirmation Groupe </title>
+    <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
+    <title> Confirmation Evénement </title>
   </head>
 
   <body>

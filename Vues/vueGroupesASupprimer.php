@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Supprimer un groupe </title>
+		<link rel="stylesheet" href="Contenu/vueGroupesASupprimer.css" />
+		<title>Supprimer un groupe</title>
 	</head>
 	<body>
 

@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="Contenu/vueValidationCompte.css" />
     <title> Confirmation du compte </title>
   </head>
 

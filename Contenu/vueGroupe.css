@@ -22,6 +22,19 @@
   text-align: center;
 }
 
+.infosGenerales{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color : white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  width: 30%;
+  text-align: center;
+  margin-top: 1em;
+}
+
 .nomEtDescription h2{
   font-size: 2em;
 }
@@ -48,4 +61,18 @@
 
 .mesEvenements table, .evenementsGroupe table{
   margin: auto;
+}
+
+.imageSport{
+  width: 20%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: auto;
+  border-radius: 50%;
+}
+
+.imageSport img{
+  margin: 1em;
+  width: 60%;
+  height: 60%;
 }
