@@ -166,6 +166,7 @@ class controleurGroupes{
       $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
       $groupe->diminuerPlacesLibres($nom);
       $groupe->supprimerAttendPlace($nom, $nomMembre);
+      $groupe->notificationNouveauMembre($nom, $nomMembre);
     }
     $vue = new Vue('QuitterGroupe');
     $vue->generer(["nom"=>$nom]);

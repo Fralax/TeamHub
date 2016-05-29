@@ -16,13 +16,13 @@
 
 <?php if ($n == 1){ ?>
 
-	<?php if ($invit[0][0] != "" || $acq[0][0] != ""){ ?>
+	<?php if ($invit[0][0] != "" || $acq[0][0] != "" || $notif[0][0] != ""){ ?>
 		<div class="notifications">
-			<?php if (count($invit)+count($acq) == 1): ?>
-				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notification ! </h3>
+			<?php if (count($invit)+count($acq)+count($notif) == 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq)+count($notif) ?> notification ! </h3>
 			<?php endif; ?>
-			<?php if (count($invit)+count($acq) != 1): ?>
-				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notifications ! </h3>
+			<?php if (count($invit)+count($acq)+count($notif) != 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq)+count($notif) ?> notifications ! </h3>
 			<?php endif; ?>
 			<table>
 				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
@@ -43,6 +43,16 @@
 						</td>
 						<td>
 							<a href="index.php?page=supprimeracquittement&nom=<?php echo $acquittementGroupe?>" > Ok </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<?php foreach ($notif as list($admin, $notificationGroupe, $membre)) { ?>
+					<tr>
+						<td>
+							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $notificationGroupe?>"> <?php echo $notificationGroupe?> </a>
+						</td>
+						<td>
+							<a href="index.php?page=supprimeracquittement&nom=<?php echo $notificationGroupe?>" > Ok </a>
 						</td>
 					</tr>
 				<?php } ?>
