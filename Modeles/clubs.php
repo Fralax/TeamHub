@@ -21,10 +21,13 @@ class clubs extends modele {
     $hoSamediFin = "{$_POST['hSamediFin']}:{$_POST['mSamediFin']}:00";
     $hoDimancheFin = "{$_POST['hDimancheFin']}:{$_POST['mDimancheFin']}:00";
 
-    //recup département du club
-    $numero = substr($_POST['cpClub'], 0, 2);
-    $sql1 = 'SELECT d_nom FROM Departements WHERE d_code =?';
-    $recupDepartement = $this->executerRequete ($sql1, array($numero));
+    $sql1= 'SELECT v_departement, v_nom FROM teamhubp_teamhub.Villes WHERE v_cp = ?';
+    $recup = $this->executerRequete ($sql1,array($_POST['cpClub']));
+    $localisation = $recup->fetch();
+    $ville = $localisation[1];
+    $codeDepartement = $localisation[0];
+    $sql2 = 'SELECT d_nom FROM teamhubp_teamhub.Departements WHERE d_code = ?';
+    $recupDepartement = $this->executerRequete ($sql2,array($codeDepartement));
     $departement = $recupDepartement->fetch();
 
     $fichier = $_FILES['photo']['name'];
@@ -40,14 +43,15 @@ class clubs extends modele {
      $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
 
      if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier)){
-       $sql = 'INSERT INTO teamhubp_teamhub.Clubs(c_nom, c_adresse, c_cp, c_departement, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
+       $sql = 'INSERT INTO teamhubp_teamhub.Clubs(c_nom, c_adresse, c_cp, c_ville, c_departement, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image)
 
-               VALUES (:nomClub, :adresseClub, :cpClub, :departementClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
+               VALUES (:nomClub, :adresseClub, :cpClub, :villeClub, :departementClub, :numeroClub, :hoLundiDebutClub, :hoMardiDebutClub, :hoMercrediDebutClub, :hoJeudiDebutClub, :hoVendrediDebutClub, :hoSamediDebutClub, :hoDimancheDebutClub,
                        :hoLundiFinClub, :hoMardiFinClub, :hoMercrediFinClub, :hoJeudiFinClub, :hoVendrediFinClub, :hoSamediFinClub, :hoDimancheFinClub, :hoCommentaireClub, :image)';
        $ajouterClubBdd = $this->executerRequete ($sql, array(
          'nomClub'=>$_POST['nomClub'],
          'adresseClub'=>$_POST['adresseClub'],
          'cpClub'=>$_POST['cpClub'],
+         'villeClub'=>$ville,
          'departementClub'=>$departement[0],
          'numeroClub'=>$_POST['numeroClub'],
          'hoLundiDebutClub'=>$hoLundiDebut,

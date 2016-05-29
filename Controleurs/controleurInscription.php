@@ -7,6 +7,7 @@ require_once 'Vues/vue.php';
 
    public function verif(){
 
+     $user = new utilisateurs();
      $nom=$_POST['nom'];
      $prenom=$_POST['Prenom'];
      $email=$_POST['Email'];
@@ -19,8 +20,6 @@ require_once 'Vues/vue.php';
      $mois = $_POST['mois'];
      $annee = $_POST['annee'];
      $sexe = $_POST['Sexe'];
-     $user = new utilisateurs();
-     $departements = $user->recupDepartements()->fetchAll();
 
      if(isset($envoyer) && $envoyer == 'Envoyer'){
        if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
@@ -79,7 +78,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.";
        }
      }
      $vue = new Vue('Inscription');
-     $vue->generer(['departements'=>$departements]);
+     $vue->generer();
    }
 
    public function affichageNonConfirme(){
