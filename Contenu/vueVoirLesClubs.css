@@ -29,3 +29,12 @@
   width: 3.5em;
   border-radius: 50%;
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}

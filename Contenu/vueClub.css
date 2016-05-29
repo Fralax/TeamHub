@@ -115,3 +115,12 @@ textarea{
 	height: 100px;
 	width: 70%;
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}

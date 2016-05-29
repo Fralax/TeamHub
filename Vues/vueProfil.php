@@ -155,6 +155,9 @@
 		</div>
  	<?php endif; ?>
 
+	<?php if($a == 3){ ?>
+		Vous n'avez pas accès au profil des membres si vous n'êtes pas connecté !
+	<?php } ?>
  	</body>
 
 	<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>

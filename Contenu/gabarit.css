@@ -121,12 +121,3 @@ footer img:hover{
   transition:transform .2s ease;
   transform: scale(1.2);
 }
-
-#main a{
-  text-decoration: none;
-  color: white;
-}
-
-#main a:hover{
-  color: grey;
-}

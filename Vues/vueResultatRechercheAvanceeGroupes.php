@@ -38,6 +38,7 @@
 								}
 								?>
 							</td>
+							<?php if (isset($_SESSION['pseudo'])) { ?>
 							<td>
 								<?php if($placesLibres != 0){ ?>
 								<a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $nom ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $nom; ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
@@ -63,6 +64,7 @@
 								<?php } ?>
 							<?php } ?>
 							</td>
+							<?php	} ?>
 						</tr>
 						<?php } ?>
 					<?php } ?>

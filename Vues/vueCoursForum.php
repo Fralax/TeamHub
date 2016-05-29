@@ -24,7 +24,7 @@
 		?>
 
     <h2> Organiser des Cours </h2>
-		<?php if ($n == 1){ ?>
+		<?php if ($n == 1 | $n == 3){ ?>
 		<p> <a href="index.php?page=creersujet&categorie=Cours" > Créer un nouveau Sujet </a> </p>
 		<?php } ?>
     <table>
@@ -74,11 +74,12 @@
             Clos
           <?php } ?>
         </td>
+
+				<?php if ($n == 3){ ?>
 				<td>
-					<?php if ($n == 3){ ?>
 						<a href="index.php?page=supprimersujet&id=<?php echo $id ?>"> Supprimer </a>
-					<?php } ?>
 				</td>
+				<?php } ?>
       </tr>
       <?php } ?>
     </table>

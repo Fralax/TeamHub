@@ -6,6 +6,7 @@ require_once 'Vues/vue.php';
  class inscription{
 
    public function verif(){
+     $user = new utilisateurs();
 
      $user = new utilisateurs();
      $nom=$_POST['nom'];

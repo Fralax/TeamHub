@@ -22,3 +22,12 @@
   width: 2.5em;
   height: 2.5em;
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}
