@@ -19,7 +19,7 @@ class utilisateurs extends modele {
       $departement = $recupDepartement->fetch();
 
       $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_cp, u_ville, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
-              VALUES (:pseudo, :nom, :prenom, :sexe, :cp, , :ville, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
+              VALUES (:pseudo, :nom, :prenom, :sexe, :cp, :ville, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
 
       $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'], 'cp' => $_POST['cp'], 'ville'=>$ville,
         'departement' => $departement[0],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
