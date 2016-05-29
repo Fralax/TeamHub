@@ -28,19 +28,19 @@
   margin: 1em;
 }
 
-.titreCategorie, .nomCategorie{
+.titreCategorie, .nomSujet{
   width: 50%;
 }
 
-.nomCategorie{
+.nomSujet{
   padding-top: 0.5em;
 }
 
-.nomCategorie a{
+.nomSujet a{
   color: black;
 }
 
-.description{
+.nomAuteurDate{
   padding-left: 1.5em;
   color: grey;
   font-style: italic;
@@ -60,7 +60,7 @@
   color: white;
 }
 
-.nbrMessages, .nbrSujets, .dernierMessage{
+.nbrReponses, .nbrVues, .dernierMessage{
   text-align: center;
 }
 
@@ -69,8 +69,18 @@
 }
 
 .boutonNouveauSujet{
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  background-color: rgba(245, 245, 225, 0.8);
   border-radius: 1em;
+  width: 13em;
+  text-align: center;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  margin: auto;
+  margin-bottom: 1em;
+
+}
+
+.boutonNouveauSujet a{
+  text-decoration: none;
+  color: black;
 }
