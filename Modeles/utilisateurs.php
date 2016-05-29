@@ -42,6 +42,12 @@ class utilisateurs extends modele {
     return $resultatE;
   }
 
+  public function verifCP(){
+    $sql = 'SELECT v_cp FROM teamhubp_teamhub.Villes WHERE v_cp = ?';
+    $verifCP = $this->executerRequete($sql, array($_POST['cp']));
+    return $verifCP;
+  }
+
   public function recupEmailUtilisateur(){
     $sql = 'SELECT u_email FROM Utilisateurs WHERE u_pseudo = ?';
     $recupEmailUtilisateur = $this->executerRequete($sql, array($_SESSION['pseudo']));

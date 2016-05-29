@@ -87,7 +87,7 @@ class clubs extends modele {
   }
 
   public function listerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp, c_image FROM teamhubp_teamhub.Clubs';
+    $sql = 'SELECT c_nom, c_adresse, c_cp, c_ville, c_image FROM teamhubp_teamhub.Clubs';
     $listerClub = $this->executerRequete ($sql);
     return $listerClub;
   }
@@ -99,7 +99,7 @@ class clubs extends modele {
   }
 
   public function afficherCaracteristiquesClub($nom){
-    $sql = 'SELECT c_nom, c_adresse, c_cp, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image
+    $sql = 'SELECT c_nom, c_adresse, c_cp, c_ville, c_numero, c_hoLundiDebut, c_hoMardiDebut, c_hoMercrediDebut, c_hoJeudiDebut, c_hoVendrediDebut, c_hoSamediDebut, c_hoDimancheDebut, c_hoLundiFin, c_hoMardiFin, c_hoMercrediFin, c_hoJeudiFin, c_hoVendrediFin, c_hoSamediFin, c_hoDimancheFin, c_hoCommentaire, c_image
             FROM teamhubp_teamhub.Clubs WHERE c_nom = ?';
     $afficherCaracteristiquesClub = $this->executerRequete($sql, array($nom));
     return $afficherCaracteristiquesClub;
