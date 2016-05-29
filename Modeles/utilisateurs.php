@@ -21,8 +21,8 @@ class utilisateurs extends modele {
       $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_cp, u_ville, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
               VALUES (:pseudo, :nom, :prenom, :sexe, :cp, :ville, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
 
-      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'],'nom' => $_POST['nom'],'prenom' => $_POST['Prenom'],'sexe' => $_POST['Sexe'], 'cp' => $_POST['cp'], 'ville'=>$ville,
-        'departement' => $departement[0],'portable' => $_POST['Portable'], 'email' => $_POST['Email'],'naissance' => $date,'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
+      $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'], 'nom' => $_POST['nom'], 'prenom' => $_POST['Prenom'], 'sexe' => $_POST['Sexe'], 'cp' => $_POST['cp'], 'ville'=>$ville,
+      'departement' => $departement[0], 'portable' => $_POST['Portable'], 'email' => $_POST['Email'], 'naissance' => $date, 'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
   }
 
   public function verifPseudo(){
@@ -95,7 +95,7 @@ class utilisateurs extends modele {
   }
 
   public function afficherInfos(){
-    $sql = 'SELECT u_prenom, u_nom, u_sexe, u_cp, u_region, u_portable, u_email, u_naissance, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $sql = 'SELECT u_prenom, u_nom, u_sexe, u_cp, u_ville, u_region, u_portable, u_email, u_naissance, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $afficherMesInfos = $this->executerRequete ($sql, array($_GET['nom']));
     return $afficherMesInfos;
   }
