@@ -187,25 +187,36 @@ class groupes extends modele {
   }
 
   public function inviterUtilisateur($nomGroupe){
-    $sql = 'INSERT INTO teamhubp_teamhub.Invite(g_admin, u_pseudo, g_nom) VALUES (:nomAdmin, :nomInvite, :nomGroupe)';
-    $inviterUtilisateur = $this->executerRequete ($sql, array('nomAdmin'=>$_SESSION['pseudo'], 'nomInvite'=>$_POST['nomInvite'], 'nomGroupe'=>$nomGroupe));
+    $sql = 'INSERT INTO teamhubp_teamhub.Notifie(g_admin, u_pseudo, g_nom, n_type) VALUES (:nomAdmin, :nomInvite, :nomGroupe, :type)';
+    $inviterUtilisateur = $this->executerRequete ($sql, array('nomAdmin'=>$_SESSION['pseudo'], 'nomInvite'=>$_POST['nomInvite'], 'nomGroupe'=>$nomGroupe, 'type'=>"invitation"));
   }
 
   public function invitePossible($nomGroupe){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE g_nom = ?) AND u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Invite WHERE g_nom = ?)';
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Appartient WHERE g_nom = ?) AND u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Notifie WHERE g_nom = ?)';
     $invitePossible = $this->executerRequete ($sql, array($nomGroupe, $nomGroupe));
     return $invitePossible;
   }
 
   public function invitation(){
-    $sql = 'SELECT g_admin, g_nom, u_pseudo FROM teamhubp_teamhub.Invite WHERE u_pseudo = ?';
-    $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo']));
+    $sql = 'SELECT g_admin, g_nom, u_pseudo FROM teamhubp_teamhub.Notifie WHERE u_pseudo = ? AND n_type = ?';
+    $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo'], "invitation"));
     return $invitation;
   }
 
+  public function acquittement(){
+    $sql = 'SELECT g_admin, g_nom, u_pseudo FROM teamhubp_teamhub.Notifie WHERE g_admin = ? AND n_type = ?';
+    $acquittement = $this->executerRequete ($sql, array($_SESSION['pseudo'], "acquittement"));
+    return $acquittement;
+  }
+
   public function supprimerInvitation($nomGroupe){
-    $sql = 'DELETE FROM teamhubp_teamhub.Invite WHERE u_pseudo = ? AND g_nom = ?';
+    $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE u_pseudo = ? AND g_nom = ?';
     $supprimerInvitation= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));
+  }
+
+  public function supprimerAcquittement($nomGroupe){
+    $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE g_admin = ? AND g_nom = ?';
+    $supprimerAcquittement= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));
   }
 
   public function confirmerInvitation($nomGroupe){
@@ -213,8 +224,12 @@ class groupes extends modele {
     $recupAdmin = $this->executerRequete ($sql, array($nomGroupe));
     $adminGroupe = $recupAdmin->fetch();
 
-    $sql1 = 'INSERT INTO teamhubp_teamhub.Invite(g_admin, u_pseudo, g_nom) VALUES (:nomAdmin, :nomInvite, :nomGroupe)';
-    $inviterUtilisateur = $this->executerRequete ($sql1, array('nomAdmin'=>$adminGroupe['0'], 'nomInvite'=>$_SESSION['pseudo'], 'nomGroupe'=>$nomGroupe));
+    $sql1 = 'INSERT INTO teamhubp_teamhub.Notifie(g_admin, u_pseudo, g_nom, n_type) VALUES (:nomAdmin, :nomInvite, :nomGroupe, :type)';
+    $inviterUtilisateur = $this->executerRequete ($sql1, array('nomAdmin'=>$adminGroupe[0], 'nomInvite'=>$_SESSION['pseudo'], 'nomGroupe'=>$nomGroupe, 'type'=>"acquittement"));
+  }
+
+  public function notificationNouveauMembre($nomGroupe){
+    
   }
 
   public function bannirMembre($nomGroupe, $pseudo){

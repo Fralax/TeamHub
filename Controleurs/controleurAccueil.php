@@ -13,6 +13,7 @@ class accueil{
     $groupe = new groupes();
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
     $invitations = $groupe->invitation()->fetchAll();
+    $acquittement = $groupe->acquittement()->fetchAll();
     $evenements = new evenements();
     $afficherEvenements = $evenements->listerEvenementsAccueil()->fetchAll();
     $afficherSugestionGroupes = $groupe->afficherGroupeRegion()->fetchAll();
@@ -21,7 +22,7 @@ class accueil{
     $afficherSugestionSports = $groupe->afficherGroupeSport($sports[0][0])->fetchAll();
     $vue = new Vue('Accueil');
 
-    $vue->generer(array("groupes" => $afficherMesGroupes, 'invit'=>$invitations, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$departement, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
+    $vue->generer(array("groupes" => $afficherMesGroupes, 'invit'=>$invitations, 'acq'=>$acquittement, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$departement, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
   }
 
   public function affichageAPropos(){
@@ -58,10 +59,17 @@ class accueil{
     header("Location: index.php?page=accueil");
   }
 
-  // public function envoieConfirm($nomGroupe){
-  //   $groupe = new groupes();
-  //   $groupe->confirmerInvitation($nomGroupe);
-  // }
+  public function envoieConfirm($nomGroupe){
+    $groupe = new groupes();
+    $groupe->confirmerInvitation($nomGroupe);
+    header("Location: index.php?page=accueil");
+  }
+
+  public function suppressionAcquittement($nomGroupe){
+    $groupe = new groupes();
+    $groupe->supprimerAcquittement($nomGroupe);
+    header("Location: index.php?page=accueil");
+  }
 }
 
 ?>
