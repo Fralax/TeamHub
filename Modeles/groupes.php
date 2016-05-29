@@ -240,8 +240,8 @@ class groupes extends modele {
     $placesLibres = $recupPlacesLibresBan->fetch();
     settype($placesLibres[0], "integer");
 
-    $sql4 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = ?';
-    $insererPlacesLibres = $this->executerRequete($sql4, array($placesLibres[0]+1));
+    $sql4 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = ? WHERE g_nom = ?';
+    $insererPlacesLibres = $this->executerRequete($sql4, array($placesLibres[0]+1, $nomGroupe));
 
   }
 

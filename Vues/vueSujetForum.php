@@ -40,7 +40,7 @@
       </tr>
 
       <tr>
-        <td class = "photoMembre">
+        <td>
           <?php
           $utilisateur = new utilisateurs();
           $photo = $utilisateur->afficherPhotoForum($message['f_auteur'])->fetch();
@@ -63,7 +63,7 @@
           </td>
 
           <td>
-            RE : <?php echo explode("<br>",$message['f_sujet']) ?>
+            RE : <?php echo $message['f_sujet'] ?>
             <?php if ($n == 2){ ?>
               <a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer </a>
             <?php } ?>
@@ -71,7 +71,7 @@
         </tr>
 
         <tr>
-          <td class = "photoMembre">
+          <td>
             <?php
             $utilisateur = new utilisateurs();
             $photo = $utilisateur->afficherPhotoForum($auteur)->fetch();
@@ -80,7 +80,7 @@
           </td>
 
           <td>
-            <?php echo explode("<br>",$reponse) ?>
+            <?php echo $reponse ?>
           </td>
         </tr>
       </table>
