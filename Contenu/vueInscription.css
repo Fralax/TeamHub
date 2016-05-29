@@ -6,3 +6,12 @@
   padding-left: 10px;
   border-radius: 1em;
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}

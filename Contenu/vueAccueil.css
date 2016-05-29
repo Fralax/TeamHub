@@ -240,3 +240,12 @@ table td .events li{
 h3{
   color : rgba(255, 255, 215, 1);
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}

@@ -6,7 +6,6 @@ require_once 'Vues/vue.php';
 class controleurForum{
 
   public function afficherAccueilForum(){
-
     $vue = new Vue('AccueilForum');
     $vue->generer();
   }
@@ -14,8 +13,8 @@ class controleurForum{
   public function afficherSujet($categorie){
     $forum = new forum();
     $sujets = $forum->afficherSujet($categorie)->fetchAll();
-    $vue = new Vue($categorie.'Forum');
-    $vue->generer(array('sujets'=>$sujets));
+    $vue = new Vue('CategorieForum');
+    $vue->generer(array('sujets'=>$sujets, 'categorie' => $_GET['categorie']));
   }
 
   public function creationSujet($categorie){

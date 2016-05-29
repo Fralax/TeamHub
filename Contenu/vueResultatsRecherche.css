@@ -60,3 +60,12 @@
   height: 4em;
   border-radius: 50%;
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: grey;
+}
