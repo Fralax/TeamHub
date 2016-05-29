@@ -24,10 +24,11 @@
     ?>
 
     <div class="conteneur">
+      <?php if ($n == 1 || $n == 3){ ?>
       <div class="boutonNouveauSujet">
-        
+        <p> <a href="index.php?page=creersujet&categorie=<?php echo $_GET['categorie'] ?>" > Créer un nouveau Sujet </a> </p>
       </div>
-
+      <?php } ?>
       <table class="tableauSujets">
 
 				<thead class="enTete">
@@ -47,32 +48,13 @@
 					</tr>
 				</thead>
 
-				<tr>
-					<td class="nomSujet">
-						nomSujet
-					</td>
-					<td class="nbrReponses" rowspan = "2">
-						nbrRéponses
-					</td>
-          <td class="nbrVues" rowspan = "2">
-            nbrVues
-          </td>
-					<td class="dernierMessage" rowspan = "2">
-						dernierMessage
-					</td>
-				</tr>
-        <tr>
-          <td class="nomAuteurDate">
-            par nomAuteur le dateSujet
-          </td>
-        </tr>
-
+        <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
         <tr>
           <td class="nomSujet">
-            nomSujet2
+            <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
           </td>
           <td class="nbrReponses" rowspan = "2">
-            nbrRéponses
+            <?php echo $nombreReponsesSujet ?>
           </td>
           <td class="nbrVues" rowspan = "2">
             nbrVues
@@ -83,13 +65,13 @@
         </tr>
         <tr>
           <td class="nomAuteurDate">
-            par nomAuteur le dateSujet
+            par <?php echo $auteurSujet ?> le <?php echo $dateSujet ?>
           </td>
         </tr>
+        <?php } ?>
 			</table>
 
     </div>
-
 
   </body>
 

@@ -36,8 +36,7 @@ class forum extends modele {
   }
 
   public function repondreSujet($id){
-    $dateA = date('Y-m-d');
-    $heureA = date('H:i');
+    $dateA = date('Y-m-d H:i');
 
     $sql = 'INSERT INTO teamhubp_teamhub.messageForum(m_auteur, m_message, f_id, m_date) VALUES (:auteurReponse, :messageReponse, :idSujet, :dateMessage)';
     $creationSujet = $this->executerRequete($sql, array(
@@ -76,6 +75,13 @@ class forum extends modele {
     $sql = 'SELECT faq_id, faq_question, faq_reponse FROM teamhubp_teamhub.FAQ';
     $faq = $this->executerRequete ($sql);
     return $faq;
+  }
+
+  public function recupSujetsAccueil($categorie){
+    $sql = 'SELECT COUNT(*) FROM sujetForum WHERE f_categorie = ?';
+    $recupSujetsAccueil = $this->executerRequete($sql, array($categorie));
+    return $recupSujetsAccueil;
+
   }
 }
 ?>

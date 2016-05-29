@@ -67,3 +67,10 @@
 .conteneur a{
   text-decoration: none;
 }
+
+.boutonNouveauSujet{
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 1em;
+}

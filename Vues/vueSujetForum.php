@@ -40,7 +40,7 @@
       </tr>
 
       <tr>
-        <td>
+        <td class = "photoMembre">
           <?php
           $utilisateur = new utilisateurs();
           $photo = $utilisateur->afficherPhotoForum($message['f_auteur'])->fetch();
@@ -71,7 +71,7 @@
         </tr>
 
         <tr>
-          <td>
+          <td class = "photoMembre">
             <?php
             $utilisateur = new utilisateurs();
             $photo = $utilisateur->afficherPhotoForum($auteur)->fetch();

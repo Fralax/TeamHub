@@ -60,10 +60,27 @@
   color: white;
 }
 
-.nbrMessages, .nbrSujets, .dernierMessage{
+.nbrReponses, .nbrVues, .dernierMessage{
   text-align: center;
 }
 
 .conteneur a{
   text-decoration: none;
+}
+
+.boutonNouveauSujet{
+  background-color: rgba(245, 245, 225, 0.8);
+  border-radius: 1em;
+  width: 13em;
+  text-align: center;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  margin: auto;
+  margin-bottom: 1em;
+
+}
+
+.boutonNouveauSujet a{
+  text-decoration: none;
+  color: black;
 }
