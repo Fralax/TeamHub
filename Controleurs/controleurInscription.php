@@ -23,45 +23,54 @@ require_once 'Vues/vue.php';
      $sexe = $_POST['Sexe'];
 
      if(isset($envoyer) && $envoyer == 'Envoyer'){
-       if (($nom != "") && ($prenom != "") && ($sexe != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
+       if (($nom != "") && ($prenom != "") && ($sexe != "") && ($_POST['cp'] != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
        && ($confirmMotDePasse != "")){
          $resultatP = $user->verifPseudo()->fetch();
          $resultatE = $user->verifEmail()->fetch();
          if(($email == $confirmEmail) && ($motDePasse == $confirmMotDePasse)){
-           if (!$resultatP && !$resultatE){
-             if (iconv_strlen($motDePasse)>=8){
-               if (iconv_strlen($pseudo)<=12){
-                 $cle = md5(microtime(TRUE)*100000);
-                 $user->ajoutUtilisateurBdd($cle);
+           if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $email)){
+             if (!$resultatP && !$resultatE){
+               $resultatCP = $user->verifCP()->fetch();
+               if ($resultatCP){
+                 if (iconv_strlen($motDePasse)>=8){
+                   if (iconv_strlen($pseudo)<=12){
+                     $cle = md5(microtime(TRUE)*100000);
+                     $user->ajoutUtilisateurBdd($cle);
 
-                 $destinataire = $email;
-                 $sujet = "Confirmation d'inscription" ;
-                 $entete = "Inscription sur le site" ;
-                 $message = "Bienvenue sur TeamHub,
+                     $destinataire = $email;
+                     $sujet = "Confirmation d'inscription" ;
+                     $entete = "Inscription sur le site" ;
+                     $message = "Bienvenue sur TeamHub,
 
-Merci de votre inscription et bienvenue sur TeamHub !
-Pour confirmer votre inscription, veuillez cliquer sur le lien ci-dessous :
-http://teamhub.pingfiles.fr/index.php?page=validationcompte&pseudo=".$_POST['pseudo']."&cle=".$cle."
----------------
-Ceci est un mail automatique, Merci de ne pas y répondre.";
+    Merci de votre inscription et bienvenue sur TeamHub !
+    Pour confirmer votre inscription, veuillez cliquer sur le lien ci-dessous :
+    http://teamhub.pingfiles.fr/index.php?page=validationcompte&pseudo=".$_POST['pseudo']."&cle=".$cle."
+    ---------------
+    Ceci est un mail automatique, Merci de ne pas y répondre.";
 
-                 mail($destinataire, $sujet, $message, $entete);
+                     mail($destinataire, $sujet, $message, $entete);
 
-                 header("Location: index.php?page=mailnonconfirme");
+                     header("Location: index.php?page=mailnonconfirme");
+                   } else {
+                     echo "Votre Pseudo ne doit pas dépasser 12 caractères !";
+                   }
+                 } else {
+                   echo "Votre mot de passe doit comporter plus de 8 caractères !";
+                 }
                } else {
-                 echo "Votre Pseudo ne doit pas dépasser 12 caractères !";
+                 echo "Ce code Postal n'est pas valable !";
                }
-             } else {
-               echo "Votre mot de passe doit comporter plus de 8 caractères !";
              }
-           }
-           else{
-             if ($resultatP) {
-                echo "Ce pseudo est déjà utilisé";
-              }
-             elseif ($resultatE) {
-                echo "Vous êtes déjà inscrit";
-              }
+             else{
+               if ($resultatP) {
+                  echo "Ce pseudo est déjà utilisé";
+                }
+               elseif ($resultatE) {
+                  echo "Vous êtes déjà inscrit";
+                }
+             }
+           } else {
+             echo "L'Email renseigné n'est pas correct !";
            }
          }
          else{
