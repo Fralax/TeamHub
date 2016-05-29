@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div class="formulaire" >
-			<h2>Création d'un nouveau sujet</h2>
+			<h2>Création d'un nouveau sujet dans <?php echo $_GET['categorie'] ?></h2>
 			<form name = "formulaireNouveauSujet" method="post" action = "">
 				<p> Nom du groupe : <input type="text" name="nomSujet" placeholder="Nom du Sujet" size="25" value = "<?= $_POST['nomSujet'] ?>"/> </p>
         <p>

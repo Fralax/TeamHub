@@ -80,6 +80,11 @@
 
 }
 
+.nomAuteurDate a{
+  text-decoration: none;
+  color: red;
+}
+
 .boutonNouveauSujet a{
   text-decoration: none;
   color: black;

@@ -65,7 +65,10 @@
         </tr>
         <tr>
           <td class="nomAuteurDate">
-            par <?php echo $auteurSujet ?> le <?php echo $dateSujet ?>
+            <?php $dateEntiereSujet = date_create($dateSujet) ?>
+            <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
+            <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
+            par <b><a href="index.php?page=profil&nom=<?php echo $auteurSujet ?>"><?php echo $auteurSujet ?></a></b>, le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
           </td>
         </tr>
         <?php } ?>

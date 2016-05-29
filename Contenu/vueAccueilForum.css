@@ -22,6 +22,7 @@
   border-collapse:separate;
   margin-bottom: 1.5em;
   background-color: rgba(245, 245, 225, 0.8);
+  width: 60em
 }
 
 .conteneur table td{
@@ -38,6 +39,7 @@
 
 .nomCategorie a{
   color: black;
+  font-weight: bold;
 }
 
 .description{
@@ -48,7 +50,24 @@
 }
 
 .dernierMessage{
-  width: 30%;
+  width: 40%;
+}
+
+.dernierMessageSujet a{
+  text-decoration: none;
+  color: green;
+}
+
+.dernierMessageAuteur a{
+  text-decoration: none;
+  color: red;
+}
+
+.dernierMessageAuteur{
+  padding-left: 1.5em;
+  color: grey;
+  font-style: italic;
+  font-size: 0.8em;
 }
 
 .enTete th{
@@ -60,7 +79,7 @@
   color: white;
 }
 
-.nbrMessages, .nbrSujets, .dernierMessage{
+.nbrMessages, .nbrSujets{
   text-align: center;
 }
 
