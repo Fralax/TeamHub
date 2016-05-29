@@ -84,7 +84,7 @@
         case 'acceptgroupe':
           $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
-          //$this->controleurAccueil->envoieConfirm($_GET['nom']);
+          $this->controleurAccueil->envoieConfirm($_GET['nom']);
           break;
 
         case 'quittergroupe':
@@ -263,6 +263,10 @@
 
         case 'supprimernotif':
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
+          break;
+
+        case 'supprimeracquittement':
+          $this->controleurAccueil->suppressionAcquittement($_GET['nom']);
           break;
 
         case 'bannirmembregroupe':

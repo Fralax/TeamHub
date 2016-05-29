@@ -12,7 +12,7 @@
 
 			<form name = "formulaireNouvelEvenement" method="post" action = "">
 
-				<p> <input type="text" name="nomEvenement" placeholder="Nom de l'évenement" size="25" /> </p>
+				<p> <input type="text" name="nomEvenement" placeholder="Nom de l'évenement" size="25" value = "<?= $_POST['nomEvenement'] ?>"/> </p>
 
 	      <p>Date de l'événement :
 
@@ -54,14 +54,14 @@
 	        </select>
 	      </p>
 				<p>Nombre de places
-					<input type="number" name="nbrPlaces" value="">
+					<input type="number" name="nbrPlaces" value="<?= $_POST['nbrPlaces'] ?>">
 				</p>
 				<p>
 					Club :
 					<select name="club">
 						<option value=""> -- Nom du Club -- </option>
 						<?php foreach ($clubs as list($nom)) { ?>
-						<option value = "<?php echo $nom ?>"> <?php echo $nom ?> </option>
+						<option value = "<?php echo $nom ?>" <?php if ($_POST['club']== $nom){?> selected <?php }?>> <?php echo $nom ?> </option>
 						<?php } ?>
 					</select>
 				</p>

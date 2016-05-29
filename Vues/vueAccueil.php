@@ -16,13 +16,13 @@
 
 <?php if ($n == 1){ ?>
 
-	<?php if ($invit[0][0] != ""){ ?>
+	<?php if ($invit[0][0] != "" || $acq[0][0] != ""){ ?>
 		<div class="notifications">
-			<?php if (count($invit) == 1): ?>
-				<h3> Vous avez <?php echo count($invit) ?> notification ! </h3>
+			<?php if (count($invit)+count($acq) == 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notification ! </h3>
 			<?php endif; ?>
-			<?php if (count($invit) != 1): ?>
-				<h3> Vous avez <?php echo count($invit) ?> notifications ! </h3>
+			<?php if (count($invit)+count($acq) != 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notifications ! </h3>
 			<?php endif; ?>
 			<table>
 				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
@@ -31,8 +31,18 @@
 							<?php echo $admin?> vous invite à rejoindre son Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $invitationGroupe?>"> <?php echo $invitationGroupe?> </a>
 						</td>
 						<td>
-							<a href="index.php?page=confirmationgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
+							<a href="index.php?page=acceptgroupe&nom=<?php echo $invitationGroupe?>" > Accepter </a>
 							<a href="index.php?page=supprimernotif&nom=<?php echo $invitationGroupe?>" > Refuser </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<?php foreach ($acq as list($admin, $acquittementGroupe, $membre)) { ?>
+					<tr>
+						<td>
+							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $acquittementGroupe?>"> <?php echo $acquittementGroupe?> </a>
+						</td>
+						<td>
+							<a href="index.php?page=supprimeracquittement&nom=<?php echo $acquittementGroupe?>" > Ok </a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -196,7 +206,7 @@
 				<?php } else {?>
 					<div class="pasDeSport">
 						<p> <b>  Vous n'avez pas renseigné de sport ! Nous vous suggérons d'en ajouter un ! </b> </p>
-						<p> <a href="index.php?page=ajoutsport"> Ajoutez un sport </a> </p>
+						<p> <a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> Ajoutez un sport </a> </p>
 					</div>
 				<?php } ?>
 			<?php } ?>
