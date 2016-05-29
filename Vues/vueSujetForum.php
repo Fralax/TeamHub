@@ -63,7 +63,7 @@
           </td>
 
           <td>
-            RE : <?php echo $message['f_sujet'] ?>
+            RE : <?php echo explode("<br>",$message['f_sujet']) ?>
             <?php if ($n == 2){ ?>
               <a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer </a>
             <?php } ?>
@@ -80,7 +80,7 @@
           </td>
 
           <td>
-            <?php echo $reponse ?>
+            <?php echo explode("<br>",$reponse) ?>
           </td>
         </tr>
       </table>

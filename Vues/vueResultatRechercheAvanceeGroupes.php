@@ -24,6 +24,10 @@
 						<?php foreach ($groupes as list($nom, $admin, $sport, $departement, $placesLibres)){ ?>
 						<tr>
 							<td>
+								<?php $afficherImageSport = $groupe->afficherImage($nom)->fetch(); ?>
+								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+							</td>
+							<td>
 								<a href="index.php?page=groupe&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 							</td>
 							<td>

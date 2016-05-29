@@ -77,7 +77,7 @@ require_once 'Vues/vue.php';
            if ($email != $confirmemail){
              echo "Les adresses mail saisies ne sont pas identiques.";
            }
-           if ($motDePasse != $confirmMotDePasse){
+           elseif ($motDePasse != $confirmMotDePasse){
              echo "Les mots de passe saisis ne sont pas identiques.";
            }
          }

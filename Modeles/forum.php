@@ -10,7 +10,7 @@ class forum extends modele {
     $creationSujet = $this->executerRequete($sql, array(
       'categorieSujet'=>$categorie,
       'nomSujet'=>$_POST['nomSujet'],
-      'message'=>$_POST['message'],
+      'message'=>nl2br($_POST['message']),
       'dateSujet'=>$dateA,
       'auteurSujet'=>$_SESSION['pseudo'],
       'nombreReponsesSujet'=>"0",
@@ -42,7 +42,7 @@ class forum extends modele {
     $sql = 'INSERT INTO teamhubp_teamhub.messageForum(m_auteur, m_message, f_id, m_date) VALUES (:auteurReponse, :messageReponse, :idSujet, :dateMessage)';
     $creationSujet = $this->executerRequete($sql, array(
       'auteurReponse'=>$_SESSION['pseudo'],
-      'messageReponse'=>$_POST['message'],
+      'messageReponse'=>nl2br($_POST['message']),
       'idSujet'=>$id,
       'dateMessage'=>$dateA));
   }
