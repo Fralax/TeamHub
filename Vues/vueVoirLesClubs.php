@@ -12,7 +12,7 @@
 			</div>
 
 			<table>
-				<?php foreach ($club as list($nomClub, $adresseClub, $cpClub, $image)) { ?>
+				<?php foreach ($club as list($nomClub, $adresseClub, $cpClub, $villeClub, $image)) { ?>
 				<tr>
 					<td>
 						<img src="imagesClubs/<?php echo $image ?>"/>
@@ -21,7 +21,7 @@
 						<a href="index.php?page=club&nom=<?php echo $nomClub?>"> <?php echo $nomClub?></a>
 					</td>
 					<td>
-						situé au <?php echo $adresseClub?> <?php echo $cpClub?>
+						situé au <?php echo $adresseClub?> <?php echo $cpClub?> <?php echo $villeClub?>
 					</td>
 				</tr>
 				<?php } ?>

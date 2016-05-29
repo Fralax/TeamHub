@@ -12,8 +12,8 @@
       <p> Adresse :
       <?php echo $caractClub['c_adresse'] ?>
       </p>
-      <p> Code Postal :
-      <?php echo $caractClub['c_cp'] ?>
+      <p>
+      <?php echo $caractClub['c_cp'] ?> <?php echo $caractClub['c_ville'] ?>
       </p>
       <p> Numéro de téléphone :
       <?php echo $caractClub['c_numero'] ?>
