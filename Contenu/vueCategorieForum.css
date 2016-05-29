@@ -1,0 +1,69 @@
+.titre{
+  background-color: rgba(245, 245, 225, 0.8);
+  width: 60%;
+  color : black;
+  text-align: center;
+  margin: auto;
+  border-radius: 1em;
+}
+
+
+.conteneur{
+  margin: auto;
+  border-radius: 1em;
+  padding-top: 0.5%;
+  padding-bottom: 1%;
+  padding-left: 1em;
+  width: 90%;
+}
+
+.conteneur table{
+  margin: auto;
+  border-collapse:separate;
+  margin-bottom: 1.5em;
+  background-color: rgba(245, 245, 225, 0.8);
+}
+
+.conteneur table td{
+  margin: 1em;
+}
+
+.titreCategorie, .nomSujet{
+  width: 50%;
+}
+
+.nomSujet{
+  padding-top: 0.5em;
+}
+
+.nomSujet a{
+  color: black;
+}
+
+.nomAuteurDate{
+  padding-left: 1.5em;
+  color: grey;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.dernierMessage{
+  width: 30%;
+}
+
+.enTete th{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.enTete th a{
+  color: white;
+}
+
+.nbrMessages, .nbrSujets, .dernierMessage{
+  text-align: center;
+}
+
+.conteneur a{
+  text-decoration: none;
+}
