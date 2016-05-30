@@ -129,5 +129,17 @@ class forum extends modele {
     return $dernierMessage;
   }
 
+  public function recupCategorie($id){
+    $sql = 'SELECT f_categorie FROM teamhubp_teamhub.sujetForum WHERE f_id =?';
+    $recupCategorie = $this->executerRequete($sql, array($id));
+    return $recupCategorie;
+  }
+
+  public function recupIdSujet($idMessage){
+    $sql = 'SELECT f_id FROM teamhubp_teamhub.messageForum WHERE m_id =?';
+    $recupIdSujet = $this->executerRequete($sql, array($idMessage));
+    return $recupIdSujet;
+  }
+
 }
 ?>

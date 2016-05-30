@@ -228,15 +228,19 @@ Merci de ne pas répondre à ce mail.";
   public function suppressionMessageForum($id){
     $admin = new administration();
     $forum = new forum();
+    $idSujet = $forum->recupIdSujet($id)->fetch();
+    $forum->decrementeNbReponses($idSujet[0]);
+    $categorie = $forum->recupCategorie($idSujet[0])->fetch();
     $admin->supprimerMessageForum($id);
-    $forum->decrementeNbReponses($id);
-    header("Location: index.php?page=administration");
+    header("Location: index.php?page=forum&categorie=".$categorie[0]);
   }
 
   public function suppressionSujetForum($id){
     $admin = new administration();
+    $forum = new forum();
+    $categorie = $forum->recupCategorie($id)->fetch();
     $admin->supprimerSujetForum($id);
-    header("Location: index.php?page=administration");
+    header("Location: index.php?page=forum&categorie=".$categorie[0]);
   }
 
   public function ajoutQuestion(){
