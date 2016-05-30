@@ -3,6 +3,10 @@
   border-radius: 1em;
   text-align: center;
   color : white;
+  width: 40%;
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .mesGroupes h3{

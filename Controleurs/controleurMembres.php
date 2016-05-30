@@ -62,8 +62,8 @@ class membres{
     if (isset($_POST['modifMdp']) && $_POST['modifMdp'] == 'Modifier le Mot de Passe'){
       if (iconv_strlen($_POST['NouveauMotDePasse'])>=8){
         if($_POST['AncienMotDePasse'] != "" && $_POST['NouveauMotDePasse'] != "" && $_POST['ConfirmNouveauMotDePasse'] != ""){
-          $resultatRecupMdp = $user->verifMdp()->fetch();
-          if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
+          $resultatRecupMotDePasse = $utilisateurs->verifMdp()->fetch();
+          if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMotDePasse[0])){
             echo 'Votre ancien Mot de Passe est incorrect !';
           } else{
             if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
@@ -72,7 +72,7 @@ class membres{
               if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
                 echo 'Les nouveaux Mots de Passe saisis sont différents !';
               } else{
-                  $modifierMonMdp = $user->modifierMonMdp();
+                  $modifierMonMdp = $utilisateurs->modifierMonMdp();
                   header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
                 }
               }

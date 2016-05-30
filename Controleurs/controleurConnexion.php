@@ -67,7 +67,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.";
 
   public function reinitialisationMotDePasse($cle){
     $user = new utilisateurs();
-    $cleBDD = $user->recupCleMdpVerif($pseudo)->fetch();
+    $cleBDD = $user->recupCleMdpVerif($_GET['pseudo'])->fetch();
     if (isset($_POST['valider'])) {
       if ($cleBDD[0] == $cle) {
         if ($_POST['mdp'] == $_POST['mdpConfirm']) {
