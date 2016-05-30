@@ -1,3 +1,4 @@
+<?php $this->titre = " Erreur"; ?>
 <?php $titre; ?>
 
 <?php ob_start() ?>

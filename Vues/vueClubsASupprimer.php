@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Club"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +25,7 @@
 				<table>
 					<tr>
 						<td> <?php echo $nomclubs?> </td>
-						<td> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce club : <?php echo $nomclubs?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo $nomclubs?>'; return false"> <input type="button" name="Supprimer" value="Supprimer"> </a> </td>
+						<td> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce club : <?php echo addslashes($nomclubs)?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo addslashes($nomclubs)?>'; return false"> <input type="button" name="Supprimer" value="Supprimer"> </a> </td>
 					</tr>
 				</table>
 	    <?php } ?>

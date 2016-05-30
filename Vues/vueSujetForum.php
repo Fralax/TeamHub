@@ -1,3 +1,4 @@
+<?php $this->titre = "Forum - Sujet"; ?>
 <!DOCTYPE html>
 <html>
 

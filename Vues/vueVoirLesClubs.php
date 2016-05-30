@@ -1,3 +1,4 @@
+<?php $this->titre = "Club - Tous les Clubs"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

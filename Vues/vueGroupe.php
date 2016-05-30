@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupe - ".$caract['g_nom']; ?>
 <!DOCTYPE html>
 <html>
 
@@ -76,7 +77,6 @@
           <a href="index.php?page=inviterutilisateur&nom=<?php echo $caract['g_nom']?>"> <h3> Inviter à rejoindre le groupe</h3></a>
           <?php } ?>
           <a href="index.php?page=bannirmembregroupe&nom=<?php echo $_GET['nom']?>"> <h3> Bannir un membre du groupe </h3></a>
-
           <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Supprimer le groupe</h3></a>
         </div>
       </div>
@@ -116,10 +116,10 @@
                 ?>
               </td>
               <td>
-                <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom; ?>'; return false"> <input type = "button" name="Quitter" value="Quitter" > </a>
+                <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Quitter" value="Quitter" > </a>
               </td>
               <td>
-                <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom; ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+                <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
               </td>
             </tr>
             <?php } ?>
@@ -173,7 +173,7 @@
               </td>
               <?php } ?>
               <td>
-                <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+                <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
               </td>
               <?php } else{ ?>
                 <td>
@@ -181,7 +181,7 @@
                 </td>
               <?php } ?>
               <td>
-                <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+                <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
               </td>
             </tr>
             <?php } ?>
@@ -221,7 +221,7 @@
       <div class="actionsGroupe">
         <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
-        <a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo $_GET['nom'] ?>'; return false"><h3>Quitter le groupe</h3></a>
+        <a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Quitter le groupe</h3></a>
       </div>
     </div>
     <div class="evenements">
@@ -260,11 +260,11 @@
               ?>
             </td>
             <td>
-              <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo $nom ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment quitter l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=quitterevenement&evenement=<?php echo addslashes($nom) ?>'; return false">  <input type = "button" name="Quitter" value="Quitter" > </a>
             </td>
             <?php if ($createur == $_SESSION['pseudo']){ ?>
             <td>
-              <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Supprimer" value="Supprimer" > </a>
             </td>
             <?php } ?>
           <?php } ?>
@@ -319,7 +319,7 @@
             </td>
             <?php } ?>
             <td>
-              <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo $nom ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo $nom ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+              <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
             </td>
             <?php } else{ ?>
               <td>
@@ -362,7 +362,7 @@
         </div>
       </div>
       <div class="actionsGroupe">
-        <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $_GET['nom'] ?>'; return false"> <h3> Rejoindre le groupe <h3></a>
+        <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"> <h3> Rejoindre le groupe <h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>

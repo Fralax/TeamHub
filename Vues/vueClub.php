@@ -1,3 +1,4 @@
+<?php $this->titre = "Club - ".$caractClub['c_nom']; ?>
 <!DOCTYPE html>
 <html>
 	<head>

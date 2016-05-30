@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Bannissement Groupe"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

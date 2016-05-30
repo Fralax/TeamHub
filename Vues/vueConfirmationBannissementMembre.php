@@ -1,3 +1,4 @@
+<?php $this->titre = "Confirmation - Bannissement"; ?>
 <!DOCTYPE html>
 <html>
   <head>

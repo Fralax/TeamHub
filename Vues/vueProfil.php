@@ -1,3 +1,4 @@
+<?php $this->titre = "Profil - ".$_GET['nom']; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,7 +48,7 @@
 								<tr>
 									<td> <?php echo $sport ?> </td>
 									<td>
-										<a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce sport : <?php echo $sport ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo $sport ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer"></a>
+										<a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce sport : <?php echo addslashes($sport) ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo addslashes($sport) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer"></a>
 									</td>
 								</tr>
 							<?php } ?>

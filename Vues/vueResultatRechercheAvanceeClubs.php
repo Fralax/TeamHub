@@ -1,3 +1,4 @@
+<?php $this->titre = "Recherche Avancée - Club"; ?>
 <!DOCTYPE html>
 <html>
 

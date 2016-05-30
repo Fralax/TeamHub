@@ -1,3 +1,4 @@
+<?php $this->titre = "Confirmation - Mot de Passe"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

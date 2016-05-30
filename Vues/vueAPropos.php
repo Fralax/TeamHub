@@ -1,3 +1,4 @@
+<?php $this->titre = "A Propos"; ?>
 <!DOCTYPE html>
 <html>
   <head>

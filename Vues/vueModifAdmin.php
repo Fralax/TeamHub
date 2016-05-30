@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Administrateur Groupe"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +19,6 @@
       </select>
       <input type="submit" name="Modifier" value="Modifier" >
     </form>
-
 
   </body>
 </html>

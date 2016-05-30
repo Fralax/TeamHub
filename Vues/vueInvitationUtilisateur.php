@@ -1,3 +1,4 @@
+<?php $this->titre = "Invitation - Membre "; ?>
 <!DOCTYPE html>
 <html>
 	<head>

@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Club"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupes - Mes Groupes"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,7 @@
 									<?php echo $nbrEvenements." événements en cours" ?>
 								</td>
 								<td>
-									<a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo $nomMesGroupeAdmin ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo $nomMesGroupeAdmin?>'; return false"> <input name="Supprimer" type="button" value="Supprimer le groupe"> </a>
+									<a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo addslashes($nomMesGroupeAdmin) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($nomMesGroupeAdmin) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer le groupe"> </a>
 								</td>
 							</tr>
 
@@ -59,7 +60,7 @@
 								<?php echo $nbrEvenements." événements en cours" ?>
 							</td>
 							<td>
-								<a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo $nomMesGroupe ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo $nomMesGroupe?>'; return false"> <input name="quitter" type="submit" value="Quitter le groupe"> </a>
+								<a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo addslashes($nomMesGroupe) ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo addslashes($nomMesGroupe) ?>'; return false"> <input name="quitter" type="submit" value="Quitter le groupe"> </a>
 							</td>
 						</tr>
 					<?php } ?>

@@ -1,3 +1,4 @@
+<?php $this->titre = "Forum - ".$_GET['categorie']; ?>
 <!DOCTYPE html>
 <html>
 

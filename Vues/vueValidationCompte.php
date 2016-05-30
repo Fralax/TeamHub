@@ -1,3 +1,4 @@
+<?php $this->titre = "Validation Compte"; ?>
 <!DOCTYPE html>
 <html>
   <head>

@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Mail"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

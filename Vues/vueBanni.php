@@ -1,3 +1,4 @@
+<?php $this->titre = "Banni"; ?>
 <!DOCTYPE html>
 <html>
   <head>

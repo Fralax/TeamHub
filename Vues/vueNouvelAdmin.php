@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Administrateur"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
