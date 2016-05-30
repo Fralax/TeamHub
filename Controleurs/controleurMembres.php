@@ -9,6 +9,7 @@ class membres{
     $utilisateurs = new utilisateurs();
     $afficherMesInfos = $utilisateurs->afficherInfos()->fetch();
     $afficherMesSports = $utilisateurs->afficherSports()->fetchAll();
+    $afficherMesGroupes = $utilisateurs->afficherGroupes()->fetchAll();
     $recupEmail = $utilisateurs->recupEmailUtilisateur()->fetch();
 
     // AJOUT DES SPORTS NON PRATIQUES
@@ -85,7 +86,7 @@ class membres{
       }
 
     $vue = new Vue('Profil');
-    $vue->generer(array('infos' => $afficherMesInfos, 'sports'=> $afficherMesSports, 'sportsNonPratiques' => $sportsNonPratiques));
+    $vue->generer(array('infos' => $afficherMesInfos, 'sports'=> $afficherMesSports, 'groupes'=>$afficherMesGroupes, 'sportsNonPratiques' => $sportsNonPratiques));
   }
 
   public function suppressionSport($sport){
