@@ -35,7 +35,8 @@ require_once 'Vues/vue.php';
                  if (iconv_strlen($motDePasse)>=8){
                    if (iconv_strlen($pseudo)<=12){
                      $cle = md5(microtime(TRUE)*100000);
-                     $user->ajoutUtilisateurBdd($cle);
+                     $cleMDP=md5(microtime(TRUE)*100000);
+                     $user->ajoutUtilisateurBdd($cle, $cleMDP);
 
                      $destinataire = $email;
                      $sujet = "Confirmation d'inscription" ;
@@ -44,6 +45,7 @@ require_once 'Vues/vue.php';
 
     Merci de votre inscription et bienvenue sur TeamHub !
     Pour confirmer votre inscription, veuillez cliquer sur le lien ci-dessous :
+
     http://teamhub.pingfiles.fr/index.php?page=validationcompte&pseudo=".$_POST['pseudo']."&cle=".$cle."
     ---------------
     Ceci est un mail automatique, Merci de ne pas y répondre.";

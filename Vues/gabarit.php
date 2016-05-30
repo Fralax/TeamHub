@@ -246,6 +246,7 @@
                     <p> <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="Mot de Passe" required> </p>
                     <p> <input name="connexion" type="submit" id="connexion" value = "Connexion"> </p>
                   </form>
+                  <a href="index.php?page=motdepasseoublie">Mot de Passe oublié ?</a>
                 </li>
               </ul>
             </li><!--
