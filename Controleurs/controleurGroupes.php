@@ -21,7 +21,7 @@ class controleurGroupes{
     $recupSports = $appartient->sportsPraticables()->fetchAll();
 
     if(!empty($creer)){
-      if($nomGroupe != "" && $placesLibres != "" && $sport !="0" && $departement!="0"){
+      if($nomGroupe != "" && $placesLibres != "" && $sport !="" && $departement!="" && $_POST['Description'] != " "){
         $resultatG = $groupe->verifGroupe()->fetch();
         if (!$resultatG){
           if($placesLibres < 2){

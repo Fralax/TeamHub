@@ -14,7 +14,7 @@
 			  <p> Nombre de places totales : <input type="number" name="placesLibres" placeholder="Nombre de places" size="25"  min="2" max="100" value = "<?= $_POST['placesLibres'] ?>" /> </p>
 				<p>
 	        <select name="sport">
-	          <option value="0"> -- Sélectionnez un sport -- </option>
+	          <option value=""> -- Sélectionnez un sport -- </option>
 						<?php foreach ($sports as list($nomSports)) { ?>
 							<option value = "<?php echo $nomSports?>" <?php if ($_POST['sport']== $nomSports){?> selected <?php }?>> <?php echo $nomSports?> </option>
 						<?php } ?>
@@ -29,6 +29,10 @@
 						<?php endforeach; ?>
 					</select>
 				</p>
+				<p>
+	       <label for="Description"> Ecrivez une description pour votre groupe :</label><br />
+	       <textarea name="Description" cols="50" rows="3" > <?php echo $_POST['Description'] ?> </textarea>
+	     </p>
 
 				<p> <input name="creer" type="submit" value="Créer"> </p>
 			</form>
