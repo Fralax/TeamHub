@@ -11,8 +11,9 @@ class controleurForum{
   }
 
   public function afficherSujet($categorie){
+    $_SESSION['currentPage'] = $_SERVER['REQUEST_URI'];
     $forum = new forum();
-    $sujets = $forum->afficherSujet($categorie)->fetchAll();
+    $sujets = $forum->afficherSujets($categorie)->fetchAll();
     $vue = new Vue('CategorieForum');
     $vue->generer(array('sujets'=>$sujets, 'categorie' => $_GET['categorie']));
   }
@@ -27,7 +28,7 @@ class controleurForum{
     $vue->generer();
   }
 
-  public function affichageDetailleSujet($id){
+  public function affichageDetailsSujet($id){
     $forum = new forum();
     if (isset($_POST['Repondre']) && $_POST['Repondre'] == 'Répondre'){
       if ($_POST['message'] != ""){
@@ -55,6 +56,22 @@ class controleurForum{
 
     $vue = new Vue('FAQ');
     $vue->generer(array('faq'=>$faq));
+  }
+
+  public function modificationVues($idSujet){
+    $forum = new forum();
+    $currentPage = $_SERVER['REQUEST_URI'];
+
+    if ($_SESSION['currentPage'] != $currentPage){
+      $_SESSION['currentPage'] = $currentPage;
+      $recupVues = $forum->recupVuesSujet($idSujet)->fetch();
+
+      settype($recupVues[0], "integer");
+      $nbrVues = $recupVues[0] + 1;
+
+      $insertVues = $forum->insertVuesSujet($idSujet, $nbrVues);
+      $currentPage = $_SERVER['REQUEST_URI'];
+    }
   }
 
 }

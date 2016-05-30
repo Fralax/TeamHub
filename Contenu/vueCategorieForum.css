@@ -22,6 +22,7 @@
   border-collapse:separate;
   margin-bottom: 1.5em;
   background-color: rgba(245, 245, 225, 0.8);
+  width: 60em;
 }
 
 .conteneur table td{
@@ -48,7 +49,7 @@
 }
 
 .dernierMessage{
-  width: 30%;
+  width: 40%;
 }
 
 .enTete th{
@@ -60,12 +61,24 @@
   color: white;
 }
 
-.nbrReponses, .nbrVues, .dernierMessage{
+.nbrReponses, .nbrVues{
   text-align: center;
 }
 
 .conteneur a{
   text-decoration: none;
+}
+
+.dernierMessageAuteur a{
+  text-decoration: none;
+  color: red;
+}
+
+.dernierMessageDate{
+  padding-left: 1.5em;
+  color: grey;
+  font-style: italic;
+  font-size: 0.8em;
 }
 
 .boutonNouveauSujet{

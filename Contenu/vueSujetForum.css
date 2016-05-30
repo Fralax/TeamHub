@@ -1,4 +1,39 @@
-.photoMembre img{
-  width: 2.5em;
-  height: 2.5em;
+.conteneur img{
+  width: 6em;
+  height: 6em;
+  border-radius: 50%
+}
+
+.detailsSujet{
+  margin: auto;
+}
+
+.photoMembreSujet{
+  text-align: center;
+  width: 30%;
+  border-right: 1px solid;
+  height: 10em;
+}
+
+.enTeteSujet{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.enTeteSujet td{
+  padding-left: 1em;
+}
+
+.conteneur table{
+  background-color: rgba(245, 245, 225, 0.8);
+  border-collapse: collapse;
+  width: 60em;
+}
+
+.message{
+  width: 70%;
+}
+
+.message td{
+  padding-left: 0.5em;
 }

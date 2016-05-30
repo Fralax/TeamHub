@@ -6,7 +6,7 @@ class forum extends modele {
 
   public function creerSujet($categorie){
     $dateA = date('Y-m-d H:i:s');
-    $sql = 'INSERT INTO teamhubp_teamhub.sujetForum(f_categorie, f_sujet, f_message, f_date, f_auteur, f_nombreReponses, f_actif, f_dateDernierCommentaire) VALUES (:categorieSujet, :nomSujet, :message, :dateSujet, :auteurSujet, :nombreReponsesSujet, :activiteSujet, :dateDernierCommentaire)';
+    $sql = 'INSERT INTO teamhubp_teamhub.sujetForum(f_categorie, f_sujet, f_message, f_date, f_auteur, f_nombreReponses, f_actif, f_dateDernierCommentaire, f_nbrVues) VALUES (:categorieSujet, :nomSujet, :message, :dateSujet, :auteurSujet, :nombreReponsesSujet, :activiteSujet, :dateDernierCommentaire, :nbrVues)';
     $creationSujet = $this->executerRequete($sql, array(
       'categorieSujet'=>$categorie,
       'nomSujet'=>$_POST['nomSujet'],
@@ -15,7 +15,8 @@ class forum extends modele {
       'auteurSujet'=>$_SESSION['pseudo'],
       'nombreReponsesSujet'=>"0",
       'activiteSujet'=>"1",
-      'dateDernierCommentaire' => $dateA));
+      'dateDernierCommentaire' => $dateA,
+      'nbrVues' => "0"));
 
     $sql3 = 'SELECT f_id FROM teamhubp_teamhub.sujetForum WHERE f_sujet = ?';
     $recupID = $this->executerRequete($sql3, array($_POST['nomSujet']))->fetch();
@@ -24,8 +25,8 @@ class forum extends modele {
     $ajoutMessagebddd = $this->executerRequete($sql2, array('auteur' => $_SESSION['pseudo'], 'message'=>nl2br($_POST['message']), 'id' => $recupID[0], 'dateMessage' => $dateA));
   }
 
-  public function afficherSujet($categorie){
-    $sql = 'SELECT f_id, f_sujet, f_date, f_auteur, f_nombreReponses, f_actif FROM teamhubp_teamhub.sujetForum WHERE f_categorie = ? ORDER BY f_dateDernierCommentaire DESC';
+  public function afficherSujets($categorie){
+    $sql = 'SELECT f_id, f_sujet, f_date, f_auteur, f_nombreReponses, f_actif, f_nbrVues FROM teamhubp_teamhub.sujetForum WHERE f_categorie = ? ORDER BY f_dateDernierCommentaire DESC';
     $afficherSujet = $this->executerRequete ($sql, array($categorie));
     return $afficherSujet;
   }
@@ -110,5 +111,23 @@ class forum extends modele {
     $recupDernierSujetAccueil = $this->executerRequete($sql, array($categorie));
     return $recupDernierSujetAccueil;
   }
+
+  public function recupVuesSujet($idSujet){
+    $sql = 'SELECT f_nbrVues FROM teamhubp_teamhub.sujetForum WHERE f_id =?';
+    $recupVuesSujet = $this->executerRequete($sql, array($idSujet));
+    return $recupVuesSujet;
+  }
+
+  public function insertVuesSujet($idSujet, $nbrVues){
+    $sql = 'UPDATE teamhubp_teamhub.sujetForum SET f_nbrVues = :nbrVues WHERE f_id = :id';
+    $insertVuesSujet = $this->executerRequete($sql, array('id' => $idSujet, 'nbrVues' => $nbrVues));
+  }
+
+  public function recupDernierMessage($idSujet){
+    $sql = 'SELECT m_auteur, m_date FROM teamhubp_teamhub.messageForum WHERE f_id = ? ORDER BY m_date DESC LIMIT 1';
+    $dernierMessage = $this->executerRequete($sql, array($idSujet));
+    return $dernierMessage;
+  }
+
 }
 ?>

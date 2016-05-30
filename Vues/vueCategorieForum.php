@@ -48,7 +48,7 @@
 					</tr>
 				</thead>
 
-        <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet)){ ?>
+        <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet, $nbrVues)){ ?>
         <tr>
           <td class="nomSujet">
             <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
@@ -57,10 +57,22 @@
             <?php echo $nombreReponsesSujet ?>
           </td>
           <td class="nbrVues" rowspan = "2">
-            nbrVues
+            <?php echo $nbrVues ?>
           </td>
           <td class="dernierMessage" rowspan = "2">
-            dernierMessage
+            <?php
+						$forum = new forum();
+						$dernierMessage = $forum->recupDernierMessage($id)->fetch();
+						?>
+						<div class="dernierMessageAuteur">
+							Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"> <?php echo $dernierMessage['m_auteur'] ?> </a>
+						</div>
+						<div class="dernierMessageDate">
+							<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
+							<?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
+							<?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
+							le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+						</div>
           </td>
         </tr>
         <tr>
