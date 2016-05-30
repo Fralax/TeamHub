@@ -11,21 +11,42 @@
 .photoMembreSujet{
   text-align: center;
   width: 30%;
-  border-right: 1px solid;
   height: 10em;
+  border-right: 1px solid;
 }
 
-.enTeteSujet{
+.enTeteSujetTop, .enTeteSujet{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
 .enTeteSujet td{
-  padding-left: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.enTeteSujetTop td{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.dateActions{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.dateActions a{
+  text-decoration: none;
+  color: white;
+}
+
+.dateActions a:hover{
+  color: grey;
+  text-decoration: underline;
 }
 
 .conteneur table{
-  background-color: rgba(245, 245, 225, 0.8);
   border-collapse: collapse;
   width: 60em;
 }
@@ -36,4 +57,22 @@
 
 .message td{
   padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.conteneur{
+  padding: 0.1em;
+  margin: auto;
+  width: 60em;
+  background-color: rgba(245, 245, 225, 0.8);
+  margin-bottom: 1em;
+}
+
+.conteneur2{
+  padding-top: 1em;
+  text-align: center;
+  background-color: rgba(245, 245, 225, 0.8);
+  width: 30em;
+  margin: auto;
+  border-radius: 1em;
 }

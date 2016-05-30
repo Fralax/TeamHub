@@ -58,6 +58,10 @@
   color: green;
 }
 
+.dernierMessageSujet a:hover{
+  text-decoration: underline;
+}
+
 .dernierMessageAuteur a{
   text-decoration: none;
   color: red;

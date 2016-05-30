@@ -69,9 +69,9 @@
 						</div>
 						<div class="dernierMessageDate">
 							<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
-							<?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
-							<?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-							le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+							<?php $dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y') ?>
+							<?php $heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s') ?>
+							le <b><?php echo $dateSujetDernierMessage ?></b> à <b><?php echo $heureSujetDernierMessage ?></b>
 						</div>
           </td>
         </tr>

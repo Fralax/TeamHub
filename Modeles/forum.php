@@ -32,13 +32,13 @@ class forum extends modele {
   }
 
   public function detailSujet($id){
-    $sql = 'SELECT f_auteur, f_sujet, f_message, f_id, f_actif FROM teamhubp_teamhub.sujetForum WHERE f_id = ?';
+    $sql = 'SELECT f_auteur, f_sujet, f_message, f_id, f_actif, f_date FROM teamhubp_teamhub.sujetForum WHERE f_id = ?';
     $detailSujet = $this->executerRequete ($sql, array($id));
     return $detailSujet;
   }
 
   public function afficherReponse($id){
-    $sql = 'SELECT m_auteur, m_message, m_id FROM teamhubp_teamhub.messageForum WHERE f_id = ? AND m_message NOT IN (SELECT f_message FROM teamhubp_teamhub.sujetForum WHERE f_id = ?) ORDER BY m_date ASC';
+    $sql = 'SELECT m_auteur, m_message, m_id, m_date FROM teamhubp_teamhub.messageForum WHERE f_id = ? AND m_message NOT IN (SELECT f_message FROM teamhubp_teamhub.sujetForum WHERE f_id = ?) ORDER BY m_date ASC';
     $afficherReponse = $this->executerRequete ($sql, array($id, $id));
     return $afficherReponse;
   }
