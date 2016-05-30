@@ -51,6 +51,9 @@
         <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet, $nbrVues)){ ?>
         <tr>
           <td class="nomSujet">
+						<?php if ($activiteSujet == "0"): ?>
+							<img src="Autres/lock.png" width="20px" height="20px"/>
+						<?php endif; ?>
             <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
           </td>
           <td class="nbrReponses" rowspan = "2">

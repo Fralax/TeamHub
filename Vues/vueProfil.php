@@ -151,12 +151,20 @@
 						<?php } ?>
 					</table>
 				</div>
+			</div>
+
+			<div class="conteneur2">
 				<div class="mesGroupes">
 					<h2>Les groupes de <?php echo $_GET['nom'] ?></h2>
 					<table>
 						<?php foreach ($groupes as list($nomGroupes)){?>
 							<tr>
-								<td> <?php echo $nomGroupes ?> </td>
+								<td>
+									<?php $groupe = new groupes() ?>
+									<?php $afficherImageSport = $groupe->afficherImage($nomGroupes)->fetch(); ?>
+									<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+								</td>
+								<td><a href="index.php?page=groupe&nom=<?php echo $nomGroupes ?>"><?php echo $nomGroupes ?></a> </td>
 							</tr>
 						<?php } ?>
 					</table>
