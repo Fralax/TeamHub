@@ -242,8 +242,10 @@ class groupes extends modele {
   }
 
   public function supprimerAcquittement($nomGroupe){
-    $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE g_admin = ? AND g_nom = ?';
-    $supprimerAcquittement= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));
+    $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE g_admin = ? AND n_type = ?';
+    $supprimerAcquittement= $this->executerRequete ($sql, array($_SESSION['pseudo'], "acquittement"));
+    $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE g_admin = ? AND n_type = ?';
+    $supprimerNotification= $this->executerRequete ($sql, array($_SESSION['pseudo'], "notification"));
   }
 
   public function confirmerInvitation($nomGroupe){

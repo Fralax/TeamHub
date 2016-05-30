@@ -237,6 +237,10 @@ table td .events li{
   margin: auto;
 }
 
+.Ok{
+  text-align: center;
+}
+
 h3{
   color : rgba(255, 255, 215, 1);
 }
