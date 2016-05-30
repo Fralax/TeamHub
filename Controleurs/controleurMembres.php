@@ -28,7 +28,7 @@ class membres{
     if (isset($_POST['envoyerCoordonnees']) && $_POST['envoyerCoordonnees'] == 'Valider'){
       if($_POST['Portable'] != "" && $_POST['Email'] != "" && $_POST['ConfirmEmail'] != ""){
         if ($_POST['Email'] != $_POST['ConfirmEmail']){
-          echo 'Les adresses mail saisies sont différents !';
+          ?> <script> alert("Les adresses mail saisies sont différents !")</script> <?php
         } else{
           if ($recupEmail[0] != $_POST['Email']) {
             if (!$resultatE) {
