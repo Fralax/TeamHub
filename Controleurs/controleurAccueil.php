@@ -67,9 +67,9 @@ class accueil{
     header("Location: index.php?page=accueil");
   }
 
-  public function suppressionAcquittement($nomGroupe){
+  public function suppressionAcquittement(){
     $groupe = new groupes();
-    $groupe->supprimerAcquittement($nomGroupe);
+    $groupe->supprimerAcquittement();
     header("Location: index.php?page=accueil");
   }
 }

@@ -42,13 +42,6 @@
     <?php if ($i == 1){ ?>
       <div class="imageSport">
         <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-        <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
-        <div>
-        <a href="http://twitter.com/share" class="twitter-share-button"
-        data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
-        data-via="TimHeub"
-        data-lang="fr">Tweeter</a>
-        </div>
       </div>
       <div class="infos">
         <div class="nomEtDescription">
@@ -61,6 +54,17 @@
           <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
           <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
           <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
+          <div class="reseaux">
+            <div class="facebook">
+              <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
+            </div>
+            <div class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button"
+            data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
+            data-via="TimHeub"
+            data-lang="fr">Tweet</a>
+            </div>
+          </div>
         </div>
         <div class="actionsGroupe">
           <a href="index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>"> <h3> Modifier la description du groupe </h3></a>
@@ -72,7 +76,8 @@
           <a href="index.php?page=inviterutilisateur&nom=<?php echo $caract['g_nom']?>"> <h3> Inviter à rejoindre le groupe</h3></a>
           <?php } ?>
           <a href="index.php?page=bannirmembregroupe&nom=<?php echo $_GET['nom']?>"> <h3> Bannir un membre du groupe </h3></a>
-          <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo $_GET['nom'] ?>'; return false"><h3>Supprimer le groupe</h3></a>
+
+          <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Supprimer le groupe</h3></a>
         </div>
       </div>
       <div class="evenements">
@@ -189,13 +194,6 @@
   <?php if ($i == 2){ ?>
     <div class="imageSport">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-      <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
-      <div>
-      <a href="http://twitter.com/share" class="twitter-share-button"
-      data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
-      data-via="TimHeub"
-      data-lang="fr">Tweeter</a>
-      </div>
     </div>
     <div class="infos">
       <div class="nomEtDescription">
@@ -208,6 +206,17 @@
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
+        <div class="reseaux">
+          <div class="facebook">
+            <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
+          </div>
+          <div class="twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button"
+          data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
+          data-via="TimHeub"
+          data-lang="fr">Tweet</a>
+          </div>
+        </div>
       </div>
       <div class="actionsGroupe">
         <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
@@ -328,13 +337,6 @@
   <?php if ($i == 3){ ?>
     <div class="imageSport">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-      <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
-      <div>
-      <a href="http://twitter.com/share" class="twitter-share-button"
-      data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
-      data-via="TimHeub"
-      data-lang="fr">Tweeter</a>
-      </div>
     </div>
     <div class="infos">
       <div class="nomEtDescription">
@@ -347,6 +349,17 @@
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
+        <div class="reseaux">
+          <div class="facebook">
+            <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
+          </div>
+          <div class="twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button"
+          data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
+          data-via="TimHeub"
+          data-lang="fr">Tweet</a>
+          </div>
+        </div>
       </div>
       <div class="actionsGroupe">
         <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo $_GET['nom'] ?>'; return false"> <h3> Rejoindre le groupe <h3></a>
@@ -420,13 +433,6 @@
   <?php if ($i == 4){ ?>
     <div class="imageSport">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-      <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
-      <div>
-      <a href="http://twitter.com/share" class="twitter-share-button"
-      data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
-      data-via="TimHeub"
-      data-lang="fr">Tweeter</a>
-      </div>
     </div>
     <div class="infos">
       <div class="nomEtDescription">
@@ -439,6 +445,17 @@
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
+        <div class="reseaux">
+          <div class="facebook">
+            <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
+          </div>
+          <div class="twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button"
+          data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
+          data-via="TimHeub"
+          data-lang="fr">Tweet</a>
+          </div>
+        </div>
       </div>
       <div class="actionsGroupe">
         <a href="#"><h3>Me notifier quand une place se libère</h3></a>
@@ -512,13 +529,6 @@
   <?php if ($i == 5){ ?>
     <div class="imageSport">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
-      <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
-      <div>
-      <a href="http://twitter.com/share" class="twitter-share-button"
-      data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
-      data-via="TimHeub"
-      data-lang="fr">Tweeter</a>
-      </div>
     </div>
     <div class="infos">
       <div class="nomEtDescription">
@@ -531,6 +541,17 @@
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
+        <div class="reseaux">
+          <div class="facebook">
+            <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
+          </div>
+          <div class="twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button"
+          data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
+          data-via="TimHeub"
+          data-lang="fr">Tweet</a>
+          </div>
+        </div>
       </div>
       <div class="actionsGroupe">
         <a href="index.php?page=inscription"><h3>S'inscrire sur le site</h3></a>
