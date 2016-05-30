@@ -48,6 +48,16 @@
         <div class="nomEtDescription">
           <h2>Groupe <?php echo $caract['g_nom']?> </h2>
           <p><?php echo $caract['g_description'] ?></p>
+          <a href="#form1"> <h3> Modifier la description du groupe </h3></a>
+          <div id = "form1" class="forms">
+            <form method="post" action="">
+              <p>
+               <label for="Description"> Ecrivez une description pour votre groupe </label> <br> <br>
+               <textarea name="Description" cols="70" rows="4"> </textarea>
+             </p>
+             <p> <input type="submit" name="Modifier" value="Modifier la Description"> </p>
+           </form>
+          </div>
         </div>
         <div class="infosGenerales">
           <h2>Informations :</h2>
@@ -66,10 +76,20 @@
             data-lang="fr">Tweet</a>
             </div>
           </div>
+          <a href="#form2"><h3>Désigner un nouvel administrateur</h3></a>
+          <div id="form2" class="forms">
+            <form action="" method="post">
+              <select name="Admin">
+                <option value = ""> -- Selectionnez un nouvel admin -- </option>
+                <?php foreach ($admin as list($nomAdmin)) { ?>
+                <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
+                <?php } ?>
+              </select>
+              <input type="submit" name="Modifier" value="Modifier" >
+            </form>
+          </div>
         </div>
         <div class="actionsGroupe">
-          <a href="index.php?page=affichagemodificationdescription&nom=<?php echo $caract['g_nom']?>"> <h3> Modifier la description du groupe </h3></a>
-          <a href="index.php?page=affichagemodificationadmin&nom=<?php echo $caract['g_nom']?>"><h3>Désigner un nouvel administrateur</h3></a>
           <a href="index.php?page=affichagemodificationplaces&nom=<?php echo $caract['g_nom']?>"><h3>Modifier le nombre de places dans le groupe</h3></a>
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
@@ -624,4 +644,18 @@
 </div>
 
 </body>
+
+<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+<script language="javascript" type="text/javascript">
+  $(function(){
+  var divs = $(".forms");
+  divs.hide();
+  $("a").click(function(){
+    divs.filter(":visible").slideUp();
+    $($(this).attr("href")).slideDown();
+    return false;
+  });
+});
+</script>
+
 </html>
