@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupes - Mes Groupes"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

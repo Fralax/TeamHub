@@ -1,9 +1,10 @@
+<?php $this->titre = "Club - Ajout"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
-		<title>Inscription</title>
+		<title>Ajout d'un Club</title>
 	</head>
 	<body>
 		<div class="formulaire" >

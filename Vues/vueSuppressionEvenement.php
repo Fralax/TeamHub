@@ -1,3 +1,4 @@
+<?php $this->titre = "Confirmation - Evenement"; ?>
 <!DOCTYPE html>
 <html>
   <head>

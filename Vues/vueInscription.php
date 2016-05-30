@@ -54,7 +54,7 @@
 				<p> Email : <input type="email" name="Email" placeholder="Email" size="25" value = "<?= $_POST['Email'] ?>"/>
 						Confirmez votre Email : <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/>
 				</p>
-				<p> Code Postal : <input type="text" name="cp" placeholder="Code Postal" size="25" value = "<?= $_POST['cp'] ?>"/> 
+				<p> Code Postal : <input type="text" name="cp" placeholder="Code Postal" size="25" value = "<?= $_POST['cp'] ?>"/>
 				<p> Pseudo : <input type="text" name="pseudo" placeholder="Pseudo" size="25" value = "<?= $_POST['pseudo'] ?>"/> </p>
 				<p> Mot de Passe : <input type="password" name="MotDePasse" placeholder="Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/>
 						Confirmez votre Mot de Passe : <input type="password" name="ConfirmMotDePasse" placeholder="Confirmation Mot De Passe" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>

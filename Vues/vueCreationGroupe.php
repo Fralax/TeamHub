@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupe - Création"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

@@ -1,3 +1,4 @@
+<?php $this->titre = "FAQ - Ajout"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

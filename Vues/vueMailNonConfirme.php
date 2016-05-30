@@ -1,3 +1,4 @@
+<?php $this->titre = "Compte non Activé"; ?>
 <!DOCTYPE html>
 <html>
   <head>

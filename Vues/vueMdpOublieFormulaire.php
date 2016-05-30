@@ -1,3 +1,4 @@
+<?php $this->titre = "Mot de Passe Oublié"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

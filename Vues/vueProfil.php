@@ -1,3 +1,4 @@
+<?php $this->titre = "Profil - ".$_GET['nom']; ?>
 <!DOCTYPE html>
 <html>
 	<head>

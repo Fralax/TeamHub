@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupe - ".$caract['g_nom']; ?>
 <!DOCTYPE html>
 <html>
 

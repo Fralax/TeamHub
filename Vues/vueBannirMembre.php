@@ -1,3 +1,4 @@
+<?php $this->titre = "Administration - Bannissement"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

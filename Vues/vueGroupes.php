@@ -1,3 +1,4 @@
+<?php $this->titre = "Groupes - Rejoindre"; ?>
 <!DOCTYPE html>
 <html>
 	<head>

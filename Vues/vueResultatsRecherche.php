@@ -1,3 +1,4 @@
+<?php $this->titre = "Recherche"; ?>
 <!DOCTYPE html>
 <html>
 

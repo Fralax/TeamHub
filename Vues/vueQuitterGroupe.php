@@ -1,3 +1,4 @@
+<?php $this->titre = "Confirmation - Groupe"; ?>
 <!DOCTYPE html>
 <html>
   <head>
