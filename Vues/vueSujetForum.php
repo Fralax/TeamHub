@@ -13,10 +13,10 @@
     $admin = new controleurAdministration();
     $verifAdmin = $admin->verifAdmin();
 			if(isset($_SESSION['pseudo'])){
-        if ($message['f_auteur'] == $_SESSION['pseudo']){
-				  $n = 1;
-        } elseif($verifAdmin == true){
-          $n = 2;
+        if ($verifAdmin == true){
+				  $n = 2;
+        } elseif($message['f_auteur'] == $_SESSION['pseudo']){
+          $n = 1;
         } else {
           $n = 3;
         }
@@ -42,8 +42,8 @@
 							<?php if (($n == 1 || $n == 2) && $message['f_actif'] == "1"){ ?>
 								<a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> Clore le Sujet </a>
 							<?php } ?>
-							<?php if($n == 2){ ?>
-								<a href="index.php?page=supprimersujet&id=<?php echo $_GET['id'] ?>">Supprimer le Sujet</a>
+							<?php if ($n == 2){ ?>
+								<a href="index.php?page=supprimersujet&id=<?php echo $_GET['id'] ?>"> Supprimer le Sujet </a>
 							<?php } ?>
 						</div>
 					</td>
@@ -72,11 +72,18 @@
 						<td>
 							Re : <?php echo $message['f_sujet'] ?>
 						</td>
-						<td>
+						<td class="dateActions">
+							<div class="date">
 							<?php $dateEntiereMessage = date_create($date) ?>
 							<?php $dateMessage = date_format($dateEntiereMessage, 'd/m/Y') ?>
 							<?php $heureMessage = date_format($dateEntiereMessage, 'H:i:s') ?>
 							le <b> <?php echo $dateMessage ?> </b> à <b> <?php echo $heureMessage ?> </b>
+						</div>
+						<div class="actions">
+							<?php if ($n == 2){ ?>
+								<a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer le message</a>
+							<?php } ?>
+						</div>
 						</td>
 					</tr>
 
