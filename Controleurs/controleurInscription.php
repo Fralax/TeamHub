@@ -54,39 +54,39 @@ require_once 'Vues/vue.php';
 
                      header("Location: index.php?page=mailnonconfirme");
                    } else {
-                     echo "Votre Pseudo ne doit pas dépasser 12 caractères !";
+                     ?> <script> alert("Votre Pseudo ne doit pas dépasser 12 caractères !")</script> <?php
                    }
                  } else {
-                   echo "Votre mot de passe doit comporter plus de 8 caractères !";
+                   ?> <script> alert("Votre mot de passe doit comporter plus de 8 caractères !")</script> <?php
                  }
                } else {
-                 echo "Ce code Postal n'est pas valable !";
+                 ?> <script> alert("Ce code Postal n'est pas valable !")</script> <?php
                }
              }
              else{
                if ($resultatP) {
-                  echo "Ce pseudo est déjà utilisé";
+                 ?> <script> alert("Ce pseudo est déjà utilisé")</script> <?php
                 }
                elseif ($resultatE) {
-                  echo "Vous êtes déjà inscrit";
+                 ?> <script> alert("Vous êtes déjà inscrit")</script> <?php
                 }
              }
            } else {
-             echo "L'Email renseigné n'est pas correct !";
+             ?> <script> alert("L'Email renseigné n'est pas correct !")</script> <?php
            }
          }
          else{
            if ($email != $confirmemail){
-             echo "Les adresses mail saisies ne sont pas identiques.";
+             ?> <script> alert("Les adresses mail saisies ne sont pas identiques.")</script> <?php
            }
            elseif ($motDePasse != $confirmMotDePasse){
-             echo "Les mots de passe saisis ne sont pas identiques.";
+             ?> <script> alert("Les mots de passe saisis ne sont pas identiques.")</script> <?php
            }
          }
        }
 
        else{
-         echo "Des champs n'ont pas été remplis";
+         ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
        }
      }
      $vue = new Vue('Inscription');

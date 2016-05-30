@@ -28,7 +28,7 @@ class connexion{
           header("Location: index.php?page=banni");
         }
       } else {
-        echo "Mauvais Identifiant ou Mot de Passe !";
+        ?> <script> alert("Mauvais Identifiant ou Mot de Passe !")</script> <?php
       }
     }
   }
