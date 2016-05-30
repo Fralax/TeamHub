@@ -63,6 +63,7 @@
 				<?php } ?>
 				<tr>
 					<td>
+						
 						<a href="index.php?page=supprimeracquittement" > Ok </a>
 					</td>
 				</tr>
