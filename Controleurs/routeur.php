@@ -298,7 +298,8 @@
           break;
 
         case 'sujetforum':
-          $this->controleurForum->affichageDetailleSujet($_GET['id']);
+          $this->controleurForum->modificationVues($_GET['id']);
+          $this->controleurForum->affichageDetailsSujet($_GET['id']);
           break;
 
         case 'cloreSujet':

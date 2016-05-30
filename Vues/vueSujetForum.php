@@ -25,73 +25,76 @@
       }
 		?>
 
-    <table>
-      <tr>
-        <td>
-          <?php echo $message['f_auteur'] ?>
-        </td>
+		<div class="conteneur">
+			<table class = "detailsSujet">
+				<tr class="enTeteSujet">
+					<td>
+						<?php echo $message['f_sujet'] ?>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
 
-        <td>
-          <?php echo $message['f_sujet'] ?>
-          <?php if ($n == 1 && $message['f_actif'] == "1"){ ?>
-            <a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> Clore le Sujet </a>
-          <?php } ?>
-        </td>
-      </tr>
+				<tr class="message">
+					<td class="photoMembreSujet">
+						<div class="photo">
+							<?php
+								$utilisateur = new utilisateurs();
+								$photo = $utilisateur->afficherPhotoForum($message['f_auteur'])->fetch();
+							?>
+							<img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
+						</div>
+						<div class="pseudo">
+							<?php echo $message['f_auteur'] ?>
+						</div>
+					</td>
+					<td>
+						<?php echo $message['f_message'] ?>
+					</td>
+				</tr>
 
-      <tr>
-        <td>
-          <?php
-          $utilisateur = new utilisateurs();
-          $photo = $utilisateur->afficherPhotoForum($message['f_auteur'])->fetch();
-          ?>
-          <img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
-        </td>
+				<?php foreach ($reponses as list($auteur, $reponse, $id)){ ?>
+					<tr class="enTeteSujet">
+						<td>
+							Re : <?php echo $message['f_sujet'] ?>
+						</td>
+						<td>
 
-        <td>
-          <?php echo $message['f_message'] ?>
-        </td>
-      </tr>
-    </table>
+						</td>
+					</tr>
 
-    <?php foreach ($reponses as list($auteur, $reponse, $id)){ ?>
+				<tr class="message">
+					<td class="photoMembreSujet">
+						<div class="photo">
+							<?php
+								$utilisateur = new utilisateurs();
+								$photo = $utilisateur->afficherPhotoForum($auteur)->fetch();
+							?>
+							<img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
+						</div>
+						<div class="pseudo">
+							<?php echo $auteur ?>
+						</div>
+					</td>
+					<td>
+						<?php echo $reponse ?>
+					</td>
+				</tr>
+				<?php } ?>
+			</table>
+		</div>
 
-      <table>
-        <tr>
-          <td>
-            <?php echo $auteur ?>
-          </td>
 
-          <td>
-            RE : <?php echo $message['f_sujet'] ?>
-            <?php if ($n == 2){ ?>
-              <a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer </a>
-            <?php } ?>
-          </td>
-        </tr>
 
-        <tr>
-          <td>
-            <?php
-            $utilisateur = new utilisateurs();
-            $photo = $utilisateur->afficherPhotoForum($auteur)->fetch();
-            ?>
-            <img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
-          </td>
 
-          <td>
-            <?php echo $reponse ?>
-          </td>
-        </tr>
-      </table>
-      <?php } ?>
+			<?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
+				<form name = "formulaireNouvelleReponse" method="post" action = "">
+					<textarea name="message" rows="7" cols="70"> </textarea>
+					<p> <input type="submit" name="Repondre" value="Répondre"> </p>
+				</form>
+			<?php } ?>
 
-      <?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
-  			<form name = "formulaireNouvelleReponse" method="post" action = "">
-          <textarea name="message" rows="7" cols="70"> </textarea>
-          <p> <input type="submit" name="Repondre" value="Répondre"> </p>
-        </form>
-  		<?php } ?>
 
   </body>
 </html>
