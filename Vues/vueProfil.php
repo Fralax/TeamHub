@@ -151,6 +151,16 @@
 						<?php } ?>
 					</table>
 				</div>
+				<div class="mesGroupes">
+					<h2>Les groupes de <?php echo $_GET['nom'] ?></h2>
+					<table>
+						<?php foreach ($groupes as list($nomGroupes)){?>
+							<tr>
+								<td> <?php echo $nomGroupes ?> </td>
+							</tr>
+						<?php } ?>
+					</table>
+				</div>
 			</div>
 		</div>
  	<?php endif; ?>

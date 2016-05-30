@@ -112,6 +112,12 @@ class utilisateurs extends modele {
     return $afficherMesSports;
   }
 
+  public function afficherGroupes(){
+    $sql = 'SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = ?';
+    $afficherGroupes = $this->executerRequete ($sql, array($_GET['nom']));
+    return $afficherGroupes;
+  }
+
   public function ajouterSport(){
     $sql = 'INSERT INTO teamhubp_teamhub.Pratique (u_pseudo, s_nom) VALUES (:pseudo, :nomSport)';
     $ajouterSport = $this->executerRequete ($sql, array('pseudo'=>$_SESSION['pseudo'], 'nomSport' => $_POST['sport']));
