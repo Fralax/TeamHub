@@ -6,10 +6,10 @@ class groupes extends modele {
 
   public function ajoutGroupeBdd(){
 
-    $sql = 'INSERT INTO teamhubp_teamhub.Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement)
-            VALUES (:admin, :nomGroupe, :placesLibres, :placesLibres, :sport, :departement)';
+    $sql = 'INSERT INTO teamhubp_teamhub.Groupes(g_admin, g_nom, g_placesTotal, g_placesLibres ,g_sport, g_departement, g_description)
+            VALUES (:admin, :nomGroupe, :placesLibres, :placesLibres, :sport, :departement, :description)';
 
-    $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement']));
+    $ajoutGroupeBdd = $this->executerRequete ($sql, array('admin'=> $_SESSION['pseudo'], 'nomGroupe'=> $_POST['nomGroupe'], 'placesLibres'=> $_POST['placesLibres'], 'sport'=> $_POST['sport'], 'departement'=> $_POST['departement'], 'description'=>nl2br($_POST['Description'])));
   }
 
   public function verifGroupe(){
@@ -69,7 +69,7 @@ class groupes extends modele {
 
   public function modifierDescriptionGroupe($nom){
     $sql='UPDATE teamhubp_teamhub.Groupes SET g_description = :description WHERE g_nom = :nom';
-    $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => $_POST['Description'], 'nom'=>$nom ));
+    $modifierDescriptionGroupe = $this->executerRequete ($sql, array('description' => nl2br($_POST['Description']), 'nom'=>$nom ));
   }
 
   public function modifierAdminGroupe($nom){

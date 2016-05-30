@@ -260,6 +260,13 @@ Merci de ne pas répondre à ce mail.";
     header("Location: index.php?page=administration");
   }
 
+  public function adminGroupeModifiable(){
+    $admin = new administration();
+    $groupes = $admin->ListerGroupes()->fetchAll();
+    $vue = new Vue('AdminGroupeAModifier');
+    $vue->generer(array('listeGroupes'=>$groupes));
+  }
+
 }
 
 
