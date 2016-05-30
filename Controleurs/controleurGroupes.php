@@ -33,6 +33,7 @@ class controleurGroupes{
               $groupe->ajoutGroupeBdd();
               $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $_POST['nomGroupe'], "admin");
               $groupe->diminuerPlacesLibres($nomGroupe);
+              $groupe->nouveauGroupe($nomGroupe, $departement, $sport);
               header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
             }
           }
@@ -166,6 +167,7 @@ class controleurGroupes{
       $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
       $groupe->diminuerPlacesLibres($nom);
       $groupe->supprimerAttendPlace($nom, $nomMembre);
+      $groupe->notificationNouveauMembre($nom, $nomMembre);
     }
     $vue = new Vue('QuitterGroupe');
     $vue->generer(["nom"=>$nom]);

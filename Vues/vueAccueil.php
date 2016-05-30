@@ -16,13 +16,13 @@
 
 <?php if ($n == 1){ ?>
 
-	<?php if ($invit[0][0] != "" || $acq[0][0] != ""){ ?>
+	<?php if ($invit[0][0] != "" || $acq[0][0] != "" || $notif[0][0] != "" || $nouv[0][0] != ""){ ?>
 		<div class="notifications">
-			<?php if (count($invit)+count($acq) == 1): ?>
-				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notification ! </h3>
+			<?php if (count($invit)+count($acq)+count($notif)+count($nouv) == 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq)+count($notif)+count($nouv) ?> notification ! </h3>
 			<?php endif; ?>
-			<?php if (count($invit)+count($acq) != 1): ?>
-				<h3> Vous avez <?php echo count($invit)+count($acq) ?> notifications ! </h3>
+			<?php if (count($invit)+count($acq)+count($notif)+count($nouv) != 1): ?>
+				<h3> Vous avez <?php echo count($invit)+count($acq)+count($notif)+count($nouv) ?> notifications ! </h3>
 			<?php endif; ?>
 			<table>
 				<?php foreach ($invit as list($admin, $invitationGroupe)) { ?>
@@ -43,6 +43,27 @@
 						</td>
 						<td>
 							<a href="index.php?page=supprimeracquittement&nom=<?php echo $acquittementGroupe?>" > Ok </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<?php foreach ($notif as list($admin, $notificationGroupe, $membre)) { ?>
+					<tr>
+						<td>
+							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $notificationGroupe?>"> <?php echo $notificationGroupe?> </a>
+						</td>
+						<td>
+							<a href="index.php?page=supprimeracquittement&nom=<?php echo $notificationGroupe?>" > Ok </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<?php foreach ($nouv as list($admin, $nouveauGroupe)) { ?>
+					<tr>
+						<td>
+							<?php echo $admin?> a créer un nouveau Groupe correspondant à vos préférences : 	<a href="index.php?page=groupe&nom=<?php echo $nouveauGroupe?>"> <?php echo $nouveauGroupe?> </a>
+						</td>
+						<td>
+							<a href="index.php?page=acceptgroupe&nom=<?php echo $nouveauGroupe?>" > Accepter </a>
+							<a href="index.php?page=supprimernotif&nom=<?php echo $nouveauGroupe?>" > Refuser </a>
 						</td>
 					</tr>
 				<?php } ?>

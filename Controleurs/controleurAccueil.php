@@ -14,6 +14,8 @@ class accueil{
     $afficherMesGroupes = $groupe->afficherGroupesAccueil()->fetchAll();
     $invitations = $groupe->invitation()->fetchAll();
     $acquittement = $groupe->acquittement()->fetchAll();
+    $notification = $groupe->notification()->fetchAll();
+    $nouveaute = $groupe->nouveaute()->fetchAll();
     $evenements = new evenements();
     $afficherEvenements = $evenements->listerEvenementsAccueil()->fetchAll();
     $afficherSugestionGroupes = $groupe->afficherGroupeRegion()->fetchAll();
@@ -22,7 +24,7 @@ class accueil{
     $afficherSugestionSports = $groupe->afficherGroupeSport($sports[0][0])->fetchAll();
     $vue = new Vue('Accueil');
 
-    $vue->generer(array("groupes" => $afficherMesGroupes, 'invit'=>$invitations, 'acq'=>$acquittement, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$departement, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
+    $vue->generer(array("groupes" => $afficherMesGroupes, 'invit'=>$invitations, 'acq'=>$acquittement, 'notif'=>$notification, 'nouv'=>$nouveaute, "evenements" => $afficherEvenements, "suggestiongroupes"=>$afficherSugestionGroupes, "departement"=>$departement, "sport"=>$sports, "suggestionsports"=>$afficherSugestionSports));
   }
 
   public function affichageAPropos(){
