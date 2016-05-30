@@ -36,26 +36,6 @@
 						</td>
 					</tr>
 				<?php } ?>
-				<?php foreach ($acq as list($admin, $acquittementGroupe, $membre)) { ?>
-					<tr>
-						<td>
-							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $acquittementGroupe?>"> <?php echo $acquittementGroupe?> </a>
-						</td>
-						<td>
-							<a href="index.php?page=supprimeracquittement&nom=<?php echo $acquittementGroupe?>" > Ok </a>
-						</td>
-					</tr>
-				<?php } ?>
-				<?php foreach ($notif as list($admin, $notificationGroupe, $membre)) { ?>
-					<tr>
-						<td>
-							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $notificationGroupe?>"> <?php echo $notificationGroupe?> </a>
-						</td>
-						<td>
-							<a href="index.php?page=supprimeracquittement&nom=<?php echo $notificationGroupe?>" > Ok </a>
-						</td>
-					</tr>
-				<?php } ?>
 				<?php foreach ($nouv as list($admin, $nouveauGroupe)) { ?>
 					<tr>
 						<td>
@@ -67,6 +47,25 @@
 						</td>
 					</tr>
 				<?php } ?>
+				<?php foreach ($acq as list($admin, $acquittementGroupe, $membre)) { ?>
+					<tr>
+						<td>
+							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $acquittementGroupe?>"> <?php echo $acquittementGroupe?> </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<?php foreach ($notif as list($admin, $notificationGroupe, $membre)) { ?>
+					<tr>
+						<td>
+							<?php echo $membre?> a rejoint votre Groupe : 	<a href="index.php?page=groupe&nom=<?php echo $notificationGroupe?>"> <?php echo $notificationGroupe?> </a>
+						</td>
+					</tr>
+				<?php } ?>
+				<tr>
+					<td>
+						<a href="index.php?page=supprimeracquittement" > Ok </a>
+					</td>
+				</tr>
 			</table>
 		</div>
 	<?php } ?>

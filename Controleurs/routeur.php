@@ -267,7 +267,7 @@
           break;
 
         case 'supprimeracquittement':
-          $this->controleurAccueil->suppressionAcquittement($_GET['nom']);
+          $this->controleurAccueil->suppressionAcquittement();
           break;
 
         case 'bannirmembregroupe':
