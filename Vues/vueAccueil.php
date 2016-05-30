@@ -61,12 +61,13 @@
 						</td>
 					</tr>
 				<?php } ?>
+				<?php if ($acq[0][0] != "" || $notif[0][0] != "" ){ ?>
 				<tr>
-					<td>
-						
+					<td class="Ok">
 						<a href="index.php?page=supprimeracquittement" > Ok </a>
 					</td>
 				</tr>
+				<?php } ?>
 			</table>
 		</div>
 	<?php } ?>

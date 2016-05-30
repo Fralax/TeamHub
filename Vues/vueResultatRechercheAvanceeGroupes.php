@@ -24,6 +24,7 @@
 						<?php foreach ($groupes as list($nom, $admin, $sport, $departement, $placesLibres)){ ?>
 						<tr>
 							<td>
+								<?php $groupe = new groupes() ?>
 								<?php $afficherImageSport = $groupe->afficherImage($nom)->fetch(); ?>
 								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
 							</td>
