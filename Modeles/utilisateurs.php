@@ -4,7 +4,7 @@ require_once "Modeles/modele.php";
 
 class utilisateurs extends modele {
 
-  public function ajoutUtilisateurBdd($cle){
+  public function ajoutUtilisateurBdd($cle, $cleMDP){
 
       $pass_hache = password_hash($_POST['MotDePasse'], PASSWORD_BCRYPT);
       $date = "{$_POST['annee']}-{$_POST['mois']}-{$_POST['jour']}";
@@ -18,11 +18,11 @@ class utilisateurs extends modele {
       $recupDepartement = $this->executerRequete ($sql2,array($codeDepartement));
       $departement = $recupDepartement->fetch();
 
-      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_cp, u_ville, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle)
-              VALUES (:pseudo, :nom, :prenom, :sexe, :cp, :ville, :departement, :portable, :email, :naissance, :mdp, :photo, :cle)';
+      $sql = 'INSERT INTO teamhubp_teamhub.Utilisateurs(u_pseudo, u_nom, u_prenom, u_sexe, u_cp, u_ville, u_region, u_portable, u_email, u_naissance, u_mdp, u_photo, u_cle, u_cleMdp)
+              VALUES (:pseudo, :nom, :prenom, :sexe, :cp, :ville, :departement, :portable, :email, :naissance, :mdp, :photo, :cle, :cleMDP)';
 
       $ajoutUtilisateurBdd = $this->executerRequete ($sql, array('pseudo' => $_POST['pseudo'], 'nom' => $_POST['nom'], 'prenom' => $_POST['Prenom'], 'sexe' => $_POST['Sexe'], 'cp' => $_POST['cp'], 'ville'=>$ville,
-      'departement' => $departement[0], 'portable' => $_POST['Portable'], 'email' => $_POST['Email'], 'naissance' => $date, 'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle));
+      'departement' => $departement[0], 'portable' => $_POST['Portable'], 'email' => $_POST['Email'], 'naissance' => $date, 'mdp' => $pass_hache, 'photo' => $photo, 'cle' => $cle, 'cleMDP' => $cleMDP));
   }
 
   public function verifPseudo(){
@@ -217,6 +217,18 @@ class utilisateurs extends modele {
     return $recupCleActif;
   }
 
+  public function recupCleMdp($mail){
+    $sql = 'SELECT u_cleMdp FROM teamhubp_teamhub.Utilisateurs WHERE u_email = ?';
+    $recupCleMdp = $this->executerRequete($sql, array($mail));
+    return $recupCleMdp;
+  }
+
+  public function recupPseudoMdpOublie($mail){
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_email = ?';
+    $recupPseudoMdpOublie = $this->executerRequete($sql, array($mail));
+    return $recupPseudoMdpOublie;
+  }
+
   public function validerCompte(){
     $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_actif = :actif WHERE u_pseudo = :pseudo';
     $validerCompte = $this->executerRequete($sql, array('actif' => 1, 'pseudo' => $_GET['pseudo']));
@@ -226,6 +238,17 @@ class utilisateurs extends modele {
     $sql = 'SELECT u_actif FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
     $verifActif = $this->executerRequete($sql, array($_POST['pseudo']));
     return $verifActif;
+  }
+
+  public function recupCleMdpVerif($pseudo){
+    $sql = 'SELECT u_cleMdp FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
+    $recupCleMdpVerif = $this->executerRequete($sql, array($pseudo));
+    return $recupCleMdpVerif;
+  }
+
+  public function updateMdp($motDePasse, $newCle, $pseudo){
+    $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_mdp = ?, u_cleMdp = ? WHERE u_pseudo = ?';
+    $updateMdp = $this->executerRequete($sql, array($motDePasse, $newCle, $pseudo));
   }
 
 

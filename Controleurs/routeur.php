@@ -40,7 +40,7 @@
     }
 
     public function routerRequete(){
-      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
@@ -325,6 +325,22 @@
 
         case 'supprimerquestion':
           $this->controleurAdministration->suppressionQuestion($_GET['id']);
+          break;
+
+        case 'motdepasseoublie':
+          $this->controleurConnexion->motDePasseOublie();
+          break;
+
+        case 'confirmationreinitialisationmotdepasse':
+          $this->controleurConnexion->affichageConfirmationMdp();
+          break;
+
+        case 'reinitialisermotdepasse':
+          $this->controleurConnexion->reinitialisationMotDePasse($_GET['cle']);
+          break;
+
+        case 'confirmationnouveaumdp':
+          $this->controleurConnexion->afficherConfirmationNouveauMdp();
           break;
 
         default:
