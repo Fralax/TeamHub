@@ -27,12 +27,25 @@
 
 		<div class="conteneur">
 			<table class = "detailsSujet">
-				<tr class="enTeteSujet">
+				<tr class="enTeteSujetTop">
 					<td>
 						<?php echo $message['f_sujet'] ?>
 					</td>
-					<td>
-						
+					<td class="dateActions">
+						<div class="date">
+							<?php $dateEntiereSujet = date_create($message['f_date']) ?>
+							<?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
+							<?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
+							le <b> <?php echo $dateSujet ?> </b> à <b> <?php echo $heureSujet ?> </b>
+						</div>
+						<div class="actions">
+							<?php if (($n == 1 || $n == 2) && $message['f_actif'] == "1"){ ?>
+								<a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> Clore le Sujet </a>
+							<?php } ?>
+							<?php if($n == 2){ ?>
+								<a href="index.php?page=supprimersujet&id=<?php echo $_GET['id'] ?>">Supprimer le Sujet</a>
+							<?php } ?>
+						</div>
 					</td>
 				</tr>
 
@@ -54,13 +67,16 @@
 					</td>
 				</tr>
 
-				<?php foreach ($reponses as list($auteur, $reponse, $id)){ ?>
+				<?php foreach ($reponses as list($auteur, $reponse, $id, $date)){ ?>
 					<tr class="enTeteSujet">
 						<td>
 							Re : <?php echo $message['f_sujet'] ?>
 						</td>
 						<td>
-
+							<?php $dateEntiereMessage = date_create($date) ?>
+							<?php $dateMessage = date_format($dateEntiereMessage, 'd/m/Y') ?>
+							<?php $heureMessage = date_format($dateEntiereMessage, 'H:i:s') ?>
+							le <b> <?php echo $dateMessage ?> </b> à <b> <?php echo $heureMessage ?> </b>
 						</td>
 					</tr>
 
@@ -85,15 +101,15 @@
 			</table>
 		</div>
 
-
-
-
-			<?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
+		<?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
+			<div class="conteneur2">
+				Postez une réponse !
 				<form name = "formulaireNouvelleReponse" method="post" action = "">
 					<textarea name="message" rows="7" cols="70"> </textarea>
 					<p> <input type="submit" name="Repondre" value="Répondre"> </p>
 				</form>
-			<?php } ?>
+			</div>
+		<?php } ?>
 
 
   </body>
