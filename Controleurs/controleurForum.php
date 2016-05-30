@@ -47,7 +47,8 @@ class controleurForum{
   public function fermetureSujet($id){
     $forum = new forum();
     $forum->fermerSujet($id);
-    header("Location: index.php?page=afficherAccueilForum");
+    $categorie = $forum->recupCategorie($id)->fetch();
+    header("Location: index.php?page=forum&categorie=".$categorie[0]);
   }
 
   public function affichageFAQ(){
