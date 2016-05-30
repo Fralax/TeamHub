@@ -66,6 +66,31 @@
   color : white;
 }
 
+.conteneur2{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.mesGroupes{
+  border-radius: 1em;
+  text-align: center;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 30%;
+}
+
+.mesGroupes table{
+  margin: auto;
+}
+
+.mesGroupes img{
+  width: 2.5em;
+  height: 2.5em;
+}
+
 
 .mesSports table{
   margin: auto;
