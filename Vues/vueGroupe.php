@@ -59,7 +59,9 @@
           <a href="index.php?page=affichagemodificationplaces&nom=<?php echo $caract['g_nom']?>"><h3>Modifier le nombre de places dans le groupe</h3></a>
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
+          <?php if ($caract['g_placesLibres'] != "0") { ?>
           <a href="index.php?page=inviterutilisateur&nom=<?php echo $caract['g_nom']?>"> <h3> Inviter à rejoindre le groupe</h3></a>
+          <?php } ?>
           <a href="index.php?page=bannirmembregroupe&nom=<?php echo $_GET['nom']?>"> <h3> Bannir un membre du groupe </h3></a>
           <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo $_GET['nom'] ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo $_GET['nom'] ?>'; return false"><h3>Supprimer le groupe</h3></a>
         </div>

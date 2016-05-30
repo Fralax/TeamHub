@@ -33,6 +33,7 @@ class controleurGroupes{
               $groupe->ajoutGroupeBdd();
               $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $_POST['nomGroupe'], "admin");
               $groupe->diminuerPlacesLibres($nomGroupe);
+              $groupe->nouveauGroupe($nomGroupe, $departement, $sport);
               header("Location: index.php?page=groupe&nom=".$_POST['nomGroupe']);
             }
           }

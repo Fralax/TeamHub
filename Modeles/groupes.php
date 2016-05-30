@@ -215,6 +215,27 @@ class groupes extends modele {
     return $notification;
   }
 
+  public function nouveaute(){
+    $sql = 'SELECT g_admin, g_nom, u_pseudo FROM teamhubp_teamhub.Notifie WHERE u_pseudo = ? AND n_type = ?';
+    $invitation = $this->executerRequete ($sql, array($_SESSION['pseudo'], "nouveaute"));
+    return $invitation;
+  }
+
+  public function nouveauGroupe($nomGroupe, $departement, $sport){
+    $sql = 'SELECT g_admin FROM teamhubp_teamhub.Groupes WHERE g_nom = ?';
+    $recupAdmin = $this->executerRequete ($sql, array($nomGroupe));
+    $adminGroupe = $recupAdmin->fetch();
+
+    $sql1 = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_region = ? AND u_pseudo IN (SELECT u_pseudo FROM teamhubp_teamhub.Pratique WHERE s_nom = ?) AND u_pseudo != ?';
+    $recupUtilisateurInteresse = $this->executerRequete($sql1, array($departement, $sport, $_SESSION['pseudo']));
+    $UtilisateurInteresse = $recupUtilisateurInteresse->fetchAll();
+
+    foreach ($UtilisateurInteresse as list($nom)){
+      $sql2 = 'INSERT INTO teamhubp_teamhub.Notifie(g_admin, u_pseudo, g_nom, n_type) VALUES (:nomAdmin, :nomInvite, :nomGroupe, :type)';
+      $inviterUtilisateur = $this->executerRequete ($sql2, array('nomAdmin'=>$adminGroupe[0], 'nomInvite'=>$nom, 'nomGroupe'=>$nomGroupe, 'type'=>"nouveaute"));
+    }
+  }
+
   public function supprimerInvitation($nomGroupe){
     $sql = 'DELETE FROM teamhubp_teamhub.Notifie WHERE u_pseudo = ? AND g_nom = ?';
     $supprimerInvitation= $this->executerRequete ($sql, array($_SESSION['pseudo'], $nomGroupe));

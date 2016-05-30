@@ -40,7 +40,7 @@
     }
 
     public function routerRequete(){
-      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 
@@ -79,6 +79,7 @@
         case 'confirmationgroupe':
           $this->controleurGroupes->rejoindreGroupe($_GET['nom']);
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
+          $this->controleurAccueil->envoieConfirm($_GET['nom']);
           break;
 
         case 'acceptgroupe':
