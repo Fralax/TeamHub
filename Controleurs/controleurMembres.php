@@ -19,7 +19,7 @@ class membres{
         $ajouterSport = $utilisateurs->ajouterSport();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else {
-        echo "Sélectionnez un sport !";
+        ?> <script> alert("Sélectionnez un sport !")</script> <?php
       }
     }
 
@@ -35,7 +35,7 @@ class membres{
               $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
               header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
             } else {
-            echo "Cet Email est déjà utilisé !";
+            ?> <script> alert("Cet Email est déjà utilisé !")</script> <?php
             }
           } else{
             $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
@@ -43,7 +43,7 @@ class membres{
           }
         }
       } else{
-        echo "Des champs n'ont pas été remplis !";
+        ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
       }
     }
 
@@ -54,7 +54,7 @@ class membres{
         $modifierMonAdresse = $utilisateurs->modifierMonAdresse();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else{
-        echo "Des champs n'ont pas été remplis";
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     }
 
@@ -67,7 +67,7 @@ class membres{
             echo 'Votre ancien Mot de Passe est incorrect !';
           } else{
             if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
-              echo "Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !";
+              ?> <script> alert("Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !")</script> <?php
             } else{
               if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
                 echo 'Les nouveaux Mots de Passe saisis sont différents !';
@@ -78,10 +78,10 @@ class membres{
               }
             }
           } else{
-            echo "Des champs n'ont pas été remplis !";
+            ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
           }
         } else {
-          echo "Le nouveau mot de passe doit contenir plus de 8 caractères !";
+          ?> <script> alert("Le nouveau mot de passe doit contenir plus de 8 caractères !")</script> <?php
         }
       }
 

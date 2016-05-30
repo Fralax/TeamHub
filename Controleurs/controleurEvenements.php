@@ -22,10 +22,10 @@ class controleurEvenements{
         $resultatG = $evenement->verifEvenement($groupe)->fetch();
         if(!$resultatG){
           if(strtotime($dateAuj) > strtotime($date)){
-            echo "Sélectionnez une date dans le futur !";
+            ?> <script> alert("Sélectionnez une date dans le futur !")</script> <?php
           } elseif (strtotime($dateAuj) == strtotime($date)){
             if ($heureAuj > $heure){
-              echo "Sélectionnez une heure dans le futur !";
+              ?> <script> alert("Sélectionnez une heure dans le futur !")</script> <?php
             } else {
               $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
               settype($placesGroupe[0], "integer");
@@ -34,7 +34,7 @@ class controleurEvenements{
                 $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
                 header("Location: index.php?page=mesgroupes");
               } else{
-                echo "Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !";
+                ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
               }
             }
           } else {
@@ -45,14 +45,14 @@ class controleurEvenements{
               $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
               header("Location: index.php?page=mesgroupes");
             } else{
-              echo "Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !";
+              ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
             }
           }
         } else {
-          echo "Il y déjà un événement du même nom associé à ce groupe !";
+          ?> <script> alert("Il y déjà un événement du même nom associé à ce groupe !")</script> <?php
         }
       } else {
-        echo "Des champs n'ont pas été rempli !";
+        ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
       }
     }
     $vue = new Vue('CreationEvenements');

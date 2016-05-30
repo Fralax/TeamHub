@@ -25,10 +25,10 @@ class controleurGroupes{
         $resultatG = $groupe->verifGroupe()->fetch();
         if (!$resultatG){
           if($placesLibres < 2){
-            echo "Votre groupe doit contenir au moins deux places !";
+            ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
           } else{
             if ($placesLibres > 100){
-            echo "Votre groupe ne peut pas contenir plus de 100 places !";
+            ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
             } else{
               $groupe->ajoutGroupeBdd();
               $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $_POST['nomGroupe'], "admin");
@@ -38,10 +38,10 @@ class controleurGroupes{
             }
           }
         } else {
-          echo "Ce nom de groupe existe déjà !";
+          ?> <script> alert("Ce nom de groupe existe déjà !")</script> <?php
         }
       } else{
-        echo "Des champs n'ont pas été remplis";
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     }
     $vue = new Vue('CreationGroupe');
@@ -105,10 +105,10 @@ class controleurGroupes{
     $appartient = new utilisateurs();
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
       if($_POST['placesTotales'] < 2) {
-        echo "Votre groupe doit contenir au moins deux places !";
+        ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
       } else{
         if ($_POST['placesTotales'] > 100){
-          echo "Votre groupe ne peut pas contenir plus de 100 places !";
+          ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
         } else{
         $groupe->modifierPlacesGroupe($nom);
         $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();

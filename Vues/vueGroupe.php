@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 
     <?php
     $nbrMembres = $caract['g_placesTotal'] - $caract['g_placesLibres'];
@@ -40,6 +41,7 @@
     <?php if ($i == 1){ ?>
       <div class="imageSport">
         <img src="imageSports/<?php echo $image['s_image']; ?>"/>
+        <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"></a>
       </div>
       <div class="infos">
         <div class="nomEtDescription">
