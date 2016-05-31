@@ -1,7 +1,7 @@
 <?php $this->titre = "Forum - Accueil";
-include('Vues/français.php');
+include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
-	include('Vues/français.php');
+	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
@@ -227,20 +227,20 @@ elseif($_COOKIE['langue'] == "English") {
 					<td class="dernierMessageAccueilForum" rowspan = "2">
 						<?php if($dernierMessage != array()){ ?>
 							<div class="dernierMessageSujetAccueilForum">
-								Dans : <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
+								<?php echo $dans ?> <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
 							</div>
 							<div class="dernierMessageAuteurAccueilForum">
 								<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
 		            <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
 		            <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-								Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+								<?php echo $par ?> <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> <?php echo $le ?> <b><?php echo $dateSujet ?></b> <?php echo $a ?> <b><?php echo $heureSujet ?></b>
 							</div>
 						<?php } ?>
 					</td>
 				</tr>
 				<tr>
 					<td class="descriptionAccueilForum">
-						Vous voulez organisez ou participer à des compétitons ?
+						<?php echo $compeforum ?>
 					</td>
 				</tr>
 
@@ -261,20 +261,20 @@ elseif($_COOKIE['langue'] == "English") {
 					<td class="dernierMessageAccueilForum" rowspan = "2">
 						<?php if($dernierMessage != array()){ ?>
 							<div class="dernierMessageSujetAccueilForum">
-								Dans : <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
+								<?php echo $dans ?> <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
 							</div>
 							<div class="dernierMessageAuteurAccueilForum">
 								<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
 		            <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
 		            <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-								Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+								<?php echo $par ?> <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> <?php echo $le ?> <b><?php echo $dateSujet ?></b> <?php echo $a ?> <b><?php echo $heureSujet ?></b>
 							</div>
 						<?php } ?>
 					</td>
 				</tr>
 				<tr>
 					<td class="descriptionAccueilForum">
-						Vous voulez organiser ou particier à des cours ?
+						<?php echo $coursforum ?>
 					</td>
 				</tr>
 
@@ -295,20 +295,20 @@ elseif($_COOKIE['langue'] == "English") {
 					<td class="dernierMessageAccueilForum" rowspan = "2">
 						<?php if($dernierMessage != array()){ ?>
 							<div class="dernierMessageSujetAccueilForum">
-								Dans : <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
+								<?php echo $dans ?> <a href="index.php?page=sujetforum&id=<?php echo $dernierSujet['f_id']?>"><?php echo $dernierSujet['f_sujet']?></a>
 							</div>
 							<div class="dernierMessageAuteurAccueilForum">
 								<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
 		            <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
 		            <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-								Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+								<?php echo $par ?> <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"><?php echo $dernierMessage['m_auteur'] ?></a> <?php echo $le ?> <b><?php echo $dateSujet ?></b> <?php echo $a ?> <b><?php echo $heureSujet ?></b>
 							</div>
 						<?php } ?>
 					</td>
 				</tr>
 				<tr>
 					<td class="descriptionAccueilForum">
-						Vous organisez un événement particulier ? C'est par ici !
+						<?php echo $autresforum ?> 
 					</td>
 				</tr>
 			</table>

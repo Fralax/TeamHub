@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
 
-<?php include('Vues/français.php');
+<?php include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
-  include('Vues/français.php');
+  include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
   include('Vues/English.php');
