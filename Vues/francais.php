@@ -92,4 +92,25 @@ $adminmodforum = "Modérer le Forum ";
 $adminajoutques = "Ajouter une question";
 $adminsupques = "Supprimer une question";
 $nonacces = "Vous n'avez pas accès à cette page.";
+//AdminGroupeAModifier
+$groupmodifadmin = "Modifier l'admin d'un groupe";
+//
+$ajoclub = "Ajout d'un nouveau club";
+$formclub1 = "Nom du club";
+$formclub2 = "Adresse";
+$formclub3 = "Code Postal";
+$formclub4 = "Numéro de téléphone";
+$formclub5 = "Horaires";
+$formclub6 = "le";
+$formclub7 = "De";
+$formclub8 = "Lundi";
+$formclub9 = "Mardi";
+$formclub10 = "Mercredi";
+$formclub11 = "Jeudi";
+$formclub12 = "Vendredi";
+$formclub13 = "Samedi";
+$formclub14 = "Dimanche";
+$formclub15 = "Heure";
+$formclub16 = "Minute";
+$formclub17 = "Ajoutez une remarque sur les horaires si vous le souhaitez"
 ?>
