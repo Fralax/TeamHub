@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Evenement"; ?>
+<?php $this->titre = "Administration - Evenement";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>

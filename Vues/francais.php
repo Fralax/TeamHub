@@ -149,7 +149,7 @@ $ajcomm = "Ajoutez un commentaire !";
 $thxavis = "Merci d'avoir donné votre avis sur ce club !";
 $inscnote = "Inscrivez-vous pour pouvoir noter ce club !";
 //
-$clubmodifcomm = "Choisir quels commentaires de quel Club modifier";
+$clubmodifcomm = "De quel club voulez vous modifier le commentaire ? ";
 //
 $clubmodifinfo = "Choisir quel Club modifier";
 //
@@ -170,6 +170,39 @@ $appartok = "Bienvenue dans le groupe ";
 $passreset = "Votre Mot de Passe a bien été réinitialisé.";
 $peutconnect = "Vous pouvez à présent vous connecter.";
 $rediracc = "Vous allez être redirigé vers l'accueil.";
+//
+$recevnotif = "Vous recevrez une notification quand vous aurez automatiquement rejoint le groupe ";
+//
+$mailenvoye = "Un mail vient de vous être envoyé";
+$instructionmdp = "Suivez les instructions qui vous ont été envoyées pour réinitialiser votre Mot de Passe !";
+//
+$eventnouv = "Création d'un nouvel événement";
+$formevent1 = "Nom de l'évenement ";
+$formevent2 = "Date de l'événement ";
+$formevent3 = "Jour";
+$formevent4 = "Mois";
+$formevent5 = "Année";
+$formevent6 = "Heure de l'activité";
+$formevent7 = "Nombre de places";
+$formevent8 = "Club ";
+$formevent9 = "Le club souhaité n'apparaît pas dans la liste ?";
+//
+$groupnouv = "Création d'un nouveau groupe";
+$formgroup1 = "Nom du groupe ";
+$formgroup2 = "Nombre de places totales ";
+$formgroup3 = "Sélectionnez un sport";
+$formgroup4 = "Sélectionner votre Département";
+$formgroup5 = "Ecrivez une description pour votre groupe ";
+//
+$sujetnouv = "Création d'un nouveau sujet dans ";
+$formsujet1 = "Nom du sujet ";
+//
+$mailmembre = "Envoyer un mail à un Membre";
+$formmail1 = "Sélectionnez le destinataire";
+$formmail2 = "Objet";
+//
+$mailtousmembres = "Envoyer un mail à tous les membres";
+//
 
 
 

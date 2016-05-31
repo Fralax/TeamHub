@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Mail"; ?>
+<?php $this->titre = "Administration - Mail";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,20 +26,17 @@
   ?>
 
   <?php if($z == 0){ ?>
-    <h2>Envoyer un mail à tous les membres</h2>
+    <h2> <?php echo $mailtousmembres ?></h2>
     <form class="formulaireMailMembres" action="" method="post">
-      <p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder="Objet"></p>
+      <p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder=<?php echo $formmail2 ?>></p>
       <p><textarea name="mail" rows="8" cols="40"><?php echo $_POST['mail'] ?></textarea></p>
       <p><input type="submit" name="envoyer" value="Envoyer"></p>
     </form>
   <?php } ?>
 
-
   <?php if($z == 1){ ?>
-    Vous n'avez pas accès à cette page.
+    <?php echo $nonacces ?>
   <?php } ?>
 
 </body>
-
-
 </html>
