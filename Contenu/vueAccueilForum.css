@@ -1,4 +1,4 @@
-.titre{
+.titreAccueilForum{
   background-color: rgba(245, 245, 225, 0.8);
   width: 60%;
   color : black;
@@ -8,7 +8,7 @@
 }
 
 
-.conteneur{
+.conteneurAccueilForum{
   margin: auto;
   border-radius: 1em;
   padding-top: 0.5%;
@@ -17,7 +17,7 @@
   width: 90%;
 }
 
-.conteneur table{
+.conteneurAccueilForum table{
   margin: auto;
   border-collapse:separate;
   margin-bottom: 1.5em;
@@ -25,75 +25,68 @@
   width: 60em
 }
 
-.conteneur table td{
+.conteneurAccueilForum table td{
   margin: 1em;
 }
 
-.titreCategorie, .nomCategorie{
+.titreCategorieAccueilForum, .nomCategorieAccueilForum{
   width: 50%;
 }
 
-.nomCategorie{
+.nomCategorieAccueilForum{
   padding-top: 0.5em;
 }
 
-.nomCategorie a{
+.nomCategorieAccueilForum a{
   color: black;
   font-weight: bold;
 }
 
-.description{
+.descriptionAccueilForum{
   padding-left: 1.5em;
   color: grey;
   font-style: italic;
   font-size: 0.8em;
 }
 
-.dernierMessage{
+.dernierMessageAccueilForum{
   width: 40%;
 }
 
-.dernierMessageSujet a{
+.dernierMessageSujetAccueilForum a{
   text-decoration: none;
   color: green;
 }
 
-.dernierMessageSujet a:hover{
+.dernierMessageSujetAccueilForum a:hover{
   text-decoration: underline;
 }
 
-.dernierMessageAuteur a{
+.dernierMessageAuteurAccueilForum a{
   text-decoration: none;
   color: red;
 }
 
-.dernierMessageAuteur{
+.dernierMessageAuteurAccueilForum{
   padding-left: 1.5em;
   color: grey;
   font-style: italic;
   font-size: 0.8em;
 }
 
-.enTete th{
+.enTeteAccueilForum th{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
-.enTete th a{
+.enTeteAccueilForum th a{
   color: white;
 }
 
-.nbrMessages, .nbrSujets{
+.nbrMessagesAccueilForum, .nbrSujetsAccueilForum{
   text-align: center;
 }
 
-.conteneur a{
+.conteneurAccueilForum a{
   text-decoration: none;
-}
-
-.boutonNouveauSujet{
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 1em;
 }

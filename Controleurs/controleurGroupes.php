@@ -70,60 +70,34 @@ class controleurGroupes{
 
     //MODIFICATION DESCRIPTION GROUPE
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
-      if ($_POST['Description'] != " "){
+      if ($_POST['Description'] != " ") {
         $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
         header("Location: index.php?page=groupe&nom=".$_GET['nom']);
-      } else {
+      } else{
         ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     }
 
     //MODIFICATION ADMIN GROUPE
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      $admin = new controleurAdministration();
-      $verifAdmin = $admin->verifAdmin();
-      if ($verifAdmin == true){
-        header("Location: index.php?page=administration");
-      } else {
-        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
-      }
-    }
-    $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
-
-    $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible));
-  }
-
-  public function modificationAdminGroupe($nom){
-    $groupe = new groupes();
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      $admin = new controleurAdministration();
-      $verifAdmin = $admin->verifAdmin();
-      if ($verifAdmin == true){
-        if (strstr($_SERVER["HTTP_REFERER"], "page") == "page=modifadmingroupes"){
+    if (isset($_POST['ModifierAdmin']) && $_POST['ModifierAdmin'] == 'Modifier'){
+      if ($_POST['Admin']) {
+        $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
+        $admin = new controleurAdministration();
+        $verifAdmin = $admin->verifAdmin();
+        if ($verifAdmin == true){
           header("Location: index.php?page=administration");
         } else {
           header("Location: index.php?page=groupe&nom=".$_GET['nom']);
         }
-      } else {
-        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      } else{
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     } else {
       ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
     }
-    $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
-    var_dump(strstr($_SERVER["HTTP_REFERER"], "page"));
-    $vue = new Vue('ModifAdmin');
-    $vue->generer(['admin' => $adminPossible, 'caract' => $afficherCaracteristiquesGroupe]);
-  }
 
-  public function modificationPlacesGroupe($nom){
-    $groupe = new groupes();
-    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
-    $appartient = new utilisateurs();
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+    //MODIFICATION PLACES GROUPE
+    if (isset($_POST['ModifierPlaces']) && $_POST['ModifierPlaces'] == 'Modifier'){
       if($_POST['placesTotales'] < 2) {
         ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
       } else{
@@ -144,8 +118,27 @@ class controleurGroupes{
       }
     }
 
-    $vue = new Vue('ModifPlaces');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe));
+    $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
+
+    $vue = new Vue('Groupe');
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible));
+  }
+
+  public function modificationAdminGroupe($nom){
+    $groupe = new groupes();
+    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+      $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
+      $admin = new controleurAdministration();
+      $verifAdmin = $admin->verifAdmin();
+      if ($verifAdmin == true){
+        header("Location: index.php?page=administration");
+      } else {
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      }
+    }
+    $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
+    $vue = new Vue('ModifAdmin');
+    $vue->generer(['admin' => $adminPossible]);
   }
 
   public function affichageMesGroupes(){

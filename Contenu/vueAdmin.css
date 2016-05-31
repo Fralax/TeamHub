@@ -1,11 +1,11 @@
-.conteneur{
+.conteneurVueAdmin{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
   text-align: center;
 }
 
-.adminMembres, .adminGroupes, .adminClubs, .adminGenerale{
+.adminMembresVueAdmin, .adminGroupesVueAdmin, .adminClubsVueAdmin, .adminGeneraleVueAdmin{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -16,11 +16,11 @@
   width: 22%%;
 }
 
-a{
+.vueAdmin a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.vueAdmin a:hover{
   color: grey;
 }

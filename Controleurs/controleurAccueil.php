@@ -72,6 +72,11 @@ class accueil{
     $groupe->supprimerAcquittement();
     header("Location: index.php?page=accueil");
   }
+
+  public function changementLangue($langue){
+    setcookie("langue", $langue);
+    header("Location: index.php?page=accueil");
+  }
 }
 
 ?>

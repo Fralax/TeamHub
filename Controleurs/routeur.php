@@ -12,6 +12,7 @@
   require_once 'Controleurs/controleurForum.php';
   require_once 'Vues/vue.php';
 
+
   class routeur{
 
     private $controleurConnexion;
@@ -107,10 +108,6 @@
 
         case 'affichagemodificationadmin':
           $this->controleurGroupes->modificationAdminGroupe($_GET['nom']);
-          break;
-
-        case 'affichagemodificationplaces':
-          $this->controleurGroupes->modificationPlacesGroupe($_GET['nom']);
           break;
 
         case 'resultatsrecherche':
@@ -337,6 +334,10 @@
 
         case 'confirmationnouveaumdp':
           $this->controleurConnexion->afficherConfirmationNouveauMdp();
+          break;
+
+        case 'changementlangue':
+          $this->controleurAccueil->changementLangue($_GET['langue']);
           break;
 
         default:

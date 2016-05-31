@@ -15,7 +15,7 @@
 			<form name = "formulaireNouveauSujet" method="post" action = "">
 				<p> Nom du sujet : <input type="text" name="nomSujet" placeholder="Nom du Sujet" size="25" value = "<?= $_POST['nomSujet'] ?>"/> </p>
         <p>
-         <textarea name="message" rows="7" cols="70"> </textarea>
+         <textarea name="message" rows="7" cols="70"> <?php echo $_POST['message'] ?> </textarea>
        </p>
 				<p> <input name="Creer" type="submit" value="Créer"> </p>
 			</form>

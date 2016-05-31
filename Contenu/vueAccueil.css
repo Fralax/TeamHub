@@ -1,4 +1,4 @@
-.messageBienvenue h2{
+.messageBienvenueAccueil h2{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   text-align: center;
@@ -9,15 +9,15 @@
   padding-bottom: 1em;
 }
 
-.mesGroupes h3{
+.mesGroupesAccueil h3{
   text-align: center;
 }
 
-.mesGroupes a{
+.mesGroupesAccueil a{
   padding-left: 0.7em;
 }
 
-.mesGroupes{
+.mesGroupesAccueil{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-top: 0.5%;
@@ -27,54 +27,54 @@
   color : white;
 }
 
-.mesGroupes img{
+.mesGroupesAccueil img{
   width: 2.5em;
   height: 2.5em;
 }
 
-.conteneur2 img{
+.conteneur2Accueil img{
   width: 2.5em;
   height: 2.5em;
 }
 
-.mesGroupes table{
+.mesGroupesAccueil table{
   margin-bottom: 1em;
 }
 
-.evenementsGroupe{
+.evenementsGroupeAccueil{
   font-size: 0.8em;
 }
 
-.pasDeGroupe{
+.pasDeGroupeAccueil{
   color: white;
   text-align: center;
 }
 
-.calendrierEvents{
+.calendrierEventsAccueil{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
   margin-bottom: 1em;
 }
 
-.evenements{
+.evenementsAccueil{
   color: white;
   border-radius: 1em;
   background-color: rgba(0, 0, 0, 0.8);
   width: 60%;
 }
 
-.evenements h3{
+.evenementsAccueil h3{
   text-align: center;
 }
 
 
-.evenements table{
+.evenementsAccueil table{
   margin: auto;
   font-size: 2em;
 }
 
-.calendrier{
+.calendrierAccueil{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-top: 0.5%;
@@ -85,35 +85,35 @@
 }
 
 
-.calendrier table{
+.calendrierAccueil table{
   margin: auto;
   border-collapse: collapse;
 }
 
-.year{
+.yearAccueil{
   text-align: center;
   font-weight: bold;
 }
 
-.calendrier table thead{
+.calendrierAccueil table thead{
   font-weight: normal;
 }
 
-.calendrier table td{
+.calendrierAccueil table td{
   border: 1px solid;
   border-color: white;
   width: 3em;
   height: 3em;
 }
 
-.calendrier table td:hover{
+.calendrierAccueil table td:hover{
   background: white;
   cursor:pointer;
   color : black;
   border-color: white;
 }
 
-.calendrier table td.padding{
+.calendrierAccueil table td.padding{
   background: inherit;
   cursor: inherit;
   border: 0px solid;
@@ -121,13 +121,13 @@
   height: 3em;
 }
 
-.day, .today{
+.dayAccueil, .todayAccueil{
   text-align: right;
   vertical-align: bottom;
   padding-right: 0.1em;
 }
 
-.today{
+.todayAccueil{
   font-weight: bold;
   color: red;
 }
@@ -137,18 +137,18 @@ table th{
   color:#A8A8A8;
 }
 
-table td .daytitle{
+table td .daytitleAccueil{
   display:none;
 }
 
-table td .events{
+table td .eventsAccueil{
   position:relative;
   height:0px;
   margin:-39px 0px 0px;
   padding:0px;
 }
 
-table td .events li{
+table td .eventsAccueil li{
   width: 6px;
   height: 6px;
   float:left;
@@ -161,22 +161,22 @@ table td .events li{
   text-indent:-3000px;
 }
 
-.months li{
+.monthsAccueil li{
   display: inline;
 }
 
-.months ul{
+.monthsAccueil ul{
   text-align: center;
   padding: 0;
 }
 
-.conteneur2{
+.conteneur2Accueil{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.suggestionSports{
+.suggestionSportsAccueil{
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
@@ -187,17 +187,17 @@ table td .events li{
   color : white;
 }
 
-.suggestionSports h3{
+.suggestionSportsAccueil h3{
   text-align: center;
   margin-left: 3%;
   margin-right: 3%;
 }
 
-.suggestionSports table{
+.suggestionSportsAccueil table{
   margin: auto;
 }
 
-.suggestionGroupes{
+.suggestionGroupesAccueil{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-top: 0.5%;
@@ -207,17 +207,17 @@ table td .events li{
   color: white;
 }
 
-.suggestionGroupes h3{
+.suggestionGroupesAccueil h3{
   text-align: center;
   margin-left: 3%;
   margin-right: 3%;
 }
 
-.suggestionGroupes table{
+.suggestionGroupesAccueil table{
   margin: auto;
 }
 
-.notifications{
+.notificationsAccueil{
   margin: auto;
   background-color: rgba(192, 192, 225, 0.8);
   border-radius: 1em;
@@ -228,32 +228,32 @@ table td .events li{
   margin-bottom: 1em;
 }
 
-.notifications table td{
+.notificationsAccueil table td{
   padding-right: 1em;
 }
 
-.notifications h3{
+.notificationsAccueil h3{
   text-align: center;
   color: black;
 }
 
-.notifications table{
+.notificationsAccueil table{
   margin: auto;
 }
 
-.Ok{
+.OkAccueil{
   text-align: center;
 }
 
-h3{
+.accueil h3{
   color : rgba(255, 255, 215, 1);
 }
 
-a{
+.accueil a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.accueil a:hover{
   color: grey;
 }

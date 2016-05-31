@@ -1,12 +1,4 @@
 <?php $this->titre = "Groupe - ".$caract['g_nom']; ?>
-<!DOCTYPE html>
-<html>
-
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" href="Contenu/vueGroupe.css" />
-  <title>Groupe</title>
-  </head>
 
   <body>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
@@ -53,7 +45,7 @@
             <form method="post" action="">
               <p>
                <label for="Description"> Ecrivez une description pour votre groupe </label> <br> <br>
-               <textarea name="Description" cols="70" rows="4"> </textarea>
+               <textarea name="Description" cols="70" rows="4"> <?php echo $_POST['Description'] ?> </textarea>
              </p>
              <p> <input type="submit" name="Modifier" value="Modifier la Description"> </p>
            </form>
@@ -77,6 +69,7 @@
             </div>
           </div>
           <a href="#form2"><h3>Désigner un nouvel administrateur</h3></a>
+          <a href="#form3"><h3>Modifier le nombre de places dans le groupe</h3></a>
           <div id="form2" class="forms">
             <form action="" method="post">
               <select name="Admin">
@@ -85,12 +78,17 @@
                 <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
                 <?php } ?>
               </select>
-              <input type="submit" name="Modifier" value="Modifier" >
+              <input type="submit" name="ModifierAdmin" value="Modifier" >
+            </form>
+          </div>
+          <div id = "form3" class="forms">
+            <form action="" method="post">
+              <input type="number" name="placesTotales" placeholder="Nombre de places" size="25" min="0"  />
+              <input type="submit" name="ModifierPlaces" value="Modifier" >
             </form>
           </div>
         </div>
         <div class="actionsGroupe">
-          <a href="index.php?page=affichagemodificationplaces&nom=<?php echo $caract['g_nom']?>"><h3>Modifier le nombre de places dans le groupe</h3></a>
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
           <?php if ($caract['g_placesLibres'] != "0") { ?>
@@ -657,5 +655,3 @@
   });
 });
 </script>
-
-</html>

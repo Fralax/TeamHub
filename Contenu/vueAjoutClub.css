@@ -1,4 +1,4 @@
-.formulaire{
+.formulaireAjoutClub{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-left: 10px;
@@ -8,11 +8,11 @@
   color : white;
 }
 
-a{
+.formulaireAjoutClub a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.formulaireAjoutClub a:hover{
   color: grey;
 }

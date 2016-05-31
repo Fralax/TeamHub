@@ -1,16 +1,16 @@
-.conteneur{
+.conteneurResultatsRecherche{
   border-radius: 1em;
   padding-top: 2px;
   padding-bottom: 10px;
 }
 
-.resultats{
+.resultatsResultatsRecherche{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.resultatGroupes, .resultatClubs{
+.resultatGroupesResultatsRecherche, .resultatClubsResultatsRecherche{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -22,7 +22,7 @@
   margin-bottom: auto;
 }
 
-.resultatMembres{
+.resultatMembresResultatsRecherche{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -34,50 +34,50 @@
   margin-bottom: auto;
 }
 
-.resultatGroupes img{
+.resultatGroupesResultatsRecherche img{
   width: 2.5em;
   height: 2.5em;
 }
 
-.resultats table{
+.resultatsResultatsRecherche table{
   margin : auto;
 }
 
-.resultats table td{
+.resultatsResultatsRecherche table td{
   padding-top: 1em;
   padding-bottom: 1.6em;
 }
 
-.resultats td{
+.resultatsResultatsRecherche td{
   text-align: center;
 }
 
-.resultatGroupes td{
+.resultatGroupesResultatsRecherche td{
   padding-right: 1em;
 }
 
-.conteneur h2, h3, table, a{
+.conteneurResultatsRecherche h2, .conteneurResultatsRecherche h3, .conteneurResultatsRecherche table, .conteneurResultatsRecherche a{
   text-decoration: none;
   color : white;
 }
 
-.conteneur h2{
+.conteneurResultatsRecherche h2{
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
 }
 
-.resultatMembres img{
+.resultatMembresResultatsRecherche img{
   width: 4em;
   height: 4em;
   border-radius: 50%;
 }
 
-a{
+.resultatsRecherche a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.resultatsRecherche a:hover{
   color: grey;
 }

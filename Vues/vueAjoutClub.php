@@ -1,13 +1,8 @@
 <?php $this->titre = "Club - Ajout"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
-		<title>Ajout d'un Club</title>
-	</head>
+
 	<body>
-		<div class="formulaire" >
+
+		<div class="formulaireAjoutClub">
 			<h2>Ajout d'un nouveau club</h2>
 			<form name = "formulaireNouveauClub" method="post" action = "" enctype="multipart/form-data" >
 				<p> Nom du club : <input type="text" name="nomClub" placeholder="Nom du Club" size="25" value = "<?= $_POST['nomClub'] ?>"/> </p>
