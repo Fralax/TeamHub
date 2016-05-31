@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Bannissement"; ?>
+<?php $this->titre = "Administration - Bannissement";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,11 +27,11 @@
 		?>
 
 		<?php if($a == 0){ ?>
-			<h2>Bannir un membre</h2>
+			<h2><?php echo $adminbann ?></h2>
 
 	    <form action="" method="post">
 	      <select name="banni">
-					<option value =""> -- Selectionnez un membre à bannir -- </option>
+					<option value =""> -- <?php echo $selectadmin ?> -- </option>
 	        <?php foreach ($abannir as list($nomabannir)) { ?>
 	        <option value = "<?php echo $nomabannir?>" > <?php echo $nomabannir?> </option>
 	        <?php } ?>
@@ -32,14 +39,14 @@
 	      <input type="submit" name="bannir" value="Bannir" >
 	    </form>
 
-			<h2>Membres Bannis </h2>
+			<h2> <?php $mban ?> </h2>
 			<?php foreach ($banni as list($nombanni)){ ?>
 				<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="Débannir"> </a>
 			<?php } ?>
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-			Vous n'avez pas accès à cette page.
+			<?php echo $nonacces ?>
 		<?php } ?>
 
 

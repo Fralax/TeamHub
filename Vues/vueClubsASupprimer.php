@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Club"; ?>
+<?php $this->titre = "Administration - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,19 +27,19 @@
 		?>
 
 		<?php if($a == 0){ ?>
-			<h2>Choisir quel Club supprimer </h2>
+			<h2> <?php echo $clubsuppchoix ?> </h2>
 	    <?php foreach ($listeClubs as list($nomclubs)) { ?>
 				<table>
 					<tr>
 						<td> <?php echo $nomclubs?> </td>
-						<td> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce club : <?php echo addslashes($nomclubs)?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo addslashes($nomclubs)?>'; return false"> <input type="button" name="Supprimer" value="Supprimer"> </a> </td>
+						<td> <a href="#" onclick="if (confirm('<?php echo $sursupp.addslashes($nomclubs)?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo addslashes($nomclubs)?>'; return false"> <input type="button" name="Supprimer" value="Supprimer"> </a> </td>
 					</tr>
 				</table>
 	    <?php } ?>
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-				Vous n'avez pas accès à cette page.
+				<?php echo $nonacces ?>
 		<?php } ?>
 
   </body>

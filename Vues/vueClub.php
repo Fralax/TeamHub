@@ -1,5 +1,11 @@
-<?php $this->titre = "Club - ".$caractClub['c_nom']; ?>
-<!DOCTYPE html>
+<?php $this->titre = "Club - ".$caractClub['c_nom'];
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 	<body>
 
@@ -7,44 +13,44 @@
 			<div class="clubVueClub">
 	      <h2><?php echo $caractClub['c_nom']?> </h2>
 	      <img src="imagesClubs/<?php echo $caractClub['c_image']; ?>"/>
-	      <p> Adresse :
+	      <p> <?php echo $formclub2 ?> :
 	      <?php echo $caractClub['c_adresse'] ?>
 	      </p>
 	      <p>
 	      <?php echo $caractClub['c_cp'] ?> <?php echo $caractClub['c_ville'] ?>
 	      </p>
-	      <p> Numéro de téléphone :
+	      <p> <?php echo $formclub4 ?> :
 	      <?php echo $caractClub['c_numero'] ?>
 	      </p>
 				<div class="horairesVueClub">
 					<table>
 		        <tr>
-		          <td> Lundi </td>
-							<td> de <?php echo $caractClub['c_hoLundiDebut'] ?> à <?php echo $caractClub['c_hoLundiFin'] ?> </td>
+		          <td> <?php echo $formclub8 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoLundiDebut'] ?> <?php echo $a.$caractClub['c_hoLundiFin'] ?> </td>
 		        </tr>
 		        <tr>
-							<td> Mardi </td>
-							<td> de <?php echo $caractClub['c_hoMardiDebut'] ?> à <?php echo $caractClub['c_hoMardiFin'] ?> </td>
+							<td> <?php echo $formclub9 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoMardiDebut'] ?> <?php echo $a.$caractClub['c_hoMardiFin'] ?> </td>
 		        </tr>
 						<tr>
-							<td> Mercredi </td>
-							<td> de <?php echo $caractClub['c_hoMercrediDebut'] ?> à <?php echo $caractClub['c_hoMercrediFin'] ?> </td>
+							<td> <?php echo $formclub10 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoMercrediDebut'] ?> <?php echo $a.$caractClub['c_hoMercrediFin'] ?> </td>
 						</tr>
 						<tr>
-							<td> Jeudi </td>
-							<td> de <?php echo $caractClub['c_hoJeudiDebut'] ?> à <?php echo $caractClub['c_hoJeudiFin'] ?> </td>
+							<td> <?php echo $formclub11 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoJeudiDebut'] ?> <?php echo $a.$caractClub['c_hoJeudiFin'] ?> </td>
 						</tr>
 						<tr>
-							<td> Vendredi </td>
-							<td> de <?php echo $caractClub['c_hoVendrediDebut'] ?> à <?php echo $caractClub['c_hoVendrediFin'] ?> </td>
+							<td> <?php echo $formclub12 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoVendrediDebut'] ?> <?php echo $a.$caractClub['c_hoVendrediFin'] ?> </td>
 						</tr>
 						<tr>
-							<td> Samedi </td>
-							<td> de <?php echo $caractClub['c_hoSamediDebut'] ?> à <?php echo $caractClub['c_hoSamediFin'] ?> </td>
+							<td> <?php echo $formclub13 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoSamediDebut'] ?> <?php echo $a.$caractClub['c_hoSamediFin'] ?> </td>
 						</tr>
 						<tr>
-							<td> Dimanche </td>
-							<td> de <?php echo $caractClub['c_hoDimancheDebut'] ?> à <?php echo $caractClub['c_hoDimancheFin'] ?> </td>
+							<td> <?php echo $formclub14 ?> : </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoDimancheDebut'] ?> <?php echo $a.$caractClub['c_hoDimancheFin'] ?> </td>
 						</tr>
 		      </table>
 				</div>
@@ -57,19 +63,19 @@
 				<div class="derniersVueClub">
 					<table>
 						<th>
-							<h3>Les derniers commentaires</h3>
+							<h3> <?php echo $dercomm ?></h3>
 							___________________
 						</th>
 						<?php if ($derniereNoteClub[0]==""){ ?>
 							<tr>
 								<td>
-									<b>Il n'y a pas encore de commentaire ... </b>
+									<b> <?php echo $riencomm ?></b>
 								</td>
 							</tr>
 						<?php } ?>
 						<?php foreach ($derniereNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 							<tr>
-								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
+								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, <?php echo $le ?> <?php echo $date ?> : </td>
 							</tr>
 							<tr>
 								<td>
@@ -94,19 +100,19 @@
 				<div class="meilleursVueClub">
 					<table>
 						<th>
-							<h3> Les meilleurs commentaires</h3>
+							<h3> <?php echo $bestcomm ?> </h3>
 							___________________
 						</th>
 						<?php if ($derniereNoteClub[0]==""){ ?>
 							<tr>
 								<td>
-									<b>Il n'y a pas encore de commentaire ... </b>
+									<b><?php echo $riencomm ?> </b>
 								</td>
 							</tr>
 						<?php } ?>
 						<?php foreach ($meilleureNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 							<tr>
-								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
+								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, <?php echo $le ?> <?php echo $date ?> : </td>
 							</tr>
 							<tr>
 								<td>
@@ -131,19 +137,19 @@
 				<div class="piresVueClub">
 					<table>
 						<th>
-							<h3>Les moins bons commentaires</h3>
+							<h3><?php echo $wcomm ?> </h3>
 							___________________
 						</th>
 						<?php if ($derniereNoteClub[0]==""){ ?>
 							<tr>
 								<td>
-									<b>Il n'y a pas encore de commentaire ... </b>
+									<b><?php echo $riencomm ?> </b>
 								</td>
 							</tr>
 						<?php } ?>
 						<?php foreach ($pireNoteClub as list($pseudo, $note, $commentaire, $date)){?>
 							<tr>
-								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, le <?php echo $date ?> : </td>
+								<td class="infosCommentaireVueClub"> <a href="index.php?page=profil&nom=<?php echo $pseudo ?>"><b><?php echo $pseudo?></b></a>, <?php echo $le ?> <?php echo $date ?> : </td>
 							</tr>
 							<tr>
 								<td>
@@ -191,7 +197,7 @@
 					?>
 
 					<?php if($i == 1){ ?>
-						<h3>Notez et Commentez ce club !</h3>
+						<h3> <?php echo $notecomm ?></h3>
 						<form name = "formulaireNotation" method="post" action = "">
 							<div class="ratingVueClub"><!--
 							--><input name="noteClub" value="5" id="e5" type="radio"><label for="e5">☆</label><!--
@@ -201,7 +207,7 @@
 							--><input name="noteClub" value="1" id="e1" type="radio"><label for="e1">☆</label>
 							</div>
 							<p>
-							 <label for="commentaireClub"> Ajoutez un commentaire ! </label> <br/><br/>
+							 <label for="commentaireClub"> <?php echo $ajcomm ?> </label> <br/><br/>
 							 <textarea name="commentaireClub"> </textarea>
 							</p>
 						 <p> <input type="submit" name="Noter" value="Noter"> </p>
@@ -209,11 +215,11 @@
 				 <?php }?>
 
 					<?php if($i == 2){ ?>
-						<b> Merci d'avoir donné votre avis sur ce club ! </b>
+						<b> <?php echo $thxavis ?> </b>
 					<?php }?>
 
 					<?php if($i == 3){ ?>
-					 	Inscrivez-vous pour pouvoir noter ce club ! <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
+					 	 <?php echo $inscnote ?> <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
 				 	<?php }?>
 				</div>
 			</div>

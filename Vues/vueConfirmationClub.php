@@ -1,4 +1,11 @@
-<?php $this->titre = "Confirmation - Club"; ?>
+<?php $this->titre = "Confirmation - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Ce Club a bien été créé ! </h2>
+    <h2> <?php echo $clubcree ?> </h2>
 
-    <p> Vous allez être redirigé vers vos Groupes. </p>
+    <p> <?php echo $redir ?> </p>
 
   </body>
 

@@ -1,4 +1,11 @@
-<?php $this->titre = "Confirmation - Bannissement"; ?>
+<?php $this->titre = "Confirmation - Bannissement";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> <?php echo $pseudo ?> a bien été banni du groupe. </h2>
+    <h2> <?php echo $pseudo.$banok ?> </h2>
 
-    <p> Vous allez être redirigé vers le groupe <?php echo $nom ?>. </p>
+    <p>  <?php echo $redirgr.$nom ?>. </p>
 
   </body>
 

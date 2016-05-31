@@ -1,4 +1,11 @@
-<?php $this->titre = "Banni"; ?>
+<?php $this->titre = "Banni";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Vous avez été Banni ! </h2>
+    <h2> <?php echo $ba ?> </h2>
 
-    <p> Si vous souhaitez plus de détailq, contactez l'administrateur du site. </p>
+    <p> <?php echo $contactadmi ?> </p>
 
   </body>
 </html>
