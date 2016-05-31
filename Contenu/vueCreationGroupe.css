@@ -1,4 +1,4 @@
-.formulaire{
+.formulaireVueCreationGroupe{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-left: 10px;
@@ -7,15 +7,15 @@
   width: 30%;
 }
 
-.formulaire h2, form{
+.formulaireVueCreationGroupe h2, form{
   color : white;
 }
 
-a{
+.formulaireVueCreationGroupe a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.formulaireVueCreationGroupe a:hover{
   color: grey;
 }

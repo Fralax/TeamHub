@@ -1,10 +1,10 @@
-.infosGenerales{
+.infosGeneralesVueProfil{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.maPhoto, .conteneurPseudo, .mesSports{
+.maPhotoVueProfil, .conteneurPseudoVueProfil, .mesSportsVueProfil{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -14,19 +14,19 @@
   width: 30%;
 }
 
-.pseudo{
+.pseudoVueProfil{
   font-size: 5em;
 }
 
-.pseudo p{
+.pseudoVueProfil p{
   text-align: center;
 }
 
-.maPhoto p{
+.maPhotoVueProfil p{
   text-align: center;
 }
 
-.maPhoto img{
+.maPhotoVueProfil img{
   border: 8px solid #fff;
   display: block;
   width: 13em;
@@ -36,11 +36,11 @@
   margin-right: auto;
 }
 
-.maPhoto img:hover{
+.maPhotoVueProfil img:hover{
   cursor: pointer;
 }
 
-.mesInfos{
+.mesInfosVueProfil{
   margin-top: 1em;
   margin-bottom: 1em;
   display: flex;
@@ -48,11 +48,11 @@
   justify-content: space-around;
 }
 
-.mesInfos h2, h3, .infosGenerales h2{
+.mesInfosVueProfil h2, .mesInfosVueProfil h3, .infosGeneralesVueProfil h2{
   text-align: center;
 }
 
-.General, .monAdresse, .mesCoordonnees, .modifs{
+.GeneralVueProfil, .monAdresseVueProfil, .mesCoordonneesVueProfil, .modifsVueProfil{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -62,17 +62,17 @@
   width: 22%;
 }
 
-.conteneur{
+.conteneurVueProfil{
   color : white;
 }
 
-.conteneur2{
+.conteneur2VueProfil{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.mesGroupes{
+.mesGroupesVueProfil{
   border-radius: 1em;
   text-align: center;
   margin-top: 1em;
@@ -82,26 +82,26 @@
   width: 30%;
 }
 
-.mesGroupes table{
+.mesGroupesVueProfil table{
   margin: auto;
 }
 
-.mesGroupes img{
+.mesGroupesVueProfil img{
   width: 2.5em;
   height: 2.5em;
 }
 
 
-.mesSports table{
+.mesSportsVueProfil table{
   margin: auto;
   color: white;
 }
 
-.mesSports td{
+.mesSportsVueProfil td{
   padding-bottom: 1em;
 }
 
-#form2, #form3, #form4{
+.formsProfil #form2, .formsProfil #form3, .formsProfil #form4{
   text-align: center;
   padding-left: 1em;
   padding-right: 1em;
@@ -113,16 +113,16 @@
   width: 33%;
 }
 
-.ajoutSport{
+.ajoutSportVueProfil{
   text-align: center;
   font-weight: bold;
 }
 
-a{
+.profilVueProfil a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.profilVueProfil a:hover{
   color: grey;
 }

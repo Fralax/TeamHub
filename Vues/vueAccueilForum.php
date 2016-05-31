@@ -6,16 +6,7 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 } ?>
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueAccueilForum.css" />
-		<title>Forum</title>
-		<?php $forum = new forum() ?>
-	</head>
-
+<?php $forum = new forum() ?>
 	<body>
 		<div class="titreAccueilForum">
 			<h2> <?php echo $bienvenue ?></h2>
@@ -324,4 +315,3 @@ elseif($_COOKIE['langue'] == "English") {
 		</div>
 
   </body>
-</html>

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationBannissement.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationBannissementMembre.css" />
     <title> Confirmation de Bannissement de Membre </title>
   </head>
 

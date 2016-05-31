@@ -1,4 +1,4 @@
-.inscription{
+.inscriptionVueInscription{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding-top: 1px;
@@ -7,11 +7,11 @@
   border-radius: 1em;
 }
 
-a{
+.inscriptionVueInscription a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.inscriptionVueInscription a:hover{
   color: grey;
 }

@@ -1,4 +1,4 @@
-.titre{
+.titreCategorieForum{
   background-color: rgba(245, 245, 225, 0.8);
   width: 60%;
   color : black;
@@ -8,7 +8,7 @@
 }
 
 
-.conteneur{
+.conteneurCategorieForum{
   margin: auto;
   border-radius: 1em;
   padding-top: 0.5%;
@@ -17,7 +17,7 @@
   width: 90%;
 }
 
-.conteneur table{
+.conteneurCategorieForum table{
   margin: auto;
   border-collapse:separate;
   margin-bottom: 1.5em;
@@ -25,63 +25,63 @@
   width: 60em;
 }
 
-.conteneur table td{
+.conteneurCategorieForum table td{
   margin: 1em;
 }
 
-.titreCategorie, .nomSujet{
+.titreCategorieCategorieForum, .nomSujetCategorieForum{
   width: 50%;
 }
 
-.nomSujet{
+.nomSujetCategorieForum{
   padding-top: 0.5em;
 }
 
-.nomSujet a{
+.nomSujetCategorieForum a{
   color: black;
 }
 
-.nomAuteurDate{
+.nomAuteurDateCategorieForum{
   padding-left: 1.5em;
   color: grey;
   font-style: italic;
   font-size: 0.8em;
 }
 
-.dernierMessage{
+.dernierMessageCategorieForum{
   width: 40%;
 }
 
-.enTete th{
+.enTeteCategorieForum th{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
-.enTete th a{
+.enTeteCategorieForum th a{
   color: white;
 }
 
-.nbrReponses, .nbrVues{
+.nbrReponsesCategorieForum, .nbrVuesCategorieForum{
   text-align: center;
 }
 
-.conteneur a{
+.conteneurCategorieForum a{
   text-decoration: none;
 }
 
-.dernierMessageAuteur a{
+.dernierMessageAuteurCategorieForum a{
   text-decoration: none;
   color: red;
 }
 
-.dernierMessageDate{
+.dernierMessageDateCategorieForum{
   padding-left: 1.5em;
   color: grey;
   font-style: italic;
   font-size: 0.8em;
 }
 
-.boutonNouveauSujet{
+.boutonNouveauSujetCategorieForum{
   background-color: rgba(245, 245, 225, 0.8);
   border-radius: 1em;
   width: 13em;
@@ -93,12 +93,12 @@
 
 }
 
-.nomAuteurDate a{
+.nomAuteurDateCategorieForum a{
   text-decoration: none;
   color: red;
 }
 
-.boutonNouveauSujet a{
+.boutonNouveauSujetCategorieForum a{
   text-decoration: none;
   color: black;
 }

@@ -1,14 +1,8 @@
 <?php $this->titre = "Evenement - Création"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueCreationEvenements.css" />
-		<title>Inscription</title>
-	</head>
+
 	<body>
 
-		<div class="creationEvenement">
+		<div class="creationEvenementVueEvenement">
 			<h2>Création d'un nouvel événement</h2>
 
 			<form name = "formulaireNouvelEvenement" method="post" action = "">
@@ -74,4 +68,3 @@
 			</form>
 		</div>
 	</body>
-</html>

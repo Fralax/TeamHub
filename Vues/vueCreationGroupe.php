@@ -1,13 +1,6 @@
 <?php $this->titre = "Groupe - Création"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
-		<title>Inscription</title>
-	</head>
 	<body>
-		<div class="formulaire" >
+		<div class="formulaireVueCreationGroupe" >
 			<h2>Création d'un nouveau groupe</h2>
 			<form name = "formulaireNouveauGroupe" method="post" action = "">
 				<p> Nom du groupe : <input type="text" name="nomGroupe" placeholder="Nom du Groupe" size="25" value = "<?= $_POST['nomGroupe'] ?>"/> </p>
@@ -38,4 +31,3 @@
 			</form>
 		</div>
 	</body>
-</html>

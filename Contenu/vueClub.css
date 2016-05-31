@@ -1,9 +1,9 @@
-.club img{
+.clubVueClub img{
 	width: 20em;
 	height: auto;
 }
 
-.club{
+.clubVueClub{
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 1%;
@@ -14,24 +14,24 @@
   color : white;
 }
 
-.horaires table td{
+.horairesVueClub table td{
   text-align: left;
 }
 
-.horaires{
+.horairesVueClub{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.commentaires{
+.commentairesVueClub{
 	padding-top: 1em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.derniers, .pires, .meilleurs{
+.derniersVueClub, .piresVueClub, .meilleursVueClub{
 	padding-left: 1em;
 	padding-right: 1em;
 	padding-top: 1em;
@@ -42,15 +42,15 @@
 	width: 30%;
 }
 
-.derniers a, .pires a, .meilleurs a{
+.derniersVueClub a, .piresVueClub a, .meilleursVueClub a{
 	color : rgba(255, 255, 215, 1);
 }
 
-.infosCommentaire{
+.infosCommentaireVueClub{
 	color: rgba(255, 255, 215, 1);
 }
 
-.noterCommenter{
+.noterCommenterVueClub{
 	padding-left: 1em;
 	padding-right: 1em;
 	padding-top: 1em;
@@ -63,7 +63,7 @@
 	text-align: center;
 }
 
-.Formulaire{
+.FormulaireVueClub{
 	padding-top: 1em;
 	display: flex;
 	flex-wrap: nowrap;
@@ -71,21 +71,21 @@
 }
 
 
-.rating {
+.ratingVueClub {
 	width: 226px;
 	margin: 0 auto 1em;
 	font-size: 45px;
 	overflow:hidden;
 }
 
-.rating input {
+.ratingVueClub input {
 float: right;
 opacity: 0;
 position: absolute;
 }
 
-.rating a,
-.rating label {
+.ratingVueClub a,
+.ratingVueClub label {
 	float:right;
 	color: #aaa;
 	text-decoration: none;
@@ -95,32 +95,32 @@ position: absolute;
 	transition: color .4s;
 }
 
-.rating label:hover ~ label,
-.rating input:focus ~ label,
-.rating label:hover,
-.rating a:hover,
-.rating a:hover ~ a,
-.rating a:focus,
-.rating a:focus ~ a		{
+.ratingVueClub label:hover ~ label,
+.ratingVueClub input:focus ~ label,
+.ratingVueClub label:hover,
+.ratingVueClub a:hover,
+.ratingVueClub a:hover ~ a,
+.ratingVueClub a:focus,
+.ratingVueClub a:focus ~ a		{
 	color: orange;
 	cursor: pointer;
 }
 
-th{
+.conteneurVueClub th{
 	text-align: left;
 }
 
-textarea{
+.conteneurVueClub textarea{
 	font-size: 14px;
 	height: 100px;
 	width: 70%;
 }
 
-a{
+.conteneurVueClub a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.conteneurVueClub a:hover{
   color: grey;
 }

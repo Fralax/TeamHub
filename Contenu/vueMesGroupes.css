@@ -1,4 +1,4 @@
-.mesGroupes{
+.mesGroupesVueMesGroupes{
   text-align: center;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.8);
@@ -9,31 +9,31 @@
   width: 80%;
 }
 
-.mesGroupes a, h2, table{
+.mesGroupesVueMesGroupes a, .mesGroupesVueMesGroupes h2, .mesGroupesVueMesGroupes table{
   color : white;
 }
 
-.mesGroupes table{
+.mesGroupesVueMesGroupes table{
   margin: auto;
 }
 
 
-.mesGroupes td{
+.mesGroupesVueMesGroupes td{
   padding-bottom: 10px;
   padding-top: 10px;
   padding-right:40px;
 }
 
-.mesGroupes img{
+.mesGroupesVueMesGroupes img{
   width: 2.5em;
   height: 2.5em;
 }
 
-a{
+.mesGroupesVueMesGroupes a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.mesGroupesVueMesGroupes a:hover{
   color: grey;
 }

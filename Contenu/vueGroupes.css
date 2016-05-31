@@ -1,4 +1,4 @@
-.groupes{
+.groupesVueGroupes{
   margin: auto;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
@@ -9,25 +9,25 @@
   width: 80%;
 }
 
-.groupes h2, a, table{
+.groupesVueGroupes h2, .groupesVueGroupes a, .groupesVueGroupes table{
   color : white;
 }
 
-.groupes td{
+.groupesVueGroupes td{
   padding-right: 50px;
   padding-bottom: 1em;
 }
 
-.groupes img{
+.groupesVueGroupes img{
   width: 2.5em;
   height: 2.5em;
 }
 
-a{
+.groupesVueGroupes a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.groupesVueGroupes a:hover{
   color: grey;
 }

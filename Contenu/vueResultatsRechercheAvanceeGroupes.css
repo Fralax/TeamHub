@@ -1,0 +1,37 @@
+.conteneurVueRechAvanceeGroupes{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color : white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1em;
+  width: 60%;
+  margin: auto;
+}
+
+.conteneurVueRechAvanceeGroupes table{
+  margin: auto;
+}
+
+.conteneurVueRechAvanceeGroupes h2{
+  text-align: center;
+}
+
+.conteneurVueRechAvanceeGroupes img{
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.conteneurVueRechAvanceeGroupes td{
+  padding-right: 1em;
+}
+
+.conteneurVueRechAvanceeGroupes a{
+  text-decoration: none;
+  color: white;
+}
+
+.conteneurVueRechAvanceeGroupes a:hover{
+  color: grey;
+}

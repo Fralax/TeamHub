@@ -1,66 +1,66 @@
-.conteneur img{
+.conteneurVueSujetForum img{
   width: 6em;
   height: 6em;
   border-radius: 50%
 }
 
-.detailsSujet{
+.detailsSujetVueSujetForum{
   margin: auto;
 }
 
-.photoMembreSujet{
+.photoMembreSujetVueSujetForum{
   text-align: center;
   width: 30%;
   height: 10em;
   border-right: 1px solid;
 }
 
-.enTeteSujetTop, .enTeteSujet{
+.enTeteSujetTopVueSujetForum, .enTeteSujetVueSujetForum{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
-.enTeteSujet td{
+.enTeteSujetVueSujetForum td{
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
-.enTeteSujetTop td{
+.enTeteSujetTopVueSujetForum td{
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
-.dateActions{
+.dateActionsVueSujetForum{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-.dateActions a{
+.dateActionsVueSujetForum a{
   text-decoration: none;
   color: white;
 }
 
-.dateActions a:hover{
+.dateActionsVueSujetForum a:hover{
   color: grey;
   text-decoration: underline;
 }
 
-.conteneur table{
+.conteneurVueSujetForum table{
   border-collapse: collapse;
   width: 60em;
 }
 
-.message{
+.messageVueSujetForum{
   width: 70%;
 }
 
-.message td{
+.messageVueSujetForum td{
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
-.conteneur{
+.conteneurVueSujetForum{
   padding: 0.1em;
   margin: auto;
   width: 60em;
@@ -68,7 +68,7 @@
   margin-bottom: 1em;
 }
 
-.conteneur2{
+.conteneur2VueSujetForum{
   padding-top: 1em;
   text-align: center;
   background-color: rgba(245, 245, 225, 0.8);

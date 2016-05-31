@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-
 <?php $this->titre = "Inscription"; ?>
 
-<html>
-
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueInscription.css" />
-		<title>Inscription</title>
-	</head>
-
-	<body>
-
-
-		<div class="inscription">
+<body>
+		<div class="inscriptionVueInscription">
 			<h2>Inscrivez vous, c'est gratuit !</h2>
 
 			<br></br>

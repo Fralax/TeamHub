@@ -1,4 +1,4 @@
-.creationEvenement{
+.creationEvenementVueEvenement{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-left: 10px;
@@ -7,15 +7,15 @@
   width: 35%;
 }
 
-.creationEvenement h2, form{
+.creationEvenementVueEvenement h2, .creationEvenementVueEvenement form{
   color : white;
 }
 
-a{
+.creationEvenementVueEvenement a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.creationEvenementVueEvenement a:hover{
   color: grey;
 }

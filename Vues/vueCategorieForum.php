@@ -1,12 +1,4 @@
 <?php $this->titre = "Forum - ".$_GET['categorie']; ?>
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
-		<title><?php echo $_GET['categorie'] ?></title>
-	</head>
 
   <body>
     <?php
@@ -24,26 +16,26 @@
       }
     ?>
 
-    <div class="conteneur">
+    <div class="conteneurCategorieForum">
       <?php if ($n == 1 || $n == 3){ ?>
-      <div class="boutonNouveauSujet">
+      <div class="boutonNouveauSujetCategorieForum">
         <p> <a href="index.php?page=creersujet&categorie=<?php echo $_GET['categorie'] ?>" > Créer un nouveau Sujet </a> </p>
       </div>
       <?php } ?>
-      <table class="tableauSujets">
+      <table class="tableauSujetsCategorieForum">
 
-				<thead class="enTete">
+				<thead class="enTeteCategorieForum">
 					<tr>
-						<th class="titreCategorie">
+						<th class="titreCategorieCategorieForum">
 							<h3><?php echo $_GET['categorie'] ?></h3>
 						</th>
-						<th class="nbrReponses">
+						<th class="nbrReponsesCategorieForum">
 							Réponses
 						</th>
-						<th class="nbrVues">
+						<th class="nbrVuesCategorieForum">
 							Vues
 						</th>
-						<th class="dernierMessage">
+						<th class="dernierMessageCategorieForum">
 							Dernier Message
 						</th>
 					</tr>
@@ -51,27 +43,27 @@
 
         <?php foreach ($sujets as list($id, $nomSujet, $dateSujet, $auteurSujet, $nombreReponsesSujet, $activiteSujet, $nbrVues)){ ?>
         <tr>
-          <td class="nomSujet">
+          <td class="nomSujetCategorieForum">
 						<?php if ($activiteSujet == "0"): ?>
 							<img src="Autres/lock.png" width="20px" height="20px"/>
 						<?php endif; ?>
             <a href="index.php?page=sujetforum&id=<?php echo $id?>"> <?php echo $nomSujet?> </a>
           </td>
-          <td class="nbrReponses" rowspan = "2">
+          <td class="nbrReponsesCategorieForum" rowspan = "2">
             <?php echo $nombreReponsesSujet ?>
           </td>
-          <td class="nbrVues" rowspan = "2">
+          <td class="nbrVuesCategorieForum" rowspan = "2">
             <?php echo $nbrVues ?>
           </td>
-          <td class="dernierMessage" rowspan = "2">
+          <td class="dernierMessageCategorieForum" rowspan = "2">
             <?php
 						$forum = new forum();
 						$dernierMessage = $forum->recupDernierMessage($id)->fetch();
 						?>
-						<div class="dernierMessageAuteur">
+						<div class="dernierMessageAuteurCategorieForum">
 							Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"> <?php echo $dernierMessage['m_auteur'] ?> </a>
 						</div>
-						<div class="dernierMessageDate">
+						<div class="dernierMessageDateCategorieForum">
 							<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
 							<?php $dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y') ?>
 							<?php $heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s') ?>
@@ -80,7 +72,7 @@
           </td>
         </tr>
         <tr>
-          <td class="nomAuteurDate">
+          <td class="nomAuteurDateCategorieForum">
             <?php $dateEntiereSujet = date_create($dateSujet) ?>
             <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
             <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
@@ -93,5 +85,3 @@
     </div>
 
   </body>
-
-</html>

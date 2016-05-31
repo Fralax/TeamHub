@@ -264,11 +264,6 @@ elseif($_COOKIE['langue'] == "English") {
 </div>
 
 
-
-
-
-
-
 <script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	function focusEvent(date) {
