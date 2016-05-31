@@ -8,6 +8,17 @@
 	</head>
 	<body>
 
+		<?php
+			require_once 'Controleurs/controleurAdministration.php';
+			$admin = new controleurAdministration();
+			$verifAdmin = $admin->verifAdmin();
+				if($verifAdmin == true){
+					$z=0;
+				} else{
+					$z=1;
+				}
+		?>
+		<?php if($z == 0){ ?>
 		<h2>Modifer les infos d'un Club</h2>
 
 		<form action="" method="post">
@@ -58,6 +69,10 @@
 				</div>
 				<input type="submit" name="Modifier" value="Modifier" >
 			</form>
+
+			<?php if($z == 1){ ?>
+				Vous n'avez pas accès à cette page.
+			<?php } ?>
 
   </body>
 </html>

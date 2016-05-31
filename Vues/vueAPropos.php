@@ -11,7 +11,9 @@
       <div class="équipe">
         <div id="description">
           <h2>Mot des fondateurs:</h2>
-          <p> TeamHub est le site pour trouver des partenaires de sports, que vous soyez en ville ou plus loin, des personnes cherchent toujours des partenaires de sport. Grâce à nous, vous pourrez enfin pratiquer vos sports favoris sans devoir passez des heures à trouver des personnes et des lieux de rendez-vous. TeamHub vous facilitera la vie, rejoignez-nous!</p>
+          <p> Semi professionnel, sportif occasionnel ou encore golfeur du dimanche, tout le monde préfère faire du sport avec des amis. S’il est plus agréable de courir à plusieurs, il est tout simplement indispensable d’avoir des partenaires pour un sport collectif. Malheureusement, il n’est pas toujours évident de trouver 21 amis pour un match de footbal, et encore moins 29 connaissances pour un rugby du samedi…  C’est pour cela que nous avons imaginé TeamHub. D’ici peu, TeamHub va révolutionner votre pratique du sport.
+          <p> Grâce à TeamHub, vous allez rencontrer des sportifs près de chez vous et de votre niveau. Organisez ou participez aux activités proposées par vos groupes. Réassemblez et fédérez une communauté de passionnés autour de votre sport préféré. </p>
+          <p> Adhérez TeamHub, choisissez la facilité. </p>
           <h2>Présentation de l'équipe:</h2>
           <p></p>
         </div>

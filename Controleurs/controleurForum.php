@@ -21,8 +21,12 @@ class controleurForum{
   public function creationSujet($categorie){
     $forum = new forum();
     if (isset($_POST['Creer']) && $_POST['Creer'] == 'Créer'){
-      $forum->creerSujet($categorie);
-      header("Location: index.php?page=forum&categorie=".$categorie);
+      if ($_POST['nomSujet'] != "" && $_POST['message'] != " "){
+        $forum->creerSujet($categorie);
+        header("Location: index.php?page=forum&categorie=".$categorie);
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
     }
     $vue = new Vue('CreationSujetForum');
     $vue->generer();

@@ -8,6 +8,15 @@
 	</head>
 	<body>
 
+		<?php
+      if ($caract['g_admin'] == $_SESSION['pseudo']) {
+        $i = 1;
+      } else{
+        $i = 2;
+      }
+    ?>
+
+		<?php if( $i == 1){ ?>
 		<h2>Modifier description du groupe </h2>
 
     <form method="post" action="">
@@ -17,6 +26,10 @@
      </p>
      <p> <input type="submit" name="Modifier" value="Modifier la Description"> </p>
    </form>
+	 <?php } ?>
+	 <?php if($i == 2){ ?>
+			 Vous n'avez pas accès à cette page.
+	 <?php } ?>
 
   </body>
 </html>

@@ -8,6 +8,15 @@
 	</head>
 	<body>
 
+		<?php
+      if ($caract['g_admin'] == $_SESSION['pseudo']) {
+        $i = 1;
+      } else{
+        $i = 2;
+      }
+    ?>
+
+		<?php if( $i == 1){ ?>
 		<h2>Modifier l'administrateur</h2>
 
     <form action="" method="post">
@@ -19,6 +28,10 @@
       </select>
       <input type="submit" name="Modifier" value="Modifier" >
     </form>
+		<?php } ?>
+		<?php if($i == 2){ ?>
+        Vous n'avez pas accès à cette page.
+    <?php } ?>
 
   </body>
 </html>

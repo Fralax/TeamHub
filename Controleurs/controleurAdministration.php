@@ -77,8 +77,16 @@ class controleurAdministration{
     $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
 
     if (isset ($_POST['Modifier'])){
-      $modif = $admin->modifierCaracteristiquesClub($nomClub);
-      header("Location: index.php?page=administration");
+      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && $_POST['numeroClub'] !="" && $_POST['hLundiDebut'] !="" && $_POST['mLundiDebut'] !="" && $_POST['hMardiDebut'] !=""
+      && $_POST['mMardiDebut'] !="" && $_POST['hMercrediDebut'] !="" && $_POST['mMercrediDebut'] !="" && $_POST['hJeudiDebut'] !="" && $_POST['mJeudiDebut'] !="" && $_POST['hVendrediDebut'] !="" && $_POST['mVendrediDebut'] !=""
+      && $_POST['hSamediDebut'] !="" && $_POST['mSamediDebut'] !="" && $_POST['hDimancheDebut'] !="" && $_POST['mDimancheDebut'] !="" && $_POST['hLundiFin'] !="" && $_POST['mLundiFin'] !="" && $_POST['hMardiFin'] !=""
+      && $_POST['mMardiFin'] !="" && $_POST['hMercrediFin'] !="" && $_POST['mMercrediFin'] !="" && $_POST['hJeudiFin'] !="" && $_POST['mJeudiFin'] !="" && $_POST['hVendrediFin'] !="" && $_POST['mVendrediFin'] !=""
+      && $_POST['hSamediFin'] !="" && $_POST['mSamediFin'] !="" && $_POST['hDimancheFin'] !="" && $_POST['mDimancheFin'] !=""){
+        $modif = $admin->modifierCaracteristiquesClub($nomClub);
+        header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+      }
     }
 
     $vue = new Vue('ModifClub');
@@ -190,7 +198,7 @@ class controleurAdministration{
     $admin = new administration();
     $membresSite = $user->listerMembresSite()->fetchAll();
     if(isset($_POST['envoyer'])){
-      if($_POST['membresSite'] != ""){
+      if($_POST['membresSite'] != "" && $_POST['mail'] != " " && $_POST['sujet'] != ""){
         $envoiMail = $admin->envoiMail($_POST['membresSite'])->fetch();
         $destinataire = $envoiMail[0];
         $sujet = $_POST['sujet'] ;
@@ -199,6 +207,8 @@ class controleurAdministration{
 Merci de ne pas répondre à ce mail.";
         mail($destinataire, $sujet, $message);
         header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     }
     $vue = new Vue('EnvoiMail');
@@ -210,16 +220,20 @@ Merci de ne pas répondre à ce mail.";
     $admin = new administration();
     $membresSite = $user->listerMembresSite()->fetchAll();
     if(isset($_POST['envoyer'])){
-      foreach($membresSite as list($membre)){
-        $envoiMail = $admin->envoiMail($membre)->fetch();
-        $destinataire = $envoiMail[0];
-        $sujet = $_POST['sujet'] ;
-        $message = $_POST['mail']."
---------------------------------
-Merci de ne pas répondre à ce mail.";
-        mail($destinataire, $sujet, $message);
-      }
+      if ($_POST['membresSite'] != "" && $_POST['mail'] != " " && $_POST['sujet'] != ""){
+        foreach($membresSite as list($membre)){
+          $envoiMail = $admin->envoiMail($membre)->fetch();
+          $destinataire = $envoiMail[0];
+          $sujet = $_POST['sujet'] ;
+          $message = $_POST['mail']."
+  --------------------------------
+  Merci de ne pas répondre à ce mail.";
+          mail($destinataire, $sujet, $message);
+        }
         header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
     }
     $vue = new Vue('EnvoiMailMembres');
     $vue->generer(array('membres' => $membresSite));
@@ -245,9 +259,13 @@ Merci de ne pas répondre à ce mail.";
 
   public function ajoutQuestion(){
     $admin = new administration();
-    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] != ""){
-      $admin->ajouterQuestion();
-      header("Location: index.php?page=administration");
+    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == "Ajouter"){
+      if ($_POST['question'] != " " && $_POST['reponse'] != " "){
+        $admin->ajouterQuestion();
+        header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
     }
 
     $vue = new Vue('AjoutFAQ');
