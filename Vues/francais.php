@@ -69,6 +69,27 @@ $rechergroupe = "Si vous recherchez un groupe et que vous ne savez pas trop où 
 $nomforum5 = "Compétitions";
 $nomforum6 = "Cours";
 $nomforum7 = "Autres";
-
-
+$compeforum = "Vous voulez organisez ou participer à des compétitons ?";
+$coursforum = "Vous voulez organiser ou particier à des cours ?";
+$autresforum = "Vous organisez un événement particulier ? C'est par ici !";
+//vueAdmin
+$adminmem = "Administration des membres";
+$adminnom = "Nommer un Administrateur";
+$adminbann = "Bannir un Membre";
+$adminmailmem = "Envoyer un mail à un membre";
+$adminmail = "Envoyer un mail aux membres du site";
+$admingroup = "Administration des Groupes";
+$adminsupgroup = "Supprimer un Groupe";
+$adminsupeve = "Supprimer un Événement";
+$adminnouvad = "Désigner un nouvel administrateur de groupe";
+$adminclu = "Administration des Clubs";
+$adminmodinfo = "Modifier les informations d'un Club";
+$adminmodphoto = "Modifier la photo d'un Club";
+$admincom = "Modérer les commentaires";
+$adminsupclub = "Supprimer un Club";
+$adminaide = "Administration de l'Aide";
+$adminmodforum = "Modérer le Forum ";
+$adminajoutques = "Ajouter une question";
+$adminsupques = "Supprimer une question";
+$nonacces = "Vous n'avez pas accès à cette page.";
 ?>
