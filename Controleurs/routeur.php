@@ -105,10 +105,6 @@
           $this->controleurMembres->listeMembres($_GET['nom']);
           break;
 
-        case 'affichagemodificationdescription':
-          $this->controleurGroupes->modificationDescriptionGroupe($_GET['nom']);
-          break;
-
         case 'affichagemodificationadmin':
           $this->controleurGroupes->modificationAdminGroupe($_GET['nom']);
           break;

@@ -85,3 +85,17 @@ a{
 a:hover{
   color: grey;
 }
+
+.reseaux{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.twitter{
+  padding-left: 1em;
+}
+
+.facebook{
+  padding-right: 1em;
+}
