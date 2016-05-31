@@ -69,11 +69,27 @@ $rechergroupe = "You are looking for a Group and you are lost ? Post a message h
 $nomforum5 = "Competitions";
 $nomforum6 = "Courses";
 $nomforum7 = "Other";
-
-
-
-
-
-
-$messageAccueil = "Welcome on TeamHub !"
+$compeforum = "You want to organize or participate to competitions ?";
+$coursforum = "You want to organize or participate to courses ?";
+$autresforum = "Vous want to organize a particular Event ? Come here !";
+//vueAdmin
+$adminmem = "Administration of Members";
+$adminnom = "Appoint an Administrator";
+$adminbann = "Ban a Member";
+$adminmailmem = "Send a mail to a Member";
+$adminmail = "Send a mail to all the Members";
+$admingroup = "Administration of Groups";
+$adminsupgroup = "Delete a Group";
+$adminsupeve = "Delete an Event";
+$adminnouvad = "Appoint a new Administrator in this Groupe";
+$adminclu = "Administration of Clubs";
+$adminmodinfo = "Modify the information of a Club";
+$adminmodphoto = "Modify the photo of a Club";
+$admincom = "Moderate comments";
+$adminsupclub = "Delete a Club";
+$adminaide = "Help Administration";
+$adminmodforum = "Moderate the Forum ";
+$adminajoutques = "Add a question";
+$adminsupques = "Delete a question";
+$nonacces = "You don't have access to this page !";
 ?>

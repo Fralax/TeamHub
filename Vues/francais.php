@@ -70,7 +70,7 @@ $nomforum5 = "Compétitions";
 $nomforum6 = "Cours";
 $nomforum7 = "Autres";
 $compeforum = "Vous voulez organisez ou participer à des compétitons ?";
-$coursforum = "Vous voulez organiser ou particier à des cours ?";
+$coursforum = "Vous voulez organiser ou participer à des cours ?";
 $autresforum = "Vous organisez un événement particulier ? C'est par ici !";
 //vueAdmin
 $adminmem = "Administration des membres";
