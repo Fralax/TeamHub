@@ -70,21 +70,52 @@ class controleurGroupes{
 
     //MODIFICATION DESCRIPTION GROUPE
     if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
-      $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
-      header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      if ($_POST['Description'] != " ") {
+        $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      } else{
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
     }
 
     //MODIFICATION ADMIN GROUPE
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
-      $admin = new controleurAdministration();
-      $verifAdmin = $admin->verifAdmin();
-      if ($verifAdmin == true){
-        header("Location: index.php?page=administration");
-      } else {
-        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+    if (isset($_POST['ModifierAdmin']) && $_POST['ModifierAdmin'] == 'Modifier'){
+      if ($_POST['Admin']) {
+        $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
+        $admin = new controleurAdministration();
+        $verifAdmin = $admin->verifAdmin();
+        if ($verifAdmin == true){
+          header("Location: index.php?page=administration");
+        } else {
+          header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+        }
+      } else{
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
     }
+
+    //MODIFICATION PLACES GROUPE
+    if (isset($_POST['ModifierPlaces']) && $_POST['ModifierPlaces'] == 'Modifier'){
+      if($_POST['placesTotales'] < 2) {
+        ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
+      } else{
+        if ($_POST['placesTotales'] > 100){
+          ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
+        } else{
+        $groupe->modifierPlacesGroupe($nom);
+        $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
+        settype($placesLibres[0], "integer");
+        $membresEnAttente = $groupe->ajouterAutoGroupe($nom, $placesLibres[0])->fetchAll();
+        foreach ($membresEnAttente as list($nomMembre)) {
+          $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
+          $groupe->diminuerPlacesLibres($nom);
+          $groupe->supprimerAttendPlace($nom, $nomMembre);
+        }
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+        }
+      }
+    }
+
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
 
     $vue = new Vue('Groupe');
@@ -106,34 +137,6 @@ class controleurGroupes{
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
     $vue = new Vue('ModifAdmin');
     $vue->generer(['admin' => $adminPossible]);
-  }
-
-  public function modificationPlacesGroupe($nom){
-    $groupe = new groupes();
-    $appartient = new utilisateurs();
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
-      if($_POST['placesTotales'] < 2) {
-        ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
-      } else{
-        if ($_POST['placesTotales'] > 100){
-          ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
-        } else{
-        $groupe->modifierPlacesGroupe($nom);
-        $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
-        settype($placesLibres[0], "integer");
-        $membresEnAttente = $groupe->ajouterAutoGroupe($nom, $placesLibres[0])->fetchAll();
-        foreach ($membresEnAttente as list($nomMembre)) {
-          $appartient->ajoutAppartientBdd($nomMembre, $nom, "nonAdmin");
-          $groupe->diminuerPlacesLibres($nom);
-          $groupe->supprimerAttendPlace($nom, $nomMembre);
-        }
-        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
-        }
-      }
-    }
-
-    $vue = new Vue('ModifPlaces');
-    $vue->generer();
   }
 
   public function affichageMesGroupes(){

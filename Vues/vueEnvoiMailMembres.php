@@ -21,8 +21,8 @@
   <?php if($z == 0){ ?>
     <h2>Envoyer un mail à tous les membres</h2>
     <form class="formulaireMailMembres" action="" method="post">
-      <p><input type="text" name="sujet" value="" placeholder="Objet"></p>
-      <p><textarea name="mail" rows="8" cols="40"></textarea></p>
+      <p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder="Objet"></p>
+      <p><textarea name="mail" rows="8" cols="40"><?php echo $_POST['mail'] ?></textarea></p>
       <p><input type="submit" name="envoyer" value="Envoyer"></p>
     </form>
   <?php } ?>

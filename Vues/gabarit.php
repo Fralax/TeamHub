@@ -4,6 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="Contenu/gabarit.css" />
+    <link rel="stylesheet" href="Contenu/vueAccueil.css" />
+    <link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
+    <link rel="stylesheet" href="Contenu/vueAdmin.css" />
+    <link rel="stylesheet" href="Contenu/vueAdminGroupeAModifier.css" />
+    <link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
+    <link rel="stylesheet" href="Contenu/vueAjoutFAQ.css" />
+    <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueAPropos.css" />
+    <link rel="stylesheet" href="Contenu/vueBanni.css" />
+    <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
+    <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
     <title><?= $titre ?></title>
 </head>
   <?php

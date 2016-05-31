@@ -25,11 +25,11 @@
         <select name="membresSite">
           <option value =""> -- Sélectionnez le destinataire -- </option>
           <?php foreach ($membres as list($nom)) { ?>
-          <option value = "<?php echo $nom?>" > <?php echo $nom?> </option>
+          <option value = "<?php echo $nom?>" <?php if ($_POST['membresSite']=="$nom"){?> selected <?php }?> > <?php echo $nom?> </option>
           <?php } ?>
         </select>
-        <p><input type="text" name="sujet" value="" placeholder="Objet"></p>
-        <p><textarea name="mail" rows="8" cols="40"></textarea></p>
+        <p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder="Objet"></p>
+        <p><textarea name="mail" rows="8" cols="40"><?php echo $_POST['mail'] ?></textarea></p>
         <p><input type="submit" name="envoyer" value="Envoyer"></p>
       </form>
     <?php } ?>

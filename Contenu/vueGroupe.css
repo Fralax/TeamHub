@@ -3,6 +3,12 @@
   color: white;
 }
 
+.imageSport img{
+  margin: 1em;
+  width: 60%;
+  height: 60%;
+}
+
 .infos{
   display: flex;
   flex-wrap: nowrap;
@@ -69,12 +75,6 @@
   background-color: rgba(0, 0, 0, 0.8);
   margin: auto;
   border-radius: 50%;
-}
-
-.imageSport img{
-  margin: 1em;
-  width: 60%;
-  height: 60%;
 }
 
 a{
