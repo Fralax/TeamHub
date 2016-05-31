@@ -1,17 +1,9 @@
 <?php $this->titre = "Recherche Avancée"; ?>
-<!DOCTYPE html>
-<html>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueRechercheAvancee.css" />
-		<title>Recherche</title>
-	</head>
+<body>
 
-	<body>
-
-		<div class="conteneur">
-			<div class="jeRecherche">
+		<div class="conteneurVueRechercheAvancee">
+			<div class="jeRechercheVueRechercheAvancee">
 				<h3> Je recherche : </h3>
 					<table>
 						<tr>
@@ -28,8 +20,8 @@
 					</table>
 			</div>
 
-			<div id = "form1" class="forms">
-				<form class="formulaireRechercheGroupe" name = "formulaireRechercheGroupe" method="post" action = "">
+			<div id = "form1" class="formsRechercheAvancee">
+				<form class="formulaireRechercheGroupeVueRechercheAvancee" name = "formulaireRechercheGroupe" method="post" action = "">
 					<table>
 						<tr>
 							<td>
@@ -68,8 +60,8 @@
 				</form>
 			</div>
 
-			<div id = "form2" class="forms">
-				<form  class="formulaireRechercheMembre" name = "formulaireRechercheMembre" method="post" action = "">
+			<div id = "form2" class="formsRechercheAvancee">
+				<form  class="formulaireRechercheMembreVueRechercheAvancee" name = "formulaireRechercheMembre" method="post" action = "">
 					<table>
 						<tr>
 							<td>
@@ -92,8 +84,8 @@
 				</form>
 			</div>
 
-			<div id = "form3" class="forms">
-				<form  class="formulaireRechercheClub" name = "formulaireRechercheClub" method="post" action = "">
+			<div id = "form3" class="formsRechercheAvancee">
+				<form  class="formulaireRechercheClubVueRechercheAvancee" name = "formulaireRechercheClub" method="post" action = "">
 					<table>
 						<tr>
 							<td>
@@ -116,13 +108,12 @@
 				</form>
 			</div>
 		</div>
-
   </body>
 
 	<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 	<script language="javascript" type="text/javascript">
 		$(function(){
-		var divs = $(".forms");
+		var divs = $(".formsRechercheAvancee");
 		divs.hide();
 		$("a").click(function(){
 			divs.filter(":visible").slideUp();
@@ -131,5 +122,3 @@
 		});
 	});
 	</script>
-
-</html>

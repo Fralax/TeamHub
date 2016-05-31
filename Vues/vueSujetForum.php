@@ -1,14 +1,5 @@
 <?php $this->titre = "Forum - Sujet"; ?>
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueSujetForum.css" />
-		<title>Sujet</title>
-	</head>
-
-	<body>
+<body>
 		<?php
     require_once 'Controleurs/controleurAdministration.php';
     $admin = new controleurAdministration();
@@ -26,20 +17,20 @@
       }
 		?>
 
-		<div class="conteneur">
-			<table class = "detailsSujet">
-				<tr class="enTeteSujetTop">
+		<div class="conteneurVueSujetForum">
+			<table class = "detailsSujetVueSujetForum">
+				<tr class="enTeteSujetTopVueSujetForum">
 					<td>
 						<?php echo $message['f_sujet'] ?>
 					</td>
-					<td class="dateActions">
-						<div class="date">
+					<td class="dateActionsVueSujetForum">
+						<div class="dateVueSujetForum">
 							<?php $dateEntiereSujet = date_create($message['f_date']) ?>
 							<?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
 							<?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
 							le <b> <?php echo $dateSujet ?> </b> à <b> <?php echo $heureSujet ?> </b>
 						</div>
-						<div class="actions">
+						<div class="actionsVueSujetForum">
 							<?php if (($n == 1 || $n == 2) && $message['f_actif'] == "1"){ ?>
 								<a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> Clore le Sujet </a>
 							<?php } ?>
@@ -50,16 +41,16 @@
 					</td>
 				</tr>
 
-				<tr class="message">
-					<td class="photoMembreSujet">
-						<div class="photo">
+				<tr class="messageVueSujetForum">
+					<td class="photoMembreSujetVueSujetForum">
+						<div class="photoVueSujetForum">
 							<?php
 								$utilisateur = new utilisateurs();
 								$photo = $utilisateur->afficherPhotoForum($message['f_auteur'])->fetch();
 							?>
 							<img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
 						</div>
-						<div class="pseudo">
+						<div class="pseudoVueSujetForum">
 							<?php echo $message['f_auteur'] ?>
 						</div>
 					</td>
@@ -69,18 +60,18 @@
 				</tr>
 
 				<?php foreach ($reponses as list($auteur, $reponse, $id, $date)){ ?>
-					<tr class="enTeteSujet">
+					<tr class="enTeteSujetVueSujetForum">
 						<td>
 							Re : <?php echo $message['f_sujet'] ?>
 						</td>
-						<td class="dateActions">
-							<div class="date">
+						<td class="dateActionsVueSujetForum">
+							<div class="dateVueSujetForum">
 							<?php $dateEntiereMessage = date_create($date) ?>
 							<?php $dateMessage = date_format($dateEntiereMessage, 'd/m/Y') ?>
 							<?php $heureMessage = date_format($dateEntiereMessage, 'H:i:s') ?>
 							le <b> <?php echo $dateMessage ?> </b> à <b> <?php echo $heureMessage ?> </b>
 						</div>
-						<div class="actions">
+						<div class="actionsVueSujetForum">
 							<?php if ($n == 2){ ?>
 								<a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer le message</a>
 							<?php } ?>
@@ -88,16 +79,16 @@
 						</td>
 					</tr>
 
-				<tr class="message">
-					<td class="photoMembreSujet">
-						<div class="photo">
+				<tr class="messageVueSujetForum">
+					<td class="photoMembreSujetVueSujetForum">
+						<div class="photoVueSujetForum">
 							<?php
 								$utilisateur = new utilisateurs();
 								$photo = $utilisateur->afficherPhotoForum($auteur)->fetch();
 							?>
 							<img src="imagesUtilisateurs/<?php echo $photo[0] ?>"/>
 						</div>
-						<div class="pseudo">
+						<div class="pseudoVueSujetForum">
 							<?php echo $auteur ?>
 						</div>
 					</td>
@@ -110,7 +101,7 @@
 		</div>
 
 		<?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
-			<div class="conteneur2">
+			<div class="conteneur2VueSujetForum">
 				Postez une réponse !
 				<form name = "formulaireNouvelleReponse" method="post" action = "">
 					<textarea name="message" rows="7" cols="70"> </textarea>
@@ -121,4 +112,3 @@
 
 
   </body>
-</html>

@@ -1,16 +1,16 @@
-.conteneurResultatsRecherche{
+.conteneurResultatsRechercheVueResultatsRecherche{
   border-radius: 1em;
   padding-top: 2px;
   padding-bottom: 10px;
 }
 
-.resultatsResultatsRecherche{
+.resultatsResultatsRechercheVueResultatsRecherche{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
-.resultatGroupesResultatsRecherche, .resultatClubsResultatsRecherche{
+.resultatGroupesResultatsRechercheVueResultatsRecherche, .resultatClubsResultatsRechercheVueResultatsRecherche{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -22,7 +22,7 @@
   margin-bottom: auto;
 }
 
-.resultatMembresResultatsRecherche{
+.resultatMembresResultatsRechercheVueResultatsRecherche{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -34,50 +34,50 @@
   margin-bottom: auto;
 }
 
-.resultatGroupesResultatsRecherche img{
+.resultatGroupesResultatsRechercheVueResultatsRecherche img{
   width: 2.5em;
   height: 2.5em;
 }
 
-.resultatsResultatsRecherche table{
+.resultatsResultatsRechercheVueResultatsRecherche table{
   margin : auto;
 }
 
-.resultatsResultatsRecherche table td{
+.resultatsResultatsRechercheVueResultatsRecherche table td{
   padding-top: 1em;
   padding-bottom: 1.6em;
 }
 
-.resultatsResultatsRecherche td{
+.resultatsResultatsRechercheVueResultatsRecherche td{
   text-align: center;
 }
 
-.resultatGroupesResultatsRecherche td{
+.resultatGroupesResultatsRechercheVueResultatsRecherche td{
   padding-right: 1em;
 }
 
-.conteneurResultatsRecherche h2, .conteneurResultatsRecherche h3, .conteneurResultatsRecherche table, .conteneurResultatsRecherche a{
+.conteneurResultatsRechercheVueResultatsRecherche h2, .conteneurResultatsRechercheVueResultatsRecherche h3, .conteneurResultatsRechercheVueResultatsRecherche table, .conteneurResultatsRechercheVueResultatsRecherche a{
   text-decoration: none;
   color : white;
 }
 
-.conteneurResultatsRecherche h2{
+.conteneurResultatsRechercheVueResultatsRecherche h2{
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
 }
 
-.resultatMembresResultatsRecherche img{
+.resultatMembresResultatsRechercheVueResultatsRecherche img{
   width: 4em;
   height: 4em;
   border-radius: 50%;
 }
 
-.resultatsRecherche a{
+.resultatsRechercheVueResultatsRecherche a{
   text-decoration: none;
   color: white;
 }
 
-.resultatsRecherche a:hover{
+.resultatsRechercheVueResultatsRecherche a:hover{
   color: grey;
 }

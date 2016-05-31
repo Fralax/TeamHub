@@ -1,14 +1,6 @@
 <?php $this->titre = "Groupes - Rejoindre"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="Contenu/vueGroupes.css" />
-		<title>Groupes</title>
-	</head>
-
 	<body>
-    <div class="groupes">
+    <div class="groupesVueGroupes">
 			<?php $groupe = new groupes() ?>
   		<h2>Groupes</h2>
 

@@ -1,8 +1,8 @@
-.liste{
+.listeVueVoirClubs{
   text-align: center;
 }
 
-.clubs{
+.clubsVueVoirClubs{
   margin: auto;
   padding-left: 1%;
   padding-right: 1%;
@@ -14,27 +14,27 @@
   width: 80%;
 }
 
-.clubs table{
+.clubsVueVoirClubs table{
   margin: auto;
 }
 
-.clubs table td{
+.clubsVueVoirClubs table td{
   padding-bottom: 1em;
   padding-right: 1em;
 }
 
 
-.clubs img{
+.clubsVueVoirClubs img{
   height: 3.5em;
   width: 3.5em;
   border-radius: 50%;
 }
 
-a{
+.clubsVueVoirClubs a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.clubsVueVoirClubs a:hover{
   color: grey;
 }

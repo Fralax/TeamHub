@@ -1,13 +1,5 @@
 <?php $this->titre = "Forum - Accueil"; ?>
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueAccueilForum.css" />
-		<title>Forum</title>
-		<?php $forum = new forum() ?>
-	</head>
+<?php $forum = new forum() ?>
 
 	<body>
 		<div class="titreAccueilForum">
@@ -317,4 +309,3 @@
 		</div>
 
   </body>
-</html>

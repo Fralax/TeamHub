@@ -30,14 +30,14 @@
     }
   ?>
 
-  <div class="groupe">
+  <div class="groupeVueGroupe">
 
     <?php if ($i == 1){ ?>
-      <div class="imageSport">
+      <div class="imageSportVueGroupe">
         <img src="imageSports/<?php echo $image['s_image']; ?>"/>
       </div>
-      <div class="infos">
-        <div class="nomEtDescription">
+      <div class="infosVueGroupe">
+        <div class="nomEtDescriptionVueGroupe">
           <h2>Groupe <?php echo $caract['g_nom']?> </h2>
           <p><?php echo $caract['g_description'] ?></p>
           <a href="#form1"> <h3> Modifier la description du groupe </h3></a>
@@ -51,17 +51,17 @@
            </form>
           </div>
         </div>
-        <div class="infosGenerales">
+        <div class="infosGeneralesVueGroupe">
           <h2>Informations :</h2>
           <p> <b> Administrateur : </b> <a href="index.php?page=profil&nom=<?php echo $caract['g_admin'] ?>"> <?php echo $caract['g_admin'] ?> </a> </p>
           <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
           <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
           <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
-          <div class="reseaux">
-            <div class="facebook">
+          <div class="reseauxVueGroupe">
+            <div class="facebookVueGroupe">
               <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
             </div>
-            <div class="twitter">
+            <div class="twitterVueGroupe">
             <a href="http://twitter.com/share" class="twitter-share-button"
             data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
             data-via="TimHeub"
@@ -88,7 +88,7 @@
             </form>
           </div>
         </div>
-        <div class="actionsGroupe">
+        <div class="actionsGroupeVueGroupe">
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
           <?php if ($caract['g_placesLibres'] != "0") { ?>
@@ -98,8 +98,8 @@
           <a href="#" onclick="if (confirm('Voulez vraiment supprimer le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Supprimer le groupe</h3></a>
         </div>
       </div>
-      <div class="evenements">
-        <div class="mesEvenements">
+      <div class="evenementsVueGroupe">
+        <div class="mesEvenementsVueGroupe">
           <h3>Événements auxquels je participe</h3>
           <?php if($afficherMesEvenements[0][0] == ""){ ?>
             Vous ne participez à aucun événement !
@@ -144,7 +144,7 @@
           </table>
           <?php } ?>
         </div>
-        <div class="evenementsGroupe">
+        <div class="evenementsGroupeVueGroupe">
           <h3>Événements du groupe</h3>
           <?php if($evenementsGroupe[0][0] == ""){ ?>
             Aucun événement en cours dans ce groupe ...
@@ -210,25 +210,25 @@
   <?php } ?>
 
   <?php if ($i == 2){ ?>
-    <div class="imageSport">
+    <div class="imageSportVueGroupe">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     </div>
-    <div class="infos">
-      <div class="nomEtDescription">
+    <div class="infosVueGroupe">
+      <div class="nomEtDescriptionVueGroupe">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
         <p><?php echo $caract['g_description'] ?></p>
       </div>
-      <div class="infosGenerales">
+      <div class="infosGeneralesVueGroupe">
         <h2>Informations :</h2>
         <p> <b> Administrateur : </b> <a href="index.php?page=profil&nom=<?php echo $caract['g_admin'] ?>"> <?php echo $caract['g_admin'] ?> </a> </p>
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
-        <div class="reseaux">
-          <div class="facebook">
+        <div class="reseauxVueGroupe">
+          <div class="facebookVueGroupe">
             <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
           </div>
-          <div class="twitter">
+          <div class="twitterVueGroupe">
           <a href="http://twitter.com/share" class="twitter-share-button"
           data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
           data-via="TimHeub"
@@ -236,14 +236,14 @@
           </div>
         </div>
       </div>
-      <div class="actionsGroupe">
+      <div class="actionsGroupeVueGroupe">
         <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3>Créer un événement</h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
         <a href="#" onclick="if (confirm('Voulez vraiment quitter le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Quitter le groupe</h3></a>
       </div>
     </div>
-    <div class="evenements">
-      <div class="mesEvenements">
+    <div class="evenementsVueGroupe">
+      <div class="mesEvenementsVueGroupe">
         <h3>Événements auxquels je participe</h3>
         <?php if($afficherMesEvenements[0][0] == ""){ ?>
           Vous ne participez à aucun événement !
@@ -290,7 +290,7 @@
         </table>
         <?php } ?>
       </div>
-      <div class="evenementsGroupe">
+      <div class="evenementsGroupeVueGroupe">
         <h3>Événements du groupe</h3>
         <?php if($evenementsGroupe[0][0] == ""){ ?>
           Aucun événement en cours dans ce groupe ...
@@ -337,7 +337,7 @@
             </td>
             <?php } ?>
             <td>
-              <a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+              <a href="#" onclick=VueGroupe"if (confirm('Voulez vous vraiment rejoindre l\'événement : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
             </td>
             <?php } else{ ?>
               <td>
@@ -353,25 +353,25 @@
   <?php } ?>
 
   <?php if ($i == 3){ ?>
-    <div class="imageSport">
+    <div class="imageSportVueGroupe">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     </div>
-    <div class="infos">
-      <div class="nomEtDescription">
+    <div class="infosVueGroupe">
+      <div class="nomEtDescriptionVueGroupe">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
         <p><?php echo $caract['g_description'] ?></p>
       </div>
-      <div class="infosGenerales">
+      <div class="infosGeneralesVueGroupe">
         <h2>Informations :</h2>
         <p> <b> Administrateur : </b> <a href="index.php?page=profil&nom=<?php echo $caract['g_admin'] ?>"> <?php echo $caract['g_admin'] ?> </a> </p>
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
-        <div class="reseaux">
-          <div class="facebook">
+        <div class="reseauxVueGroupe">
+          <div class="facebookVueGroupe">
             <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
           </div>
-          <div class="twitter">
+          <div class="twitterVueGroupe">
           <a href="http://twitter.com/share" class="twitter-share-button"
           data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
           data-via="TimHeub"
@@ -379,17 +379,17 @@
           </div>
         </div>
       </div>
-      <div class="actionsGroupe">
+      <div class="actionsGroupeVueGroupe">
         <a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"> <h3> Rejoindre le groupe <h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>
-    <div class="evenements">
-      <div class="mesEvenements">
+    <div class="evenementsVueGroupe">
+      <div class="mesEvenementsVueGroupe">
         <h3>Événements auxquels je participe</h3>
         <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ...</p>
       </div>
-      <div class="evenementsGroupe">
+      <div class="evenementsGroupeVueGroupe">
         <h3>Événements du groupe</h3>
         <?php if($evenementsGroupe[0][0] == ""){ ?>
           Aucun événement en cours dans ce groupe ...
@@ -449,25 +449,25 @@
   <?php } ?>
 
   <?php if ($i == 4){ ?>
-    <div class="imageSport">
+    <div class="imageSportVueGroupe">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     </div>
-    <div class="infos">
-      <div class="nomEtDescription">
+    <div class="infosVueGroupe">
+      <div class="nomEtDescriptionVueGroupe">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
         <p><?php echo $caract['g_description'] ?></p>
       </div>
-      <div class="infosGenerales">
+      <div class="infosGeneralesVueGroupe">
         <h2>Informations :</h2>
         <p> <b> Administrateur : </b> <a href="index.php?page=profil&nom=<?php echo $caract['g_admin'] ?>"> <?php echo $caract['g_admin'] ?> </a> </p>
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
-        <div class="reseaux">
-          <div class="facebook">
+        <div class="reseauxVueGroupe">
+          <div class="facebook"VueGroupe>
             <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
           </div>
-          <div class="twitter">
+          <div class="twitterVueGroupe">
           <a href="http://twitter.com/share" class="twitter-share-button"
           data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
           data-via="TimHeub"
@@ -475,17 +475,17 @@
           </div>
         </div>
       </div>
-      <div class="actionsGroupe">
+      <div class="actionsGroupeVueGroupe">
         <a href="#"><h3>Me notifier quand une place se libère</h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>
-    <div class="evenements">
-      <div class="mesEvenements">
+    <div class="evenementsVueGroupe">
+      <div class="mesEvenementsVueGroupe">
         <h3>Événements auxquels je participe</h3>
         <p>Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ... Mais il n'y a plus de place !</p>
       </div>
-      <div class="evenementsGroupe">
+      <div class="evenementsGroupeVueGroupe">
         <h3>Événements du groupe</h3>
         <?php if($evenementsGroupe[0][0] == ""){ ?>
           Aucun événement en cours dans ce groupe ...
@@ -545,25 +545,25 @@
   <?php } ?>
 
   <?php if ($i == 5){ ?>
-    <div class="imageSport">
+    <div class="imageSportVueGroupe">
       <img src="imageSports/<?php echo $image['s_image']; ?>"/>
     </div>
-    <div class="infos">
-      <div class="nomEtDescription">
+    <div class="infosVueGroupe">
+      <div class="nomEtDescriptionVueGroupe">
         <h2>Groupe <?php echo $caract['g_nom']?> </h2>
         <p><?php echo $caract['g_description'] ?></p>
       </div>
-      <div class="infosGenerales">
+      <div class="infosGeneralesVueGroupe">
         <h2>Informations :</h2>
         <p> <b> Administrateur : </b> <a href="index.php?page=profil&nom=<?php echo $caract['g_admin'] ?>"> <?php echo $caract['g_admin'] ?> </a> </p>
         <p> <b> Nombre de participants au groupe : </b> <?php echo $nbrMembres."/".$caract['g_placesTotal'] ?> </p>
         <p> <b> Sport : </b> <?php echo $caract['g_sport'] ?></p>
         <p> <b> Département : </b><?php echo $caract['g_departement'] ?> </p>
-        <div class="reseaux">
-          <div class="facebook">
+        <div class="reseauxVueGroupe">
+          <div class="facebookVueGroupe">
             <a name="fb_share" type="button" share_url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=<?php echo $caract['g_nom']?>"> </a>
           </div>
-          <div class="twitter">
+          <div class="twitterVueGroupe">
           <a href="http://twitter.com/share" class="twitter-share-button"
           data-url="http://teamhub.pingfiles.fr/index.php?page=groupe&nom=Equitation%20Arpajon"
           data-via="TimHeub"
@@ -571,17 +571,17 @@
           </div>
         </div>
       </div>
-      <div class="actionsGroupe">
+      <div class="actionsGroupeVueGroupe">
         <a href="index.php?page=inscription"><h3>S'inscrire sur le site</h3></a>
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3>Voir les membres</h3></a>
       </div>
     </div>
-    <div class="evenements">
-      <div class="mesEvenements">
+    <div class="evenementsVueGroupe">
+      <div class="mesEvenementsVueGroupe">
         <h3>Événements auxquels je participe</h3>
         <p>Vous devez vous inscrire sur le site avant de pouvoir rejoindre ce groupe ...</p>
       </div>
-      <div class="evenementsGroupe">
+      <div class="evenementsGroupeVueGroupe">
         <h3>Événements du groupe</h3>
         <?php if($evenementsGroupe[0][0] == ""){ ?>
           Aucun événement en cours dans ce groupe ...

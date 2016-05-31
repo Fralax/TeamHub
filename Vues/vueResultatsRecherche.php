@@ -1,12 +1,12 @@
 <?php $this->titre = "Recherche"; ?>
 
 	<body>
-		<div class="resultatsRecherche">
-			<div class="conteneurResultatsRecherche">
+		<div class="resultatsRechercheVueResultatsRecherche">
+			<div class="conteneurResultatsRechercheVueResultatsRecherche">
 				<?php $groupe = new groupes() ?>
 				<h2><?php echo"Résultats pour la recherche : ".$_GET['resultatsrecherche'] ?></h2>
-				<div class="resultatsResultatsRecherche">
-					<div class="resultatGroupesResultatsRecherche">
+				<div class="resultatsResultatsRechercheVueResultatsRecherche">
+					<div class="resultatGroupesResultatsRechercheVueResultatsRecherche">
 						<table>
 							<caption> <h3>GROUPES</h3> </caption>
 							<?php if ($groupes == array()){ ?>
@@ -66,7 +66,7 @@
 						<?php } ?>
 						</table>
 					</div>
-					<div class="resultatMembresResultatsRecherche">
+					<div class="resultatMembresResultatsRechercheVueResultatsRecherche">
 						<table>
 							<caption> <h3>MEMBRES</h3> </caption>
 							<?php if ($membres == array()){ ?>
@@ -89,7 +89,7 @@
 							<?php } ?>
 						</table>
 					</div>
-					<div class="resultatClubsResultatsRecherche">
+					<div class="resultatClubsResultatsRechercheVueResultatsRecherche">
 						<table>
 							<caption> <h3>CLUBS</h3> </caption>
 							<?php if ($clubs == array()){ ?>

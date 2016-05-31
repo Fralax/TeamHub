@@ -3,8 +3,12 @@
 
 <head>
     <meta charset="UTF-8" />
+
     <link rel="stylesheet" href="Contenu/gabarit.css" />
+    <link rel="stylesheet" href="Contenu/vueGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueGroupes.css" />
     <link rel="stylesheet" href="Contenu/vueAccueil.css" />
+    <link rel="stylesheet" href="Contenu/vueAccueilForum.css" />
     <link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
     <link rel="stylesheet" href="Contenu/vueAdmin.css" />
     <link rel="stylesheet" href="Contenu/vueAdminGroupeAModifier.css" />
@@ -16,6 +20,53 @@
     <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
     <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
+    <link rel="stylesheet" href="Contenu/vueClub.css" />
+    <link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
+    <link rel="stylesheet" href="Contenu/vueClubsAModifierInfos.css" />
+    <link rel="stylesheet" href="Contenu/vueClubsAModifierPhotos.css" />
+    <link rel="stylesheet" href="Contenu/vueClubsASupprimer.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationBannissementMembre.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationMotDePasseReinitialise.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationNouveauMotDePasse.css" />
+    <link rel="stylesheet" href="Contenu/vueCreationEvenements.css" />
+    <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
+    <link rel="stylesheet" href="Contenu/vueEnvoiMail.css" />
+    <link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" />
+    <link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
+    <link rel="stylesheet" href="Contenu/vueInscription.css" />
+    <link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
+    <link rel="stylesheet" href="Contenu/vueMailNonConfirme.css" />
+    <link rel="stylesheet" href="Contenu/vueMdpOublie.css" />
+    <link rel="stylesheet" href="Contenu/vueMdpOublieFormulaire.css" />
+    <link rel="stylesheet" href="Contenu/vueMesGroupes.css" />
+    <link rel="stylesheet" href="Contenu/vueModerationCommentairesClub.css" />
+    <link rel="stylesheet" href="Contenu/vueModifAdmin.css" />
+    <link rel="stylesheet" href="Contenu/vueModifClub.css" />
+    <link rel="stylesheet" href="Contenu/vueModifPhotoClub.css" />
+    <link rel="stylesheet" href="Contenu/vueNouvelAdmin.css" />
+    <link rel="stylesheet" href="Contenu/vueProfil.css" />
+    <link rel="stylesheet" href="Contenu/vueQuitterEvenement.css" />
+    <link rel="stylesheet" href="Contenu/vueQuitterGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueRechercheAvancee.css" />
+    <link rel="stylesheet" href="Contenu/vueResultatsRechercheAvanceeClubs.css" />
+    <link rel="stylesheet" href="Contenu/vueResultatsRechercheAvanceeGroupes.css" />
+    <link rel="stylesheet" href="Contenu/vueResultatsRechercheAvanceeMembres.css" />
+    <link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
+    <link rel="stylesheet" href="Contenu/vueSujetForum.css" />
+    <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" />
+    <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueValidationCompte.css" />
+    <link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
+    <link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
+
+
+
+
     <title><?= $titre ?></title>
 </head>
   <?php

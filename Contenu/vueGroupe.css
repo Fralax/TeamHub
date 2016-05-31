@@ -1,22 +1,22 @@
-.evenements td{
+.evenementsVueGroupe td{
   padding-right: 30px;
   color: white;
 }
 
-.imageSport img{
+.imageSportVueGroupe img{
   margin: 1em;
   width: 60%;
   height: 60%;
 }
 
-.infos{
+.infosVueGroupe{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
 
 
-.nomEtDescription, .infosGenerales, .actionsGroupe{
+.nomEtDescriptionVueGroupe, .infosGeneralesVueGroupe, .actionsGroupeVueGroupe{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -28,7 +28,7 @@
   text-align: center;
 }
 
-.infosGenerales{
+.infosGeneralesVueGroupe{
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
@@ -41,19 +41,19 @@
   margin-top: 1em;
 }
 
-.nomEtDescription h2{
+.nomEtDescriptionVueGroupe h2{
   font-size: 2em;
 }
 
-.nomEtDescription p{
+.nomEtDescriptionVueGroupe p{
   font-size: 1.2em;
 }
 
-.infos b{
+.infosVueGroupe b{
   color: rgba(255, 255, 215, 1);
 }
 
-.mesEvenements, .evenementsGroupe{
+.mesEvenementsVueGroupe, .evenementsGroupeVueGroupe{
   margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -65,11 +65,11 @@
   text-align: center;
 }
 
-.mesEvenements table, .evenementsGroupe table{
+.mesEvenementsVueGroupe table, .evenementsGroupeVueGroupe table{
   margin: auto;
 }
 
-.imageSport{
+.imageSportVueGroupe{
   width: 20%;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
@@ -77,25 +77,25 @@
   border-radius: 50%;
 }
 
-a{
+.groupeVueGroupe a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.groupeVueGroupe a:hover{
   color: grey;
 }
 
-.reseaux{
+.reseauxVueGroupe{
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
 }
 
-.twitter{
+.twitterVueGroupe{
   padding-left: 1em;
 }
 
-.facebook{
+.facebookVueGroupe{
   padding-right: 1em;
 }

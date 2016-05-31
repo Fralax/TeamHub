@@ -1,13 +1,6 @@
 <?php $this->titre = "Groupes - Mes Groupes"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueMesGroupes.css" />
-		<title>Mes Groupes</title>
-	</head>
 	<body>
-		<div class="mesGroupes">
+		<div class="mesGroupesVueMesGroupes">
 			<?php $groupe = new groupes() ?>
 			<h2>Mes Groupes</h2>
 				<table>
@@ -68,4 +61,3 @@
 
 			</div>
   </body>
-</html>

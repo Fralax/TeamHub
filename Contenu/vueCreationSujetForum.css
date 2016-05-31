@@ -1,4 +1,4 @@
-.titre{
+.titreVueCreationSujet{
   background-color: rgba(245, 245, 225, 0.8);
   width: 60%;
   color : black;
@@ -7,7 +7,7 @@
   border-radius: 1em;
 }
 
-.formulaire{
+.formulaireVueCreationSujet{
   margin: auto;
   padding: 1em;
   background-color: rgba(245, 245, 225, 0.8);

@@ -1,4 +1,4 @@
-.conteneur{
+.conteneurVueRechercheAvancee{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-top: 3px;
@@ -8,35 +8,35 @@
   margin: auto;
 }
 
-.jeRecherche{
+.jeRechercheVueRechercheAvancee{
   text-align: center;
 }
 
-.jeRecherche table{
+.jeRechercheVueRechercheAvancee table{
   margin: auto;
 }
 
-.jeRecherche table td{
+.jeRechercheVueRechercheAvancee table td{
   padding-right: 1.5em;
 }
 
-.forms{
+.formsRechercheAvancee{
   margin-top: 1em;
 }
 
-.forms p{
+.formsRechercheAvancee p{
   text-align: center;
 }
 
-.forms table{
+.formsRechercheAvancee table{
   margin: auto;
 }
 
-a{
+.conteneurVueRechercheAvancee a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.conteneurVueRechercheAvancee a:hover{
   color: grey;
 }

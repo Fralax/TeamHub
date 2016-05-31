@@ -9,33 +9,29 @@
 	</head>
 
 	<body>
-		<div class="conteneur">
+		<div class="conteneurVueRechAvanceeMembres">
 			<h2><?php echo"Résultats pour la recherche : "?></h2>
-			<div class="resultats">
-        <div class="resultatMembres">
-          <table>
-            <caption> <h3>MEMBRES</h3> </caption>
-            <?php if ($membres == array()){ ?>
-              <tr>
-                <td>
-                  Aucun Membre n'a été trouvé !
-                </td>
-              </tr>
-            <?php } else{ ?>
-            <?php foreach ($membres as list($nom, $departement, $photo)){ ?>
-              <tr>
-                <td>
-                  <img src="imagesUtilisateurs/<?php echo $photo?>"/>
-                </td>
-                <td>
-                  <a href="index.php?page=profil&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
-                </td>
-              </tr>
-              <?php } ?>
-            <?php } ?>
-          </table>
-        </div>
-			</div>
+      <table>
+        <caption> <h3>MEMBRES</h3> </caption>
+        <?php if ($membres == array()){ ?>
+          <tr>
+            <td>
+              Aucun Membre n'a été trouvé !
+            </td>
+          </tr>
+        <?php } else{ ?>
+        <?php foreach ($membres as list($nom, $departement, $photo)){ ?>
+          <tr>
+            <td>
+              <img src="imagesUtilisateurs/<?php echo $photo?>"/>
+            </td>
+            <td>
+              <a href="index.php?page=profil&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
+            </td>
+          </tr>
+          <?php } ?>
+        <?php } ?>
+      </table>
 		</div>
   </body>
 </html>
