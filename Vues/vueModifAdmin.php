@@ -16,27 +16,30 @@ elseif($_COOKIE['langue'] == "English") {
 	<body>
 
 		<?php
-      if ($caract['g_admin'] == $_SESSION['pseudo']) {
-        $i = 1;
-      } else{
-        $i = 2;
-      }
-    ?>
+			require_once 'Controleurs/controleurAdministration.php';
+			$admin = new controleurAdministration();
+			$verifAdmin = $admin->verifAdmin();
+				if($verifAdmin == true){
+					$a=0;
+				} else{
+					$a=1;
+				}
+		?>
 
-		<?php if( $i == 1){ ?>
+		<?php if( $a == 0){ ?>
 		<h2><?php echo $modadmin ?></h2>
 
     <form action="" method="post">
       <select name="Admin">
         <option value = ""> -- <?php echo $newadmi ?> -- </option>
-        <?php foreach ($admin as list($nomAdmin)) { ?>
+        <?php foreach ($adminPossible as list($nomAdmin)) { ?>
         <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
         <?php } ?>
       </select>
       <input type="submit" name="Modifier" value="Modifier" >
     </form>
 		<?php } ?>
-		<?php if($i == 2){ ?>
+		<?php if($a == 1){ ?>
         <?php echo $nonacces ?>
     <?php } ?>
 

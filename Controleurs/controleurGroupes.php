@@ -136,7 +136,7 @@ class controleurGroupes{
     }
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
     $vue = new Vue('ModifAdmin');
-    $vue->generer(['admin' => $adminPossible]);
+    $vue->generer(['adminPossible' => $adminPossible]);
   }
 
   public function affichageMesGroupes(){

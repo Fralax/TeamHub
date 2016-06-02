@@ -128,7 +128,7 @@ class controleurAdministration{
     $admin = new administration();
     $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
     $notes = $admin->afficherCommentairesClub($nomClub)->fetchAll();
-    $vue = new Vue('moderationCommentairesClub');
+    $vue = new Vue('ModerationCommentairesClub');
     $vue->generer(array('caractClub'=>$infos, 'NoteClub'=>$notes));
   }
 
