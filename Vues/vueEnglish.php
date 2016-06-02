@@ -343,4 +343,16 @@ $valereco = "Please confirm your account and log in !";
 //
 $lisclu = "List of Clubs";
 $siti = "located at ";
+//
+$modiadmin = "Modifier l'admin";
+$deban = "Débannir";
+$bagr = "Bannir du Groupe";
+$insc = "Inscription";
+$sup = "Supprimer";
+$ajnvclub = "Ajouter un nouveau club";
+$rejgr = "Rejoindre le groupe";
+$nprej  ="Ne plus Rejoindre";
+$rejaut = "Rejoindre Automatiquement";
+$sugr = "Supprimer le groupe";
+$supadmins = "Supprimer des Administrateurs";
 ?>

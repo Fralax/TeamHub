@@ -349,7 +349,13 @@ $deban = "Débannir";
 $bagr = "Bannir du Groupe";
 $insc = "Inscription";
 $sup = "Supprimer";
-Ajouter un nouveau club$ajnvclub = ""
+$ajnvclub = "Ajouter un nouveau club";
+$rejgr = "Rejoindre le groupe";
+$nprej  ="Ne plus Rejoindre";
+$rejaut = "Rejoindre Automatiquement";
+$sugr = "Supprimer le groupe";
+$supadmins = "Supprimer des Administrateurs";
+
 
 $Bannir = "Bannir";
 $champnonremp = "Des champs n'ont pas été rempli !";
