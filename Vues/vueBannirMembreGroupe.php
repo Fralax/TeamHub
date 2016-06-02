@@ -34,7 +34,7 @@ elseif($_COOKIE['langue'] == "English") {
               <a href="index.php?page=profil&nom=<?php echo $nomMembre ?>"> <p> <?php echo $nomMembre?></p></a>
             </td>
             <td>
-              <a href="#" onclick="if (confirm('<?php echo $surban.$nomMembre ?> ?')) window.location='index.php?page=confirmationbannissementmembre&nom=<?php echo $_GET['nom'] ?>&pseudo=<?php echo $nomMembre ?>'; return false"> <input type="button" name="bannirDuGroupe" value="Bannir du Groupe"> </a>
+              <a href="#" onclick="if (confirm('<?php echo $surban.$nomMembre ?> ?')) window.location='index.php?page=confirmationbannissementmembre&nom=<?php echo $_GET['nom'] ?>&pseudo=<?php echo $nomMembre ?>'; return false"> <input type="button" name="bannirDuGroupe" value="<?php echo $bagr ?>"> </a>
             </td>
           </tr>
 					<?php } ?>

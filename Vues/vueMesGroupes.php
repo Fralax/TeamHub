@@ -19,12 +19,12 @@ elseif($_COOKIE['langue'] == "English") {
 						</tr>
 						<tr>
 							<td>
-								<?php echo $arejoindre ?><a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a>
+								<?php echo $arejoindre ?><a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="<?php echo $ssmenu2 ?>"></a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<?php echo $oucreationgroupe ?> <a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+								<?php echo $oucreationgroupe ?> <a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="<?php echo $ssmenu1 ?>"></a>
 							</td>
 						</tr>
 					<?php } ?>
@@ -42,7 +42,7 @@ elseif($_COOKIE['langue'] == "English") {
 									<?php echo $nbrEvenements.$evecours ?>
 								</td>
 								<td>
-									<a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($nomMesGroupeAdmin) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($nomMesGroupeAdmin) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer le groupe"> </a>
+									<a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($nomMesGroupeAdmin) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($nomMesGroupeAdmin) ?>'; return false"> <input name="Supprimer" type="button" value="<?php echo $sugr ?>"> </a>
 								</td>
 							</tr>
 

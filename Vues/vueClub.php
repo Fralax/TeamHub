@@ -219,7 +219,7 @@ elseif($_COOKIE['langue'] == "English") {
 					<?php }?>
 
 					<?php if($i == 3){ ?>
-					 	 <?php echo $inscnote ?> <a href="index.php?page=inscription"><input type="button" name="inscription" value="Inscription"></a>
+					 	 <?php echo $inscnote ?> <a href="index.php?page=inscription"><input type="button" name="inscription" value="<?php echo $insc ?>"></a>
 				 	<?php }?>
 				</div>
 			</div>

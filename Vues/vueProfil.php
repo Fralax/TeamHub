@@ -47,7 +47,7 @@ elseif($_COOKIE['langue'] == "English") {
 									<tr>
 										<td> <?php echo $sport ?> </td>
 										<td>
-											<a href="#" onclick="if (confirm('<?php echo $sursuppsport.addslashes($sport) ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo addslashes($sport) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer"></a>
+											<a href="#" onclick="if (confirm('<?php echo $sursuppsport.addslashes($sport) ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo addslashes($sport) ?>'; return false"> <input name="Supprimer" type="button" value="<?php echo $sup ?>"></a>
 										</td>
 									</tr>
 								<?php } ?>

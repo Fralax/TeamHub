@@ -162,9 +162,9 @@ elseif($_COOKIE['langue'] == "English") {
 					<div class="pasDeGroupeAccueil">
 						<b><?php echo $pasencoremembre?></b> <br> </br>
 						<?php echo $arejoindre?><br> </br>
-						<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="Rejoindre un Groupe"></a> <br> </br>
+						<a href="index.php?page=groupes"><input type="button" name="rejoindreGroupe" value="<?php echo $ssmenu2 ?>" ></a> <br> </br>
 						<?php echo $creationgroupe?><br> </br>
-						<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+						<a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="<?php echo $ssmenu1 ?>"></a>
 					</div>
 				<?php } ?>
 

@@ -20,7 +20,7 @@ elseif($_COOKIE['langue'] == "English") {
 					</tr>
 					<tr>
 						<td>
-							<?php echo $pouvcrea ?><a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="Créer un groupe"></a>
+							<?php echo $pouvcrea ?><a href="index.php?page=creationgroupe"><input type="button" name="creerGroupe" value="<?php echo $ssmenu1 ?>"></a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -50,7 +50,7 @@ elseif($_COOKIE['langue'] == "English") {
 
   				<td>
   					<?php if($placesLibres != 0){ ?>
-						<a href="#" onclick="if (confirm('<?php echo $surrejgr.addslashes($nom) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($nom) ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+						<a href="#" onclick="if (confirm('<?php echo $surrejgr.addslashes($nom) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($nom) ?>'; return false"> <input name="Rejoindre" type="button" value="<?php echo $rejgr ?> "> </a>
   					<?php }
 							else{
 								$g=0;
@@ -59,7 +59,7 @@ elseif($_COOKIE['langue'] == "English") {
 								}
 								foreach ($groupesAttend as list($nomGroupeAttend)) {
 									if ($nomGroupeAttend == $nom) { ?>
-						<a href="#" onclick="if (confirm(' <?php echo $surrejgrauto.addslashes($nom) ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="nePlusNotifier" type="button" value="Ne plus Rejoindre"> </a>
+						<a href="#" onclick="if (confirm(' <?php echo $surrejgrauto.addslashes($nom) ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="nePlusNotifier" type="button" value="<?php echo $nprej ?>"> </a>
 						<?php
 										$g=1;
 										break;
@@ -69,7 +69,7 @@ elseif($_COOKIE['langue'] == "English") {
 								}
 						?>
 						<?php if($g == 2){ ?>
-							<a href="#" onclick="if (confirm(' <?php echo $surrejgrp.addslashes($nom).$pllib ?>?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="notifier" type="button" value="Rejoindre Automatiquement"> </a>
+							<a href="#" onclick="if (confirm(' <?php echo $surrejgrp.addslashes($nom).$pllib ?>?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="notifier" type="button" value="<?php echo $rejaut ?>"> </a>
 						<?php } ?>
 				<?php } ?>
   				</td>

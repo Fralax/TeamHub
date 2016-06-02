@@ -42,7 +42,7 @@ elseif($_COOKIE['langue'] == "English") {
 
 		<h2> <?php echo $administr ?></h2>
 		<?php foreach ($admins as list($nom)){ ?>
-			<?php echo $nom?> <a href="index.php?page=deop&pseudo=<?php echo $nom?>"> <input type="button" name="plusAdmin" value ="Supprimer des Administrateurs"> </a>
+			<?php echo $nom?> <a href="index.php?page=deop&pseudo=<?php echo $nom?>"> <input type="button" name="plusAdmin" value ="<?php echo $supadmins ?>"> </a>
 		<?php } ?>
 	<?php } ?>
 

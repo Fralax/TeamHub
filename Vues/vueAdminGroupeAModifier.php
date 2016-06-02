@@ -27,7 +27,7 @@ elseif($_COOKIE['langue'] == "English") {
 				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
 		      <tr>
 					  <td> <?php echo $nomgroupes?> </td>
-						<td> <a href="index.php?page=affichagemodificationadmin&nom=<?php echo $nomgroupes?>" >  <input type="button" name="Modifier" value ="Modifier l'admin"> </a></td>
+						<td> <a href="index.php?page=affichagemodificationadmin&nom=<?php echo $nomgroupes?>" >  <input type="button" name="Modifier" value ="<?php echo $modiadmin ?>"> </a></td>
 		      </tr>
 				<?php } ?>
 		    </table>
