@@ -1,4 +1,11 @@
-<?php $this->titre = "Recherche"; ?>
+<?php $this->titre = "Recherche";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 	<body>
 		<div class="resultatsRechercheVueResultatsRecherche">
@@ -8,11 +15,11 @@
 				<div class="resultatsResultatsRechercheVueResultatsRecherche">
 					<div class="resultatGroupesResultatsRechercheVueResultatsRecherche">
 						<table>
-							<caption> <h3>GROUPES</h3> </caption>
+							<caption> <h3><?php echo $grous ?></h3> </caption>
 							<?php if ($groupes == array()){ ?>
 								<tr>
 									<td>
-										Aucun Groupe n'a été trouvé !
+										<?php echo $nonegr ?>
 									</td>
 								</tr>
 							<?php } else{ ?>
@@ -28,16 +35,16 @@
 								<td>
 									<?php
 									if($placesLibres > 1){
-										echo $placesLibres." places restantes";
+										echo $placesLibres.$plrests;
 									} else {
-										echo $placesLibres. " place restante";
+										echo $placesLibres.$plrest;
 									}
 									?>
 								</td>
 								<?php if (isset($_SESSION['pseudo'])) { ?>
 								<td>
 									<?php if($placesLibres != 0){ ?>
-									<a href="#" onclick="if (confirm('Voulez vraiment rejoindre le groupe : <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($nom) ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
+									<a href="#" onclick="if (confirm('<?php echo $surrejgr.addslashes($nom) ?> ?')) window.location='index.php?page=confirmationgroupe&nom=<?php echo addslashes($nom) ?>'; return false"> <input name="Rejoindre" type="button" value="Rejoindre le groupe"> </a>
 									<?php }
 										else{
 											$g=0;
@@ -46,7 +53,7 @@
 											}
 											foreach ($groupesAttend as list($nomGroupeAttend)) {
 												if ($nomGroupeAttend == $nom) { ?>
-									<a href="#" onclick="if (confirm('Voulez vous vraiment ne plus rejoindre automatiquement le groupe <?php echo addslashes($nom) ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="nePlusNotifier" type="button" value="Ne plus Rejoindre"> </a>
+									<a href="#" onclick="if (confirm('<?php echo $surrejgrauto.addslashes($nom) ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="nePlusNotifier" type="button" value="Ne plus Rejoindre"> </a>
 									<?php
 													$g=1;
 													break;
@@ -56,7 +63,7 @@
 											}
 									?>
 									<?php if($g == 2){ ?>
-										<a href="#" onclick="if (confirm('Voulez vous vraiment rejoindre le groupe <?php echo addslashes($nom) ?> quand une place se libère ?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="notifier" type="button" value="Rejoindre Automatiquement"> </a>
+										<a href="#" onclick="if (confirm('<?php echo $surrejgrp.addslashes($nom).$pllib ?>?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo addslashes($nom) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <input name="notifier" type="button" value="Rejoindre Automatiquement"> </a>
 									<?php } ?>
 								<?php } ?>
 								</td>
@@ -68,11 +75,11 @@
 					</div>
 					<div class="resultatMembresResultatsRechercheVueResultatsRecherche">
 						<table>
-							<caption> <h3>MEMBRES</h3> </caption>
+							<caption> <h3><?php echo $membrs ?></h3> </caption>
 							<?php if ($membres == array()){ ?>
 								<tr>
 									<td>
-										Aucun Membre n'a été trouvé !
+										<?php echo $nonemem ?>
 									</td>
 								</tr>
 							<?php } else{ ?>
@@ -91,11 +98,11 @@
 					</div>
 					<div class="resultatClubsResultatsRechercheVueResultatsRecherche">
 						<table>
-							<caption> <h3>CLUBS</h3> </caption>
+							<caption> <h3><?php echo $clus ?></h3> </caption>
 							<?php if ($clubs == array()){ ?>
 								<tr>
 									<td>
-										Aucun Club n'a été trouvé !
+										<?php echo $noneclub ?>
 									</td>
 								</tr>
 

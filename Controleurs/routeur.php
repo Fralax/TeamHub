@@ -41,7 +41,14 @@
     }
 
     public function routerRequete(){
-      error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
+      include('Vues/francais.php');
+      if($_COOKIE['langue'] == "Francais"){
+      	include('Vues/francais.php');
+      }
+      elseif($_COOKIE['langue'] == "English") {
+      	include('Vues/English.php');
+      }
+      //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
 

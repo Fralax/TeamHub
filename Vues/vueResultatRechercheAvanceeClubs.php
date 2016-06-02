@@ -1,14 +1,21 @@
-<?php $this->titre = "Recherche Avancée - Club"; ?>
+<?php $this->titre = "Recherche Avancée - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 <body>
 		<div class="conteneurVueRechAvanceeClubs">
 			<h2><?php echo"Résultats pour la recherche : "?></h2>
 			<table>
-				<caption> <h3>CLUBS</h3> </caption>
+				<caption> <h3><?php echo $clus ?></h3> </caption>
 				<?php if ($clubs == array()){ ?>
 					<tr>
 						<td>
-							Aucun Club n'a été trouvé !
+							<?php echo $noneclub ?>
 						</td>
 					</tr>
 

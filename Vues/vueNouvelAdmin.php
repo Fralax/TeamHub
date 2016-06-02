@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Administrateur"; ?>
+<?php $this->titre = "Administration - Administrateur";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,11 +28,11 @@
 	<body>
 
 		<?php if($z == 0){ ?>
-		<h2>Désigner un Administrateur</h2>
+		<h2><?php echo $adminnouvad ?></h2>
 
 		<form action="" method="post">
 			<select name="nouvelAdmin">
-				<option value =""> -- Sélectionnez un membre à désigner comme administrateur -- </option>
+				<option value =""> -- <?php echo $memaselec ?> -- </option>
 				<?php foreach ($nouveauxAdmins as list($nom)) { ?>
 				<option value = "<?php echo $nom?>" > <?php echo $nom?> </option>
 				<?php } ?>
@@ -33,14 +40,14 @@
 			<input type="submit" name="designer" value="Valider" >
 		</form>
 
-		<h2>Administrateurs</h2>
+		<h2> <?php echo $administr ?></h2>
 		<?php foreach ($admins as list($nom)){ ?>
 			<?php echo $nom?> <a href="index.php?page=deop&pseudo=<?php echo $nom?>"> <input type="button" name="plusAdmin" value ="Supprimer des Administrateurs"> </a>
 		<?php } ?>
 	<?php } ?>
 
 	<?php if($z == 1){ ?>
-		Vous n'avez pas accès à cette page.
+		<?php echo $nonacces ?>
 	<?php } ?>
 
 	</body>

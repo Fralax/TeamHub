@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Administrateur Groupe"; ?>
+<?php $this->titre = "Administration - Administrateur Groupe";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,11 +24,11 @@
     ?>
 
 		<?php if( $i == 1){ ?>
-		<h2>Modifier l'administrateur</h2>
+		<h2><?php echo $modadmin ?></h2>
 
     <form action="" method="post">
       <select name="Admin">
-        <option value = ""> -- Selectionnez un nouvel admin -- </option>
+        <option value = ""> -- <?php echo $newadmi ?> -- </option>
         <?php foreach ($admin as list($nomAdmin)) { ?>
         <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
         <?php } ?>
@@ -30,7 +37,7 @@
     </form>
 		<?php } ?>
 		<?php if($i == 2){ ?>
-        Vous n'avez pas accès à cette page.
+        <?php echo $nonacces ?>
     <?php } ?>
 
   </body>

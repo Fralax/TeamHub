@@ -1,4 +1,11 @@
-<?php $this->titre = "Forum - Sujet"; ?>
+<?php $this->titre = "Forum - Sujet";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <body>
 		<?php
     require_once 'Controleurs/controleurAdministration.php';
@@ -28,14 +35,14 @@
 							<?php $dateEntiereSujet = date_create($message['f_date']) ?>
 							<?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
 							<?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-							le <b> <?php echo $dateSujet ?> </b> à <b> <?php echo $heureSujet ?> </b>
+							<?php echo $le ?> <b> <?php echo $dateSujet ?> </b> <?php echo $a ?> <b> <?php echo $heureSujet ?> </b>
 						</div>
 						<div class="actionsVueSujetForum">
 							<?php if (($n == 1 || $n == 2) && $message['f_actif'] == "1"){ ?>
-								<a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> Clore le Sujet </a>
+								<a href="index.php?page=cloreSujet&id=<?php echo $_GET['id'] ?>"> <?php echo $cloresj ?> </a>
 							<?php } ?>
 							<?php if ($n == 2){ ?>
-								<a href="index.php?page=supprimersujet&id=<?php echo $_GET['id'] ?>"> Supprimer le Sujet </a>
+								<a href="index.php?page=supprimersujet&id=<?php echo $_GET['id'] ?>"> <?php echo $supsj ?> </a>
 							<?php } ?>
 						</div>
 					</td>
@@ -69,11 +76,11 @@
 							<?php $dateEntiereMessage = date_create($date) ?>
 							<?php $dateMessage = date_format($dateEntiereMessage, 'd/m/Y') ?>
 							<?php $heureMessage = date_format($dateEntiereMessage, 'H:i:s') ?>
-							le <b> <?php echo $dateMessage ?> </b> à <b> <?php echo $heureMessage ?> </b>
+							<?php echo $le ?> <b> <?php echo $dateMessage ?> </b> <?php echo $a ?> <b> <?php echo $heureMessage ?> </b>
 						</div>
 						<div class="actionsVueSujetForum">
 							<?php if ($n == 2){ ?>
-								<a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> Supprimer le message</a>
+								<a href="index.php?page=supprimermessage&id=<?php echo $id ?>"> <?php echo $supmess ?> </a>
 							<?php } ?>
 						</div>
 						</td>
@@ -102,7 +109,7 @@
 
 		<?php if (($n == 1 || $n == 2 || $n == 3) && $message['f_actif'] == "1"){ ?>
 			<div class="conteneur2VueSujetForum">
-				Postez une réponse !
+				<?php echo $postmessa ?>
 				<form name = "formulaireNouvelleReponse" method="post" action = "">
 					<textarea name="message" rows="7" cols="70"> </textarea>
 					<p> <input type="submit" name="Repondre" value="Répondre"> </p>

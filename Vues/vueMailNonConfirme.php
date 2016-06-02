@@ -1,4 +1,11 @@
-<?php $this->titre = "Compte non Activé"; ?>
+<?php $this->titre = "Compte non Activé";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Votre compte n'est pas activé ! </h2>
-    <p> Vosu êtes bien inscrit sur le site, un mail de confirmation vous a été envoyé. </p>
-    <p> Cliquez sur le lien envoyé par mail lors de votre inscription pour activer votre compte ! </p>
+    <h2> <?php echo $nonactif ?> </h2>
+    <p> <?php echo $inscritok ?> </p>
+    <p> <?php echo $clicklien ?> </p>
 
   </body>
 </html>

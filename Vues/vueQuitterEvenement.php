@@ -1,4 +1,11 @@
-<?php $this->titre = "Confirmation - Evenement"; ?>
+<?php $this->titre = "Confirmation - Evenement";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Vous ne participez plus à l'événement : <?php echo $evenement ?> ! </h2>
+    <h2> <?php echo $dontpart.$evenement ?> ! </h2>
 
-    <p> Vous allez être redirigé vers vos groupes. </p>
+    <p> <?php echo $redir ?> </p>
 
   </body>
 

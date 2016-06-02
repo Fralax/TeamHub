@@ -1,20 +1,27 @@
-<?php $this->titre = "Recherche Avancée"; ?>
+<?php $this->titre = "Recherche Avancée";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 <body>
 
 		<div class="conteneurVueRechercheAvancee">
 			<div class="jeRechercheVueRechercheAvancee">
-				<h3> Je recherche : </h3>
+				<h3> <?php echo $rech ?></h3>
 					<table>
 						<tr>
 							<td>
-								<a href="#form1">Un Groupe</a>
+								<a href="#form1"><?php echo $rechgr ?></a>
 							</td>
 							<td>
-								<a href="#form2">Un Membre</a>
+								<a href="#form2"><?php echo $rechmem ?></a>
 							</td>
 							<td>
-								<a href="#form3">Un Club</a>
+								<a href="#form3"><?php echo $rechclub ?></a>
 							</td>
 						</tr>
 					</table>
@@ -25,7 +32,7 @@
 					<table>
 						<tr>
 							<td>
-								Nom du Groupe :
+								<?php echo $formgroup1 ?>
 							</td>
 							<td>
 								<input type="text" name="nomGroupe" placeholder="Nom du Groupe" size="25" />
@@ -33,26 +40,26 @@
 						</tr>
 						<tr>
 							<td>
-								Département :
+								<?php echo $dep ?>
 							</td>
 							<td>
-								<input type="text" name="departementGroupe" placeholder="Département" size="25" />
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Administrateur :
-							</td>
-							<td>
-								<input type="text" name="administrateur" placeholder="Administrateur" size="25" />
+								<input type="text" name="departementGroupe"  size="25" />
 							</td>
 						</tr>
 						<tr>
 							<td>
-								Sport :
+								<?php echo $ad ?>
 							</td>
 							<td>
-								<input type="text" name="sport" placeholder="Sport" size="25" />
+								<input type="text" name="administrateur"  size="25" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?php echo $s ?>
+							</td>
+							<td>
+								<input type="text" name="sport"  size="25" />
 							</td>
 						</tr>
 					</table>
@@ -65,18 +72,18 @@
 					<table>
 						<tr>
 							<td>
-								Nom du Membre :
+								<?php echo $namemem ?>
 							</td>
 							<td>
-								<input type="text" name="nomMembre" placeholder="Nom du Membre" size="25" />
+								<input type="text" name="nomMembre" size="25" />
 							</td>
 						</tr>
 						<tr>
 							<td>
-								Sa localisation :
+								<?php echo $lomem ?>
 							</td>
 							<td>
-								<input type="text" name="localisationMembre" placeholder="Localisation du Membre" size="25" />
+								<input type="text" name="localisationMembre" size="25" />
 							</td>
 						</tr>
 					</table>
@@ -89,18 +96,18 @@
 					<table>
 						<tr>
 							<td>
-								Nom du Club :
+								<?php echo $formclub1 ?>
 							</td>
 							<td>
-								<input type="text" name="nomClub" placeholder="Nom du Club" size="25" />
+								<input type="text" name="nomClub" size="25" />
 							</td>
 						</tr>
 						<tr>
 							<td>
-								Département :
+								<?php echo $dep ?>
 							</td>
 							<td>
-								<input type="text" name="departementClub" placeholder="Département du Club" size="25" />
+								<input type="text" name="departementClub" size="25" />
 							</td>
 						</tr>
 					</table>

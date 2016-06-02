@@ -1,4 +1,11 @@
-<?php $this->titre = "Invitation - Membre "; ?>
+<?php $this->titre = "Invitation - Membre ";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,11 +15,11 @@
 	</head>
 	<body>
 
-		<h2>Inviter un Utilisateur à votre Groupe</h2>
+		<h2><?php echo $invutili ?></h2>
 
     <form action="" method="post">
       <select name="nomInvite">
-				<option value =""> -- Selectionnez un membre à inviter -- </option>
+				<option value =""> -- <?php echo $membreselec ?> -- </option>
         <?php foreach ($aInvite as list($nomainviter)) { ?>
         <option value = "<?php echo $nomainviter?>" > <?php echo $nomainviter?> </option>
         <?php } ?>

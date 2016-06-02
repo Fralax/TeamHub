@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Club"; ?>
+<?php $this->titre = "Administration - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +29,7 @@
 
 		<?php if($a == 0){ ?>
 			<div class="formulaire" >
-				<h2>Modifer la photo de <?php echo $caractClub['c_nom']?> </h2>
+				<h2><?php echo $modiphoto.$caractClub['c_nom']?> </h2>
 	      <img src="imagesClubs/<?php echo $caractClub['c_image']; ?>"/>
 				<form name = "formulaireModifClub" method="post" action = "" enctype="multipart/form-data" >
 					<p> <input type="file" name="photo" /> </p>
@@ -33,7 +40,7 @@
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-			Vous n'avez pas accès à cette page.
+			<?php echo $nonacces ?>
 		<?php } ?>
 
 	</body>

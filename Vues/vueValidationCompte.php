@@ -1,4 +1,11 @@
-<?php $this->titre = "Validation Compte"; ?>
+<?php $this->titre = "Validation Compte";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Votre compte n'est pas activé ! </h2>
+    <h2> <?php echo $nonactif ?></h2>
 
-    <p> Veuillez confirmer votre compte et vous reconnecter !</p>
+    <p> <?php echo $valereco ?> </p>
 
     <form class="validationCompte" action="" method="post">
       <input type="submit" name="validation" value="Confirmer mon compte">

@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Club"; ?>
+<?php $this->titre = "Administration - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,12 +29,12 @@
 	<?php if($a == 0){ ?>
     <table>
       <th>
-        <h3>Les commentaires de <?php echo $caractClub['c_nom']?> </h3>
+        <h3><?php echo $commclub.$caractClub['c_nom']?> </h3>
         ___________________
       </th>
       <?php foreach ($NoteClub as list($id, $pseudo, $note, $commentaire, $date)){?>
         <tr>
-          <td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce commentaire ?')) window.location='index.php?page=suppressioncommentaire&id=<?php echo $id ?>'; return false"> <input type ="button" value="Supprimer"> </a> </td>
+          <td class="infosCommentaire"> <b><?php echo $pseudo?></b>, le <?php echo $date ?> : <a href="#" onclick="if (confirm('<?php echo $sursupcomm ?>')) window.location='index.php?page=suppressioncommentaire&id=<?php echo $id ?>'; return false"> <input type ="button" value="Supprimer"> </a> </td>
         </tr>
         <tr>
           <td>
@@ -51,7 +58,7 @@
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-			Vous n'avez pas accès à cette page.
+			<?php echo $nonacces ?>
 		<?php } ?>
 
 
