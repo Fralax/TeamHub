@@ -1,4 +1,11 @@
-<?php $this->titre = "Forum - ".$_GET['categorie']; ?>
+<?php $this->titre = "Forum - ".$_GET['categorie'];
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
   <body>
     <?php
@@ -19,7 +26,7 @@
     <div class="conteneurCategorieForum">
       <?php if ($n == 1 || $n == 3){ ?>
       <div class="boutonNouveauSujetCategorieForum">
-        <p> <a href="index.php?page=creersujet&categorie=<?php echo $_GET['categorie'] ?>" > Créer un nouveau Sujet </a> </p>
+        <p> <a href="index.php?page=creersujet&categorie=<?php echo $_GET['categorie'] ?>" > <?php echo $nouvsuj ?></a> </p>
       </div>
       <?php } ?>
       <table class="tableauSujetsCategorieForum">
@@ -30,13 +37,13 @@
 							<h3><?php echo $_GET['categorie'] ?></h3>
 						</th>
 						<th class="nbrReponsesCategorieForum">
-							Réponses
+							<?php echo $rep ?>
 						</th>
 						<th class="nbrVuesCategorieForum">
-							Vues
+							<?php echo $vues ?>
 						</th>
 						<th class="dernierMessageCategorieForum">
-							Dernier Message
+							<?php echo $forum1entete4 ?>
 						</th>
 					</tr>
 				</thead>
@@ -61,13 +68,13 @@
 						$dernierMessage = $forum->recupDernierMessage($id)->fetch();
 						?>
 						<div class="dernierMessageAuteurCategorieForum">
-							Par <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"> <?php echo $dernierMessage['m_auteur'] ?> </a>
+							<?php echo $par ?> <a href="index.php?page=profil&nom=<?php echo $dernierMessage['m_auteur'] ?>"> <?php echo $dernierMessage['m_auteur'] ?> </a>
 						</div>
 						<div class="dernierMessageDateCategorieForum">
 							<?php $dateEntiereSujet = date_create($dernierMessage['m_date']) ?>
 							<?php $dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y') ?>
 							<?php $heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s') ?>
-							le <b><?php echo $dateSujetDernierMessage ?></b> à <b><?php echo $heureSujetDernierMessage ?></b>
+							<?php echo $le ?> <b><?php echo $dateSujetDernierMessage ?></b> à <b><?php echo $heureSujetDernierMessage ?></b>
 						</div>
           </td>
         </tr>
@@ -76,7 +83,7 @@
             <?php $dateEntiereSujet = date_create($dateSujet) ?>
             <?php $dateSujet = date_format($dateEntiereSujet, 'd/m/Y') ?>
             <?php $heureSujet = date_format($dateEntiereSujet, 'H:i:s') ?>
-            par <b><a href="index.php?page=profil&nom=<?php echo $auteurSujet ?>"><?php echo $auteurSujet ?></a></b>, le <b><?php echo $dateSujet ?></b> à <b><?php echo $heureSujet ?></b>
+            <?php echo $par ?> <b><a href="index.php?page=profil&nom=<?php echo $auteurSujet ?>"><?php echo $auteurSujet ?></a></b>, <?php echo $le ?> <b><?php echo $dateSujet ?></b> <?php echo $a ?> <b><?php echo $heureSujet ?></b>
           </td>
         </tr>
         <?php } ?>

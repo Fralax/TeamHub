@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Groupe"; ?>
+<?php $this->titre = "Administration - Groupe";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+}?>
 
 	<body>
 
@@ -15,7 +22,7 @@
 			?>
 
 			<?php if($a == 0){ ?>
-				<h2>Modifier l'admin d'un groupe</h2>
+				<h2><?php echo $groupmodifadmin ?></h2>
 		    <table>
 				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
 		      <tr>
@@ -27,7 +34,7 @@
 			<?php } ?>
 
 			<?php if($a == 1){ ?>
-				Vous n'avez pas accès à cette page.
+				<?php echo $nonacces?>
 			<?php } ?>
 		</div>
 

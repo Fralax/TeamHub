@@ -1,4 +1,11 @@
-<?php $this->titre = "FAQ - Ajout"; ?>
+<?php $this->titre = "FAQ - Ajout";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 	<body>
 
@@ -14,15 +21,15 @@
     ?>
     <?php if($a == 0){ ?>
 			<div class="ajoutFAQ">
-				<h2>Ajouter une Question à la FAQ </h2>
+				<h2> <?php echo $ajoutfaq ?> </h2>
 
 				 <form method="post" action="">
 					 <p>
-						<label for="question"> Rédigez une question pour la FAQ </label><br />
+						<label for="question"> <?php echo $redques ?> </label><br />
 						<textarea name="question" rows="7" cols="70"> </textarea>
 					</p>
 					<p>
-					 <label for="reponse"> Indiquez la réponse </label><br />
+					 <label for="reponse"> <?php echo $indrep ?> </label><br />
 					 <textarea name="reponse" rows="7" cols="70"> </textarea>
 				 </p>
 					<p> <input type="submit" name="Ajouter" value="Ajouter"> </p>
@@ -31,7 +38,7 @@
    <?php } ?>
 
    <?php if($a == 1){ ?>
-   	Vous n'avez pas accès à cette page.
+   	<?php echo $nonacces ?>
    <?php } ?>
 
   </body>

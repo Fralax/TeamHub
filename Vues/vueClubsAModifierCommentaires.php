@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Club"; ?>
+<?php $this->titre = "Administration - Club";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +27,7 @@
 		?>
 
 		<?php if($a == 0){ ?>
-			<h2>Choisir quels commentaires de quel Club modifier </h2>
+			<h2> <?php echo $clubmodifcomm ?> </h2>
 	    <?php foreach ($listeClubs as list($nomclubs)) { ?>
 				<table>
 					<tr>
@@ -32,7 +39,7 @@
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-			Vous n'avez pas accès à cette page.
+			<?php echo $nonacces ?>
 		<?php } ?>
 
   </body>

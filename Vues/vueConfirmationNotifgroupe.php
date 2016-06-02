@@ -1,4 +1,11 @@
-<?php $this->titre = "Confirmation - Groupe"; ?>
+<?php $this->titre = "Confirmation - Groupe";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,9 +16,9 @@
 
   <body>
 
-    <h2> Vous recevrez une notification quand vous aurez automatiquement rejoint le groupe <?php echo $nom ?> ! </h2>
+    <h2>  <?php echo $recevnotif.$nom ?> ! </h2>
 
-    <p> Vous allez être redirigé vers vos groupes. </p>
+    <p> <?php  echo $rediracc ?> </p>
 
   </body>
 

@@ -1,13 +1,20 @@
-<?php $this->titre = "Confirmation - Mot de Passe"; ?>
+<?php $this->titre = "Confirmation - Mot de Passe";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 <body>
     <div class="mdpConfirmVueMdpReini">
-      <h3>Votre Mot de Passe a bien été réinitialisé.</h3>
+      <h3> <?php  echo $passreset ?></h3>
       <p>
-        Vous pouvez à présent vous connecter.
+        <?php  echo $peutconnect ?>
       </p>
       <p>
-        Vous allez être redirigé vers l'accueil.
+        <?php  echo $rediracc ?>
       </p>
     </div>
   </body>

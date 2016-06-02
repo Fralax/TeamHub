@@ -1,4 +1,11 @@
-<?php $this->titre = "Administration - Accueil"; ?>
+<?php $this->titre = "Administration - Accueil";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+}?>
 
 <?php
 	require_once 'Controleurs/controleurAdministration.php';
@@ -48,6 +55,6 @@
 
 <?php if($a == 1){ ?>
 	<body>
-		<?php echo $nonacces ?> 
+		<?php echo $nonacces ?>
 	</body>
 <?php } ?>
