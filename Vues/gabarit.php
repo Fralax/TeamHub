@@ -22,29 +22,29 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueAdminGroupeAModifier.css" />
     <link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
     <link rel="stylesheet" href="Contenu/vueAjoutFAQ.css" />
-    <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" /> -->
     <link rel="stylesheet" href="Contenu/vueAPropos.css" />
-    <link rel="stylesheet" href="Contenu/vueBanni.css" />
-    <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
-    <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueBanni.css" /> -->
+    <!-- <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
+    <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" /> -->
     <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
     <link rel="stylesheet" href="Contenu/vueClub.css" />
-    <link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
     <link rel="stylesheet" href="Contenu/vueClubsAModifierInfos.css" />
     <link rel="stylesheet" href="Contenu/vueClubsAModifierPhotos.css" />
     <link rel="stylesheet" href="Contenu/vueClubsASupprimer.css" />
     <link rel="stylesheet" href="Contenu/vueConfirmationBannissementMembre.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationGroupe.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" /> -->
+    <!-- <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationGroupe.css" /> -->
     <link rel="stylesheet" href="Contenu/vueConfirmationMotDePasseReinitialise.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" /> -->
     <link rel="stylesheet" href="Contenu/vueConfirmationNouveauMotDePasse.css" />
     <link rel="stylesheet" href="Contenu/vueCreationEvenements.css" />
     <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
-    <link rel="stylesheet" href="Contenu/vueEnvoiMail.css" />
-    <link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMail.css" /> -->
+    <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" /> -->
     <link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
     <link rel="stylesheet" href="Contenu/vueInscription.css" />
     <link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
@@ -66,11 +66,14 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueResultatsRechercheAvanceeMembres.css" />
     <link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
     <link rel="stylesheet" href="Contenu/vueSujetForum.css" />
-    <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" /> -->
     <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
-    <link rel="stylesheet" href="Contenu/vueValidationCompte.css" />
+    <!-- <link rel="stylesheet" href="Contenu/vueValidationCompte.css" /> -->
     <link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
     <link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
+    <link rel="stylesheet" href="Contenu/vueMessagerie.css" />
+    <link rel="stylesheet" href="Contenu/vueNouvelleConversation.css" />
+    <link rel="stylesheet" href="Contenu/vueConversation.css" />
 
 
 
@@ -150,6 +153,8 @@ elseif($_COOKIE['langue'] == "English") {
               $afficher = $photo->affichagePhoto();
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
+
+              <li><a href="index.php?page=messagerie"><?php echo $ssmenu12 ?></a></li>
 
               <li><a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> <?php echo $ssmenu8 ?> </a></li>
 

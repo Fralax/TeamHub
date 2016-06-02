@@ -23,6 +23,7 @@ $footer = "About";
 $menu7 = "Log in";
 $phConnexion = "Password";
 $ssmenu11 = "Forgot your Password ?";
+$ssmenu12 = "Messenger";
 $menu8 = "SIGN IN";
 // vueAccueil
 $avoir = "You have ";

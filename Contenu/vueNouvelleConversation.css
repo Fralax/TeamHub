@@ -1,0 +1,18 @@
+.nouvelleConversation{
+  margin: auto;
+  text-align: center;
+  background-color: rgba(245, 245, 225, 0.8);
+  border-radius: 1em;
+  padding: 1em;
+  width: 30%;
+  margin-bottom: 3em;
+  color: black;
+}
+
+.destinatairesNouvelleConversation p{
+  color: black;
+}
+
+.destinatairesNouvelleConversation{
+  margin-bottom: 1em;
+}

@@ -23,6 +23,7 @@ $footer = "A Propos";
 $menu7 = "CONNEXION";
 $phConnexion = "Mot de Passe";
 $ssmenu11 = "Mot de Passe oublié ?";
+$ssmenu12 = "Messagerie";
 $menu8 = "INSCRIPTION";
 // vueAccueil
 $avoir = "Vous avez ";
