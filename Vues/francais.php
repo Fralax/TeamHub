@@ -343,7 +343,20 @@ $valereco = "Veuillez confirmer votre compte et vous reconnecter !";
 //
 $lisclu = "Liste des Clubs";
 $siti = "situé au ";
-// Boutons + alert
+// Boutons
+$modiadmin = "Modifier l'admin";
+$deban = "Débannir";
+$bagr = "Bannir du Groupe";
+$insc = "Inscription";
+$sup = "Supprimer";
+$ajnvclub = "Ajouter un nouveau club";
+$rejgr = "Rejoindre le groupe";
+$nprej  ="Ne plus Rejoindre";
+$rejaut = "Rejoindre Automatiquement";
+$sugr = "Supprimer le groupe";
+$supadmins = "Supprimer des Administrateurs";
+
+
 $Bannir = "Bannir";
 $champnonremp = "Des champs n'ont pas été rempli !";
 

@@ -32,7 +32,7 @@ elseif($_COOKIE['langue'] == "English") {
 			<table>
 				<tr>
 					<td> <?php echo $nomclubs?> </td>
-					<td> <a href="index.php?page=modifphotoclub&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="Modifier"> </a> </td>
+					<td> <a href="index.php?page=modifphotoclub&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="<?php echo $mod ?>"> </a> </td>
 				</tr>
 			</table>
     <?php } ?>

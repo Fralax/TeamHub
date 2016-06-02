@@ -41,7 +41,7 @@ elseif($_COOKIE['langue'] == "English") {
 
 			<h2> <?php $mban ?> </h2>
 			<?php foreach ($banni as list($nombanni)){ ?>
-				<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="Débannir"> </a>
+				<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="<?php echo $deban ?>"> </a>
 			<?php } ?>
 		<?php } ?>
 

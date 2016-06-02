@@ -33,7 +33,7 @@ elseif($_COOKIE['langue'] == "English") {
 			<?php foreach ($listeEvenements as list($nomevenements)){ ?>
 	      <tr>
 				  <td> <?php echo $nomevenements?> </td>
-					<td> <a href="#" onclick="if (confirm('<?php echo $sursupeve.addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="Supprimer"> </a></td>
+					<td> <a href="#" onclick="if (confirm('<?php echo $sursupeve.addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="<?php echo $sup ?>"> </a></td>
 	      </tr>
 			<?php } ?>
 	    </table>
