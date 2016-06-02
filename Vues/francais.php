@@ -57,7 +57,7 @@ $forum1entete3 = "Messages";
 $forum1entete4 = "Dernier Message";
 $dans = "Dans : ";
 $par = "Par";
-$le = "le";
+$le = "le ";
 $a = "à ";
 $nomforum1 = "Discussion Générale";
 $discuforum = "Un endroit pour parler de tout et de rien !";
@@ -82,7 +82,7 @@ $adminmail = "Envoyer un mail aux membres du site";
 $admingroup = "Administration des Groupes";
 $adminsupgroup = "Supprimer un Groupe";
 $adminsupeve = "Supprimer un Événement";
-$adminnouvad = "Désigner un nouvel administrateur de groupe";
+$adminnouvad = "Désigner un nouvel administrateur";
 $adminclu = "Administration des Clubs";
 $adminmodinfo = "Modifier les informations d'un Club";
 $adminmodphoto = "Modifier la photo d'un Club";
@@ -104,7 +104,8 @@ $formclub4 = "Numéro de téléphone";
 $formclub5 = "Horaires";
 $formclub6 = "le";
 $formclub7 = "de ";
-$formclub8 = "Lundi";
+$formclub18 = "à ";
+$formclub8 = 'Lundi';
 $formclub9 = "Mardi";
 $formclub10 = "Mercredi";
 $formclub11 = "Jeudi";
@@ -154,7 +155,7 @@ $clubmodifcomm = "De quel club voulez vous modifier le commentaire ? ";
 //
 $clubmodifinfo = "Choisir quel Club modifier";
 //
-$clubmodifphoto = "Choisir quelle photo de club modifier";
+$clubmodifphoto = "De quel club voulez vous modifier la photo ? ";
 //
 $clubsuppchoix = "Choisir quel Club supprimer";
 $sursupp = "Voulez vous vraiment supprimer ce club : ";
@@ -204,7 +205,146 @@ $formmail2 = "Objet";
 //
 $mailtousmembres = "Envoyer un mail à tous les membres";
 //
-
-
+$supev = "Supprimer un Evénement";
+$sursupeve = "Voulez vous vraiment supprimer l\'évenement : ";
+//
+$quesfreq = "Liste des Questions les plus fréquentes";
+$sup = "Supprimer";
+//
+$gr = "Groupe ";
+$moddes = "Modifier la description du groupe";
+$inf = "Informations :";
+$ad = "Administrateur";
+$nbpar = "Nombre de participants au groupe : ";
+$s = "Sport : ";
+$dep = "Département : ";
+$modnbpla = "Modifier le nombre de places dans le groupe";
+$newadmi = "Selectionnez un nouvel admin";
+$creevent = "Créer un événement";
+$voirmem = "Voir les membres";
+$invrej = "Inviter à rejoindre le groupe";
+$banmem = "Bannir un membre du groupe";
+$sursupgr = "Voulez vous vraiment supprimer le groupe : ";
+$partieve = "Événements auxquels je participe";
+$partiaucun = "Vous ne participez à aucun événement !";
+$c = "au club ";
+$parti = " participant";
+$partis = " participants";
+$aucparti = "Aucun participant";
+$surquiteve = "Voulez vous vraiment quitter l\'événement : ";
+$sursupeve = "Voulez vous vraiment supprimer l\'événement : ";
+$grevent = "Événements du groupe";
+$noneevent = "Aucun événement en cours dans ce groupe ...";
+$plrest = " place restante";
+$plrests = " places restantes";
+$surrejevent = "Voulez vous vraiment rejoindre l\'événement : ";
+$nomorepl = "Plus de place disponible ...";
+$surquitgr = "Voulez vraiment quitter le groupe : ";
+$devrej = "Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ...";
+$notpllibre = "Me notifier quand une place se libère";
+$devrejpluspl = "Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ... Mais il n'y a plus de place !";
+$inscsite = "S'inscrire sur le site";
+$devinscsite = "Vous devez vous inscrire sur le site avant de pouvoir rejoindre ce groupe ...";
+//
+$grs = "Groupes";
+$nongrdispo = "Aucun Groupe n'est disponible ...";
+$pouvcrea = "Vous pouvez en créer un ! ";
+$surrejgr = "Voulez vous vraiment rejoindre le groupe : ";
+$surrejgrauto = "Voulez vous vraiment ne plus rejoindre automatiquement le groupe ";
+$surrejgrp = "Voulez vous vraiment rejoindre le groupe";
+$pllib = "quand une place se libère ";
+//
+$gratuit = "Inscrivez vous, c'est gratuit !";
+$forminsc1 = "Prénom";
+$forminsc2 = "Nom";
+$forminsc3 = "Sexe";
+$forminsc4 = "Date de naissance";
+$forminsc5 = "Email";
+$forminsc6 = "Confirmez votre Email";
+$forminsc7 = "Pseudo";
+$forminsc8 = "Mot de Passe";
+$forminsc9 = "Confirmez votre Mot de Passe";
+//
+$invutili = "Inviter un Utilisateur à votre Groupe";
+$membreselec = "Selectionnez un membre à inviter";
+//
+$nonactif = "Votre compte n'est pas activé !";
+$inscritok = "Vous êtes bien inscrit sur le site, un mail de confirmation vous a été envoyé. ";
+$clicklien = "Cliquez sur le lien envoyé par mail lors de votre inscription pour activer votre compte ! ";
+//
+$mdpoublie = "Vous avez oublié votre mot de passe ?";
+$saisadresse = "Saisissez l'adresse mail associée à votre compte : ";
+//
+$bj = "Bonjour";
+$resetm = "Réinitialisez votre Mot de Passe :";
+$nmdp = "Nouveau Mot de Passe : ";
+$confnmdp = "Confirmez le nouveau Mot de Passe : ";
+//
+$rienrej = "Vous n'avez encore rejoint aucun groupe ... ";
+$evecours = " événements en cours";
+//
+$commclub = "Les commentaires de ";
+$sursupcomm = "Voulez vous vraiment supprimer ce commentaire ?";
+//
+$modadmin = "Modifier l'administrateur";
+$commodifclub = "Commentaire : ";
+//
+$modiphoto = "Modifer la photo de ";
+//
+$memaselec = "Sélectionnez un membre à désigner comme administrateur";
+$administr = "Administrateurs";
+//
+$spor = "Mes Sports";
+$sursuppsport = "Voulez vous vraiment supprimer ce sport : ";
+$ajspor = "Ajouter un Sport";
+$infsoi = "Mes Infos";
+$loc = "Ma Localisation";
+$vill = "Ville : ";
+$coorsoi = "Mes Coordonnées";
+$mod = "Modifier ";
+$mmdp = "Mon Mot de Passe";
+$spormem = "Les sports de ";
+$groumem = "Les groupes de ";
+$modicp = "Modifier mon Code Postal : ";
+$mofimdp = "Modifier mon Mot de Passe";
+$anmdp = "Ancien Mot De Passe";
+$nonaccesmembre = "Vous n'avez pas accès au profil des membres si vous n'êtes pas connecté !";
+//
+$dontpart = "Vous ne participez plus à l'événement : ";
+//
+$left = "Vous avez quitté : ";
+//
+$rech = "Je recherche : ";
+$rechgr = "Un Groupe";
+$rechmem = "Un Membre";
+$rechclub = "Un Club";
+$namemem = "Nom du Membre :";
+$lomem = "Sa localisation :";
+//
+$noneclub = "Aucun Club n'a été trouvé !";
+$clus = "CLUBS";
+//
+$nonegr = "Aucun Groupe n'a été trouvé !";
+$grous = "GROUPES";
+//
+$nonemem = "Aucun Membre n'a été trouvé !";
+$membrs = "MEMBRES";
+//
+$cloresj = "Clore le Sujet";
+$supsj = "Supprimer le Sujet ";
+$supmess = "Supprimer le message";
+$postmessa = "Postez une réponse !";
+//
+$supevene = "Vous avez supprimé l'événement : ";
+//
+$supgrou = "Vous avez supprimé le groupe : ";
+//
+$valereco = "Veuillez confirmer votre compte et vous reconnecter !";
+//
+$lisclu = "Liste des Clubs";
+$siti = "situé au ";
+// Boutons + alert
+$Bannir = "Bannir";
+$champnonremp = "Des champs n'ont pas été rempli !";
 
 ?>

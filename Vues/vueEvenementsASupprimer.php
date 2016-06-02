@@ -5,7 +5,8 @@ if($_COOKIE['langue'] == "Francais"){
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,19 +28,19 @@ elseif($_COOKIE['langue'] == "English") {
 		?>
 
 		<?php if($a == 0){ ?>
-			<h2>Supprimer un Evénement</h2>
+			<h2><?php echo $supev ?></h2>
 	    <table>
 			<?php foreach ($listeEvenements as list($nomevenements)){ ?>
 	      <tr>
 				  <td> <?php echo $nomevenements?> </td>
-					<td> <a href="#" onclick="if (confirm('Voulez vous vraiment supprimer l\'évenement : <?php echo addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="Supprimer"> </a></td>
+					<td> <a href="#" onclick="if (confirm('<?php echo $sursupeve.addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="Supprimer"> </a></td>
 	      </tr>
 			<?php } ?>
 	    </table>
 		<?php } ?>
 
 		<?php if($a == 1){ ?>
-				Vous n'avez pas accès à cette page.
+				<?php echo $nonacces ?>
 		<?php } ?>
 
   </body>

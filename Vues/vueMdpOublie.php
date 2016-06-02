@@ -1,9 +1,16 @@
-<?php $this->titre = "Mot de Passe Oublié"; ?>
+<?php $this->titre = "Mot de Passe Oublié";
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 <body>
     <div class="mdpOublieVueMdpOublie">
-      <h3>Vous avez oublié votre mot de passe ?</h3>
+      <h3><?php echo $mdpoublie ?></h3>
       <form class="formulaireMdpOublieVueMdpOublie" action="" method="post">
-        <p> Saisissez l'adresse mail associée à votre compte : </p>
+        <p> <?php echo $saisadresse ?> </p>
         <p><input type="text" name="mail"> </p>
         <p> <input type="submit" name="valider" value="Réinitialiser mon Mot de Passe"> </p>
       </form>

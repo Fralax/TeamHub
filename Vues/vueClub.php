@@ -26,31 +26,31 @@ elseif($_COOKIE['langue'] == "English") {
 					<table>
 		        <tr>
 		          <td> <?php echo $formclub8 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoLundiDebut'] ?> <?php echo $a.$caractClub['c_hoLundiFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoLundiDebut'] ?> <?php echo $formclub18.$caractClub['c_hoLundiFin'] ?> </td>
 		        </tr>
 		        <tr>
 							<td> <?php echo $formclub9 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoMardiDebut'] ?> <?php echo $a.$caractClub['c_hoMardiFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoMardiDebut'] ?> <?php echo $formclub18.$caractClub['c_hoMardiFin'] ?> </td>
 		        </tr>
 						<tr>
 							<td> <?php echo $formclub10 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoMercrediDebut'] ?> <?php echo $a.$caractClub['c_hoMercrediFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoMercrediDebut'] ?> <?php echo $formclub18.$caractClub['c_hoMercrediFin'] ?> </td>
 						</tr>
 						<tr>
 							<td> <?php echo $formclub11 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoJeudiDebut'] ?> <?php echo $a.$caractClub['c_hoJeudiFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoJeudiDebut'] ?> <?php echo $formclub18.$caractClub['c_hoJeudiFin'] ?> </td>
 						</tr>
 						<tr>
 							<td> <?php echo $formclub12 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoVendrediDebut'] ?> <?php echo $a.$caractClub['c_hoVendrediFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoVendrediDebut'] ?> <?php echo $formclub18.$caractClub['c_hoVendrediFin'] ?> </td>
 						</tr>
 						<tr>
 							<td> <?php echo $formclub13 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoSamediDebut'] ?> <?php echo $a.$caractClub['c_hoSamediFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoSamediDebut'] ?> <?php echo $formclub18.$caractClub['c_hoSamediFin'] ?> </td>
 						</tr>
 						<tr>
 							<td> <?php echo $formclub14 ?> : </td>
-							<td> <?php echo $formclub7.$caractClub['c_hoDimancheDebut'] ?> <?php echo $a.$caractClub['c_hoDimancheFin'] ?> </td>
+							<td> <?php echo $formclub7.$caractClub['c_hoDimancheDebut'] ?> <?php echo $formclub18.$caractClub['c_hoDimancheFin'] ?> </td>
 						</tr>
 		      </table>
 				</div>

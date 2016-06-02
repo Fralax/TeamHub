@@ -1,4 +1,11 @@
-<?php $this->titre = "Profil - ".$_GET['nom']; ?>
+<?php $this->titre = "Profil - ".$_GET['nom'];
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+} ?>
 
 <?php
 	if(isset($_SESSION['pseudo'])){
@@ -34,24 +41,24 @@
 							</form >
 						</div>
 						<div class="mesSportsVueProfil">
-							<h2>Mes Sports</h2>
+							<h2><?php echo $spor ?></h2>
 							<table>
 								<?php foreach ($sports as list($sport)){?>
 									<tr>
 										<td> <?php echo $sport ?> </td>
 										<td>
-											<a href="#" onclick="if (confirm('Voulez vous vraiment supprimer ce sport : <?php echo addslashes($sport) ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo addslashes($sport) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer"></a>
+											<a href="#" onclick="if (confirm('<?php echo $sursuppsport.addslashes($sport) ?> ?')) window.location='index.php?page=suppressionsport&sport=<?php echo addslashes($sport) ?>'; return false"> <input name="Supprimer" type="button" value="Supprimer"></a>
 										</td>
 									</tr>
 								<?php } ?>
 							</table>
 							<div class="ajoutSportVueProfil">
-								<a href="#form1">Ajouter un Sport</a>
+								<a href="#form1"><?php echo $ajspor ?></a>
 								<div id = "form1" class="formsProfil">
 									<form method="post" action="">
 										<p>
 											<select name="sport">
-												<option value="0"> -- Sélectionnez un sport -- </option>
+												<option value="0"> -- <?php echo $formgroup3 ?> -- </option>
 												<?php foreach ($sportsNonPratiques as list($nomSports)) { ?>
 													<option value = "<?php echo $nomSports?>" > <?php echo $nomSports?> </option>
 												<?php } ?>
@@ -66,54 +73,54 @@
 
 					<div class="mesInfosVueProfil">
 						<div class="GeneralVueProfil">
-							<h2>Mes Infos</h2>
-							<p> Prénom : <?php echo $infos[u_prenom]?> </p>
-							<p> Nom : <?php echo $infos[u_nom]?>  </p>
-							<p> Sexe : <?php echo $infos[u_sexe]?> </p>
+							<h2><?php echo $infsoi ?></h2>
+							<p> <?php echo $forminsc1 ?> : <?php echo $infos[u_prenom]?> </p>
+							<p> <?php echo $forminsc2 ?> : <?php echo $infos[u_nom]?>  </p>
+							<p> <?php echo $forminsc3 ?> : <?php echo $infos[u_sexe]?> </p>
 							<?php $date = date_create($infos[u_naissance]) ?>
-							<p> Date de Naissance : <?php echo date_format($date, 'd/m/Y')?> </p>
+							<p> <?php echo $forminsc4 ?> : <?php echo date_format($date, 'd/m/Y')?> </p>
 						</div>
 						<div class="monAdresseVueProfil">
-							<h2> Ma Localisation</h2>
-							<p> Département : <?php echo $infos[u_region]?> </p>
-							<p> Ville : <?php echo $infos[u_ville]?> </p>
-							<p> Code Postal : <?php echo $infos[u_cp]?> </p>
+							<h2> <?php echo $loc ?></h2>
+							<p> <?php echo $dep ?><?php echo $infos[u_region]?> </p>
+							<p> <?php echo $vill ?> : <?php echo $infos[u_ville]?> </p>
+							<p> <?php echo $formclub3 ?> : <?php echo $infos[u_cp]?> </p>
 						</div>
 						<div class="mesCoordonneesVueProfil">
-							<h2>Mes Coordonnées</h2>
-							<p> Téléphone Portable : <?php echo $infos[u_portable]?> </p>
-				      <p> Email : <?php echo $infos[u_email]?> </p>
+							<h2><?php echo $coorsoi ?></h2>
+							<p> <?php echo $formclub4 ?> : <?php echo $infos[u_portable]?> </p>
+				      <p> <?php echo $forminsc5 ?> : <?php echo $infos[u_email]?> </p>
 						</div>
 						<div class="modifsVueProfil">
-							<a href="#form3"><h3>Modifier ma Localisation</h3></a>
-							<a href="#form2"><h3>Modifier mes Coordonnées</h3></a>
-							<a href="#form4"><h3>Modifier mon Mot de Passe </h3></a>
+							<a href="#form3"><h3><?php echo $mod.$loc ?></h3></a>
+							<a href="#form2"><h3><?php echo $mod.$coorsoi ?></h3></a>
+							<a href="#form4"><h3><?php echo $mod.$mmdp ?></h3></a>
 						</div>
 					</div>
 
 					<div class="modifInfosVueProfil">
 						<div id = "form2" class="formsProfil">
-							<h2>Modifier mes Coordonnées</h2>
+							<h2><?php echo $mod.$coorsoi ?></h2>
 							<form  name = "formulaireModifMesCoordonnees" method="post" action = "">
-								<p> <input type="tel" name="Portable" placeholder="Téléphone Portable" size="25" value = "<?php echo $infos['u_portable']?>" /> </p>
-								<p> <input type="email" name="Email" placeholder="Email" size="25" value = "<?php echo $infos['u_email']?>"/> </p>
-								<p> <input type="email" name="ConfirmEmail" placeholder="Confirmation Email" size="25" value = "<?php echo $infos['u_email']?>"/> </p>
+								<p> <input type="tel" name="Portable" placeholder=<?php echo $formclub4 ?> size="25" value = "<?php echo $infos['u_portable']?>" /> </p>
+								<p> <input type="email" name="Email" placeholder=<?php echo $forminsc5 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
+								<p> <input type="email" name="ConfirmEmail" placeholder=<?php echo $forminsc6 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
 								<p> <input name="envoyerCoordonnees" type="submit" value="Valider"> </p>
 							</form>
 						</div>
 						<div id = "form3" class="formsProfil">
-							<h2>Modifier ma Localisation</h2>
+							<h2><?php echo $mod.$loc ?></h2>
 							<form  name = "formulaireModifMonAdresse" method="post" action = "">
-								<p> Modifier mon Code Postal : <input type="text" name="cp" placeholder="Code Postal" size="25" value = "<?php echo $infos['u_cp'] ?>"/>
+								<p> <?php echo $modicp ?><input type="text" name="cp" placeholder=<?php echo $formclub3 ?> size="25" value = "<?php echo $infos['u_cp'] ?>"/>
 								<p> <input name="envoyerLocalisation" type="submit" value="Valider"> </p>
 							</form>
 						</div>
 						<div id = "form4" class="formsProfil">
-							<h2>Modifier mon Mot de Passe</h2>
+							<h2> <?php echo $mofimdp ?></h2>
 							<form  name = "formulaireModifMonMdp" method="post" action = "">
-								<p> <input type="password" name="AncienMotDePasse" placeholder="Ancien Mot De Passe" size="25" value = ""/> </p>
-					      <p> <input type="password" name="NouveauMotDePasse" placeholder="Nouveau Mot De Passe" size="25" value = ""/> </p>
-								<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder="Confirmer Mot De Passe" size="25" value = ""/> </p>
+								<p> <input type="password" name="AncienMotDePasse" placeholder=<?php echo $anmdp ?>  size="25" value = ""/> </p>
+					      <p> <input type="password" name="NouveauMotDePasse" placeholder=<?php echo $nmdp ?> size="25" value = ""/> </p>
+								<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder=<?php echo $confnmdp ?> size="25" value = ""/> </p>
 								<p> <input name="modifMdp" type="submit" value="Modifier le Mot de Passe"> </p>
 							</form>
 						</div>
@@ -135,7 +142,7 @@
 						<p> <img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/>
 					</div>
 					<div class="mesSportsVueProfil">
-						<h2>Les sports de <?php echo $_GET['nom'] ?></h2>
+						<h2><?php echo $spormem.$_GET['nom'] ?></h2>
 						<table>
 							<?php foreach ($sports as list($sport)){?>
 								<tr>
@@ -148,7 +155,7 @@
 
 				<div class="conteneur2VueProfil">
 					<div class="mesGroupesVueProfil">
-						<h2>Les groupes de <?php echo $_GET['nom'] ?></h2>
+						<h2><?php echo $groumem.$_GET['nom'] ?></h2>
 						<table>
 							<?php foreach ($groupes as list($nomGroupes)){?>
 								<tr>
@@ -167,7 +174,7 @@
 	 	<?php endif; ?>
 
 		<?php if($a == 3){ ?>
-			Vous n'avez pas accès au profil des membres si vous n'êtes pas connecté !
+			<?php echo $nonaccesmembre ?>
 		<?php } ?>
 		</div>
  	</body>
