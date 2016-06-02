@@ -84,10 +84,9 @@ class controleurAdministration{
         $modif = $admin->modifierCaracteristiquesClub($nomClub);
         header("Location: index.php?page=administration");
       } else {
-        ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        ?> <script> alert('<?php echo $champnonremp ?>')</script> <?php
       }
     }
-
     $vue = new Vue('ModifClub');
     $vue->generer(array('caractClub'=>$infos));
 

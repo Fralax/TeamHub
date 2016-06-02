@@ -43,8 +43,9 @@
       session_start();
     }
 
+
     public function routerRequete(){
-      
+      $routeur = new routeur();
       //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
