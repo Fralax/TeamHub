@@ -77,11 +77,10 @@ class controleurAdministration{
     $infos = $club->afficherCaracteristiquesClub($nomClub)->fetch();
 
     if (isset ($_POST['Modifier'])){
-      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && $_POST['numeroClub'] !="" && $_POST['hLundiDebut'] !="" && $_POST['mLundiDebut'] !="" && $_POST['hMardiDebut'] !=""
-      && $_POST['mMardiDebut'] !="" && $_POST['hMercrediDebut'] !="" && $_POST['mMercrediDebut'] !="" && $_POST['hJeudiDebut'] !="" && $_POST['mJeudiDebut'] !="" && $_POST['hVendrediDebut'] !="" && $_POST['mVendrediDebut'] !=""
-      && $_POST['hSamediDebut'] !="" && $_POST['mSamediDebut'] !="" && $_POST['hDimancheDebut'] !="" && $_POST['mDimancheDebut'] !="" && $_POST['hLundiFin'] !="" && $_POST['mLundiFin'] !="" && $_POST['hMardiFin'] !=""
-      && $_POST['mMardiFin'] !="" && $_POST['hMercrediFin'] !="" && $_POST['mMercrediFin'] !="" && $_POST['hJeudiFin'] !="" && $_POST['mJeudiFin'] !="" && $_POST['hVendrediFin'] !="" && $_POST['mVendrediFin'] !=""
-      && $_POST['hSamediFin'] !="" && $_POST['mSamediFin'] !="" && $_POST['hDimancheFin'] !="" && $_POST['mDimancheFin'] !=""){
+      if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && $_POST['numeroClub'] !="" && $_POST['c_hoLundiDebut'] !="" && $_POST['c_hoMardiDebut'] !="" && $_POST['c_hoMercrediDebut'] !="" && $_POST['c_hoJeudiDebut'] !="" && $_POST['c_hoVendrediDebut'] !=""
+      && $_POST['c_hoSamediDebut'] !="" && $_POST['c_hoDimancheDebut'] !="" && $_POST['c_hoLundiFin'] !="" && $_POST['c_hoMardiFin'] !=""
+      && $_POST['c_hoMercrediFin'] !="" && $_POST['c_hoJeudiFin'] !="" && $_POST['c_hoVendrediFin'] !=""
+      && $_POST['c_hoSamediFin'] !="" && $_POST['c_hoDimancheFin'] !=""){
         $modif = $admin->modifierCaracteristiquesClub($nomClub);
         header("Location: index.php?page=administration");
       } else {
