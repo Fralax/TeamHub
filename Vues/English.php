@@ -205,9 +205,6 @@ $formmail2 = "Object";
 //
 $mailtousmembres = "Send an email to all the members";
 //
-
-
-
 $supev = "Delete an Event";
 $sursupeve = "Do you really want to delete this event : ";
 //
@@ -238,112 +235,112 @@ $surquiteve = "Do you really want to leave the event : ";
 $sursupeve = "Do you really want to delete the event : ";
 $grevent = "Group events";
 $noneevent = "No current events in this group ...";
-$plrest = " remaining space";
-$plrests = " remaining spaces";
+$plrest = " remaining place";
+$plrests = " remaining places";
 $surrejevent = "Do you really want to join the event : ";
-$nomorepl = "No more space available ...";
+$nomorepl = "No more place available ...";
 $surquitgr = "Do you really want to leave the group : ";
 $devrej = "You must join this group before you can participate in an event ...";
-$notpllibre = "Notify me when a space becomes available";
-$devrejpluspl = "You must join this group before you can participate in an event ... But there is more space !";
-$inscsite = "S'inscrire sur le site";
-$devinscsite = "Vous devez vous inscrire sur le site avant de pouvoir rejoindre ce groupe ...";
+$notpllibre = "Notify me when a place becomes available";
+$devrejpluspl = "You must join this group before you can participate in an event ... But there is more place !";
+$inscsite = "Register on the site";
+$devinscsite = "You must register on the site before you can join this group ...";
 //
-$grs = "Groupes";
-$nongrdispo = "Aucun Groupe n'est disponible ...";
-$pouvcrea = "Vous pouvez en créer un ! ";
-$surrejgr = "Voulez vous vraiment rejoindre le groupe : ";
-$surrejgrauto = "Voulez vous vraiment ne plus rejoindre automatiquement le groupe ";
-$surrejgrp = "Voulez vous vraiment rejoindre le groupe";
-$pllib = "quand une place se libère ";
+$grs = "Groups";
+$nongrdispo = "No group available ...";
+$pouvcrea = "You can create one ! ";
+$surrejgr = "Do you really want to join the group : ";
+$surrejgrauto = "Do you really no longer automatically join the group ";
+$surrejgrp = "Do you really want to join the group";
+$pllib = "when a place becomes available ";
 //
-$gratuit = "Inscrivez vous, c'est gratuit !";
-$forminsc1 = "Prénom";
-$forminsc2 = "Nom";
-$forminsc3 = "Sexe";
-$forminsc4 = "Date de naissance";
+$gratuit = "Subscribe, it's free !";
+$forminsc1 = "First name";
+$forminsc2 = "Last name";
+$forminsc3 = "Sex";
+$forminsc4 = "Date of Birth";
 $forminsc5 = "Email";
-$forminsc6 = "Confirmez votre Email";
+$forminsc6 = "Confirm your Email";
 $forminsc7 = "Pseudo";
-$forminsc8 = "Mot de Passe";
-$forminsc9 = "Confirmez votre Mot de Passe";
+$forminsc8 = "Password";
+$forminsc9 = "Confirm your Password";
 //
-$invutili = "Inviter un Utilisateur à votre Groupe";
-$membreselec = "Selectionnez un membre à inviter";
+$invutili = "Invite a user to your Group";
+$membreselec = "Select a member to invite";
 //
-$nonactif = "Votre compte n'est pas activé !";
-$inscritok = "Vous êtes bien inscrit sur le site, un mail de confirmation vous a été envoyé. ";
-$clicklien = "Cliquez sur le lien envoyé par mail lors de votre inscription pour activer votre compte ! ";
+$nonactif = "Your account is not activated !";
+$inscritok = "You are registered on the website , an email confirmation is sent to you. ";
+$clicklien = "Click on the link emailed to you after your registration to activate your account ! ";
 //
-$mdpoublie = "Vous avez oublié votre mot de passe ?";
-$saisadresse = "Saisissez l'adresse mail associée à votre compte : ";
+$mdpoublie = "Forgot your password ?";
+$saisadresse = "Enter the email address associated with your account : ";
 //
-$bj = "Bonjour";
-$resetm = "Réinitialisez votre Mot de Passe :";
-$nmdp = "Nouveau Mot de Passe : ";
-$confnmdp = "Confirmez le nouveau Mot de Passe : ";
+$bj = "Hello";
+$resetm = "Reset your password :";
+$nmdp = "New Password : ";
+$confnmdp = "Confirm the New Password : ";
 //
-$rienrej = "Vous n'avez encore rejoint aucun groupe ... ";
-$evecours = " événements en cours";
+$rienrej = "You haven't joined any groups ... ";
+$evecours = " current events";
 //
-$commclub = "Les commentaires de ";
-$sursupcomm = "Voulez vous vraiment supprimer ce commentaire ?";
+$commclub = "Comments from ";
+$sursupcomm = "Do you really want to delete this comment ?";
 //
-$modadmin = "Modifier l'administrateur";
-$commodifclub = "Commentaire : ";
+$modadmin = "Change Administrator";
+$commodifclub = "Comment : ";
 //
-$modiphoto = "Modifer la photo de ";
+$modiphoto = "Modify the photo ";
 //
-$memaselec = "Sélectionnez un membre à désigner comme administrateur";
-$administr = "Administrateurs";
+$memaselec = "Select a person to appoint as administrator";
+$administr = "administrators";
 //
-$spor = "Mes Sports";
-$sursuppsport = "Voulez vous vraiment supprimer ce sport : ";
-$ajspor = "Ajouter un Sport";
-$infsoi = "Mes Infos";
-$loc = "Ma Localisation";
-$vill = "Ville : ";
-$coorsoi = "Mes Coordonnées";
-$mod = "Modifier ";
-$mmdp = "Mon Mot de Passe";
-$spormem = "Les sports de ";
-$groumem = "Les groupes de ";
-$modicp = "Modifier mon Code Postal : ";
-$mofimdp = "Modifier mon Mot de Passe";
-$anmdp = "Ancien Mot De Passe";
-$nonaccesmembre = "Vous n'avez pas accès au profil des membres si vous n'êtes pas connecté !";
+$spor = "My Sports";
+$sursuppsport = "Do you really want to delete this sport : ";
+$ajspor = "Add a Sport";
+$infsoi = "My Infos";
+$loc = "My Location";
+$vill = "City : ";
+$coorsoi = "My Contact";
+$mod = "Modify ";
+$mmdp = "My Password";
+$spormem = "Sports of  ";
+$groumem = "Groups of  ";
+$modicp = "Edit my Postal code : ";
+$mofimdp = "Change my password";
+$anmdp = "Old password";
+$nonaccesmembre = "You do not have access to the Members' profile if you are not connected !";
 //
-$dontpart = "Vous ne participez plus à l'événement : ";
+$dontpart = "You are no longer at the event : ";
 //
-$left = "Vous avez quitté : ";
+$left = "You left : ";
 //
-$rech = "Je recherche : ";
-$rechgr = "Un Groupe";
-$rechmem = "Un Membre";
-$rechclub = "Un Club";
-$namemem = "Nom du Membre :";
-$lomem = "Sa localisation :";
+$rech = "I search : ";
+$rechgr = "A Group";
+$rechmem = "A Member";
+$rechclub = "A Club";
+$namemem = "Member Name :";
+$lomem = "its location :";
 //
-$noneclub = "Aucun Club n'a été trouvé !";
+$noneclub = "No Club found !";
 $clus = "CLUBS";
 //
-$nonegr = "Aucun Groupe n'a été trouvé !";
-$grous = "GROUPES";
+$nonegr = "No Group found !";
+$grous = "GROUPS";
 //
-$nonemem = "Aucun Membre n'a été trouvé !";
-$membrs = "MEMBRES";
+$nonemem = "No Member found !";
+$membrs = "MEMBERS";
 //
-$cloresj = "Clore le Sujet";
-$supsj = "Supprimer le Sujet ";
-$supmess = "Supprimer le message";
-$postmessa = "Postez une réponse !";
+$cloresj = "Close the Topic";
+$supsj = "Delete the Topic ";
+$supmess = "Delete the Message";
+$postmessa = "Post a response !";
 //
-$supevene = "Vous avez supprimé l'événement : ";
+$supevene = "You deleted the Event : ";
 //
-$supgrou = "Vous avez supprimé le groupe : ";
+$supgrou = "You deleted the Group : ";
 //
-$valereco = "Veuillez confirmer votre compte et vous reconnecter !";
+$valereco = "Please confirm your account and log in !";
 //
-$lisclu = "Liste des Clubs";
-$siti = "situé au ";
+$lisclu = "List of Clubs";
+$siti = "located at ";
 ?>
