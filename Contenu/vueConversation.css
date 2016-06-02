@@ -1,0 +1,51 @@
+.conteneurConversation{
+  background-color: rgba(245, 245, 225, 0.8);
+  padding: 1em;
+  border-radius: 1em;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.messageConversationAmi{
+  width: 100%;
+  text-align: left;
+}
+
+.pseudoAmi{
+  text-align: right;
+}
+
+.messageConversationSessionPseudo{
+  width: 100%;
+  text-align: right;
+}
+
+.messageConversationSessionPseudoDiv{
+  display:inline-flex;
+  background-color: rgba(25,182,152, 1);
+  border-radius: 1em;
+  padding: 10px;
+}
+
+.messageConversationAmiDiv{
+  display: inline-flex;
+  background-color: rgba(233,139,57,1);
+  border-radius: 1em;
+  padding: 10px;
+}
+
+.conteneurConversation table{
+  margin: auto;
+  width: 50%;
+}
+
+#tchatForm{
+  border-radius: 1em;
+  width: 40%;
+  background-color: rgba(245, 245, 225, 0.8);
+  margin-top: 2em;
+  text-align: center;
+  margin: auto;
+  padding: 0.1em;
+}

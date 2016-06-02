@@ -92,8 +92,6 @@ class controleurGroupes{
       } else{
         ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
       }
-    } else {
-      ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
     }
 
     //MODIFICATION PLACES GROUPE

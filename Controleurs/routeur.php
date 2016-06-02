@@ -10,6 +10,7 @@
   require_once 'Controleurs/controleurClubs.php';
   require_once 'Controleurs/controleurAdministration.php';
   require_once 'Controleurs/controleurForum.php';
+  require_once 'Controleurs/controleurMessagerie.php';
   require_once 'Vues/vue.php';
 
 
@@ -25,6 +26,7 @@
     private $ControleurClubs;
     private $controleurAdministration;
     private $controleurForum;
+    private $controleurMessagerie;
 
     public function __construct(){
       $this->controleurConnexion = new connexion();
@@ -37,17 +39,11 @@
       $this->controleurClubs = new controleurClubs();
       $this->controleurAdministration = new controleurAdministration();
       $this->controleurForum = new controleurForum();
+      $this->controleurMessagerie = new controleurMessagerie();
       session_start();
     }
 
     public function routerRequete(){
-      include('Vues/francais.php');
-      if($_COOKIE['langue'] == "Francais"){
-      	include('Vues/francais.php');
-      }
-      elseif($_COOKIE['langue'] == "English") {
-      	include('Vues/English.php');
-      }
       //error_reporting (E_ALL & ~E-NOTICE & ~E-WARNING);
       $this->controleurEvenements->suppressionEvenementsPasses();
       switch($_GET['page']){
@@ -345,6 +341,22 @@
 
         case 'changementlangue':
           $this->controleurAccueil->changementLangue($_GET['langue']);
+          break;
+
+        case 'messagerie':
+          $this->controleurMessagerie->affichageMessagerie();
+          break;
+
+        case 'nouvelleconversation':
+          $this->controleurMessagerie->affichageNouvelleConversation();
+          break;
+
+        case 'conversation':
+          $this->controleurMessagerie->affichageDetailsConversation($_GET['correspondantA'], $_GET['correspondantB']);
+          break;
+
+        case 'conversationrecupmessages':
+          $this->controleurMessagerie->nouveauxMessages();
           break;
 
         default:
