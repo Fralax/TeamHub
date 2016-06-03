@@ -156,10 +156,6 @@
           $this->controleurAdministration->affichageAdministration();
           break;
 
-        case 'bannirmembre':
-          $this->controleurAdministration->bannissementMembre();
-          break;
-
         case 'banni':
           $this->controleurAdministration->affichageBanni();
           break;
@@ -212,10 +208,6 @@
           $this->controleurAdministration->suppressionClub($_GET['club']);
           break;
 
-        case 'nouveladmin':
-          $this->controleurAdministration->designerNouvelAdmin();
-          break;
-
         case 'deop':
           $this->controleurAdministration->adminSupprime($_GET['pseudo']);
           break;
@@ -224,17 +216,9 @@
           $this->controleurAdministration->adminGroupeModifiable();
           break;
 
-        case 'envoimail':
-          $this->controleurAdministration->envoiMail();
-          break;
-
-        case 'envoimailmembres':
-          $this->controleurAdministration->envoiMailMembres();
-          break;
-
         case 'validationcompte':
-        $this->controleurInscription->validationCompte();
-        break;
+          $this->controleurInscription->validationCompte();
+          break;
 
         case 'mailnonconfirme':
           $this->controleurInscription->affichageNonConfirme();

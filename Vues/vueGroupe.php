@@ -344,7 +344,7 @@ elseif($_COOKIE['langue'] == "English") {
             </td>
             <?php } ?>
             <td>
-              <a href="#" onclick=VueGroupe"if (confirm('<?php echo $surrejevent ?><?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
+              <a href="#" onclick="if (confirm('<?php echo $surrejevent ?><?php echo addslashes($nom) ?> ?')) window.location='index.php?page=rejoindreevenement&evenement=<?php echo addslashes($nom) ?>'; return false"> <input type = "button" name="Rejoindre" value="Rejoindre" > </a>
             </td>
             <?php } else{ ?>
               <td>

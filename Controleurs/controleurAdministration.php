@@ -6,14 +6,22 @@ require_once 'Vues/vue.php';
 class controleurAdministration{
 
   public function affichageAdministration(){
-    $vue = new Vue('Admin');
-    $vue->generer();
-  }
-
-  public function bannissementMembre(){
     $admin = new administration();
+    $user = new utilisateurs();
     $groupe = new groupes();
-    $appartient = new utilisateurs();
+
+    //Désigner un nouvel administrateur
+    $afficherPossiblesAdmins = $user->listerMembresNouvelAdmin()->fetchAll();
+    $afficherAdmins = $admin->afficherAdmins()->fetchAll();
+
+    if (isset($_POST['designer'])){
+      if($_POST['nouvelAdmin'] != ""){
+        $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
+        header("Location: index.php?page=administration");
+      }
+    }
+
+    //Bannir un membre
     $mail = $admin->recupMail()->fetch();
     $groupesAdmin = $admin->ListerGroupesAdmin($_POST['banni'])->fetchAll();
     $groupesNonAdmin = $admin->ListerGroupesNonAdmin($_POST['banni'])->fetchAll();
@@ -33,8 +41,44 @@ class controleurAdministration{
     }
     $banniPossible = $admin->listerAbannir()->fetchAll();
     $banni = $admin->listerBanni()->fetchAll();
-    $vue = new Vue('BannirMembre');
-    $vue->generer(array('abannir'=>$banniPossible, 'banni'=>$banni));
+
+    //Envoyer un mail à un membre
+    $membresSite = $user->listerMembresSite()->fetchAll();
+    if(isset($_POST['envoyer'])){
+      if($_POST['membresSite'] != "" && $_POST['mail'] != " " && $_POST['sujet'] != ""){
+        $envoiMail = $admin->envoiMail($_POST['membresSite'])->fetch();
+        $destinataire = $envoiMail[0];
+        $sujet = $_POST['sujet'] ;
+        $message = $_POST['mail']."
+--------------------------------
+Merci de ne pas répondre à ce mail.";
+        mail($destinataire, $sujet, $message);
+        header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
+    }
+
+    //Envoyer un mail à tous les membres
+    if(isset($_POST['envoyerMailATousLesMembres'])){
+      if ($_POST['mailMembres'] != " " && $_POST['sujetMembres'] != ""){
+        foreach($membresSite as list($nomMembre)){
+          $envoiMailMembres = $admin->envoiMail($nomMembre)->fetch();
+          $destinataireMembres = $envoiMailMembres[0];
+          $sujetMembres = $_POST['sujetMembres'];
+          $messageMembres = $_POST['mailMembres']."
+  --------------------------------
+  Merci de ne pas répondre à ce mail.";
+          mail($destinataireMembres, $sujetMembres, $messageMembres);
+        }
+        header("Location: index.php?page=administration");
+      } else {
+        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+      }
+    }
+
+    $vue = new Vue('Admin');
+    $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins, 'abannir'=>$banniPossible, 'membreBanni'=>$banni, 'membres' => $membresSite, 'membres' => $membresSite));
   }
 
   public function affichageBanni(){
@@ -157,24 +201,6 @@ class controleurAdministration{
     $fichier = $admin->afficherFondEcran()->fetch();
   }
 
-  public function designerNouvelAdmin(){
-    $admin = new administration();
-    $user = new utilisateurs();
-
-    $afficherPossiblesAdmins = $user->listerMembresNouvelAdmin()->fetchAll();
-    $afficherAdmins = $admin->afficherAdmins()->fetchAll();
-
-    if (isset($_POST['designer'])){
-      if($_POST['nouvelAdmin'] != ""){
-        $nouveauAdmin = $admin->nouvelAdmin($_POST['nouvelAdmin']);
-        header("Location: index.php?page=administration");
-      }
-    }
-    $vue = new Vue('NouvelAdmin');
-    $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins));
-
-  }
-
   public function verifAdmin(){
     $admin = new administration();
     $verifierAdmins = $admin->verifierAdmins()->fetchAll();
@@ -189,52 +215,6 @@ class controleurAdministration{
     $admin = new administration();
     $deop = $admin->deop($nom);
     header("Location: index.php?page=administration");
-  }
-
-  public function envoiMail(){
-    $user = new utilisateurs();
-    $admin = new administration();
-    $membresSite = $user->listerMembresSite()->fetchAll();
-    if(isset($_POST['envoyer'])){
-      if($_POST['membresSite'] != "" && $_POST['mail'] != " " && $_POST['sujet'] != ""){
-        $envoiMail = $admin->envoiMail($_POST['membresSite'])->fetch();
-        $destinataire = $envoiMail[0];
-        $sujet = $_POST['sujet'] ;
-        $message = $_POST['mail']."
---------------------------------
-Merci de ne pas répondre à ce mail.";
-        mail($destinataire, $sujet, $message);
-        header("Location: index.php?page=administration");
-      } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
-      }
-    }
-    $vue = new Vue('EnvoiMail');
-    $vue->generer(array('membres' => $membresSite));
-  }
-
-  public function envoiMailMembres(){
-    $user = new utilisateurs();
-    $admin = new administration();
-    $membresSite = $user->listerMembresSite()->fetchAll();
-    if(isset($_POST['envoyer'])){
-      if ($_POST['membresSite'] != "" && $_POST['mail'] != " " && $_POST['sujet'] != ""){
-        foreach($membresSite as list($membre)){
-          $envoiMail = $admin->envoiMail($membre)->fetch();
-          $destinataire = $envoiMail[0];
-          $sujet = $_POST['sujet'] ;
-          $message = $_POST['mail']."
-  --------------------------------
-  Merci de ne pas répondre à ce mail.";
-          mail($destinataire, $sujet, $message);
-        }
-        header("Location: index.php?page=administration");
-      } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
-      }
-    }
-    $vue = new Vue('EnvoiMailMembres');
-    $vue->generer(array('membres' => $membresSite));
   }
 
   public function suppressionMessageForum($id){
