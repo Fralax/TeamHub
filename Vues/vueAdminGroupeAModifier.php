@@ -1,4 +1,4 @@
-<?php $this->titre = "Administration - Groupe";
+<?php $this->titre = $vueAdminGroupeAModifier;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

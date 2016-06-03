@@ -1,4 +1,4 @@
-<?php $this->titre = "FAQ - Ajout";
+<?php $this->titre = $vueAjoutFAQ;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

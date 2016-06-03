@@ -1,4 +1,4 @@
-<?php $this->titre = "Forum - ".$_GET['categorie'];
+<?php $this->titre = $vueCategorieForum.$_GET['categorie'];
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

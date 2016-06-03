@@ -1,4 +1,4 @@
-<?php $this->titre = "Administration - Mail";
+<?php $this->titre = $vueEnvoiMail;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

@@ -1,4 +1,4 @@
-<?php $this->titre = "Profil - ".$_GET['nom'];
+<?php $this->titre = $vueProfil.$_GET['nom'];
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

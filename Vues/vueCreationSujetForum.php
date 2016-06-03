@@ -1,4 +1,4 @@
-<?php $this->titre = "Forum - Nouveau Sujet";
+<?php $this->titre = $vueCreationSujetForum;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

@@ -1,4 +1,4 @@
-<?php $this->titre = $_GET['correspondantB']; ?>
+<?php $this->titre = $vueConversation.$_GET['correspondantB']; ?>
 
 <body>
   <div class="conteneurConversation">

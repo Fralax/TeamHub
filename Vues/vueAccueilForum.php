@@ -1,13 +1,14 @@
-<?php $this->titre = "Forum - Accueil";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueAccueilForum;?>
 <?php $forum = new forum() ?>
-	<body>
+
 		<div class="titreAccueilForum">
 			<h2> <?php echo $bienvenue ?></h2>
 		</div>
@@ -308,10 +309,8 @@ elseif($_COOKIE['langue'] == "English") {
 				</tr>
 				<tr>
 					<td class="descriptionAccueilForum">
-						<?php echo $autresforum ?> 
+						<?php echo $autresforum ?>
 					</td>
 				</tr>
 			</table>
 		</div>
-
-  </body>

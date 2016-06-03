@@ -1,4 +1,4 @@
-<?php $this->titre = "Confirmation - Mot de Passe";
+<?php $this->titre = $vueConfirmationMotDePasseReinitialise;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

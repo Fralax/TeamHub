@@ -1,4 +1,4 @@
-<?php $this->titre = "Nouvelle Conversation"; ?>
+<?php $this->titre = $vueNouvelleConversation; ?>
 
 
 <body>

@@ -1,4 +1,4 @@
-<?php $this->titre = "Recherche Avancée - Club";
+<?php $this->titre = $vueResultatRechercheAvanceeClubs;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

@@ -1,4 +1,4 @@
-<?php $this->titre = "Administration - Bannissement";
+<?php $this->titre = $vueBannirMembre;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

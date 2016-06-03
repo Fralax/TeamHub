@@ -1,4 +1,4 @@
-<?php $this->titre = "Accueil";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
@@ -6,9 +6,8 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 }
+$this->titre = $vueAccueil;
 ?>
-
-<body>
 
 <div class="accueil">
 	<?php
@@ -259,7 +258,6 @@ elseif($_COOKIE['langue'] == "English") {
 			<div class="messageBienvenueAccueil">
 				<h2><?php echo $messageAccueil ?> </h2>
 			</div>
-		</body>
 	<?php } ?>
 </div>
 

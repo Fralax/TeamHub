@@ -1,4 +1,4 @@
-<?php $this->titre = "Compte non Activé";
+<?php $this->titre = $vueMailNonConfirme;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

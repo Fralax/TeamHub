@@ -1,4 +1,4 @@
-<?php $this->titre = "Groupe - ".$caract['g_nom'];
+<?php $this->titre = $vueGroupe.$caract['g_nom'];
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

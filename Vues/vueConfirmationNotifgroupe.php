@@ -1,4 +1,4 @@
-<?php $this->titre = "Confirmation - Groupe";
+<?php $this->titre = $vueConfirmationNotifgroupe;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');

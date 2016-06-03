@@ -1,4 +1,4 @@
-<?php $this->titre = "Mot de Passe Oublié";
+<?php $this->titre = $vueMdpOublie;
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
