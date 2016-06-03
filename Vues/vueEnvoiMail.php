@@ -37,7 +37,7 @@ elseif($_COOKIE['langue'] == "English") {
         </select>
         <p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder=<?php echo $formmail2 ?>></p>
         <p><textarea name="mail" rows="8" cols="40"><?php echo $_POST['mail'] ?></textarea></p>
-        <p><input type="submit" name="envoyer" value="Envoyer"></p>
+        <p><input type="submit" name="envoyer" value="<?php echo $env ?>"></p>
       </form>
     <?php } ?>
 

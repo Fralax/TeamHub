@@ -19,7 +19,7 @@
       <div class="messageNouvelleVonversation">
         <textarea name="message" rows="10" cols="60"><?php echo $_POST['mail'] ?></textarea>
       </div>
-      <input type="submit" name="envoyer" value="Envoyer">
+      <input type="submit" name="envoyer" value="<?php echo $env ?>">
     </form>
   </div>
 </body>

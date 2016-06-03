@@ -37,7 +37,7 @@ elseif($_COOKIE['langue'] == "English") {
 				<option value = "<?php echo $nom?>" > <?php echo $nom?> </option>
 				<?php } ?>
 			</select>
-			<input type="submit" name="designer" value="Valider" >
+			<input type="submit" name="designer" value="<?php echo $vali ?>" >
 		</form>
 
 		<h2> <?php echo $administr ?></h2>

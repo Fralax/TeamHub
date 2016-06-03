@@ -44,7 +44,7 @@
   <div id = "tchatForm">
     <form action="index.php?page=conversation&correspondantA=<?php echo $_SESSION['pseudo'] ?>&correspondantB=<?php echo $_GET['correspondantB'] ?>&id=<?php echo $_GET['id'] ?>" method="POST">
       <p><textarea id = "messageForm" name="message" rows="8" cols="40"></textarea></p>
-      <p><input type="submit" id = "envoi" name="envoyer" value="Envoyer"></p>
+      <p><input type="submit" id = "envoi" name="envoyer" value="<?php echo $env ?>"></p>
     </form>
   </div>
 

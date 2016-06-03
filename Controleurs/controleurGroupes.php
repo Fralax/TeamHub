@@ -25,10 +25,18 @@ class controleurGroupes{
         $resultatG = $groupe->verifGroupe()->fetch();
         if (!$resultatG){
           if($placesLibres < 2){
-            ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("Your group must contain at least two places !")</script> <?php
+            } else {
+              ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
+            }
           } else{
-            if ($placesLibres > 100){
-            ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
+            if ($placesLibres > 1000000){
+              if($_COOKIE['langue'] == "English"){
+                ?> <script> alert("Your group can not contain more than 1000000 places !")</script> <?php
+              } else {
+                ?> <script> alert("Votre groupe ne peut pas contenir plus de 1000000 places !")</script> <?php
+              }
             } else{
               $groupe->ajoutGroupeBdd();
               $appartient->ajoutAppartientBdd($_SESSION['pseudo'], $_POST['nomGroupe'], "admin");
@@ -38,10 +46,18 @@ class controleurGroupes{
             }
           }
         } else {
-          ?> <script> alert("Ce nom de groupe existe déjà !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("This group name already exists !")</script> <?php
+          } else {
+            ?> <script> alert("Ce nom de groupe existe déjà !")</script> <?php
+          }
         }
       } else{
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
     $vue = new Vue('CreationGroupe');
@@ -69,17 +85,21 @@ class controleurGroupes{
     $afficherImageSport = $groupe->afficherImage($nom)->fetch();
 
     //MODIFICATION DESCRIPTION GROUPE
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier la Description'){
+    if (isset($_POST['Modifier'])){
       if ($_POST['Description'] != " ") {
         $modifierDescriptionGroupe = $groupe->modifierDescriptionGroupe($nom);
         header("Location: index.php?page=groupe&nom=".$_GET['nom']);
       } else{
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
     //MODIFICATION ADMIN GROUPE
-    if (isset($_POST['ModifierAdmin']) && $_POST['ModifierAdmin'] == 'Modifier'){
+    if (isset($_POST['ModifierAdmin'])){
       if ($_POST['Admin']) {
         $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
         $admin = new controleurAdministration();
@@ -90,17 +110,29 @@ class controleurGroupes{
           header("Location: index.php?page=groupe&nom=".$_GET['nom']);
         }
       } else{
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
     //MODIFICATION PLACES GROUPE
-    if (isset($_POST['ModifierPlaces']) && $_POST['ModifierPlaces'] == 'Modifier'){
+    if (isset($_POST['ModifierPlaces'])){
       if($_POST['placesTotales'] < 2) {
-        ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Your group must contain at least two places !")</script> <?php
+        } else {
+          ?> <script> alert("Votre groupe doit contenir au moins deux places !")</script> <?php
+        }
       } else{
-        if ($_POST['placesTotales'] > 100){
-          ?> <script> alert("Votre groupe ne peut pas contenir plus de 100 places !")</script> <?php
+        if ($_POST['placesTotales'] > 1000000){
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("Your group can not contain more than 1000000 places !")</script> <?php
+          } else {
+            ?> <script> alert("Votre groupe ne peut pas contenir plus de 1000000 places !")</script> <?php
+          }
         } else{
         $groupe->modifierPlacesGroupe($nom);
         $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
@@ -124,7 +156,7 @@ class controleurGroupes{
 
   public function modificationAdminGroupe($nom){
     $groupe = new groupes();
-    if (isset($_POST['Modifier']) && $_POST['Modifier'] == 'Modifier'){
+    if (isset($_POST['Modifier'])){
       $modificationAdminGroupe = $groupe->modifierAdminGroupe($nom);
       $admin = new controleurAdministration();
       $verifAdmin = $admin->verifAdmin();
@@ -187,12 +219,16 @@ class controleurGroupes{
   public function invitationUtilisateur($nomGroupe){
     $groupe = new groupes();
     $invite = $groupe->invitePossible($nomGroupe)->fetchAll();
-    if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == "Envoyer"){
+    if (isset($_POST['Envoyer'])){
       if ($_POST['nomInvite'] != ""){
         $groupe->inviterUtilisateur($nomGroupe);
         header("Location: index.php?page=groupe&nom=".$_GET['nom']);
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
     $vue = new Vue('InvitationUtilisateur');

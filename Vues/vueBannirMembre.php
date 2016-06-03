@@ -36,7 +36,7 @@ elseif($_COOKIE['langue'] == "English") {
 	        <option value = "<?php echo $nomabannir?>" > <?php echo $nomabannir?> </option>
 	        <?php } ?>
 	      </select>
-	      <input type="submit" name="bannir" value="Bannir" >
+	      <input type="submit" name="bannir" value="<?php echo $bani ?>" >
 	    </form>
 
 			<h2> <?php $mban ?> </h2>

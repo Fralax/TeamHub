@@ -10,7 +10,7 @@ class connexion{
 
     $connexion = $_POST['connexion'];
 
-    if (isset($connexion) && $connexion == 'Connexion'){
+    if (isset($connexion)){
       $user = new utilisateurs();
       $resultatConnexion = $user->verifMdp()->fetch();
       $resultatBanni = $user->verifbanni()->fetch();
@@ -28,7 +28,11 @@ class connexion{
           header("Location: index.php?page=banni");
         }
       } else {
-        ?> <script> alert("Mauvais Identifiant ou Mot de Passe !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Wrong ID or Password !")</script> <?php
+        } else {
+          ?> <script> alert("Mauvais Identifiant ou Mot de Passe !")</script> <?php
+        }
       }
     }
   }
@@ -77,13 +81,25 @@ Ceci est un mail automatique, Merci de ne pas y répondre.";
             $updateMdp = $user->updateMdp($newMdp, $newCleMDP, $_GET['pseudo']);
             header('Location: index.php?page=confirmationnouveaumdp');
           } else{
-            ?> <script> alert("Votre Mot de Passe doit contenir au moins 8 caractères !")</script> <?php
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("Your Password must contain at least 8 characters !")</script> <?php
+            } else {
+              ?> <script> alert("Votre Mot de Passe doit contenir au moins 8 caractères !")</script> <?php
+            }
           }
         } else{
-          ?> <script> alert("Les Mots de Passe saisis sont différents !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("Passwords entered are different !")</script> <?php
+          } else {
+            ?> <script> alert("Les Mots de Passe saisis sont différents !")</script> <?php
+          }
         }
       } else{
-        ?> <script> alert("Une erreur est survenue lors de la vérification. Veuillez réessayer ultérieurement")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("An error occured. Please retry later !")</script> <?php
+        } else {
+          ?> <script> alert("Une erreur est survenue lors de la vérification. Veuillez réessayer ultérieurement")</script> <?php
+        }
       }
     }
     $vue = new Vue('MdpOublieFormulaire');

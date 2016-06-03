@@ -21,7 +21,7 @@ elseif($_COOKIE['langue'] == "English") {
     <p> <?php echo $valereco ?> </p>
 
     <form class="validationCompte" action="" method="post">
-      <input type="submit" name="validation" value="Confirmer mon compte">
+      <input type="submit" name="validation" value="<?php echo $conf ?>">
     </form>
 
   </body>

@@ -112,7 +112,7 @@ elseif($_COOKIE['langue'] == "English") {
 				<?php echo $postmessa ?>
 				<form name = "formulaireNouvelleReponse" method="post" action = "">
 					<textarea name="message" rows="7" cols="70"> </textarea>
-					<p> <input type="submit" name="Repondre" value="Répondre"> </p>
+					<p> <input type="submit" name="Repondre" value="<?php echo $rep ?>"> </p>
 				</form>
 			</div>
 		<?php } ?>

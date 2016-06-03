@@ -210,7 +210,7 @@ elseif($_COOKIE['langue'] == "English") {
 							 <label for="commentaireClub"> <?php echo $ajcomm ?> </label> <br/><br/>
 							 <textarea name="commentaireClub"> </textarea>
 							</p>
-						 <p> <input type="submit" name="Noter" value="Noter"> </p>
+						 <p> <input type="submit" name="Noter" value="<?php echo $not ?>"> </p>
 					 </form>
 				 <?php }?>
 

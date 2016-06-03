@@ -32,7 +32,7 @@ elseif($_COOKIE['langue'] == "English") {
 					 <label for="reponse"> <?php echo $indrep ?> </label><br />
 					 <textarea name="reponse" rows="7" cols="70"> </textarea>
 				 </p>
-					<p> <input type="submit" name="Ajouter" value="Ajouter"> </p>
+					<p> <input type="submit" name="Ajouter" value="<?php echo $ajo ?>"> </p>
 				</form>
 			</div>
    <?php } ?>

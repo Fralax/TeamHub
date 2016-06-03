@@ -105,13 +105,13 @@ $formclub5 = "Horaires";
 $formclub6 = "le";
 $formclub7 = "de ";
 $formclub18 = "à ";
-$formclub8 = 'Lundi';
-$formclub9 = "Mardi";
-$formclub10 = "Mercredi";
-$formclub11 = "Jeudi";
-$formclub12 = "Vendredi";
-$formclub13 = "Samedi";
-$formclub14 = "Dimanche";
+$formclub8 = "Lundi ";
+$formclub9 = "Mardi ";
+$formclub10 = "Mercredi ";
+$formclub11 = "Jeudi ";
+$formclub12 = "Vendredi ";
+$formclub13 = "Samedi ";
+$formclub14 = "Dimanche ";
 $formclub15 = "Heure";
 $formclub16 = "Minute";
 $formclub17 = "Ajoutez une remarque sur les horaires si vous le souhaitez";
@@ -355,9 +355,19 @@ $nprej  ="Ne plus Rejoindre";
 $rejaut = "Rejoindre Automatiquement";
 $sugr = "Supprimer le groupe";
 $supadmins = "Supprimer des Administrateurs";
-
-
-$Bannir = "Bannir";
-$champnonremp = "Des champs n'ont pas été rempli !";
-
+// submit
+$rec = "Rechercher";
+$co = "Connexion";
+$ajo = "Ajouter";
+$bani = "Bannir";
+$not = "Noter";
+$env = "Envoyer";
+$Cree = "Créer";
+$modifi = "Modifier";
+$rese = "Réinitialiser mon Mot de Passe";
+$qui = "Quitter le groupe";
+$conf = "Confirmer mon compte";
+$rep = "Répondre";
+$vali = "Valider";
+// Titre des vues 
 ?>

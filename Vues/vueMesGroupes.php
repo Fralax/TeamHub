@@ -60,7 +60,7 @@ elseif($_COOKIE['langue'] == "English") {
 								<?php echo $nbrEvenements.$evecours ?>
 							</td>
 							<td>
-								<a href="#" onclick="if (confirm('<?php echo $surquitgr.addslashes($nomMesGroupe) ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo addslashes($nomMesGroupe) ?>'; return false"> <input name="quitter" type="submit" value="Quitter le groupe"> </a>
+								<a href="#" onclick="if (confirm('<?php echo $surquitgr.addslashes($nomMesGroupe) ?> ?')) window.location='index.php?page=quittergroupe&nom=<?php echo addslashes($nomMesGroupe) ?>'; return false"> <input name="quitter" type="submit" value="<?php echo $qui ?>"> </a>
 							</td>
 						</tr>
 					<?php } ?>

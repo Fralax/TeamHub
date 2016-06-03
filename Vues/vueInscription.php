@@ -55,7 +55,7 @@ elseif($_COOKIE['langue'] == "English") {
 						<?php echo $forminsc9 ?><input type="password" name="ConfirmMotDePasse" placeholder=<?php echo $forminsc9 ?> size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>
 				</p>
 				<br></br>
-				<p> <input name="Envoyer" type="submit" value="Envoyer"> </p>
+				<p> <input name="Envoyer" type="submit" value="<?php echo $env ?>"> </p>
 			</form>
 		</div>
 

@@ -71,7 +71,7 @@ elseif($_COOKIE['langue'] == "English") {
 					<?php echo $formevent9 ?>
 					<a href="index.php?page=ajoutclub"> <input type="button" name="ajouterClub" value="<?php echo $ajnvclub ?>"> </a>
 				</p>
-				<p> <input name="Créer" type="submit" value="Créer"> </p>
+				<p> <input name="Créer" type="submit" value="<?php echo $Cree ?>"> </p>
 			</form>
 		</div>
 	</body>

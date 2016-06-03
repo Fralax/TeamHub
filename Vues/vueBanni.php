@@ -6,19 +6,11 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 } ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="Contenu/vueBanni.css" />
-    <title> Vous êtes Banni ! </title>
-  </head>
 
   <body>
+		<div class="Banni">
+			<h2> <?php echo $ba ?> </h2>
 
-    <h2> <?php echo $ba ?> </h2>
-
-    <p> <?php echo $contactadmi ?> </p>
-
+	    <p> <?php echo $contactadmi ?> </p>
+		</div>
   </body>
-</html>
