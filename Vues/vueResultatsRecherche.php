@@ -1,13 +1,13 @@
-<?php $this->titre = $vueResultatsRecherche;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueResultatsRecherche;?>
 
-	<body>
 		<div class="resultatsRechercheVueResultatsRecherche">
 			<div class="conteneurResultatsRechercheVueResultatsRecherche">
 				<?php $groupe = new groupes() ?>
@@ -120,4 +120,3 @@ elseif($_COOKIE['langue'] == "English") {
 				</div>
 			</div>
 		</div>
-  </body>

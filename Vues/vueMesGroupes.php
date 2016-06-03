@@ -1,12 +1,13 @@
-<?php $this->titre = $vueMesGroupes;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-	<body>
+}
+$this->titre = $vueMesGroupes;?>
+
 		<div class="mesGroupesVueMesGroupes">
 			<?php $groupe = new groupes() ?>
 			<h2><?php echo $ssmenu3 ?></h2>
@@ -67,4 +68,3 @@ elseif($_COOKIE['langue'] == "English") {
 				</table>
 
 			</div>
-  </body>

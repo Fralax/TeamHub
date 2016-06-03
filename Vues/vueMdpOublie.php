@@ -1,12 +1,13 @@
-<?php $this->titre = $vueMdpOublie;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-<body>
+}
+$this->titre = $vueMdpOublie;?>
+
     <div class="mdpOublieVueMdpOublie">
       <h3><?php echo $mdpoublie ?></h3>
       <form class="formulaireMdpOublieVueMdpOublie" action="" method="post">
@@ -15,4 +16,3 @@ elseif($_COOKIE['langue'] == "English") {
         <p> <input type="submit" name="valider" value="<?php echo $rese ?>"> </p>
       </form>
     </div>
-  </body>

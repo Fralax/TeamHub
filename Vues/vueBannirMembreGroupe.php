@@ -1,12 +1,12 @@
-<?php $this->titre = $vueBannirMembreGroupe;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-	<body>
+}
+$this->titre = $vueBannirMembreGroupe;?>
 
     <?php
       if ($caract['g_admin'] == $_SESSION['pseudo']) {
@@ -40,4 +40,3 @@ elseif($_COOKIE['langue'] == "English") {
         <?php echo $nonacces ?>
     <?php } ?>
 		</div>
-  </body>

@@ -1,13 +1,12 @@
-<?php $this->titre = $vueCategorieForum.$_GET['categorie'];
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-
-  <body>
+}
+$this->titre = $vueCategorieForum.$_GET['categorie'];?>
     <?php
     require_once 'Controleurs/controleurAdministration.php';
     $admin = new controleurAdministration();
@@ -90,5 +89,3 @@ elseif($_COOKIE['langue'] == "English") {
 			</table>
 
     </div>
-
-  </body>

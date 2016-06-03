@@ -1,13 +1,12 @@
-<?php $this->titre = $vueAdminGroupeAModifier;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-}?>
-
-	<body>
+}
+$this->titre = $vueAdminGroupeAModifier;?>
 
 		<div class="adminGroupeAModifier">
 			<?php
@@ -37,5 +36,3 @@ elseif($_COOKIE['langue'] == "English") {
 				<?php echo $nonacces?>
 			<?php } ?>
 		</div>
-
-  </body>

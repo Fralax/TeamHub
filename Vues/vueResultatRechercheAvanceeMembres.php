@@ -1,13 +1,13 @@
-<?php $this->titre = $vueResultatRechercheAvanceeMembres;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueResultatRechercheAvanceeMembres;?>
 
-	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
 		<title>Recherche</title>
@@ -38,5 +38,3 @@ elseif($_COOKIE['langue'] == "English") {
         <?php } ?>
       </table>
 		</div>
-  </body>
-</html>

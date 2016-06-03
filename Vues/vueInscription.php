@@ -1,13 +1,13 @@
-<?php $this->titre = $vueInscription;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueInscription;?>
 
-<body>
 		<div class="inscriptionVueInscription">
 			<h2><?php echo $gratuit ?></h2>
 
@@ -58,6 +58,3 @@ elseif($_COOKIE['langue'] == "English") {
 				<p> <input name="Envoyer" type="submit" value="<?php echo $env ?>"> </p>
 			</form>
 		</div>
-
-	</body>
-</html>

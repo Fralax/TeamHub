@@ -1,13 +1,13 @@
-<?php $this->titre = $vueResultatRechercheAvanceeClubs;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueResultatRechercheAvanceeClubs;?>
 
-<body>
 		<div class="conteneurVueRechAvanceeClubs">
 			<h2><?php echo"Résultats pour la recherche : "?></h2>
 			<table>
@@ -33,5 +33,3 @@ elseif($_COOKIE['langue'] == "English") {
 				<?php } ?>
 			</table>
 		</div>
-  </body>
-</html>

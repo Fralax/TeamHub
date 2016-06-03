@@ -1,13 +1,12 @@
-<?php $this->titre = $vueAjoutFAQ;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-
-	<body>
+}
+$this->titre = $vueAjoutFAQ;?>
 
     <?php
     	require_once 'Controleurs/controleurAdministration.php';
@@ -40,6 +39,3 @@ elseif($_COOKIE['langue'] == "English") {
    <?php if($a == 1){ ?>
    	<?php echo $nonacces ?>
    <?php } ?>
-
-  </body>
-</html>

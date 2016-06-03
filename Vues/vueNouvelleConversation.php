@@ -1,7 +1,13 @@
-<?php $this->titre = $vueNouvelleConversation; ?>
+<?php
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+}
+$this->titre = $vueNouvelleConversation; ?>
 
-
-<body>
   <div class="nouvelleConversation">
     <h3>Nouvelle Conversation</h3>
     <form class="" action="" method="post">
@@ -22,4 +28,3 @@
       <input type="submit" name="envoyer" value="<?php echo $env ?>">
     </form>
   </div>
-</body>

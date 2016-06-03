@@ -1,4 +1,4 @@
-<?php $this->titre = $vueMessagerie;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
@@ -6,12 +6,11 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 }
+$this->titre = $vueMessagerie;
 
 $messagerie = new messagerie();
 
 ?>
-
-<body>
 
   <div class="conteneurMessagerie">
     <div class="titreMessagerie">
@@ -52,5 +51,3 @@ $messagerie = new messagerie();
       </table>
     </div>
   </div>
-
-</body>

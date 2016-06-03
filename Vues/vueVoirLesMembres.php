@@ -1,13 +1,13 @@
-<?php $this->titre = $vueVoirLesMembres;
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueVoirLesMembres;?>
 
-	<body>
 		<div class="membresVueMembres">
 			<h2><?php echo $listpeutban.$nom?> </h2>
 
@@ -15,6 +15,3 @@ elseif($_COOKIE['langue'] == "English") {
 	    	<a href="index.php?page=profil&nom=<?php echo $nomMembre ?>"> <p> <?php echo $nomMembre?></p></a>
 	    <?php } ?>
 		</div>
-
-  </body>
-</html>

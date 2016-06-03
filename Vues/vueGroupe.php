@@ -1,13 +1,13 @@
-<?php $this->titre = $vueGroupe.$caract['g_nom'];
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueGroupe.$caract['g_nom'];?>
 
-  <body>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
     <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
@@ -647,8 +647,6 @@ elseif($_COOKIE['langue'] == "English") {
     </div>
   <?php } ?>
 </div>
-
-</body>
 
 <script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 <script language="javascript" type="text/javascript">
