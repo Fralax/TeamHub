@@ -22,23 +22,23 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueAdminGroupeAModifier.css" />
     <link rel="stylesheet" href="Contenu/vueAjoutClub.css" />
     <link rel="stylesheet" href="Contenu/vueAjoutFAQ.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueAPropos.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueBanni.css" /> -->
-    <!-- <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
-    <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueBanni.css" />
+    <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
+    <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
     <link rel="stylesheet" href="Contenu/vueClub.css" />
     <!-- <link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
     <link rel="stylesheet" href="Contenu/vueClubsAModifierInfos.css" />
     <link rel="stylesheet" href="Contenu/vueClubsAModifierPhotos.css" />
-    <link rel="stylesheet" href="Contenu/vueClubsASupprimer.css" />
+    <link rel="stylesheet" href="Contenu/vueClubsASupprimer.css" /> -->
     <link rel="stylesheet" href="Contenu/vueConfirmationBannissementMembre.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" /> -->
-    <!-- <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
-    <link rel="stylesheet" href="Contenu/vueConfirmationGroupe.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
+    <link rel="stylesheet" href="Contenu/vueConfirmationGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueConfirmationMotDePasseReinitialise.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueConfirmationNotifGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueConfirmationNouveauMotDePasse.css" />
     <link rel="stylesheet" href="Contenu/vueCreationEvenements.css" />
     <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
@@ -56,7 +56,6 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueModifAdmin.css" />
     <link rel="stylesheet" href="Contenu/vueModifClub.css" />
     <link rel="stylesheet" href="Contenu/vueModifPhotoClub.css" />
-    <link rel="stylesheet" href="Contenu/vueNouvelAdmin.css" />
     <link rel="stylesheet" href="Contenu/vueProfil.css" />
     <link rel="stylesheet" href="Contenu/vueQuitterEvenement.css" />
     <link rel="stylesheet" href="Contenu/vueQuitterGroupe.css" />
@@ -66,7 +65,7 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueResultatsRechercheAvanceeMembres.css" />
     <link rel="stylesheet" href="Contenu/vueResultatsRecherche.css" />
     <link rel="stylesheet" href="Contenu/vueSujetForum.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" />
     <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
     <!-- <link rel="stylesheet" href="Contenu/vueValidationCompte.css" /> -->
     <link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
@@ -132,7 +131,7 @@ elseif($_COOKIE['langue'] == "English") {
                 ?>
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
                   <input type="text" name="BarreRecherche" placeholder=<?php echo $phRecherche ?>>
-                  <input type="submit" name="Recherche" value="Rechercher">
+                  <input type="submit" name="Recherche" value="<?php echo $rec ?>">
                 </form>
                </li>
                <li>
@@ -227,7 +226,7 @@ elseif($_COOKIE['langue'] == "English") {
                 ?>
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
                   <input type="text" name="BarreRecherche" placeholder=<?php echo $phRecherche ?>>
-                  <input type="submit" name="Recherche" value="Rechercher">
+                  <input type="submit" name="Recherche" value="<?php echo $rec ?>">
                 </form>
                </li>
                <li>
@@ -306,7 +305,7 @@ elseif($_COOKIE['langue'] == "English") {
                   ?>
                   <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
                     <input type="text" name="BarreRecherche" placeholder="<?php echo $phRecherche ?>">
-                    <input type="submit" name="Recherche" value="Rechercher" id="Rechercher">
+                    <input type="submit" name="Recherche" value="<?php echo $rec ?>" id="Rechercher">
                   </form>
                  </li>
                  <li>
@@ -331,7 +330,7 @@ elseif($_COOKIE['langue'] == "English") {
                   <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
                     <p> <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required> </p>
                     <p> <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder=<?php echo $phConnexion ?> required> </p>
-                    <p> <input name="connexion" type="submit" id="connexion" value = "Connexion"> </p>
+                    <p> <input name="connexion" type="submit" id="connexion" value = "<?php echo $co ?>"> </p>
                   </form>
                   <a href="index.php?page=motdepasseoublie"><?php echo $ssmenu11 ?></a>
                 </li>

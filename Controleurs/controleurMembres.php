@@ -14,28 +14,40 @@ class membres{
 
     // AJOUT DES SPORTS NON PRATIQUES
     $sportsNonPratiques = $utilisateurs->recupSports()->fetchAll();
-    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == 'Ajouter'){
+    if (isset($_POST['Ajouter'])){
       if($_POST['sport'] != ""){
         $ajouterSport = $utilisateurs->ajouterSport();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else {
-        ?> <script> alert("Sélectionnez un sport !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Select a sport !")</script> <?php
+        } else {
+          ?> <script> alert("Sélectionnez un sport !")</script> <?php
+        }
       }
     }
 
     // MODIFICATION MES COORDONNEES
     $resultatE = $utilisateurs->verifEmail()->fetch();
-    if (isset($_POST['envoyerCoordonnees']) && $_POST['envoyerCoordonnees'] == 'Valider'){
+    if (isset($_POST['envoyerCoordonnees'])){
       if($_POST['Portable'] != "" && $_POST['Email'] != "" && $_POST['ConfirmEmail'] != ""){
         if ($_POST['Email'] != $_POST['ConfirmEmail']){
-          ?> <script> alert("Les adresses mail saisies sont différents !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("The emails entered are different!")</script> <?php
+          } else {
+            ?> <script> alert("Les adresses mail saisies sont différents !")</script> <?php
+          }
         } else{
           if ($recupEmail[0] != $_POST['Email']) {
             if (!$resultatE) {
               $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
               header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
             } else {
-            ?> <script> alert("Cet Email est déjà utilisé !")</script> <?php
+              if($_COOKIE['langue'] == "English"){
+                ?> <script> alert("This email is already used !")</script> <?php
+              } else {
+                ?> <script> alert("Cet Email est déjà utilisé !")</script> <?php
+              }
             }
           } else{
             $modifierMesCoord = $utilisateurs->modifierMesCoordonnees();
@@ -43,46 +55,78 @@ class membres{
           }
         }
       } else{
-        ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
     // MODIFICATION MA LOCALISATION
     $departements = $utilisateurs->recupDepartements()->fetchAll();
-    if (isset($_POST['envoyerLocalisation']) && $_POST['envoyerLocalisation'] == 'Valider'){
+    if (isset($_POST['envoyerLocalisation'])){
       if($_POST['cp'] != ""){
         $modifierMonAdresse = $utilisateurs->modifierMonAdresse();
         header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
       } else{
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("Some fields have not been filled !")</script> <?php
+          } else {
+            ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
     // MODIFICATION MON MDP
-    if (isset($_POST['modifMdp']) && $_POST['modifMdp'] == 'Modifier le Mot de Passe'){
+    if (isset($_POST['modifMdp'])){
       if (iconv_strlen($_POST['NouveauMotDePasse'])>=8){
         if($_POST['AncienMotDePasse'] != "" && $_POST['NouveauMotDePasse'] != "" && $_POST['ConfirmNouveauMotDePasse'] != ""){
           $resultatRecupMdp = $utilisateurs->verifMdp()->fetch();
           if (!password_verify($_POST['AncienMotDePasse'], $resultatRecupMdp[0])){
-            ?> <script> alert("Votre ancien Mot de Passe est incorrect !")</script> <?php
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("Your old Password is incorrect!")</script> <?php
+            } else {
+              ?> <script> alert("Votre ancien Mot de Passe est incorrect !")</script> <?php
+            }
           } else{
             if ($_POST['AncienMotDePasse'] == $_POST['NouveauMotDePasse']){
-              ?> <script> alert("Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !")</script> <?php
+              if($_COOKIE['langue'] == "English"){
+                ?> <script> alert("Your new password can not be identical to the old !")</script> <?php
+              } else {
+                ?> <script> alert("Votre nouveau Mot de Passe ne peut pas être identique à l'ancien !")</script> <?php
+              }
             } else{
               if ($_POST['ConfirmNouveauMotDePasse'] != $_POST['NouveauMotDePasse']){
-                ?> <script> alert("Les nouveaux Mots de Passe saisis sont différents !")</script> <?php
+                if($_COOKIE['langue'] == "English"){
+                  ?> <script> alert("The new Passwords entered are different !")</script> <?php
+                } else {
+                  ?> <script> alert("Les nouveaux Mots de Passe saisis sont différents !")</script> <?php
+                }
               } else{
                   $modifierMonMdp = $utilisateurs->modifierMonMdp();
-                  ?> <script> alert("Votre mot de passe a bien été modifié")</script> <?php
+                  if($_COOKIE['langue'] == "English"){
+                    ?> <script> alert("Your password has been changed")</script> <?php
+                  } else {
+                    ?> <script> alert("Votre mot de passe a bien été modifié")</script> <?php
+                  }
                   header("Location: index.php?page=profil&nom=".$_SESSION['pseudo']);
                 }
               }
             }
           } else{
-            ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("Some fields have not been filled !")</script> <?php
+            } else {
+              ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+            }
           }
         } else {
-          ?> <script> alert("Le nouveau mot de passe doit contenir plus de 8 caractères !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("The new password must contain more than 8 characters !")</script> <?php
+          } else {
+            ?> <script> alert("Le nouveau mot de passe doit contenir plus de 8 caractères !")</script> <?php
+          }
         }
       }
 

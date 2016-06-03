@@ -205,7 +205,7 @@ elseif($_COOKIE['langue'] == "English") {
 				<!-- <p> Lien : <input type="text" name="lienClub" placeholder="Lien vers le site du club" size="40" value = ""/> </p> -->
 				<p> <input type="file" name="photo" /> </p>
 
-				<p> <input name="ajouter" type="submit" value="Ajouter"> </p>
+				<p> <input name="ajouter" type="submit" value="<?php echo $ajo ?>"> </p>
 			</form>
 		</div>
 	</body>

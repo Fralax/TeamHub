@@ -8,7 +8,7 @@ class ControleurClubs{
 
   public function ajoutClub(){
     $club = new clubs();
-    if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
+    if (isset($_POST['ajouter'])){
       if($_POST['nomClub'] != "" && $_POST['adresseClub'] != "" && $_POST['cpClub'] !="" && $_POST['numeroClub'] !="" && $_POST['hLundiDebut'] !="" && $_POST['mLundiDebut'] !="" && $_POST['hMardiDebut'] !=""
       && $_POST['mMardiDebut'] !="" && $_POST['hMercrediDebut'] !="" && $_POST['mMercrediDebut'] !="" && $_POST['hJeudiDebut'] !="" && $_POST['mJeudiDebut'] !="" && $_POST['hVendrediDebut'] !="" && $_POST['mVendrediDebut'] !=""
       && $_POST['hSamediDebut'] !="" && $_POST['mSamediDebut'] !="" && $_POST['hDimancheDebut'] !="" && $_POST['mDimancheDebut'] !="" && $_POST['hLundiFin'] !="" && $_POST['mLundiFin'] !="" && $_POST['hMardiFin'] !=""
@@ -19,11 +19,19 @@ class ControleurClubs{
           $club->ajouterClubBdd();
           header("Location: index.php?page=confirmationclub");
         } else {
-          ?> <script> alert("Ce club existe déjà !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("This club already exists !")</script> <?php
+          } else {
+            ?> <script> alert("Ce club existe déjà !")</script> <?php
+          }
         }
       }
       else {
-        ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
@@ -62,7 +70,11 @@ class ControleurClubs{
       if ($_POST['noteClub'] != "" && $_POST['commentaireClub'] != ""){
         $ajoutNote = $club->noterClub($nom);
       } else {
-        ?> <script> alert("Des champs n'ont pas été rempli")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
   }

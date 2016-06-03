@@ -17,15 +17,23 @@ class controleurEvenements{
     $heureAuj = date("H:i:s");
     $heure = "{$_POST['heure']}:{$_POST['minute']}:00";
 
-    if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
+    if (isset($_POST['Créer'])){
       if (($_POST['nbrPlaces'] && $_POST['nomEvenement'] != "") && ($_POST['jour'] != "") && ($_POST['mois'] != "") && ($_POST['annee'] != "") && ($_POST['heure'] != "") && ($_POST['minute'] != "") && ($_POST['club'] != "")){
         $resultatG = $evenement->verifEvenement($groupe)->fetch();
         if(!$resultatG){
           if(strtotime($dateAuj) > strtotime($date)){
-            ?> <script> alert("Sélectionnez une date dans le futur !")</script> <?php
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("Select a date in the future !")</script> <?php
+            } else {
+              ?> <script> alert("Sélectionnez une date dans le futur !")</script> <?php
+            }
           } elseif (strtotime($dateAuj) == strtotime($date)){
             if ($heureAuj > $heure){
-              ?> <script> alert("Sélectionnez une heure dans le futur !")</script> <?php
+              if($_COOKIE['langue'] == "English"){
+                ?> <script> alert("Select a time in the future !")</script> <?php
+              } else {
+                ?> <script> alert("Sélectionnez une heure dans le futur !")</script> <?php
+              }
             } else {
               $placesGroupe = $groupes->recupPlacesTotal($groupe)->fetch();
               settype($placesGroupe[0], "integer");
@@ -34,7 +42,11 @@ class controleurEvenements{
                 $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
                 header("Location: index.php?page=mesgroupes");
               } else{
-                ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
+                if($_COOKIE['langue'] == "English"){
+                  ?> <script> alert("You can't create an event with more places than there are in the group !")</script> <?php
+                } else {
+                  ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
+                }
               }
             }
           } else {
@@ -45,14 +57,26 @@ class controleurEvenements{
               $evenement->diminuerPlacesLibresEvenement($_POST['nomEvenement']);
               header("Location: index.php?page=mesgroupes");
             } else{
-              ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
+              if($_COOKIE['langue'] == "English"){
+                ?> <script> alert("You can't create an event with more places than there are in the group !")</script> <?php
+              } else {
+                ?> <script> alert("Vous ne pouvez pas créer un événement avec plus de places qu'il n'y en a dans le groupe !")</script> <?php
+              }
             }
           }
         } else {
-          ?> <script> alert("Il y déjà un événement du même nom associé à ce groupe !")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("There is already an event of the same name associated with this group !")</script> <?php
+          } else {
+            ?> <script> alert("Il y déjà un événement du même nom associé à ce groupe !")</script> <?php
+          }
         }
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis !")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
     $vue = new Vue('CreationEvenements');

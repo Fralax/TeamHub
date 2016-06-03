@@ -74,7 +74,7 @@ elseif($_COOKIE['langue'] == "English") {
 		      </table>
 					<p> <?php echo $commodifclub ?> <input type="text" name="c_hoCommentaire" value="<?php echo $caractClub['c_hoCommentaire'] ?>"> </p>
 				</div>
-				<input type="submit" name="Modifier" value="Modifier" >
+				<input type="submit" name="Modifier" value="<?php echo $modifi ?>" >
 			</form>
 			<?php } ?>
 			<?php if($z == 1){ ?>

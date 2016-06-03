@@ -6,13 +6,6 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 } ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
-		<title> Bannir un membre du Groupe </title>
-	</head>
 	<body>
 
     <?php
@@ -22,7 +15,7 @@ elseif($_COOKIE['langue'] == "English") {
         $i = 2;
       }
     ?>
-
+		<div class="bannirMembreGroupe">
     <?php if( $i == 1){ ?>
 		<div class="membres">
 			<h2> <?php echo $listpeutban.$nom?> </h2>
@@ -46,5 +39,5 @@ elseif($_COOKIE['langue'] == "English") {
     <?php if($i == 2){ ?>
         <?php echo $nonacces ?>
     <?php } ?>
+		</div>
   </body>
-</html>

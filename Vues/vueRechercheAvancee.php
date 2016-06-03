@@ -63,7 +63,7 @@ elseif($_COOKIE['langue'] == "English") {
 							</td>
 						</tr>
 					</table>
-					<p> <input name="Rechercher1" type="submit" value="Rechercher"> </p>
+					<p> <input name="Rechercher1" type="submit" value="<?php echo $rec ?>"> </p>
 				</form>
 			</div>
 
@@ -87,7 +87,7 @@ elseif($_COOKIE['langue'] == "English") {
 							</td>
 						</tr>
 					</table>
-					<p> <input name="Rechercher2" type="submit" value="Rechercher"> </p>
+					<p> <input name="Rechercher2" type="submit" value="<?php echo $rec ?>"> </p>
 				</form>
 			</div>
 
@@ -111,7 +111,7 @@ elseif($_COOKIE['langue'] == "English") {
 							</td>
 						</tr>
 					</table>
-					<p> <input name="Rechercher3" type="submit" value="Rechercher"> </p>
+					<p> <input name="Rechercher3" type="submit" value="<?php echo $rec ?>"> </p>
 				</form>
 			</div>
 		</div>

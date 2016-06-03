@@ -54,7 +54,7 @@ elseif($_COOKIE['langue'] == "English") {
                <label for="Description"> <?php echo $formgroup5 ?> </label> <br> <br>
                <textarea name="Description" cols="70" rows="4"> <?php echo $_POST['Description'] ?> </textarea>
              </p>
-             <p> <input type="submit" name="Modifier" value="Modifier la Description"> </p>
+             <p> <input type="submit" name="Modifier" value="<?php echo $modifi ?>"> </p>
            </form>
           </div>
         </div>
@@ -85,13 +85,13 @@ elseif($_COOKIE['langue'] == "English") {
                 <option value = "<?php echo $nomAdmin?>" > <?php echo $nomAdmin?> </option>
                 <?php } ?>
               </select>
-              <input type="submit" name="ModifierAdmin" value="Modifier" >
+              <input type="submit" name="ModifierAdmin" value="<?php echo $modifi ?>" >
             </form>
           </div>
           <div id = "form3" class="forms">
             <form action="" method="post">
               <input type="number" name="placesTotales" placeholder="Nombre de places" size="25" min="0"  />
-              <input type="submit" name="ModifierPlaces" value="Modifier" >
+              <input type="submit" name="ModifierPlaces" value="<?php echo $modifi ?>" >
             </form>
           </div>
         </div>

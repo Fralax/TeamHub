@@ -8,7 +8,7 @@ class controleurRecherche{
 
   public function rechercheGroupes(){
     $recherche = $_POST['Recherche'];
-    if (isset($recherche) && $recherche == 'Rechercher'){
+    if (isset($recherche)){
       header('Location: index.php?page=resultatsrecherche&resultatsrecherche='.$_POST['BarreRecherche']);
       exit;
     }
@@ -27,13 +27,13 @@ class controleurRecherche{
   }
 
   public function affichageRechercheAvancee(){
-    if (isset($_POST['Rechercher1']) && $_POST['Rechercher1'] == 'Rechercher'){
+    if (isset($_POST['Rechercher1'])){
       header('Location: index.php?page=resultatsrechercheavancee1&recherche1='.$_POST['nomGroupe'].'&recherche2='.$_POST['departementGroupe'].'&recherche3='.$_POST['sport'].'&recherche4='.$_POST['administrateur']);
     }
-    if (isset($_POST['Rechercher2']) && $_POST['Rechercher2'] == 'Rechercher'){
+    if (isset($_POST['Rechercher2'])){
       header('Location: index.php?page=resultatsrechercheavancee2&recherche1='.$_POST['nomMembre'].'&recherche2='.$_POST['localisationMembre']);
     }
-    if (isset($_POST['Rechercher3']) && $_POST['Rechercher3'] == 'Rechercher'){
+    if (isset($_POST['Rechercher3'])){
       header('Location: index.php?page=resultatsrechercheavancee3&recherche1='.$_POST['nomClub'].'&recherche2='.$_POST['departementClub']);
     }
     $vue = new Vue('RechercheAvancee');

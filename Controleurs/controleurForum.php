@@ -20,12 +20,16 @@ class controleurForum{
 
   public function creationSujet($categorie){
     $forum = new forum();
-    if (isset($_POST['Creer']) && $_POST['Creer'] == 'Créer'){
+    if (isset($_POST['Creer'])){
       if ($_POST['nomSujet'] != "" && $_POST['message'] != " "){
         $forum->creerSujet($categorie);
         header("Location: index.php?page=forum&categorie=".$categorie);
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
     $vue = new Vue('CreationSujetForum');
@@ -34,7 +38,7 @@ class controleurForum{
 
   public function affichageDetailsSujet($id){
     $forum = new forum();
-    if (isset($_POST['Repondre']) && $_POST['Repondre'] == 'Répondre'){
+    if (isset($_POST['Repondre'])){
       if ($_POST['message'] != ""){
         $forum->repondreSujet($id);
         $forum->incrementeNbReponses($id);

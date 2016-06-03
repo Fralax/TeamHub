@@ -12,7 +12,7 @@ elseif($_COOKIE['langue'] == "English") {
       <form class="formulaireMdpOublieVueMdpOublie" action="" method="post">
         <p> <?php echo $saisadresse ?> </p>
         <p><input type="text" name="mail"> </p>
-        <p> <input type="submit" name="valider" value="Réinitialiser mon Mot de Passe"> </p>
+        <p> <input type="submit" name="valider" value="<?php echo $rese ?>"> </p>
       </form>
     </div>
   </body>

@@ -32,7 +32,11 @@
           }
 
         } else{
-          ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("Some fields have not been filled !")</script> <?php
+          } else {
+            ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+          }
         }
       }
 

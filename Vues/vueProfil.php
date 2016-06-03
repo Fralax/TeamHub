@@ -36,7 +36,7 @@ elseif($_COOKIE['langue'] == "English") {
 								<a href="#form5"><label for="fichier"><img src="imagesUtilisateurs/<?php echo $infos[u_photo]?>"/></label></a>
 								<div id = "form5" class="formsProfil">
 									<p><input type="file" id="fichier" name="photo"/> </p>
-									<p><input id class="modifierPhoto" name="modifier" type="submit" value="Modifier la photo de Profil"></p>
+									<p><input id class="modifierPhoto" name="modifier" type="submit" value="<?php echo $modifi ?>"></p>
 								</div>
 							</form >
 						</div>
@@ -64,7 +64,7 @@ elseif($_COOKIE['langue'] == "English") {
 												<?php } ?>
 											</select>
 										</p>
-										<p> <input type="submit" name="Ajouter" value="Ajouter"> </p>
+										<p> <input type="submit" name="Ajouter" value="<?php echo $ajo ?>"> </p>
 									</form>
 								</div>
 							</div>
@@ -105,14 +105,14 @@ elseif($_COOKIE['langue'] == "English") {
 								<p> <input type="tel" name="Portable" placeholder=<?php echo $formclub4 ?> size="25" value = "<?php echo $infos['u_portable']?>" /> </p>
 								<p> <input type="email" name="Email" placeholder=<?php echo $forminsc5 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
 								<p> <input type="email" name="ConfirmEmail" placeholder=<?php echo $forminsc6 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
-								<p> <input name="envoyerCoordonnees" type="submit" value="Valider"> </p>
+								<p> <input name="envoyerCoordonnees" type="submit" value="<?php echo $vali ?>"> </p>
 							</form>
 						</div>
 						<div id = "form3" class="formsProfil">
 							<h2><?php echo $mod.$loc ?></h2>
 							<form  name = "formulaireModifMonAdresse" method="post" action = "">
 								<p> <?php echo $modicp ?><input type="text" name="cp" placeholder=<?php echo $formclub3 ?> size="25" value = "<?php echo $infos['u_cp'] ?>"/>
-								<p> <input name="envoyerLocalisation" type="submit" value="Valider"> </p>
+								<p> <input name="envoyerLocalisation" type="submit" value="<?php echo $vali ?>"> </p>
 							</form>
 						</div>
 						<div id = "form4" class="formsProfil">
@@ -121,7 +121,7 @@ elseif($_COOKIE['langue'] == "English") {
 								<p> <input type="password" name="AncienMotDePasse" placeholder=<?php echo $anmdp ?>  size="25" value = ""/> </p>
 					      <p> <input type="password" name="NouveauMotDePasse" placeholder=<?php echo $nmdp ?> size="25" value = ""/> </p>
 								<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder=<?php echo $confnmdp ?> size="25" value = ""/> </p>
-								<p> <input name="modifMdp" type="submit" value="Modifier le Mot de Passe"> </p>
+								<p> <input name="modifMdp" type="submit" value="<?php echo $modifi ?>"> </p>
 							</form>
 						</div>
 					</div>

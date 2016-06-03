@@ -25,7 +25,7 @@ class controleurAdministration{
     $mail = $admin->recupMail()->fetch();
     $groupesAdmin = $admin->ListerGroupesAdmin($_POST['banni'])->fetchAll();
     $groupesNonAdmin = $admin->ListerGroupesNonAdmin($_POST['banni'])->fetchAll();
-    if (isset($_POST['bannir']) && $_POST['bannir'] == 'Bannir'){
+    if (isset($_POST['bannir'])){
       if ($_POST['banni'] != ""){
         $ajouterbanni = $admin->bannirMembre($mail[0]);
 
@@ -55,7 +55,11 @@ Merci de ne pas répondre à ce mail.";
         mail($destinataire, $sujet, $message);
         header("Location: index.php?page=administration");
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
@@ -73,7 +77,11 @@ Merci de ne pas répondre à ce mail.";
         }
         header("Location: index.php?page=administration");
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 
@@ -128,7 +136,11 @@ Merci de ne pas répondre à ce mail.";
         $modif = $admin->modifierCaracteristiquesClub($nomClub);
         header("Location: index.php?page=administration");
       } else {
-        ?> <script> alert('<?php echo $champnonremp ?>')</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
     $vue = new Vue('ModifClub');
@@ -216,7 +228,7 @@ Merci de ne pas répondre à ce mail.";
     $deop = $admin->deop($nom);
     header("Location: index.php?page=administration");
   }
-
+  
   public function suppressionMessageForum($id){
     $admin = new administration();
     $forum = new forum();
@@ -237,12 +249,16 @@ Merci de ne pas répondre à ce mail.";
 
   public function ajoutQuestion(){
     $admin = new administration();
-    if (isset($_POST['Ajouter']) && $_POST['Ajouter'] == "Ajouter"){
+    if (isset($_POST['Ajouter'])){
       if ($_POST['question'] != " " && $_POST['reponse'] != " "){
         $admin->ajouterQuestion();
         header("Location: index.php?page=administration");
       } else {
-        ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
       }
     }
 

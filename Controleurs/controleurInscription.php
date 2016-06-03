@@ -22,7 +22,7 @@ require_once 'Vues/vue.php';
      $annee = $_POST['annee'];
      $sexe = $_POST['Sexe'];
 
-     if(isset($envoyer) && $envoyer == 'Envoyer'){
+     if(isset($envoyer)){
        if (($nom != "") && ($prenom != "") && ($sexe != "") && ($_POST['cp'] != "") && ($email != "") && ($confirmEmail != "") && ($pseudo != "") && ($motDePasse != "")
        && ($confirmMotDePasse != "")){
          $resultatP = $user->verifPseudo()->fetch();
@@ -54,39 +54,75 @@ require_once 'Vues/vue.php';
 
                      header("Location: index.php?page=mailnonconfirme");
                    } else {
-                     ?> <script> alert("Votre Pseudo ne doit pas dépasser 12 caractères !")</script> <?php
+                     if($_COOKIE['langue'] == "English"){
+                       ?> <script> alert("Your Nickname must not exceed 12 characters !")</script> <?php
+                     } else {
+                       ?> <script> alert("Votre Pseudo ne doit pas dépasser 12 caractères !")</script> <?php
+                     }
                    }
                  } else {
-                   ?> <script> alert("Votre mot de passe doit comporter plus de 8 caractères !")</script> <?php
+                   if($_COOKIE['langue'] == "English"){
+                     ?> <script> alert("Your password must contain more than 8 characters !")</script> <?php
+                   } else {
+                     ?> <script> alert("Votre mot de passe doit comporter plus de 8 caractères !")</script> <?php
+                   }
                  }
                } else {
-                 ?> <script> alert("Ce code Postal n'est pas valable !")</script> <?php
+                 if($_COOKIE['langue'] == "English"){
+                   ?> <script> alert("The Postal code is not valid !")</script> <?php
+                 } else {
+                   ?> <script> alert("Ce code Postal n'est pas valable !")</script> <?php
+                 }
                }
              }
              else{
                if ($resultatP) {
-                 ?> <script> alert("Ce pseudo est déjà utilisé")</script> <?php
+                 if($_COOKIE['langue'] == "English"){
+                   ?> <script> alert("This nickname is already used !")</script> <?php
+                 } else {
+                   ?> <script> alert("Ce pseudo est déjà utilisé")</script> <?php
+                 }
                 }
                elseif ($resultatE) {
-                 ?> <script> alert("Vous êtes déjà inscrit")</script> <?php
+                 if($_COOKIE['langue'] == "English"){
+                   ?> <script> alert("You are already registered")</script> <?php
+                 } else {
+                   ?> <script> alert("Vous êtes déjà inscrit")</script> <?php
+                 }
                 }
              }
            } else {
-             ?> <script> alert("L'Email renseigné n'est pas correct !")</script> <?php
+             if($_COOKIE['langue'] == "English"){
+               ?> <script> alert("The email informed is not correct !")</script> <?php
+             } else {
+               ?> <script> alert("L'Email renseigné n'est pas correct !")</script> <?php
+             }
            }
          }
          else{
            if ($email != $confirmemail){
-             ?> <script> alert("Les adresses mail saisies ne sont pas identiques.")</script> <?php
+             if($_COOKIE['langue'] == "English"){
+               ?> <script> alert("Mails entered are not identical")</script> <?php
+             } else {
+               ?> <script> alert("Les adresses mail saisies ne sont pas identiques")</script> <?php
+             }
            }
            elseif ($motDePasse != $confirmMotDePasse){
-             ?> <script> alert("Les mots de passe saisis ne sont pas identiques.")</script> <?php
+             if($_COOKIE['langue'] == "English"){
+               ?> <script> alert("Passwords entered are not identical")</script> <?php
+             } else {
+               ?> <script> alert("Les mots de passe saisis ne sont pas identiques")</script> <?php
+             }
            }
          }
        }
 
        else{
-         ?> <script> alert("Des champs n'ont pas été remplis")</script> <?php
+         if($_COOKIE['langue'] == "English"){
+           ?> <script> alert("Some fields have not been filled !")</script> <?php
+         } else {
+           ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+         }
        }
      }
      $vue = new Vue('Inscription');

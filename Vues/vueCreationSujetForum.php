@@ -16,7 +16,7 @@ elseif($_COOKIE['langue'] == "English") {
         <p>
          <textarea name="message" rows="7" cols="70"> <?php echo $_POST['message'] ?> </textarea>
        </p>
-				<p> <input name="Creer" type="submit" value="Créer"> </p>
+				<p> <input name="Creer" type="submit" value="<?php echo $Cree ?>"> </p>
 			</form>
 		</div>
 	</body>

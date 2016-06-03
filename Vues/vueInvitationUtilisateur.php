@@ -24,7 +24,7 @@ elseif($_COOKIE['langue'] == "English") {
         <option value = "<?php echo $nomainviter?>" > <?php echo $nomainviter?> </option>
         <?php } ?>
       </select>
-      <input type="submit" name="Envoyer" value="Envoyer" >
+      <input type="submit" name="Envoyer" value="<?php echo $env ?>" >
     </form>
   </body>
 </html>
