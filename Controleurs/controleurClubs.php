@@ -15,9 +15,18 @@ class ControleurClubs{
       && $_POST['mMardiFin'] !="" && $_POST['hMercrediFin'] !="" && $_POST['mMercrediFin'] !="" && $_POST['hJeudiFin'] !="" && $_POST['mJeudiFin'] !="" && $_POST['hVendrediFin'] !="" && $_POST['mVendrediFin'] !=""
       && $_POST['hSamediFin'] !="" && $_POST['mSamediFin'] !="" && $_POST['hDimancheFin'] !="" && $_POST['mDimancheFin'] !="" && isset($_FILES['photo'])){
         $resultatC = $club->verifClub()->fetch();
+        $resultatCP = $club->verifCPClub()->fetch();
         if (!$resultatC){
-          $club->ajouterClubBdd();
-          header("Location: index.php?page=confirmationclub");
+          if ($resultatCP){
+            $club->ajouterClubBdd();
+            header("Location: index.php?page=confirmationclub");
+          } else {
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("This Postal Code doesn't exist !")</script> <?php
+            } else {
+              ?> <script> alert("Ce Code Postal n'existe pas !")</script> <?php
+            }
+          }
         } else {
           if($_COOKIE['langue'] == "English"){
             ?> <script> alert("This club already exists !")</script> <?php

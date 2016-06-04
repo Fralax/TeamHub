@@ -79,11 +79,24 @@ class clubs extends modele {
   }
 
   public function verifClub(){
-    if (isset($_POST['ajouter']) && $_POST['ajouter'] == 'Ajouter'){
+    if (isset($_POST['ajouter'])){
       $sql = 'SELECT c_nom FROM teamhubp_teamhub.Clubs WHERE c_nom = :nomClub ';
       $resultatClub = $this->executerRequete($sql, array('nomClub' => $_POST['nomClub']));
       return $resultatClub;
     }
+  }
+
+  public function verifClub2($nomActuel){
+    $sql = 'SELECT c_nom FROM teamhubp_teamhub.Clubs WHERE c_nom = :nomClub AND c_nom != :actuel';
+    $resultatClub = $this->executerRequete($sql, array('nomClub' => $_POST['nomClub'], 'actuel' => $nomActuel));
+    return $resultatClub;
+  }
+
+
+  public function verifCPClub(){
+    $sql = 'SELECT v_cp FROM teamhubp_teamhub.Villes WHERE v_cp = ?';
+    $verifCP = $this->executerRequete($sql, array($_POST['cpClub']));
+    return $verifCP;
   }
 
   public function listerClub(){

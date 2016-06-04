@@ -37,7 +37,7 @@ class evenements extends modele {
   }
 
   public function verifEvenement($nom){
-    if (isset($_POST['Créer']) && $_POST['Créer'] == 'Créer'){
+    if (isset($_POST['Créer'])){
       $sql = 'SELECT e_nom FROM teamhubp_teamhub.Evenements WHERE g_nom = :nomGroupe AND e_nom = :nomEvenement ';
       $resultatEvenement = $this->executerRequete($sql, array('nomGroupe' => $nom, 'nomEvenement' => $_POST['nomEvenement']));
       return $resultatEvenement;

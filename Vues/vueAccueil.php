@@ -89,9 +89,16 @@ $this->titre = $vueAccueil;
 				</div>
 					<div class="monthsAccueil">
 						<ul>
-							<?php foreach ($date->months as $id => $m): ?>
+							<?php
+							if ($_COOKIE['langue'] == "English"){
+								foreach ($date->monthsE as $id => $m): ?>
+									<li> <a href="#" id="linkMonth<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m), 0, 3)) ?></a> </li>
+								<?php endforeach;
+						} else {
+							foreach ($date->months as $id => $m): ?>
 								<li> <a href="#" id="linkMonth<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m), 0, 3)) ?></a> </li>
-							<?php endforeach; ?>
+							<?php endforeach;
+						} ?>
 						</ul>
 					</div>
 
@@ -102,11 +109,20 @@ $this->titre = $vueAccueil;
 							<table>
 								<thead>
 									<tr>
-										<?php foreach ($date->days as $d): ?>
-											<th>
-												<?php echo substr($d, 0, 3) ?>
-											</th>
-										<?php endforeach; ?>
+										<?php
+										if ($_COOKIE['langue'] == "English"){
+											foreach ($date->daysE as $d): ?>
+ 											<th>
+ 												<?php echo substr($d, 0, 3) ?>
+ 											</th>
+ 										<?php endforeach;
+									} else {
+										foreach ($date->days as $d): ?>
+										<th>
+											<?php echo substr($d, 0, 3) ?>
+										</th>
+									<?php endforeach;
+									} ?>
 									</tr>
 								</thead>
 								<tbody>
@@ -188,7 +204,7 @@ $this->titre = $vueAccueil;
 							</td>
 							<td id="<?php echo "date".date_format($dateEvent, 'dmY') ?>">
 								<?php
-									echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
+									echo $evele.date_format($dateEvent, 'd/m/Y').$aa.substr($heureEvent, 0, 5)." : ".$nomEvent;
 								?>
 							</td>
 						</tr>
@@ -215,7 +231,7 @@ $this->titre = $vueAccueil;
 								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
 							</td>
 							<td>
-								<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSuggeres?>" style="font-weight: bold;"> <?php echo $nomGroupesSuggeres?> </a> pour pratiquer <?php echo $nomSport ?>
+								<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSuggeres?>" style="font-weight: bold;"> <?php echo $nomGroupesSuggeres?> </a>  <?php echo $ppra.$nomSport ?>
 							</td>
 						</tr>
 					<?php } ?>

@@ -43,6 +43,7 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueCreationEvenements.css" />
     <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
+		<link rel="stylesheet" href="Contenu/vueFAQ.css" />
     <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMail.css" /> -->
     <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" /> -->
     <link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
@@ -186,7 +187,13 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-        TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php if($_COOKIE['langue'] == "Francais"){?>
+					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php }
+				elseif($_COOKIE['langue'] == "English") {?>
+					Copyright (c) 2016 Copyright Holder All Rights Reserved.
+				<?php }?>
+
       </footer>
     </body>
   <?php } ?>
@@ -278,7 +285,12 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-        TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php if($_COOKIE['langue'] == "Francais"){?>
+					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php }
+				elseif($_COOKIE['langue'] == "English") {?>
+					Copyright (c) 2016 Copyright Holder All Rights Reserved.
+				<?php }?>
       </footer>
     </body>
   <?php } ?>
@@ -364,7 +376,12 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-        TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php if($_COOKIE['langue'] == "Francais"){?>
+					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php }
+				elseif($_COOKIE['langue'] == "English") {?>
+					TeamHub (c) 2016 Copyright Holder All Rights Reserved.
+				<?php }?>
       </footer>
 
     </body>

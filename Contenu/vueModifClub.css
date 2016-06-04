@@ -1,0 +1,24 @@
+.vueModifClub{
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-radius: 1em;
+}
+
+.vueModifClub table{
+  margin: auto;
+}
+
+.vueModifClub a{
+  text-decoration: none;
+  color: white;
+}
+
+.vueModifClub a:hover{
+  color: grey;
+}
