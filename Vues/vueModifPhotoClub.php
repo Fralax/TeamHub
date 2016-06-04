@@ -18,19 +18,20 @@ $this->titre = $vueModifPhotoClub;?>
 					$a=1;
 				}
 		?>
+		<div class="vueModifPhotoClub">
+			<?php if($a == 0){ ?>
+				<div class="formulaire" >
+					<h2><?php echo $modiphoto.$caractClub['c_nom']?> </h2>
+		      <img src="imagesClubs/<?php echo $caractClub['c_image']; ?>"/>
+					<form name = "formulaireModifClub" method="post" action = "" enctype="multipart/form-data" >
+						<p> <input type="file" name="photo" /> </p>
 
-		<?php if($a == 0){ ?>
-			<div class="formulaire" >
-				<h2><?php echo $modiphoto.$caractClub['c_nom']?> </h2>
-	      <img src="imagesClubs/<?php echo $caractClub['c_image']; ?>"/>
-				<form name = "formulaireModifClub" method="post" action = "" enctype="multipart/form-data" >
-					<p> <input type="file" name="photo" /> </p>
+						<p> <input name="Modifier" type="submit" value="<?php echo $modifi ?>"> </p>
+					</form>
+				</div>
+			<?php } ?>
 
-					<p> <input name="Modifier" type="submit" value="<?php echo $modifi ?>"> </p>
-				</form>
-			</div>
-		<?php } ?>
-
-		<?php if($a == 1){ ?>
-			<?php echo $nonacces ?>
-		<?php } ?>
+			<?php if($a == 1){ ?>
+				<?php echo $nonacces ?>
+			<?php } ?>
+		</div>

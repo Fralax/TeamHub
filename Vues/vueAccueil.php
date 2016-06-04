@@ -89,9 +89,16 @@ $this->titre = $vueAccueil;
 				</div>
 					<div class="monthsAccueil">
 						<ul>
-							<?php foreach ($date->months as $id => $m): ?>
+							<?php
+							if ($_COOKIE['langue'] == "English"){
+								foreach ($date->monthsE as $id => $m): ?>
+									<li> <a href="#" id="linkMonth<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m), 0, 3)) ?></a> </li>
+								<?php endforeach;
+						} else {
+							foreach ($date->months as $id => $m): ?>
 								<li> <a href="#" id="linkMonth<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m), 0, 3)) ?></a> </li>
-							<?php endforeach; ?>
+							<?php endforeach;
+						} ?>
 						</ul>
 					</div>
 
@@ -102,11 +109,20 @@ $this->titre = $vueAccueil;
 							<table>
 								<thead>
 									<tr>
-										<?php foreach ($date->days as $d): ?>
-											<th>
-												<?php echo substr($d, 0, 3) ?>
-											</th>
-										<?php endforeach; ?>
+										<?php
+										if ($_COOKIE['langue'] == "English"){
+											foreach ($date->daysE as $d): ?>
+ 											<th>
+ 												<?php echo substr($d, 0, 3) ?>
+ 											</th>
+ 										<?php endforeach;
+									} else {
+										foreach ($date->days as $d): ?>
+										<th>
+											<?php echo substr($d, 0, 3) ?>
+										</th>
+									<?php endforeach;
+									} ?>
 									</tr>
 								</thead>
 								<tbody>

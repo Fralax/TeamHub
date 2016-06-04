@@ -50,6 +50,7 @@ $messageAccueil = "Bienvenue sur TeamHub !";
 $ppra = "pour pratiquer ";
 $evele = "Événement le ";
 $aa = " à ";
+$p = " pour ";
 // vueAccueilForum
 $bienvenue = "Bienvenue sur le Forum de TeamHub ! ";
 $forum1entete1 = "Autour de TeamHub";
