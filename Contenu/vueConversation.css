@@ -70,3 +70,15 @@
   height: 7em;
   border-radius: 50%;
 }
+
+#conteneurConversation img{
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+}
+
+.heureMessage{
+  font-size: 0.2em;
+  font-style: italic;
+  color: grey;
+}

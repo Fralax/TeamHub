@@ -55,3 +55,25 @@
 .conversationsMessagerie table{
   margin: auto;
 }
+
+.dernierMessageConversation{
+  font-size: 0.9em;
+  font-style: italic;
+  color: grey;
+  padding-bottom: 1em;
+}
+
+.photoAmi{
+  width: 5%
+}
+
+.photoAmi img{
+  border-radius: 50%;
+  width: 4em;
+  height:4em;
+}
+
+.amiConversation{
+  width: 95%;
+  text-align: left;
+}

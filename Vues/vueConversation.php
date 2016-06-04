@@ -37,10 +37,22 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
               <div class="messageConversationSessionPseudoDiv">
                 <?php echo $contenuMessage ?>
               </div>
+							<div class="heureMessage">
+								<?php
+									$dateEntiereSujet = date_create($date);
+									$dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y');
+									$heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s');
+									echo "le ".$dateSujetDernierMessage." à ".$heureSujetDernierMessage;
+								?>
+							</div>
             </td>
             <td class="monPseudo">
               <div class="monPseudoDiv">
-                <?php echo $expediteur ?>
+								<?php require_once 'Controleurs/controleurMembres.php';
+								$photo = new membres();
+								$afficher = $photo->affichagePhoto($expediteur);
+								?>
+								<img src="imagesUtilisateurs/<?php echo $afficher[0]?>"/>
               </div>
             </td>
           </tr>
@@ -48,13 +60,25 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
         <tr id = "<?php echo $id ?>">
           <td class="pseudoAmi">
             <div class="pseudoAmiDiv">
-              <?php echo $expediteur ?>
+							<?php require_once 'Controleurs/controleurMembres.php';
+							$photo = new membres();
+							$afficher = $photo->affichagePhoto($expediteur);
+							?>
+							<img src="imagesUtilisateurs/<?php echo $afficher[0]?>"/>
             </div>
           </td>
           <td class="messageConversationAmi">
             <div class="messageConversationAmiDiv">
               <?php echo $contenuMessage ?>
             </div>
+						<div class="heureMessage">
+							<?php
+								$dateEntiereSujet = date_create($date);
+								$dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y');
+								$heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s');
+								echo "le ".$dateSujetDernierMessage." à ".$heureSujetDernierMessage;
+							?>
+						</div>
           </td>
           <td>
 
@@ -86,22 +110,19 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
+
 		var x = document.getElementById('conteneurConversation');
 		x.scrollTop = x.scrollHeight;
 
 		$('#messageForm').keyup(function(e) {
 			if(e.keyCode == 13) { // KeyCode de la touche entrée
 				if (e.shiftKey == false){ //s'il n'y a pas shift
-					if ($('#messageForm').val() != "") {
-						$('#envoi').click();
-					} else{
-						alert('Le message est vide !')
-					}
+					$('#envoi').click();
 				}
 	 		}
 		});
 
-    $('#envoi').click(function(e){
+		$('#envoi').click(function(e){
       e.preventDefault();
       var message = $('#messageForm').val();
       if (message != "") {

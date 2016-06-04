@@ -4,7 +4,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding-top: 1px;
-  padding-bottom: 1px;
+  padding-bottom: 1em;
   padding-left: 10px;
   border-radius: 1em;
   width: 40%;
@@ -13,6 +13,7 @@
 .inscriptionVueInscription table{
   margin: auto;
   text-align: left;
+  padding-bottom: 1em;
 }
 
 .inscriptionVueInscription a{

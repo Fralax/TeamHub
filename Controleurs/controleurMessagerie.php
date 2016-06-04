@@ -2,6 +2,7 @@
 
   require_once 'Modeles/utilisateurs.php';
   require_once 'Modeles/messagerie.php';
+  require_once 'Controleurs/controleurMembres.php';
   require_once 'Vues/vue.php';
 
   class controleurMessagerie{
@@ -67,12 +68,17 @@
       $id = (int) $_GET['id'];
       $nouveauxMessages = $messagerie->recupNouveauxMessages($id, $_SESSION['pseudo'], $_GET['correspondantB'])->fetchAll();
 
+      $photo = new membres();
       foreach ($nouveauxMessages as list($id, $expediteur, $destinataire, $date, $message)) {
+        $afficher = $photo->affichagePhoto($expediteur);
+        $dateEntiereSujet = date_create($date);
+        $dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y');
+        $heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s');
 
         if ($destinataire == $_SESSION['pseudo']) {
-          echo "<tr id = ".$id."> <td class='pseudoAmi'> <div class='pseudoAmiDiv'>".$_GET['correspondantB']."</div></td><td class='messageConversationAmi'><div class='messageConversationAmiDiv'>".$message."</div></td><td></td></tr><script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
+          echo "<tr id = ".$id."> <td class='pseudoAmi'> <div class='pseudoAmiDiv'><img src='imagesUtilisateurs/".$afficher[0]."'/></div></td><td class='messageConversationAmi'><div class='messageConversationAmiDiv'>".$message."</div><div class='heureMessage'>le ".$dateSujetDernierMessage." à ".$heureSujetDernierMessage."</div></td><td></td></tr><script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
         } else{
-          echo "<tr id = ".$id."> <td> </td><td class='messageConversationSessionPseudo'><div class='messageConversationSessionPseudoDiv'>".$message."</div></td><td class='monPseudo'><div class='monPseudoDiv'>".$_SESSION['pseudo']."</div></td></tr> <script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
+          echo "<tr id = ".$id."> <td> </td><td class='messageConversationSessionPseudo'><div class='messageConversationSessionPseudoDiv'>".$message."</div><div class='heureMessage'>le ".$dateSujetDernierMessage." à ".$heureSujetDernierMessage."</div></td><td class='monPseudo'><div class='monPseudoDiv'><img src='imagesUtilisateurs/".$afficher[0]."'/></div></td></tr> <script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
         }
 
       }
