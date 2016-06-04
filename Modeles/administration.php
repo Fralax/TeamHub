@@ -11,7 +11,7 @@ class administration extends modele {
   }
 
   public function listerBanni(){
-    $sql = 'SELECT b_nom FROM teamhubp_teamhub.Bannis';
+    $sql = 'SELECT u_pseudo, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo IN (SELECT b_nom FROM teamhubp_teamhub.Bannis)';
     $listerBanni = $this->executerRequete ($sql);
     return $listerBanni;
   }
@@ -51,13 +51,13 @@ class administration extends modele {
   }
 
   public function ListerEvenements(){
-    $sql = 'SELECT e_nom FROM teamhubp_teamhub.Evenements';
+    $sql = 'SELECT e_nom, g_nom FROM teamhubp_teamhub.Evenements';
     $ListerEvenements = $this->executerRequete ($sql);
     return $ListerEvenements;
   }
 
   public function ListerClub(){
-    $sql = 'SELECT c_nom, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
+    $sql = 'SELECT c_nom, c_image, c_adresse, c_cp FROM teamhubp_teamhub.Clubs';
     $ListerClub = $this->executerRequete ($sql);
     return $ListerClub;
   }
@@ -139,7 +139,7 @@ class administration extends modele {
   }
 
   public function afficherAdmins(){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Admins WHERE u_pseudo != ?';
+    $sql = 'SELECT u_pseudo, u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo IN (SELECT u_pseudo FROM teamhubp_teamhub.Admins) AND u_pseudo != ?';
     $afficherAdmins = $this->executerRequete($sql, array($_SESSION['pseudo']));
     return $afficherAdmins;
   }

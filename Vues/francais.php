@@ -136,7 +136,7 @@ $selectadmin = "Selectionnez un membre à bannir";
 $mban = "Membres Bannis";
 //
 $listpeutban = "Listes des Membres de ";
-$surban = "Voulez vous vraiment bannir ";
+$surban = "Voulez-vous vraiment bannir ";
 //
 $nouvsuj = "Créer un nouveau Sujet ";
 $rep = "Réponses";
@@ -151,14 +151,14 @@ $ajcomm = "Ajoutez un commentaire !";
 $thxavis = "Merci d'avoir donné votre avis sur ce club !";
 $inscnote = "Inscrivez-vous pour pouvoir noter ce club !";
 //
-$clubmodifcomm = "De quel club voulez vous modifier le commentaire ? ";
+$clubmodifcomm = "De quel club voulez-vous modifier le commentaire ? ";
 //
 $clubmodifinfo = "Choisir quel Club modifier";
 //
 $clubmodifphoto = "De quel club voulez-vous modifier la photo ? ";
 //
 $clubsuppchoix = "Choisir quel Club supprimer";
-$sursupp = "Voulez vous vraiment supprimer ce club : ";
+$sursupp = "Voulez-vous vraiment supprimer ce club : ";
 //
 $banok = " a bien été banni du groupe.";
 $redirgr = "Vous allez être redirigé vers le groupe ";
@@ -206,7 +206,7 @@ $formmail2 = "Objet";
 $mailtousmembres = "Envoyer un mail à tous les membres";
 //
 $supev = "Supprimer un Evénement";
-$sursupeve = "Voulez vous vraiment supprimer l\'évenement : ";
+$sursupeve = "Voulez-vous vraiment supprimer l\'évenement : ";
 //
 $quesfreq = "Liste des Questions les plus fréquentes";
 $sup = "Supprimer";
@@ -224,20 +224,20 @@ $creevent = "Créer un événement";
 $voirmem = "Voir les membres";
 $invrej = "Inviter à rejoindre le groupe";
 $banmem = "Bannir un membre du groupe";
-$sursupgr = "Voulez vous vraiment supprimer le groupe : ";
+$sursupgr = "Voulez-vous vraiment supprimer le groupe : ";
 $partieve = "Événements auxquels je participe";
 $partiaucun = "Vous ne participez à aucun événement !";
 $c = "au club ";
 $parti = " participant";
 $partis = " participants";
 $aucparti = "Aucun participant";
-$surquiteve = "Voulez vous vraiment quitter l\'événement : ";
-$sursupeve = "Voulez vous vraiment supprimer l\'événement : ";
+$surquiteve = "Voulez-vous vraiment quitter l\'événement : ";
+$sursupeve = "Voulez-vous vraiment supprimer l\'événement : ";
 $grevent = "Événements du groupe";
 $noneevent = "Aucun événement en cours dans ce groupe ...";
 $plrest = " place restante";
 $plrests = " places restantes";
-$surrejevent = "Voulez vous vraiment rejoindre l\'événement : ";
+$surrejevent = "Voulez-vous vraiment rejoindre l\'événement : ";
 $nomorepl = "Plus de place disponible ...";
 $surquitgr = "Voulez vraiment quitter le groupe : ";
 $devrej = "Vous devez rejoindre ce groupe avant de pouvoir participer à un événement ...";
@@ -249,9 +249,9 @@ $devinscsite = "Vous devez vous inscrire sur le site avant de pouvoir rejoindre 
 $grs = "Groupes";
 $nongrdispo = "Aucun Groupe n'est disponible ...";
 $pouvcrea = "Vous pouvez en créer un ! ";
-$surrejgr = "Voulez vous vraiment rejoindre le groupe : ";
-$surrejgrauto = "Voulez vous vraiment ne plus rejoindre automatiquement le groupe ";
-$surrejgrp = "Voulez vous vraiment rejoindre le groupe";
+$surrejgr = "Voulez-vous vraiment rejoindre le groupe : ";
+$surrejgrauto = "Voulez-vous vraiment ne plus rejoindre automatiquement le groupe ";
+$surrejgrp = "Voulez-vous vraiment rejoindre le groupe ";
 $pllib = "quand une place se libère ";
 //
 $gratuit = "Inscrivez vous, c'est gratuit !";
@@ -284,7 +284,7 @@ $rienrej = "Vous n'avez encore rejoint aucun groupe ... ";
 $evecours = " événements en cours";
 //
 $commclub = "Les commentaires de ";
-$sursupcomm = "Voulez vous vraiment supprimer ce commentaire ?";
+$sursupcomm = "Voulez-vous vraiment supprimer ce commentaire ?";
 //
 $modadmin = "Modifier l'administrateur";
 $commodifclub = "Commentaire : ";
@@ -295,7 +295,7 @@ $memaselec = "Sélectionnez un membre à désigner comme administrateur";
 $administr = "Administrateurs";
 //
 $spor = "Mes Sports";
-$sursuppsport = "Voulez vous vraiment supprimer ce sport : ";
+$sursuppsport = "Voulez-vous vraiment supprimer ce sport : ";
 $ajspor = "Ajouter un Sport";
 $infsoi = "Mes Infos";
 $loc = "Ma Localisation";

@@ -83,6 +83,7 @@ class controleurGroupes{
     $afficherEvenementsUtilisateur = $evenements->listerEvenementsUtilisateur($nom)->fetchAll();
     $afficherEvenementsGroupe = $evenements->listerEvenementsGroupe($nom)->fetchAll();
     $afficherImageSport = $groupe->afficherImage($nom)->fetch();
+    $recupGroupesAttend = $groupe->recupGroupesAttend()->fetchAll();
 
     //MODIFICATION DESCRIPTION GROUPE
     if (isset($_POST['Modifier'])){
@@ -151,7 +152,7 @@ class controleurGroupes{
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
 
     $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible, "groupesAttend" => $recupGroupesAttend));
   }
 
   public function modificationAdminGroupe($nom){

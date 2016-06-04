@@ -17,7 +17,7 @@ class recherche extends modele {
   }
 
   public function rechercherClubs(){
-    $sql = 'SELECT c_nom FROM teamhubp_teamhub.Clubs WHERE c_nom LIKE :requete';
+    $sql = 'SELECT c_nom, c_image FROM teamhubp_teamhub.Clubs WHERE c_nom LIKE :requete';
     $rechercherClubs = $this->executerRequete($sql, array('requete' => '%'.$_GET['resultatsrecherche'].'%'));
     return $rechercherClubs;
   }
@@ -41,7 +41,7 @@ class recherche extends modele {
   }
 
   public function rechercherAvanceeClubs($nomClub, $departement){
-    $sql = 'SELECT c_nom, c_image, c_adresse, c_cp, c_departement FROM teamhubp_teamhub.Clubs WHERE c_nom LIKE :requetea AND c_departement LIKE :requeteb';
+    $sql = 'SELECT c_nom, c_image, c_adresse, c_cp, c_departement, c_image FROM teamhubp_teamhub.Clubs WHERE c_nom LIKE :requetea AND c_departement LIKE :requeteb';
     $rechercherAvanceeClubs = $this->executerRequete($sql, array(
       'requetea' => '%'.$nomClub.'%',
       'requeteb' => '%'.$departement.'%',));

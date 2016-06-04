@@ -20,6 +20,8 @@ $this->titre = $vueAdmin;?>
 ?>
 
 <?php if($a == 0){ ?>
+	<?php $modeleGroupes = new groupes() ?>
+
 		<div class="vueAdmin">
 			<div class="conteneurVueAdmin">
 		    <div class="adminMembresVueAdmin">
@@ -67,8 +69,11 @@ $this->titre = $vueAdmin;?>
 				<h2> <?php echo $administr ?></h2>
 
 				<table>
-					<?php foreach ($admins as list($nom)){ ?>
+					<?php foreach ($admins as list($nom, $photo)){ ?>
 					<tr>
+						<td>
+							<img src="imagesUtilisateurs/<?php echo $photo?>"/>
+						</td>
 						<td>
 							<?php echo $nom?> <a href="index.php?page=deop&pseudo=<?php echo $nom?>"> <input type="button" name="plusAdmin" value ="<?php echo $supadmins ?>"> </a>
 						</td>
@@ -91,8 +96,17 @@ $this->titre = $vueAdmin;?>
 				</form>
 
 				<h2> <?php $mban ?> </h2>
-				<?php foreach ($membreBanni as list($nombanni)){ ?>
-					<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="<?php echo $deban ?>"> </a>
+				<?php foreach ($membreBanni as list($nombanni, $photoBanni)){ ?>
+					<table>
+						<tr>
+							<td>
+								<img src="imagesUtilisateurs/<?php echo $photoBanni ?>"/>
+							</td>
+							<td>
+								<?php echo $nombanni?> <a href="index.php?page=debanni&pseudo=<?php echo $nombanni?>"> <input type="button" name="Débannir" value ="<?php echo $deban ?>"> </a>
+							</td>
+						</tr>
+					</table>
 				<?php } ?>
 			</div>
 
@@ -125,6 +139,10 @@ $this->titre = $vueAdmin;?>
 				<table>
 				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
 					<tr>
+						<td>
+							<?php $afficherImageSport = $modeleGroupes->afficherImage($nomgroupes)->fetch(); ?>
+							<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+						</td>
 						<td> <?php echo $nomgroupes?> </td>
 						<td> <a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($nomgroupes) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($nomgroupes) ?>'; return false">  <input type="button" name="Supprimer" value ="<?php echo $sup ?>"> </a></td>
 					</tr>
@@ -135,9 +153,10 @@ $this->titre = $vueAdmin;?>
 			<div id="form6" class="formsVueAdmin">
 				<h2><?php echo $supev ?></h2>
 				<table>
-				<?php foreach ($listeEvenements as list($nomevenements)){ ?>
+				<?php foreach ($listeEvenements as list($nomevenements, $groupeEvenement)){ ?>
 					<tr>
-						<td> <?php echo $nomevenements?> </td>
+						<td> <b> <?php echo $nomevenements?></b> du Groupe <?php echo $groupeEvenement ?></td>
+
 						<td> <a href="#" onclick="if (confirm('<?php echo $sursupeve.addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="<?php echo $sup ?>"> </a></td>
 					</tr>
 				<?php } ?>
@@ -149,6 +168,10 @@ $this->titre = $vueAdmin;?>
 				<table>
 				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
 					<tr>
+						<td>
+							<?php $afficherImageSport = $modeleGroupes->afficherImage($nomgroupes)->fetch(); ?>
+							<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
+						</td>
 						<td> <?php echo $nomgroupes?> </td>
 						<td> <a href="index.php?page=affichagemodificationadmin&nom=<?php echo $nomgroupes?>" >  <input type="button" name="Modifier" value ="<?php echo $modiadmin ?>"> </a></td>
 					</tr>
@@ -159,8 +182,11 @@ $this->titre = $vueAdmin;?>
 			<div id = "form8" class="formsVueAdmin">
 				<h2> <?php echo $clubmodifinfo ?> </h2>
 					<table>
-						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<?php foreach ($listeClubs as list($nomclubs, $photoClub)) { ?>
 						<tr>
+							<td>
+								<img src="imagesClubs/<?php echo $photoClub ?>"/>
+							</td>
 							<td> <?php echo $nomclubs?> </td>
 							<td> <a href="index.php?page=modifclub&club=<?php echo $nomclubs?>" > <input type="button" name="ModifierInfos" value="<?php echo $mod ?>"> </a> </td>
 						</tr>
@@ -171,8 +197,11 @@ $this->titre = $vueAdmin;?>
 			<div id = "form9" class="formsVueAdmin">
 				<h2> <?php echo $clubmodifphoto ?> </h2>
 					<table>
-						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<?php foreach ($listeClubs as list($nomclubs, $photoClub)) { ?>
 						<tr>
+							<td>
+								<img src="imagesClubs/<?php echo $photoClub ?>"/>
+							</td>
 							<td> <?php echo $nomclubs?> </td>
 							<td> <a href="index.php?page=modifphotoclub&club=<?php echo $nomclubs?>" > <input type="button" name="ModifierPhoto" value="<?php echo $mod ?>"> </a> </td>
 						</tr>
@@ -182,8 +211,11 @@ $this->titre = $vueAdmin;?>
 
 			<div id="form10" class="formsVueAdmin">
 					<table>
-						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<?php foreach ($listeClubs as list($nomclubs, $photoClub)) { ?>
 						<tr>
+							<td>
+								<img src="imagesClubs/<?php echo $photoClub ?>"/>
+							</td>
 							<td> <?php echo $nomclubs?> </td>
 							<td> <a href="index.php?page=moderationcommentaire&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="<?php echo $mod ?>"> </a> </td>
 						</tr>
@@ -194,8 +226,11 @@ $this->titre = $vueAdmin;?>
 			<div id="form11" class="formsVueAdmin">
 				<h2> <?php echo $clubsuppchoix ?> </h2>
 					<table>
-						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<?php foreach ($listeClubs as list($nomclubs, $photoClub)) { ?>
 						<tr>
+							<td>
+								<img src="imagesClubs/<?php echo $photoClub ?>"/>
+							</td>
 							<td> <?php echo $nomclubs?> </td>
 							<td> <a href="#" onclick="if (confirm('<?php echo $sursupp.addslashes($nomclubs)?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo addslashes($nomclubs)?>'; return false"> <input type="button" name="Supprimer" value="<?php echo $sup ?>"> </a> </td>
 						</tr>
