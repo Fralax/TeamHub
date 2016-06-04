@@ -13,7 +13,7 @@ class groupes extends modele {
   }
 
   public function verifGroupe(){
-    if (isset($_POST['creer']) && $_POST['creer'] == 'Créer'){
+    if (isset($_POST['creer'])){
       $sql = 'SELECT g_nom FROM teamhubp_teamhub.Groupes WHERE g_nom = :nomGroupe ';
       $resultatGroupe = $this->executerRequete($sql, array('nomGroupe' => $_POST['nomGroupe']));
       return $resultatGroupe;

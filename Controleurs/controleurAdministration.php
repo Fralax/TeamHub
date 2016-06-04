@@ -133,8 +133,26 @@ Merci de ne pas répondre à ce mail.";
       && $_POST['c_hoSamediDebut'] !="" && $_POST['c_hoDimancheDebut'] !="" && $_POST['c_hoLundiFin'] !="" && $_POST['c_hoMardiFin'] !=""
       && $_POST['c_hoMercrediFin'] !="" && $_POST['c_hoJeudiFin'] !="" && $_POST['c_hoVendrediFin'] !=""
       && $_POST['c_hoSamediFin'] !="" && $_POST['c_hoDimancheFin'] !=""){
-        $modif = $admin->modifierCaracteristiquesClub($nomClub);
-        header("Location: index.php?page=administration");
+        $resultatC = $club->verifClub2($nomClub)->fetch();
+        $resultatCP = $club->verifCPClub()->fetch();
+        if (!$resultatC){
+          if ($resultatCP){
+            $modif = $admin->modifierCaracteristiquesClub($nomClub);
+            header("Location: index.php?page=administration");
+          } else {
+            if($_COOKIE['langue'] == "English"){
+              ?> <script> alert("This Postal Code doesn't exist !")</script> <?php
+            } else {
+              ?> <script> alert("Ce Code Postal n'existe pas !")</script> <?php
+            }
+          }
+        } else {
+          if($_COOKIE['langue'] == "English"){
+            ?> <script> alert("This club already exists !")</script> <?php
+          } else {
+            ?> <script> alert("Ce club existe déjà !")</script> <?php
+          }
+        }
       } else {
         if($_COOKIE['langue'] == "English"){
           ?> <script> alert("Some fields have not been filled !")</script> <?php
@@ -228,7 +246,7 @@ Merci de ne pas répondre à ce mail.";
     $deop = $admin->deop($nom);
     header("Location: index.php?page=administration");
   }
-  
+
   public function suppressionMessageForum($id){
     $admin = new administration();
     $forum = new forum();

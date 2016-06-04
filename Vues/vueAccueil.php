@@ -188,7 +188,7 @@ $this->titre = $vueAccueil;
 							</td>
 							<td id="<?php echo "date".date_format($dateEvent, 'dmY') ?>">
 								<?php
-									echo "événement le ".date_format($dateEvent, 'd/m/Y')." à ".substr($heureEvent, 0, 5)." : ".$nomEvent;
+									echo $evele.date_format($dateEvent, 'd/m/Y').$aa.substr($heureEvent, 0, 5)." : ".$nomEvent;
 								?>
 							</td>
 						</tr>
@@ -215,7 +215,7 @@ $this->titre = $vueAccueil;
 								<img src="imageSports/<?php echo $afficherImageSport['s_image']; ?>"/>
 							</td>
 							<td>
-								<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSuggeres?>" style="font-weight: bold;"> <?php echo $nomGroupesSuggeres?> </a> pour pratiquer <?php echo $nomSport ?>
+								<a href="index.php?page=groupe&nom=<?php echo $nomGroupesSuggeres?>" style="font-weight: bold;"> <?php echo $nomGroupesSuggeres?> </a>  <?php echo $ppra.$nomSport ?>
 							</td>
 						</tr>
 					<?php } ?>

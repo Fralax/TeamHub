@@ -47,6 +47,9 @@ $riensport = "There is no groupe avalaible relative to your sports";
 $aucunrenseignement = "You haven't filled any sport ! You should add one ! ";
 $ajoutsport = "Add a sport";
 $messageAccueil = "Welcome on TeamHub !";
+$ppra = "to practice ";
+$evele = "Event the ";
+$aa = " at ";
 // vueAccueilForum
 $bienvenue = "Welcome on TeamHub's Forum ! ";
 $forum1entete1 = "About TeamHub";

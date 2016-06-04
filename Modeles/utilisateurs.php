@@ -28,7 +28,7 @@ class utilisateurs extends modele {
   public function verifPseudo(){
 
     $envoiInscription = $_POST['Envoyer'];
-    if (isset($envoiInscription) && $envoiInscription == 'Envoyer'){
+    if (isset($envoiInscription)){
       $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :pseudo ';
       $resultatP = $this->executerRequete($sql, array('pseudo' => $_POST['pseudo']));
       return $resultatP;
@@ -57,7 +57,7 @@ class utilisateurs extends modele {
   public function verifMdp(){
     $envoiConnexion = $_POST['connexion'];
     $envoiModifMdp = $_POST['modifMdp'];
-    if ((isset($envoiConnexion) && $envoiConnexion == 'Connexion') || (isset($envoiModifMdp) && $envoiModifMdp == 'Modifier le Mot de Passe')){
+    if ((isset($envoiConnexion)) || (isset($envoiModifMdp))){
       $sql = 'SELECT u_mdp, u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = :connexionPseudo OR u_pseudo = :modifPseudo';
       $resultat = $this->executerRequete($sql, array('connexionPseudo' => $_POST['pseudo'], 'modifPseudo' => $_SESSION['pseudo']));
       return $resultat;
@@ -180,7 +180,7 @@ class utilisateurs extends modele {
 
   public function modifierMonMdp(){
     $envoiMdp = $_POST['modifMdp'];
-    if (isset($envoiMdp) && $envoiMdp == 'Modifier le Mot de Passe'){
+    if (isset($envoiMdp)){
       $pass_hache = password_hash($_POST['NouveauMotDePasse'], PASSWORD_BCRYPT);
       $sql = 'UPDATE teamhubp_teamhub.Utilisateurs SET u_mdp = :nouveauMdp WHERE u_pseudo = :pseudo';
       $resultatRecupMdp = $this->executerRequete($sql, array('pseudo' => $_SESSION['pseudo'],'nouveauMdp' => $pass_hache));
