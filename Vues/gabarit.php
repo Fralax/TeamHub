@@ -25,7 +25,6 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueAnnulationNotifGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueAPropos.css" />
     <link rel="stylesheet" href="Contenu/vueBanni.css" />
-    <link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
     <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
     <link rel="stylesheet" href="Contenu/vueClub.css" />
@@ -40,7 +39,6 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
 		<link rel="stylesheet" href="Contenu/vueFAQ.css" />
-    <link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
     <link rel="stylesheet" href="Contenu/vueInscription.css" />
     <link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
     <link rel="stylesheet" href="Contenu/vueMailNonConfirme.css" />
@@ -362,7 +360,7 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="https://twitter.com/TimHeub"> <img src="Autres/twitter.png" alt="twitter" height="32" width="32"> </a>
         </div>
         <div class="aPropos">
-          <a href="index.php?page=apropos"> <?php echo $footer ?> </a>
+          <a id = "lienAPropos" href="index.php?page=apropos"> <?php echo $footer ?> </a>
         </div>
         <div class="langue">
           <a href="index.php?page=changementlangue&langue=Francais"> <img src="Autres/Fr.jpg" alt="facebook" height="30" width="30"> </a>

@@ -212,20 +212,12 @@
           $this->controleurRecherche->resultatRechercheAvanceeClubs();
           break;
 
-        case 'inviterutilisateur':
-          $this->controleurGroupes->invitationUtilisateur($_GET['nom']);
-          break;
-
         case 'supprimernotif':
           $this->controleurAccueil->suppressionNotif($_GET['nom']);
           break;
 
         case 'supprimeracquittement':
           $this->controleurAccueil->suppressionAcquittement();
-          break;
-
-        case 'bannirmembregroupe':
-          $this->controleurGroupes->affichageBannissementMembre($_GET['nom']);
           break;
 
         case 'confirmationbannissementmembre':

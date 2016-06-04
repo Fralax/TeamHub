@@ -99,10 +99,39 @@ $this->titre = $vueGroupe.$caract['g_nom'];?>
           <a href="index.php?page=creationevenement&nom=<?php echo $caract['g_nom']?>"><h3> <?php echo $creevent ?></h3></a>
           <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3><?php echo $voirmem ?></h3></a>
           <?php if ($caract['g_placesLibres'] != "0") { ?>
-          <a href="index.php?page=inviterutilisateur&nom=<?php echo $caract['g_nom']?>"> <h3> <?php echo $invrej ?></h3></a>
+          <a href="#form4"> <h3> <?php echo $invrej ?></h3></a>
           <?php } ?>
-          <a href="index.php?page=bannirmembregroupe&nom=<?php echo $_GET['nom']?>"> <h3> <?php echo $banmem ?> </h3></a>
+          <a href="#form5"> <h3> <?php echo $banmem ?> </h3></a>
           <a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Supprimer le groupe</h3></a>
+					<div id = "form4" class="forms">
+						<h2><?php echo $invutili ?></h2>
+
+						<form action="" method="post">
+							<select name="nomInvite">
+								<option value =""> -- <?php echo $membreselec ?> -- </option>
+								<?php foreach ($aInvite as list($nomainviter)) { ?>
+								<option value = "<?php echo $nomainviter?>" > <?php echo $nomainviter?> </option>
+								<?php } ?>
+							</select>
+							<input type="submit" name="EnvoyerInvitation" value="<?php echo $env ?>" >
+						</form>
+					</div>
+					<div id="form5" class="forms">
+						<table>
+							<?php foreach ($membres as list($nomMembre)) { ?>
+								<?php if ($nomMembre != $_SESSION['pseudo']){ ?>
+								<tr>
+									<td>
+										<a href="index.php?page=profil&nom=<?php echo $nomMembre ?>"> <p> <?php echo $nomMembre?></p></a>
+									</td>
+									<td>
+										<a href="#" onclick="if (confirm('<?php echo $surban.$nomMembre ?> ?')) window.location='index.php?page=confirmationbannissementmembre&nom=<?php echo $_GET['nom'] ?>&pseudo=<?php echo $nomMembre ?>'; return false"> <input type="button" name="bannirDuGroupe" value="<?php echo $bagr ?>"> </a>
+									</td>
+								</tr>
+								<?php } ?>
+							<?php } ?>
+						</table>
+					</div>
         </div>
       </div>
       <div class="evenementsVueGroupe">
