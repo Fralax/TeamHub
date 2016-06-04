@@ -9,13 +9,13 @@ elseif($_COOKIE['langue'] == "English") {
 $this->titre = $vueNouvelleConversation; ?>
 
   <div class="nouvelleConversation">
-    <h3>Nouvelle Conversation</h3>
+    <h3> <?php echo $nouvconv ?></h3>
     <form class="" action="" method="post">
       <div class="destinatairesNouvelleConversation">
         <p>
-          Destinataire :
+          <?php echo $dest ?>
           <select name="destinataire">
-            <option value = ""> -- Sélectionnez le destinataire -- </option>
+            <option value = ""> -- <?php echo $seledest ?> -- </option>
             <?php foreach ($destinataires as list($nom)) { ?>
             <option value = "<?php echo $nom?>" <?php if ($_POST['destinataire']=="$nom"){?> selected <?php }?> > <?php echo $nom?> </option>
             <?php } ?>

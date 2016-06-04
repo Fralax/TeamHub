@@ -343,6 +343,11 @@ $valereco = "Veuillez confirmer votre compte et vous reconnecter !";
 //
 $lisclu = "Liste des Clubs";
 $siti = "situé au ";
+//
+$nouvconv = "Nouvelle Conversation";
+$dest = "Destinataire : ";
+$seledest = "Sélectionnez le destinataire";
+$mes = "Messages";
 // Boutons
 $modiadmin = "Modifier l'admin";
 $deban = "Débannir";
