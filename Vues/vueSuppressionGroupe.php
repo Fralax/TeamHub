@@ -8,8 +8,8 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueSuppressionGroupe;?>
 
-    <h2> <?php echo $supgrou.$nom ?> ! </h2>
-
+	<div class="vueSuppressionGroupe">
+		<h2> <?php echo $supgrou.$nom ?> ! </h2>
     <p> <?php echo $redir ?> </p>
-
-<?php header('refresh:3;url=index.php?page=mesgroupes') ?>
+		<?php header('refresh:3;url=index.php?page=mesgroupes') ?>
+	</div>

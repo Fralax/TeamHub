@@ -21,14 +21,22 @@ $this->titre = $vueFAQ;?>
 		<div class="FAQ">
 			<h2> <?php echo $quesfreq ?> </h2>
 
-	    <?php $nb = 1;
-      foreach ($faq as list($id, $question, $reponse)) { ?>
-	    	<p> <?php echo $nb ?>. <?php echo $question ?>
+	    <?php $nb = 1;?>
+			<table>
+      <?php foreach ($faq as list($id, $question, $reponse)) { ?>
+				<tr>
+	    	<td> <?php echo $nb ?>. <?php echo $question ?></td>
 				  <?php if($a == 0){ ?>
-						<a href="index.php?page=supprimerquestion&id=<?php echo $id ?>"> <?php echo $sup ?></a>
-					<?php } ?></p>
-        <p> <?php echo $reponse ?>
+						<td> <a href="index.php?page=supprimerquestion&id=<?php echo $id ?>"> <?php echo $sup ?></a> </td>
+					<?php } ?>
+				</tr>
+				<tr>
+        <td> <?php echo $reponse ?> </td>
 					<?php $nb = $nb + 1 ?>
-				<br> </br>
+				</tr>
+				<tr>
+					<td> <br> </br> </td>
+				</tr>
 	    <?php } ?>
+		</table>
 		</div>

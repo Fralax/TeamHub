@@ -10,6 +10,11 @@
   color : white;
 }
 
+.FAQ table {
+  text-align: justify;
+  margin: auto;
+}
+
 .FAQ a{
   text-decoration: none;
   color: white;

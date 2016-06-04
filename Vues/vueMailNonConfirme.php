@@ -8,6 +8,8 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueMailNonConfirme;?>
 
-    <h2> <?php echo $nonactif ?> </h2>
+	<div class="vueMailNonConfirme">
+		<h2> <?php echo $nonactif ?> </h2>
     <p> <?php echo $inscritok ?> </p>
     <p> <?php echo $clicklien ?> </p>
+	</div>

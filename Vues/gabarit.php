@@ -60,7 +60,7 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueSujetForum.css" />
     <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" />
     <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueValidationCompte.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueValidationCompte.css" />
     <link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
     <link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
     <link rel="stylesheet" href="Contenu/vueMessagerie.css" />
