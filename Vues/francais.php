@@ -155,7 +155,7 @@ $clubmodifcomm = "De quel club voulez vous modifier le commentaire ? ";
 //
 $clubmodifinfo = "Choisir quel Club modifier";
 //
-$clubmodifphoto = "De quel club voulez vous modifier la photo ? ";
+$clubmodifphoto = "De quel club voulez-vous modifier la photo ? ";
 //
 $clubsuppchoix = "Choisir quel Club supprimer";
 $sursupp = "Voulez vous vraiment supprimer ce club : ";
@@ -369,5 +369,5 @@ $qui = "Quitter le groupe";
 $conf = "Confirmer mon compte";
 $rep = "Répondre";
 $vali = "Valider";
-// Titre des vues 
+// Titre des vues
 ?>

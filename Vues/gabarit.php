@@ -79,6 +79,7 @@ elseif($_COOKIE['langue'] == "English") {
 
     <title><?= $titre ?></title>
 </head>
+
   <?php
     require_once 'Controleurs/controleurAdministration.php';
     $admin = new controleurAdministration();

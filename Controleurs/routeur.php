@@ -164,32 +164,12 @@
           $this->controleurAdministration->debanni($_GET['pseudo']);
           break;
 
-        case 'groupesasupprimer':
-          $this->controleurAdministration->groupesSupprimables();
-          break;
-
-        case 'evenementasupprimer':
-          $this->controleurAdministration->evenementsSupprimables();
-          break;
-
-        case 'clubsamodifierinfos':
-          $this->controleurAdministration->clubsModifiables();
-          break;
-
         case 'modifclub':
           $this->controleurAdministration->modificationClub($_GET['club']);
           break;
 
-        case 'clubsamodifierphotos':
-          $this->controleurAdministration->photoModifiables();
-          break;
-
         case 'modifphotoclub':
           $this->controleurAdministration->modificationPhotoClub($_GET['club']);
-          break;
-
-        case 'clubsamodifiercommentaires':
-          $this->controleurAdministration->commentaireModifiables();
           break;
 
         case 'moderationcommentaire':
@@ -200,20 +180,12 @@
           $this->controleurAdministration->suppressionCommentaire($_GET['id']);
           break;
 
-        case 'clubsasupprimer':
-          $this->controleurAdministration->clubsSupprimables();
-          break;
-
         case 'suppressionclub':
           $this->controleurAdministration->suppressionClub($_GET['club']);
           break;
 
         case 'deop':
           $this->controleurAdministration->adminSupprime($_GET['pseudo']);
-          break;
-
-        case 'modifadmingroupes':
-          $this->controleurAdministration->adminGroupeModifiable();
           break;
 
         case 'validationcompte':
