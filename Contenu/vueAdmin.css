@@ -38,5 +38,25 @@
 
 .formsVueAdmin table{
   margin: auto;
-  text-align: center;
+}
+
+.formsVueAdmin table td{
+  text-align: left;
+}
+
+#form1 img, #form2 img{
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+#form5 img, #form7 img{
+  width: 2.5em;
+  height: 2.5em;
+}
+
+#form8 img, #form9 img, #form10 img, #form11 img{
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
 }

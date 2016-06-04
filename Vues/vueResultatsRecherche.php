@@ -107,8 +107,11 @@ $this->titre = $vueResultatsRecherche;?>
 								</tr>
 
 							<?php } else{ ?>
-							<?php foreach ($clubs as list($nom)){ ?>
+							<?php foreach ($clubs as list($nom, $photoClub)){ ?>
 								<tr>
+									<td>
+										<img src="imagesClubs/<?php echo $photoClub ?>"/>
+									</td>
 									<td>
 										<a href="index.php?page=club&nom=<?php echo $nom?>"> <?php echo $nom?> </a>
 									</td>

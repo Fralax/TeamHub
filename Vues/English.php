@@ -296,7 +296,7 @@ $commodifclub = "Comment : ";
 $modiphoto = "Modify the photo ";
 //
 $memaselec = "Select a person to appoint as administrator";
-$administr = "administrators";
+$administr = "Administrators";
 //
 $spor = "My Sports";
 $sursuppsport = "Do you really want to delete this sport : ";

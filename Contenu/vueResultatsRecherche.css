@@ -39,6 +39,17 @@
   height: 2.5em;
 }
 
+.resultatClubsResultatsRechercheVueResultatsRecherche img{
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+}
+
+.resultatClubsResultatsRechercheVueResultatsRecherche table td{
+  padding-right: 1em;
+  text-align: left;
+}
+
 .resultatsResultatsRechercheVueResultatsRecherche table{
   margin : auto;
 }

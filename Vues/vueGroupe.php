@@ -483,7 +483,25 @@ $this->titre = $vueGroupe.$caract['g_nom'];?>
         </div>
       </div>
       <div class="actionsGroupeVueGroupe">
-        <a href="#"><h3><?php echo $notpllibre ?></h3></a>
+				<?php
+					if ($groupesAttend == array()) {
+						$g = 2;
+					}
+					foreach ($groupesAttend as list($nomGroupeAttend)) {
+						if ($nomGroupeAttend == $_GET['nom']) { ?>
+			<a href="#" onclick="if (confirm('<?php echo $surrejgrauto.addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=annulationnotifgroupe&nom=<?php echo addslashes($_GET['nom']) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <h3> <?php echo $nprej ?> </h3></a>
+			<?php
+							$g=1;
+							break;
+						} else{
+							$g=2;
+						}
+					}
+			?>
+			<?php if($g == 2){ ?>
+				<a href="#" onclick="if (confirm('<?php echo $surrejgrp.addslashes($_GET['nom']).$pllib ?>?')) window.location='index.php?page=confirmationnotifgroupe&nom=<?php echo addslashes($_GET['nom']) ?>&pseudo=<?php echo $_SESSION['pseudo'] ?>'; return false"> <h3><?php echo $rejaut ?> </h3></a>
+			<?php } ?>
+
         <a href="index.php?page=listemembres&nom=<?php echo $_GET['nom']?>"><h3><?php echo $voirmem ?></h3></a>
       </div>
     </div>
