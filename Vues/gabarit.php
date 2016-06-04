@@ -29,10 +29,6 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueBannirMembreGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCategorieForum.css" />
     <link rel="stylesheet" href="Contenu/vueClub.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueClubsAModifierCommentaires.css" />
-    <link rel="stylesheet" href="Contenu/vueClubsAModifierInfos.css" />
-    <link rel="stylesheet" href="Contenu/vueClubsAModifierPhotos.css" />
-    <link rel="stylesheet" href="Contenu/vueClubsASupprimer.css" /> -->
     <link rel="stylesheet" href="Contenu/vueConfirmationBannissementMembre.css" />
     <link rel="stylesheet" href="Contenu/vueConfirmationClub.css" />
     <link rel="stylesheet" href="Contenu/vueConfirmationEvenement.css" />
@@ -44,8 +40,6 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueCreationGroupe.css" />
     <link rel="stylesheet" href="Contenu/vueCreationSujetForum.css" />
 		<link rel="stylesheet" href="Contenu/vueFAQ.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMail.css" /> -->
-    <!-- <link rel="stylesheet" href="Contenu/vueEnvoiMailMembres.css" /> -->
     <link rel="stylesheet" href="Contenu/vueEvenementsASupprimer.css" />
     <link rel="stylesheet" href="Contenu/vueInscription.css" />
     <link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
@@ -68,7 +62,7 @@ elseif($_COOKIE['langue'] == "English") {
     <link rel="stylesheet" href="Contenu/vueSujetForum.css" />
     <link rel="stylesheet" href="Contenu/vueSuppressionEvenement.css" />
     <link rel="stylesheet" href="Contenu/vueSuppressionGroupe.css" />
-    <!-- <link rel="stylesheet" href="Contenu/vueValidationCompte.css" /> -->
+    <link rel="stylesheet" href="Contenu/vueValidationCompte.css" />
     <link rel="stylesheet" href="Contenu/vueVoirLesClubs.css" />
     <link rel="stylesheet" href="Contenu/vueVoirLesMembres.css" />
     <link rel="stylesheet" href="Contenu/vueMessagerie.css" />
