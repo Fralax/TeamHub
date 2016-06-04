@@ -1,13 +1,13 @@
-<?php $this->titre = "Club - Tous les Clubs";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueVoirLesCLubs;?>
 
-<body>
 		<div class="clubsVueVoirClubs">
 			<div class="listeVueVoirClubs">
 				<h2> <?php echo $lisclu ?> </h2>
@@ -29,4 +29,3 @@ elseif($_COOKIE['langue'] == "English") {
 				<?php } ?>
 			</table>
 		</div>
-  </body>

@@ -1,11 +1,12 @@
-<?php $this->titre = "Administration - Accueil";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-}?>
+}
+$this->titre = $vueAdmin;?>
 
 <?php
 	require_once 'Controleurs/controleurAdministration.php';
@@ -19,7 +20,6 @@ elseif($_COOKIE['langue'] == "English") {
 ?>
 
 <?php if($a == 0){ ?>
-	<body>
 		<div class="vueAdmin">
 			<div class="conteneurVueAdmin">
 		    <div class="adminMembresVueAdmin">
@@ -219,7 +219,6 @@ elseif($_COOKIE['langue'] == "English") {
 			</div>
 
 		</div>
-	</body>
 <?php } ?>
 
 <?php if($a == 1){ ?>

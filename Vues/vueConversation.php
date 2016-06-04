@@ -1,6 +1,13 @@
-<?php $this->titre = $_GET['correspondantB']; ?>
+<?php
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+}
+$this->titre = $vueConversation.$_GET['correspondantB']; ?>
 
-<body>
   <div class="conteneurConversation">
     <table id="tableauConversation">
       <?php foreach ($messages as list($id, $expediteur, $destinataire, $date, $contenuMessage)): ?>
@@ -81,5 +88,3 @@
 
     charger();
   </script>
-
-</body>

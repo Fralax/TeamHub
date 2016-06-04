@@ -1,13 +1,13 @@
-<?php $this->titre = "A Propos";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueAPropos;?>
 
-  <body>
     <div class="conteneur">
       <div class="équipe">
         <div id="description">
@@ -35,5 +35,3 @@ elseif($_COOKIE['langue'] == "English") {
         </div>
       </div>
     </div>
-  </body>
-</html>

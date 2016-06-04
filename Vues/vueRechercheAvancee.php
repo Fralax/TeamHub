@@ -1,11 +1,12 @@
-<?php $this->titre = "Recherche Avancée";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
+}
+$this->titre = $vueRechercheAvancee;?>
 
 		<div class="conteneurVueRechercheAvancee">
 			<div class="jeRechercheVueRechercheAvancee">

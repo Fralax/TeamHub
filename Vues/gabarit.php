@@ -3,10 +3,10 @@
 
 <?php include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
-  include('Vues/francais.php');
+	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
-  include('Vues/English.php');
+	include('Vues/English.php');
 }?>
 
 <head>
@@ -290,7 +290,7 @@ elseif($_COOKIE['langue'] == "English") {
 
         <div id="logo">
           <a href="index.php?page=accueil"><img id="logo" src="Autres/Logo.png" width="306" height="172" ></a>
-          <h1> Le sport, pour tous. </h1>
+          <h1> <?php echo $slogan  ?>  </h1>
         </div>
 
         <nav>

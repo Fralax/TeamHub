@@ -1,14 +1,14 @@
-<?php $this->titre = "Confirmation - Mot de Passe";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-<body>
+}
+$this->titre = $vueConfirmationNouveauMotDePasse;?>
+
     <div class="confirmationVueconfirmationMdpReini">
       <h3> <?php echo $mailenvoye ?></h3>
       <?php echo $instructionmdp ?>
     </div>
-  </body>

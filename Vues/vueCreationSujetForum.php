@@ -1,12 +1,12 @@
-<?php $this->titre = "Forum - Nouveau Sujet";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-	<body>
+}
+$this->titre = $vueCreationSujetForum;?>
 		<div class="titreVueCreationSujet">
 			<h2><?php echo $sujetnouv.$_GET['categorie'] ?></h2>
 		</div>
@@ -19,4 +19,3 @@ elseif($_COOKIE['langue'] == "English") {
 				<p> <input name="Creer" type="submit" value="<?php echo $Cree ?>"> </p>
 			</form>
 		</div>
-	</body>

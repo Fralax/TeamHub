@@ -1,4 +1,4 @@
-<?php $this->titre = "Messagerie";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
@@ -6,12 +6,11 @@ if($_COOKIE['langue'] == "Francais"){
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
 }
+$this->titre = $vueMessagerie;
 
 $messagerie = new messagerie();
 
 ?>
-
-<body>
 
   <div class="conteneurMessagerie">
     <div class="titreMessagerie">
@@ -19,11 +18,11 @@ $messagerie = new messagerie();
     </div>
 
     <div class="nouvelleConversationMessagerie">
-      <a href="index.php?page=nouvelleconversation">Nouvelle Conversation</a>
+      <a href="index.php?page=nouvelleconversation"><?php echo $nouvconv ?></a>
     </div>
 
     <div class="conversationsMessagerie">
-      <h3>Messages</h3>
+      <h3><?php echo $mes ?></h3>
       <table>
         <?php foreach ($conversations as list($expediteur, $destinataire, $date)): ?>
           <tr>
@@ -52,5 +51,3 @@ $messagerie = new messagerie();
       </table>
     </div>
   </div>
-
-</body>

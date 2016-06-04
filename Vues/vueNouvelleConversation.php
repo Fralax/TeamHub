@@ -1,15 +1,21 @@
-<?php $this->titre = "Nouvelle Conversation"; ?>
+<?php
+include('Vues/francais.php');
+if($_COOKIE['langue'] == "Francais"){
+	include('Vues/francais.php');
+}
+elseif($_COOKIE['langue'] == "English") {
+	include('Vues/English.php');
+}
+$this->titre = $vueNouvelleConversation; ?>
 
-
-<body>
   <div class="nouvelleConversation">
-    <h3>Nouvelle Conversation</h3>
+    <h3> <?php echo $nouvconv ?></h3>
     <form class="" action="" method="post">
       <div class="destinatairesNouvelleConversation">
         <p>
-          Destinataire :
+          <?php echo $dest ?>
           <select name="destinataire">
-            <option value = ""> -- Sélectionnez le destinataire -- </option>
+            <option value = ""> -- <?php echo $seledest ?> -- </option>
             <?php foreach ($destinataires as list($nom)) { ?>
             <option value = "<?php echo $nom?>" <?php if ($_POST['destinataire']=="$nom"){?> selected <?php }?> > <?php echo $nom?> </option>
             <?php } ?>
@@ -22,4 +28,3 @@
       <input type="submit" name="envoyer" value="<?php echo $env ?>">
     </form>
   </div>
-</body>

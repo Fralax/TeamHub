@@ -1,19 +1,12 @@
-<?php $this->titre = "Invitation - Membre ";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueInvitationUtilisateur.css" />
-		<title>Inviter un Utilisateur à votre Groupe</title>
-	</head>
-	<body>
+}
+$this->titre = $vueInvitationUtilisateur;?>
 
 		<h2><?php echo $invutili ?></h2>
 
@@ -26,5 +19,3 @@ elseif($_COOKIE['langue'] == "English") {
       </select>
       <input type="submit" name="Envoyer" value="<?php echo $env ?>" >
     </form>
-  </body>
-</html>

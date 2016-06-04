@@ -1,14 +1,12 @@
-<?php $this->titre = "Club - ".$caractClub['c_nom'];
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-
-	<body>
-
+}
+$this->titre = $vueClub.$caractClub['c_nom'];?>
 		<div class="conteneurVueClub">
 			<div class="clubVueClub">
 	      <h2><?php echo $caractClub['c_nom']?> </h2>
@@ -224,6 +222,3 @@ elseif($_COOKIE['langue'] == "English") {
 				</div>
 			</div>
 		</div>
-
-
-  </body>

@@ -1,12 +1,13 @@
-<?php $this->titre = "Forum - Sujet";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-<body>
+}
+$this->titre = $vueSujetForum;?>
+
 		<?php
     require_once 'Controleurs/controleurAdministration.php';
     $admin = new controleurAdministration();
@@ -116,6 +117,3 @@ elseif($_COOKIE['langue'] == "English") {
 				</form>
 			</div>
 		<?php } ?>
-
-
-  </body>

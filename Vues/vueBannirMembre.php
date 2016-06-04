@@ -1,19 +1,12 @@
-<?php $this->titre = "Administration - Bannissement";
+<?php
 include('Vues/francais.php');
 if($_COOKIE['langue'] == "Francais"){
 	include('Vues/francais.php');
 }
 elseif($_COOKIE['langue'] == "English") {
 	include('Vues/English.php');
-} ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" href="Contenu/vueBannirMembre.css" />
-		<title> Bannir un membre </title>
-	</head>
-	<body>
+}
+$this->titre = $vueBannirMembre;?>
 
 		<?php
 			require_once 'Controleurs/controleurAdministration.php';
@@ -48,7 +41,3 @@ elseif($_COOKIE['langue'] == "English") {
 		<?php if($a == 1){ ?>
 			<?php echo $nonacces ?>
 		<?php } ?>
-
-
-  </body>
-</html>
