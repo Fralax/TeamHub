@@ -31,21 +31,21 @@ $this->titre = $vueAdmin;?>
 		    </div>
 		    <div class="adminGroupesVueAdmin">
 		      <h3><?php echo $admingroup ?> </h3>
-		      <p> <a href="index.php?page=groupesasupprimer"> <?php echo $adminsupgroup ?>  </a> </p>
-		      <p> <a href="index.php?page=evenementasupprimer"> <?php echo $adminsupeve ?> </a> </p>
-		      <p><a href="index.php?page=modifadmingroupes"> <?php echo $adminnouvad ?></a></p>
+		      <p> <a href="#form5"> <?php echo $adminsupgroup ?>  </a> </p>
+		      <p> <a href="#form6"> <?php echo $adminsupeve ?> </a> </p>
+		      <p><a href="#form7"> <?php echo $adminnouvad ?></a></p>
 		    </div>
 		    <div class="adminClubsVueAdmin">
 		      <h3> <?php echo $adminclu ?></h3>
-		      <p> <a href="index.php?page=clubsamodifierinfos">  <?php echo $adminmodinfo ?> </a> </p>
-					<p> <a href="index.php?page=clubsamodifierphotos"> <?php echo $adminmodphoto ?> </a> <p>
-					<p> <a href="index.php?page=clubsamodifiercommentaires"> <?php echo $admincom ?> </a> <p>
-		      <p> <a href="index.php?page=clubsasupprimer"> <?php echo $adminsupclub ?> </a> </p>
+		      <p> <a href="#form8">  <?php echo $adminmodinfo ?> </a> </p>
+					<p> <a href="#form9"> <?php echo $adminmodphoto ?> </a> <p>
+					<p> <a href="#form10"> <?php echo $admincom ?> </a> <p>
+		      <p> <a href="#form11"> <?php echo $adminsupclub ?> </a> </p>
 		    </div>
 		    <div class="adminGeneraleVueAdmin">
 		      <h3> <?php echo $adminaide ?></h3>
 		      <p> <a href="index.php?page=afficheraccueilforum"> <?php echo $adminmodforum ?> </a> </p>
-					<p> <a href="index.php?page=ajouterquestion"> <?php echo $adminajoutques ?> </a> </p>
+					<p> <a href="#form12"> <?php echo $adminajoutques ?> </a> </p>
 		      <p> <a href="index.php?page=affichagefaq"> <?php echo $adminsupques ?> </a> </p>
 		    </div>
 		  </div>
@@ -117,6 +117,104 @@ $this->titre = $vueAdmin;?>
 					<p><input type="text" name="sujetMembres" value="<?php echo $_POST['sujetMembres'] ?>" placeholder=<?php echo $formmail2 ?>></p>
 					<p><textarea name="mailMembres" rows="8" cols="40"><?php echo $_POST['mailMembres'] ?></textarea></p>
 					<p><input type="submit" name="envoyerMailATousLesMembres" value="Envoyer"></p>
+				</form>
+			</div>
+
+			<div id = "form5" class="formsVueAdmin">
+				<h2><?php echo $adminsupgroup ?></h2>
+				<table>
+				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
+					<tr>
+						<td> <?php echo $nomgroupes?> </td>
+						<td> <a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($nomgroupes) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($nomgroupes) ?>'; return false">  <input type="button" name="Supprimer" value ="<?php echo $sup ?>"> </a></td>
+					</tr>
+				<?php } ?>
+				</table>
+			</div>
+
+			<div id="form6" class="formsVueAdmin">
+				<h2><?php echo $supev ?></h2>
+				<table>
+				<?php foreach ($listeEvenements as list($nomevenements)){ ?>
+					<tr>
+						<td> <?php echo $nomevenements?> </td>
+						<td> <a href="#" onclick="if (confirm('<?php echo $sursupeve.addslashes($nomevenements) ?> ?')) window.location='index.php?page=suppressionevenement&evenement=<?php echo addslashes($nomevenements) ?>'; return false">  <input type="button" name="Supprimer" value ="<?php echo $sup ?>"> </a></td>
+					</tr>
+				<?php } ?>
+				</table>
+			</div>
+
+			<div id="form7" class="formsVueAdmin">
+				<h2><?php echo $groupmodifadmin ?></h2>
+				<table>
+				<?php foreach ($listeGroupes as list($nomgroupes)){ ?>
+					<tr>
+						<td> <?php echo $nomgroupes?> </td>
+						<td> <a href="index.php?page=affichagemodificationadmin&nom=<?php echo $nomgroupes?>" >  <input type="button" name="Modifier" value ="<?php echo $modiadmin ?>"> </a></td>
+					</tr>
+				<?php } ?>
+				</table>
+			</div>
+
+			<div id = "form8" class="formsVueAdmin">
+				<h2> <?php echo $clubmodifinfo ?> </h2>
+					<table>
+						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<tr>
+							<td> <?php echo $nomclubs?> </td>
+							<td> <a href="index.php?page=modifclub&club=<?php echo $nomclubs?>" > <input type="button" name="ModifierInfos" value="<?php echo $mod ?>"> </a> </td>
+						</tr>
+						<?php } ?>
+					</table>
+			</div>
+
+			<div id = "form9" class="formsVueAdmin">
+				<h2> <?php echo $clubmodifphoto ?> </h2>
+					<table>
+						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<tr>
+							<td> <?php echo $nomclubs?> </td>
+							<td> <a href="index.php?page=modifphotoclub&club=<?php echo $nomclubs?>" > <input type="button" name="ModifierPhoto" value="<?php echo $mod ?>"> </a> </td>
+						</tr>
+						<?php } ?>
+					</table>
+			</div>
+
+			<div id="form10" class="formsVueAdmin">
+					<table>
+						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<tr>
+							<td> <?php echo $nomclubs?> </td>
+							<td> <a href="index.php?page=moderationcommentaire&club=<?php echo $nomclubs?>" > <input type="button" name="Modifier" value="<?php echo $mod ?>"> </a> </td>
+						</tr>
+						<?php } ?>
+					</table>
+			</div>
+
+			<div id="form11" class="formsVueAdmin">
+				<h2> <?php echo $clubsuppchoix ?> </h2>
+					<table>
+						<?php foreach ($listeClubs as list($nomclubs)) { ?>
+						<tr>
+							<td> <?php echo $nomclubs?> </td>
+							<td> <a href="#" onclick="if (confirm('<?php echo $sursupp.addslashes($nomclubs)?> ?')) window.location='index.php?page=suppressionclub&club=<?php echo addslashes($nomclubs)?>'; return false"> <input type="button" name="Supprimer" value="<?php echo $sup ?>"> </a> </td>
+						</tr>
+						<?php } ?>
+					</table>
+			</div>
+
+			<div id="form12" class="formsVueAdmin">
+				<h2> <?php echo $ajoutfaq ?> </h2>
+				 <form method="post" action="">
+					 <p>
+						<label for="question"> <?php echo $redques ?> </label><br />
+						<textarea name="question" rows="7" cols="70"> </textarea>
+					</p>
+					<p>
+					 <label for="reponse"> <?php echo $indrep ?> </label><br />
+					 <textarea name="reponse" rows="7" cols="70"> </textarea>
+				 </p>
+					<p> <input type="submit" name="Ajouter" value="<?php echo $ajo ?>"> </p>
 				</form>
 			</div>
 

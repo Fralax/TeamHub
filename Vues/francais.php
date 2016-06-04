@@ -158,7 +158,7 @@ $clubmodifcomm = "De quel club voulez vous modifier le commentaire ? ";
 //
 $clubmodifinfo = "Choisir quel Club modifier";
 //
-$clubmodifphoto = "De quel club voulez vous modifier la photo ? ";
+$clubmodifphoto = "De quel club voulez-vous modifier la photo ? ";
 //
 $clubsuppchoix = "Choisir quel Club supprimer";
 $sursupp = "Voulez vous vraiment supprimer ce club : ";
@@ -378,6 +378,7 @@ $conf = "Confirmer mon compte";
 $rep = "Répondre";
 $vali = "Valider";
 // Titre des vues
+
 $vueAccueil = "Accueil";
 $vueAccueilForum = "Forum - Accueil";
 $vueAdmin = "Administration - Accueil";
@@ -440,4 +441,5 @@ $vueSuppressionGroupe = "Confirmation - Groupe";
 $vueValidationCompte = "Validation Compte";
 $vueVoirLesCLubs = "Club - Tous les Clubs";
 $vueVoirLesMembres = "Groupe - Membres";
+
 ?>

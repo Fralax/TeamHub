@@ -8,7 +8,6 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueRechercheAvancee;?>
 
-
 		<div class="conteneurVueRechercheAvancee">
 			<div class="jeRechercheVueRechercheAvancee">
 				<h3> <?php echo $rech ?></h3>
@@ -115,3 +114,17 @@ $this->titre = $vueRechercheAvancee;?>
 				</form>
 			</div>
 		</div>
+
+		<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+		<script language="javascript" type="text/javascript">
+			$(function(){
+			var divs = $(".formsRechercheAvancee");
+			divs.hide();
+			$("a").click(function(){
+				divs.filter(":visible").slideUp();
+				$($(this).attr("href")).slideDown();
+				return false;
+			});
+		});
+
+		</script>

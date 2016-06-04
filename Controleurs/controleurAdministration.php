@@ -9,6 +9,7 @@ class controleurAdministration{
     $admin = new administration();
     $user = new utilisateurs();
     $groupe = new groupes();
+    $club = new clubs();
 
     //Désigner un nouvel administrateur
     $afficherPossiblesAdmins = $user->listerMembresNouvelAdmin()->fetchAll();
@@ -85,8 +86,31 @@ Merci de ne pas répondre à ce mail.";
       }
     }
 
+    // Supprimer un groupe + désigner nouvel Admin
+    $groupes = $admin->ListerGroupes()->fetchAll();
+
+    // Supprimer un événement
+    $evenements = $admin->ListerEvenements()->fetchAll();
+
+    //Modification des clubs
+    $clubs = $admin->ListerClub()->fetchAll();
+
+    // Ajout Question faq
+    if (isset($_POST['Ajouter'])){
+      if ($_POST['question'] != " " && $_POST['reponse'] != " "){
+        $admin->ajouterQuestion();
+        header("Location: index.php?page=administration");
+      } else {
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
+      }
+    }
+
     $vue = new Vue('Admin');
-    $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins, 'abannir'=>$banniPossible, 'membreBanni'=>$banni, 'membres' => $membresSite, 'membres' => $membresSite));
+    $vue->generer(array('nouveauxAdmins'=>$afficherPossiblesAdmins, 'admins' => $afficherAdmins, 'abannir'=>$banniPossible, 'membreBanni'=>$banni, 'membres' => $membresSite, 'membres' => $membresSite, 'listeGroupes'=>$groupes, 'listeEvenements'=>$evenements, 'listeClubs'=>$clubs));
   }
 
   public function affichageBanni(){
@@ -98,29 +122,6 @@ Merci de ne pas répondre à ce mail.";
     $admin = new administration();
     $debanni = $admin->debannir($nom);
     header("Location: index.php?page=administration");
-  }
-
-  public function groupesSupprimables(){
-    $admin = new administration();
-    $groupes = $admin->ListerGroupes()->fetchAll();
-    $vue = new Vue('GroupesASupprimer');
-    $vue->generer(array('listeGroupes'=>$groupes));
-  }
-
-  public function evenementsSupprimables(){
-    $admin = new administration();
-    $evenements = $admin->ListerEvenements()->fetchAll();
-    $vue = new Vue('EvenementsASupprimer');
-    $vue->generer(array('listeEvenements'=>$evenements));
-  }
-
-  public function clubsModifiables(){
-    $admin = new administration();
-    $club = new clubs();
-    $clubs = $admin->ListerClub()->fetchAll();
-
-    $vue = new Vue('ClubsAModifierInfos');
-    $vue->generer(array('listeClubs'=>$clubs));
   }
 
   public function modificationClub($nomClub){
@@ -166,15 +167,6 @@ Merci de ne pas répondre à ce mail.";
 
   }
 
-  public function photoModifiables(){
-    $admin = new administration();
-    $club = new clubs();
-    $clubs = $admin->ListerClub()->fetchAll();
-
-    $vue = new Vue('ClubsAModifierPhotos');
-    $vue->generer(array('listeClubs'=>$clubs));
-  }
-
   public function modificationPhotoClub($nomClub){
     $club = new clubs();
     $admin = new administration();
@@ -187,14 +179,6 @@ Merci de ne pas répondre à ce mail.";
 
     $vue = new Vue('ModifPhotoClub');
     $vue->generer(array('caractClub'=>$infos));
-  }
-
-  public function commentaireModifiables(){
-    $admin = new administration();
-    $clubs = $admin->ListerClub()->fetchAll();
-
-    $vue = new Vue('ClubsAModifierCommentaires');
-    $vue->generer(array('listeClubs'=>$clubs));
   }
 
   public function moderationCommentairesClub($nomClub){
@@ -210,14 +194,6 @@ Merci de ne pas répondre à ce mail.";
     $admin = new administration();
     $admin->supprimerCommentaireClub($id);
     header("Location: index.php?page=administration");
-  }
-
-  public function clubsSupprimables(){
-    $admin = new administration();
-    $clubs = $admin->ListerClub()->fetchAll();
-
-    $vue = new Vue('ClubsASupprimer');
-    $vue->generer(array('listeClubs'=>$clubs));
   }
 
   public function suppressionClub($nomClub){

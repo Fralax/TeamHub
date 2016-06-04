@@ -21,7 +21,6 @@ $this->titre = $vueModifAdmin;?>
 
 		<?php if( $a == 0){ ?>
 		<h2><?php echo $modadmin ?></h2>
-
     <form action="" method="post">
       <select name="Admin">
         <option value = ""> -- <?php echo $newadmi ?> -- </option>
