@@ -149,10 +149,29 @@ class controleurGroupes{
       }
     }
 
+    //Invitation Membre dans le groupe
+    $invite = $groupe->invitePossible($_GET['nom'])->fetchAll();
+    if (isset($_POST['EnvoyerInvitation'])){
+      if ($_POST['nomInvite'] != ""){
+        $groupe->inviterUtilisateur($_GET['nom']);
+        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
+      } else {
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("Some fields have not been filled !")</script> <?php
+        } else {
+          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
+        }
+      }
+    }
+
+    //Bannissement Membre groupe
+    $afficherMembres = $user->listerMembresGroupe($nom)-> fetchAll();
+    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
+
     $adminPossible = $groupe->afficherAdminPossible($nom)->fetchAll();
 
     $vue = new Vue('Groupe');
-    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible, "groupesAttend" => $recupGroupesAttend));
+    $vue->generer(array('caract' => $afficherCaracteristiquesGroupe, 'membres' => $afficherMembresGroupe, 'evenementsGroupe' => $afficherEvenementsGroupe, 'afficherMesEvenements' => $afficherEvenementsUtilisateur, 'image'=>$afficherImageSport, 'admin' => $adminPossible, "groupesAttend" => $recupGroupesAttend, 'aInvite'=>$invite, "nom"=>$nom, "membresBan" => $afficherMembres));
   }
 
   public function modificationAdminGroupe($nom){
@@ -215,35 +234,6 @@ class controleurGroupes{
     }
     $vue = new Vue('QuitterGroupe');
     $vue->generer(["nom"=>$nom]);
-  }
-
-  public function invitationUtilisateur($nomGroupe){
-    $groupe = new groupes();
-    $invite = $groupe->invitePossible($nomGroupe)->fetchAll();
-    if (isset($_POST['Envoyer'])){
-      if ($_POST['nomInvite'] != ""){
-        $groupe->inviterUtilisateur($nomGroupe);
-        header("Location: index.php?page=groupe&nom=".$_GET['nom']);
-      } else {
-        if($_COOKIE['langue'] == "English"){
-          ?> <script> alert("Some fields have not been filled !")</script> <?php
-        } else {
-          ?> <script> alert("Des champs n'ont pas été rempli !")</script> <?php
-        }
-      }
-    }
-    $vue = new Vue('InvitationUtilisateur');
-    $vue->generer(array('aInvite'=>$invite));
-  }
-
-  public function affichageBannissementMembre($nom){
-    $appartient = new utilisateurs();
-    $groupe = new groupes();
-    $afficherMembres = $appartient->listerMembresGroupe($nom)-> fetchAll();
-    $afficherCaracteristiquesGroupe = $groupe->afficherCaracteristiquesGroupe($nom)->fetch();
-
-    $vue = new Vue('BannirMembreGroupe');
-    $vue->generer(array("nom"=>$nom, "membres" => $afficherMembres, "caract" => $afficherCaracteristiquesGroupe));
   }
 
   public function bannissementMembre(){

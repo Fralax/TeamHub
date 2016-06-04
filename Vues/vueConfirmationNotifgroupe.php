@@ -8,7 +8,7 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueConfirmationNotifgroupe;?>
 
-		<div class="confirmationNotif">
+		<div class="confirmationNotifGroupe">
 			<h2>  <?php echo $recevnotif.$nom ?> ! </h2>
 	    <p> <?php  echo $rediracc ?> </p>
 		</div>
