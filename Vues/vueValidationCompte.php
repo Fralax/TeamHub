@@ -8,10 +8,11 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueValidationCompte;?>
 
-    <h2> <?php echo $nonactif ?></h2>
-
+	<div class="vueValidationCompte">
+		<h2> <?php echo $nonactif ?></h2>
     <p> <?php echo $valereco ?> </p>
 
     <form class="validationCompte" action="" method="post">
       <input type="submit" name="validation" value="<?php echo $conf ?>">
     </form>
+	</div>
