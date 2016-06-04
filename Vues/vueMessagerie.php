@@ -52,4 +52,6 @@ $messagerie = new messagerie();
 	      </table>
 	    </div>
 	  </div>
+	<?php } else{ ?>
+		<?php echo $nonacces ?>
 	<?php } ?>

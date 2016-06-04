@@ -25,7 +25,7 @@ $this->titre = $vueFAQ;?>
 			<table>
       <?php foreach ($faq as list($id, $question, $reponse)) { ?>
 				<tr>
-	    	<td> <?php echo $nb ?>. <?php echo $question ?></td>
+	    	<td> <b> <?php echo $nb ?>. <?php echo $question ?> <b> </td>
 				  <?php if($a == 0){ ?>
 						<td> <a href="index.php?page=supprimerquestion&id=<?php echo $id ?>"> <?php echo $sup ?></a> </td>
 					<?php } ?>

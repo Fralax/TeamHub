@@ -70,15 +70,13 @@
       foreach ($nouveauxMessages as list($id, $expediteur, $destinataire, $date, $message)) {
 
         if ($destinataire == $_SESSION['pseudo']) {
-          echo "<tr id = ".$id."> <td class='pseudoAmi'> <div class='pseudoAmiDiv'>".$_GET['correspondantB']."</div></td><td class='messageConversationAmi'><div class='messageConversationAmiDiv'>".$message."</div></td><td></td></tr>";
+          echo "<tr id = ".$id."> <td class='pseudoAmi'> <div class='pseudoAmiDiv'>".$_GET['correspondantB']."</div></td><td class='messageConversationAmi'><div class='messageConversationAmiDiv'>".$message."</div></td><td></td></tr><script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
         } else{
-          echo "<tr id = ".$id."> <td> </td><td class='messageConversationSessionPseudo'><div class='messageConversationSessionPseudoDiv'>".$message."</div></td><td class='monPseudo'><div class='monPseudoDiv'>".$_SESSION['pseudo']."</div></td></tr>";
+          echo "<tr id = ".$id."> <td> </td><td class='messageConversationSessionPseudo'><div class='messageConversationSessionPseudoDiv'>".$message."</div></td><td class='monPseudo'><div class='monPseudoDiv'>".$_SESSION['pseudo']."</div></td></tr> <script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
         }
+
       }
-
     }
-
-
 
   }
 

@@ -143,7 +143,7 @@ elseif($_COOKIE['langue'] == "English") {
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
               $photo = new membres();
-              $afficher = $photo->affichagePhoto();
+              $afficher = $photo->affichagePhoto($_SESSION['pseudo']);
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
 

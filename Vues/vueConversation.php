@@ -8,7 +8,24 @@ elseif($_COOKIE['langue'] == "English") {
 }
 $this->titre = $vueConversation.$_GET['correspondantB']; ?>
 
-  <div class="conteneurConversation">
+<?php
+	if ($_GET['correspondantA'] != $_SESSION['pseudo']) {
+		$p = 1;
+	} else{
+		$p = 2;
+	}
+?>
+
+<?php if ($p == 2): ?>
+	<div class="imageCorrespondant">
+		<?php require_once 'Controleurs/controleurMembres.php';
+		$photo = new membres();
+		$afficher = $photo->affichagePhoto($_GET['correspondantB']);
+		?>
+		<p> <img src="imagesUtilisateurs/<?php echo $afficher[0]?>"/> </p>
+		<p> <h3><?php echo $_GET['correspondantB'] ?></h3> </p>
+	</div>
+	<div id="conteneurConversation">
     <table id="tableauConversation">
       <?php foreach ($messages as list($id, $expediteur, $destinataire, $date, $contenuMessage)): ?>
         <?php if ($expediteur == $_SESSION['pseudo']){ ?>
@@ -47,17 +64,42 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
       <?php endforeach; ?>
     </table>
   </div>
+	<div class="tchatForm">
+		<table>
+			<tr>
+				<td>
+					<form action="index.php?page=conversation&correspondantA=<?php echo $_SESSION['pseudo'] ?>&correspondantB=<?php echo $_GET['correspondantB'] ?>&id=<?php echo $_GET['id'] ?>" method="POST">
+						<textarea id = "messageForm" name="message" rows="2" cols="100%" ></textarea>
+				</td>
+				<td>
+					<input type="submit" id = "envoi" name="envoyer" value="<?php echo $env ?>">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+<?php endif; ?>
 
-  <div id = "tchatForm">
-    <form action="index.php?page=conversation&correspondantA=<?php echo $_SESSION['pseudo'] ?>&correspondantB=<?php echo $_GET['correspondantB'] ?>&id=<?php echo $_GET['id'] ?>" method="POST">
-      <p><textarea id = "messageForm" name="message" rows="8" cols="40"></textarea></p>
-      <p><input type="submit" id = "envoi" name="envoyer" value="<?php echo $env ?>"></p>
-    </form>
-  </div>
+<?php if ($p == 1): ?>
+	<?php echo $nonacces ?>
+<?php endif; ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
+		var x = document.getElementById('conteneurConversation');
+		x.scrollTop = x.scrollHeight;
 
+		$('#messageForm').keyup(function(e) {
+			if(e.keyCode == 13) { // KeyCode de la touche entrée
+				if (e.shiftKey == false){ //s'il n'y a pas shift
+					if ($('#messageForm').val() != "") {
+						$('#envoi').click();
+					} else{
+						alert('Le message est vide !')
+					}
+				}
+	 		}
+		});
 
     $('#envoi').click(function(e){
       e.preventDefault();
@@ -68,8 +110,11 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
           type : "POST",
           data : "message=" + message
         });
+				$('#messageForm').val("");
       }
     });
+
+
 
 
     function charger(){
@@ -83,8 +128,7 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
           }
         })
         charger();
-      }, 750);
+      }, 500);
     }
-
     charger();
   </script>

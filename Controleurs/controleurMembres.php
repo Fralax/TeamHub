@@ -147,9 +147,9 @@ class membres{
     }
   }
 
-  public function affichagePhoto(){
+  public function affichagePhoto($nom){
     $utilisateurs = new utilisateurs();
-    $affichagePhoto = $utilisateurs->afficherPhoto()->fetch();
+    $affichagePhoto = $utilisateurs->afficherPhoto($nom)->fetch();
     return $affichagePhoto;
   }
 
