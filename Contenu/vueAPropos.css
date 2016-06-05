@@ -1,4 +1,4 @@
-.conteneurAPropos{
+.conteneur{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1em;
   padding-left: 10px;
@@ -8,11 +8,11 @@
   color : white;
 }
 
-.aPropos a{
+.conteneur a{
   text-decoration: none;
   color: white;
 }
 
-.aPropos a:hover{
+.conteneur a:hover{
   color: grey;
 }
