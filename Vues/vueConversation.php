@@ -149,7 +149,8 @@ $this->titre = $vueConversation.$_GET['correspondantB']; ?>
           }
         })
         charger();
-      }, 500);
+      }, 3000);
     }
+
     charger();
   </script>

@@ -48,6 +48,8 @@
     public function affichageDetailsConversation($correspondantA, $correspondantB){
       $messagerie = new messagerie();
 
+      $updateSatutMessage = $messagerie->updateSatutMessageAbsent();
+
       if (isset($_POST['message'])) {
         if (!empty($_POST['message'])) {
           $message = $_POST['message'];
@@ -70,6 +72,11 @@
 
       $photo = new membres();
       foreach ($nouveauxMessages as list($id, $expediteur, $destinataire, $date, $message)) {
+
+        if ($destinataire == $_SESSION['pseudo']) {
+          $updateSatutMessage = $messagerie->updateSatutMessageDirect($id);
+        }
+
         $afficher = $photo->affichagePhoto($expediteur);
         $dateEntiereSujet = date_create($date);
         $dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y');
@@ -81,6 +88,26 @@
           echo "<tr id = ".$id."> <td> </td><td class='messageConversationSessionPseudo'><div class='messageConversationSessionPseudoDiv'>".$message."</div><div class='heureMessage'>le ".$dateSujetDernierMessage." à ".$heureSujetDernierMessage."</div></td><td class='monPseudo'><div class='monPseudoDiv'><img src='imagesUtilisateurs/".$afficher[0]."'/></div></td></tr> <script src='https:ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script type='text/javascript'>var x = document.getElementById('conteneurConversation'); x.scrollTop = x.scrollHeight;</script>";
         }
 
+      }
+    }
+
+    public function nouveauxMessagesNotifs(){
+      $messagerie = new messagerie();
+      $nouveauxMessagesNotifs = $messagerie->recupMessagesNonLus()->fetch();
+      echo "<span class='nbrMessages' style='background-color:red;border:2px solid;color:white;font-weight:bold;border-radius:30px;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesNotifs[0]."</span>";
+    }
+
+    public function nouveuxMessagesConversationNotif(){
+      $messagerie = new messagerie();
+      $conversations = $messagerie->recupConversation($_SESSION['pseudo'])->fetchAll();
+      foreach ($conversations as list($expediteur, $destinataire)) {
+        if ($expediteur == $_SESSION['pseudo']) {
+          $nouveauxMessagesConversationNotifs = $messagerie->recupMessagesConversationsNonLus($destinataire)->fetch();
+          echo "<span class='nbrMessagesConversation' id='".$destinataire."' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
+        } else{
+          $nouveauxMessagesConversationNotifs = $messagerie->recupMessagesConversationsNonLus($expediteur)->fetch();
+          echo "<span class='nbrMessagesConversation' id='".$expediteur."' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
+        }
       }
     }
 

@@ -309,6 +309,14 @@
           $this->controleurMessagerie->nouveauxMessages();
           break;
 
+        case 'recupnbrmessagesnonlus':
+          $this->controleurMessagerie->nouveauxMessagesNotifs();
+          break;
+
+        case 'recupnbrmessagesconversationnonlus':
+          $this->controleurMessagerie->nouveuxMessagesConversationNotif();
+          break;
+
         default:
           $_SESSION = array();
           session_destroy();
