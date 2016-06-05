@@ -23,12 +23,13 @@ class recherche extends modele {
   }
 
   public function rechercherAvanceeGroupes($nomGroupe, $departement, $sport, $administrateur){
-    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_placesLibres, g_nbrEvenements FROM teamhubp_teamhub.Groupes WHERE g_nom LIKE :requetea AND g_departement LIKE :requeteb AND g_sport LIKE :requetec AND g_admin LIKE :requeted';
+    $sql = 'SELECT g_nom, g_admin, g_sport, g_departement, g_placesLibres, g_nbrEvenements FROM teamhubp_teamhub.Groupes WHERE g_nom LIKE :requetea AND g_departement LIKE :requeteb AND g_sport LIKE :requetec AND g_admin LIKE :requeted AND g_nom NOT IN(SELECT g_nom FROM teamhubp_teamhub.Appartient WHERE u_pseudo = :pseudo)';
     $rechercherAvanceeGroupes = $this->executerRequete($sql, array(
       'requetea' => '%'.$nomGroupe.'%',
       'requeteb' => '%'.$departement.'%',
       'requetec' => '%'.$sport.'%',
-      'requeted' => '%'.$administrateur.'%'));
+      'requeted' => '%'.$administrateur.'%',
+      'pseudo' => $_SESSION['pseudo']));
     return $rechercherAvanceeGroupes;
   }
 

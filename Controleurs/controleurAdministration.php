@@ -34,7 +34,7 @@ class controleurAdministration{
           $groupe->supprimerGroupeBdd($nomGroupesAdmin);
         }
         foreach ($groupesNonAdmin as list($nomGroupesNonAdmin)){
-          $appartient->supprimerAppartientBddNonAdmin($nomGroupesNonAdmin);
+          $user->supprimerAppartientBddNonAdmin($nomGroupesNonAdmin);
           $groupe->augmenterPlacesLibres($nomGroupesNonAdmin);
         }
         header("Location: index.php?page=administration");

@@ -183,5 +183,10 @@ class administration extends modele {
     $supprimerQuestion = $this->executerRequete ($sql, array($id));
   }
 
+  public function supprimerClub($nomClub){
+    $sql = 'DELETE FROM teamhubp_teamhub.Clubs WHERE c_nom = ?';
+    $supprimerClub = $this->executerRequete ($sql, array($nomClub));
+  }
+
 }
 ?>

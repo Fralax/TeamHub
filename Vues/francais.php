@@ -260,7 +260,7 @@ $pouvcrea = "Vous pouvez en créer un ! ";
 $surrejgr = "Voulez-vous vraiment rejoindre le groupe : ";
 $surrejgrauto = "Voulez-vous vraiment ne plus rejoindre automatiquement le groupe ";
 $surrejgrp = "Voulez-vous vraiment rejoindre le groupe ";
-$pllib = "quand une place se libère ";
+$pllib = " quand une place se libère ";
 //
 $gratuit = "Inscrivez vous, c'est gratuit !";
 $forminsc1 = "Prénom";

@@ -112,13 +112,12 @@ class groupes extends modele {
   }
 
   public function modifierPlacesGroupe($nom){
-    $sql1 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesTotal = :total WHERE g_nom = :nom';
-    $modifierPlacesGroupes = $this->executerRequete ($sql1, array('total'=>$_POST['placesTotales'] ,'nom'=>$nom));
-
     if ($_POST['placesTotales'] <= 0){
-
-      echo "Vous ne pouvez pas avoir un nombre de places inférieur à 0 dans votre groupe !";
-
+      if($_COOKIE['langue'] == "English"){
+        ?> <script> alert("You can not have a number of places below 0 in your group !")</script> <?php
+      } else {
+        ?> <script> alert("Vous ne pouvez pas avoir un nombre de places inférieur à 0 dans votre groupe !")</script> <?php
+      }
     } else{
 
       $comptePlacesOccupées = 'SELECT COUNT(u_pseudo) FROM teamhubp_teamhub.Appartient WHERE g_nom = :nom';
@@ -127,11 +126,14 @@ class groupes extends modele {
       $placesLibres = $_POST['placesTotales'] - $anciennesPlacesOccupées[0];
 
       if ($placesLibres < 0){
-
-        echo "Vous ne pouvez pas avoir moins de places qu'il n'y a de membres dans votre groupe !";
-
+        if($_COOKIE['langue'] == "English"){
+          ?> <script> alert("You can not have fewer places than there are members in your group !")</script> <?php
+        } else {
+          ?> <script> alert("Vous ne pouvez pas avoir moins de places qu'il n'y a de membres dans votre groupe !")</script> <?php
+        }
       } else{
-
+        $sql1 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesTotal = :total WHERE g_nom = :nom';
+        $modifierPlacesGroupes = $this->executerRequete ($sql1, array('total'=>$_POST['placesTotales'] ,'nom'=>$nom));
         $sql2 = 'UPDATE teamhubp_teamhub.Groupes SET g_placesLibres = :libres WHERE g_nom = :nom';
         $diminuerPlacesLibresGroupes = $this->executerRequete ($sql2, array('libres'=> $placesLibres,'nom'=>$nom));
 
