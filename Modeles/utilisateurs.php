@@ -153,9 +153,9 @@ class utilisateurs extends modele {
     }
   }
 
-  public function afficherPhoto(){
+  public function afficherPhoto($nom){
     $sql = 'SELECT u_photo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo = ?';
-    $afficherPhoto = $this->executerRequete($sql, array($_SESSION['pseudo']));
+    $afficherPhoto = $this->executerRequete($sql, array($nom));
     return $afficherPhoto;
   }
 

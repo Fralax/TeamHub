@@ -27,8 +27,19 @@ $messagerie = new messagerie();
 	      <table>
 	        <?php foreach ($conversations as list($expediteur, $destinataire, $date)): ?>
 	          <tr>
+							<td class="photoAmi">
+								<?php
+									require_once 'Controleurs/controleurMembres.php';
+									$photo = new membres();
+									if ($expediteur == $_SESSION['pseudo']) {
+										$afficher = $photo->affichagePhoto($destinataire);
+									} else{
+										$afficher = $photo->affichagePhoto($expediteur);
+									}
+								?>
+								<img src="imagesUtilisateurs/<?php echo $afficher[0]?>"/>
+							</td>
 	            <td class="amiConversation">
-
 	              <?php
 	                if ($expediteur == $_SESSION['pseudo']) {
 										$dernierMessage = $messagerie->IDDernierMessage($_SESSION['pseudo'], $destinataire)->fetch();
@@ -41,15 +52,20 @@ $messagerie = new messagerie();
 								?>
 	                <a href="index.php?page=conversation&correspondantA=<?php echo $_SESSION['pseudo'] ?>&correspondantB=<?php echo $expediteur ?>&id=<?php echo $dernierMessage['mi_id'] ?>"> <?php echo $expediteur ?></a>
 								<?php  } ?>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td class="dernierMessageConversation">
-	              <?php echo $dernierMessage['mi_message'] ?>
+								<div class="dernierMessageConversation">
+									<?php
+										$dateEntiereSujet = date_create($dernierMessage['mi_date']);
+										$dateSujetDernierMessage = date_format($dateEntiereSujet, 'd/m/Y');
+										$heureSujetDernierMessage = date_format($dateEntiereSujet, 'H:i:s');
+									?>
+									<?php echo substr($dernierMessage['mi_message'], 0, 80)." ... le <b>".$dateSujetDernierMessage."</b> à <b>".$heureSujetDernierMessage."</b>" ?>
+								</div>
 	            </td>
 	          </tr>
 	        <?php endforeach; ?>
 	      </table>
 	    </div>
 	  </div>
+	<?php } else{ ?>
+		<?php echo $nonacces ?>
 	<?php } ?>

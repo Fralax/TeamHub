@@ -257,9 +257,7 @@ $this->titre = $vueAdmin;?>
 <?php } ?>
 
 <?php if($a == 1){ ?>
-	<body>
 		<?php echo $nonacces ?>
-	</body>
 <?php } ?>
 
 
