@@ -48,4 +48,26 @@ class messagerie extends modele {
     $recupNouveauxMessages = $this->executerRequete($sql, array('expediteur' => $expediteur, 'destinataire' => $destinataire, 'id' => $id));
     return $recupNouveauxMessages;
   }
+
+  public function updateSatutMessageDirect($id){
+    $sql = 'UPDATE teamhubp_teamhub.Messages set mi_lu = :statut WHERE mi_id = :id';
+    $updateSatutMessage = $this->executerRequete($sql, array("statut" => 1, "id" => $id));
+  }
+
+  public function updateSatutMessageAbsent(){
+    $sql = 'UPDATE teamhubp_teamhub.Messages set mi_lu = :statut WHERE mi_id <= :id AND mi_destinataire = :sessionPseudo AND mi_expediteur = :expediteur';
+    $updateSatutMessage = $this->executerRequete($sql, array("statut" => 1, "id" => $_GET['id'], "sessionPseudo" => $_SESSION['pseudo'], "expediteur" => $_GET['correspondantB']));
+  }
+
+  public function recupMessagesNonLus(){
+    $sql = 'SELECT COUNT(mi_id) FROM teamhubp_teamhub.Messages WHERE mi_destinataire = ? AND mi_lu = ?';
+    $recupMessagesNonLus = $this->executerRequete($sql, array($_SESSION['pseudo'], 0));
+    return $recupMessagesNonLus;
+  }
+
+  public function recupMessagesConversationsNonLus($expediteur){
+    $sql = 'SELECT COUNT(mi_id) FROM teamhubp_teamhub.Messages WHERE mi_destinataire = ? AND mi_expediteur = ? AND mi_lu = ?';
+    $recupMessagesConversationsNonLus = $this->executerRequete($sql, array($_SESSION['pseudo'], $expediteur, 0));
+    return $recupMessagesConversationsNonLus;
+  }
 }
