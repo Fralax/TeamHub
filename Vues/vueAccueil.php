@@ -273,6 +273,9 @@ $this->titre = $vueAccueil;
 		<body>
 			<div class="messageBienvenueAccueil">
 				<h2><?php echo $messageAccueil ?> </h2>
+				<p> <?php echo $accueilp1 ?> </p>
+				<p> <?php echo $accueilp2 ?> </p>
+				<p> <?php echo $accueilp3 ?> </p>
 			</div>
 	<?php } ?>
 </div>

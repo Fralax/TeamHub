@@ -51,6 +51,9 @@ $ppra = "to practice ";
 $evele = "Event the ";
 $aa = " at ";
 $p = " for ";
+$accueilp1 = "Vous souhaitez faire du sport mais vous ne voulez pas être seul ?";
+$accueilp2 = "Inscrivez-vous pour pouvoir rejoindre un groupe, participer à un événement ou encore discuter avec les membres du site.";
+$accueilp3 = "Vous pourrez ainsi planifier des activités sportives avec d'autres membres !";
 // vueAccueilForum
 $bienvenue = "Welcome on TeamHub's Forum ! ";
 $forum1entete1 = "About TeamHub";
