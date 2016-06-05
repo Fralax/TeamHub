@@ -240,7 +240,7 @@ class controleurGroupes{
     $groupe = new groupes();
     $appartient = new utilisateurs();
     $bannirMembre = $groupe->bannirMembre($_GET['nom'], $_GET['pseudo']);
-    $placesLibres = $groupe->recupPlacesLibres($nom)->fetch();
+    $placesLibres = $groupe->recupPlacesLibres($_GET['nom'])->fetch();
     settype($placesLibres[0], "integer");
     $membresEnAttente = $groupe->ajouterAutoGroupe($_GET['nom'], $placesLibres[0])->fetchAll();
     foreach ($membresEnAttente as list($nomMembre)) {

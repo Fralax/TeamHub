@@ -5,7 +5,7 @@ require_once "Modeles/modele.php";
 class messagerie extends modele {
 
   public function recupDestinatairesPossibles(){
-    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT u_pseudo FROM teamhubp_teamhub.Bannis)';
+    $sql = 'SELECT u_pseudo FROM teamhubp_teamhub.Utilisateurs WHERE u_pseudo NOT IN (SELECT b_nom FROM teamhubp_teamhub.Bannis)';
     $recupDestinatairesPossibles = $this->executerRequete($sql);
     return $recupDestinatairesPossibles;
   }
