@@ -313,8 +313,12 @@
           $this->controleurMessagerie->nouveauxMessagesNotifs();
           break;
 
-        case 'recupnbrmessagesconversationnonlus':
-          $this->controleurMessagerie->nouveuxMessagesConversationNotif();
+        case 'recupnbrmessagesconversationnonlusexpediteur':
+          $this->controleurMessagerie->nouveuxMessagesConversationNotifsExpediteur();
+          break;
+
+        case 'recupnbrmessagesconversationnonlusdestinataire':
+          $this->controleurMessagerie->nouveauxMessagesConversationNotifsDestinataire();
           break;
 
         default:

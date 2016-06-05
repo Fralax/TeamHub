@@ -97,20 +97,27 @@
       echo "<span class='nbrMessages' style='background-color:red;border:2px solid;color:white;font-weight:bold;border-radius:30px;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesNotifs[0]."</span>";
     }
 
-    public function nouveuxMessagesConversationNotif(){
+    public function nouveuxMessagesConversationNotifsExpediteur(){
       $messagerie = new messagerie();
       $conversations = $messagerie->recupConversation($_SESSION['pseudo'])->fetchAll();
       foreach ($conversations as list($expediteur, $destinataire)) {
         if ($expediteur == $_SESSION['pseudo']) {
           $nouveauxMessagesConversationNotifs = $messagerie->recupMessagesConversationsNonLus($destinataire)->fetch();
-          echo "<span class='nbrMessagesConversation' id='".$destinataire."' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
-        } else{
-          $nouveauxMessagesConversationNotifs = $messagerie->recupMessagesConversationsNonLus($expediteur)->fetch();
-          echo "<span class='nbrMessagesConversation' id='".$expediteur."' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
+          echo "<span id='nbrMessagesConversationDestinataire' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
         }
       }
     }
 
+    public function nouveauxMessagesConversationNotifsDestinataire(){
+      $messagerie = new messagerie();
+      $conversations = $messagerie->recupConversation($_SESSION['pseudo'])->fetchAll();
+      foreach ($conversations as list($expediteur, $destinataire)) {
+        if ($destinataire == $_SESSION['pseudo']) {
+          $nouveauxMessagesConversationNotifs = $messagerie->recupMessagesConversationsNonLus($expediteur)->fetch();
+          echo "<span id='nbrMessagesConversationExpediteur' style='background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;'>".$nouveauxMessagesConversationNotifs[0]."</span>";
+        }
+      }
+    }
   }
 
 

@@ -17,13 +17,13 @@ $this->titre = $vueNouvelleConversation; ?>
           <select name="destinataire">
             <option value = ""> -- <?php echo $seledest ?> -- </option>
             <?php foreach ($destinataires as list($nom)) { ?>
-            <option value = "<?php echo $nom?>" <?php if ($_POST['destinataire']=="$nom"){?> selected <?php }?> > <?php echo $nom?> </option>
+            <option value = "<?php echo $nom?>" <?php if ($_POST['destinataire']== $nom ){?> selected <?php }?> > <?php echo $nom?> </option>
             <?php } ?>
           </select>
         </p>
       </div>
       <div class="messageNouvelleVonversation">
-        <textarea name="message" rows="10" cols="60"><?php echo $_POST['mail'] ?></textarea>
+        <textarea name="message" rows="10" cols="60"><?php echo $_POST['message'] ?></textarea>
       </div>
       <input type="submit" name="envoyer" value="<?php echo $env ?>">
     </form>

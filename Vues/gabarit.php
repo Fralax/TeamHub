@@ -148,7 +148,7 @@ elseif($_COOKIE['langue'] == "English") {
               ?>
               <li><img src="imagesUtilisateurs/<?php echo $afficher[0]?>" height="70em" width="70em"/></li>
 
-							<li> <a href="index.php?page=messagerie"><?php echo $ssmenu12 ?> </a> <span class="nbrMessages" style="background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;"></span></li>
+							<li> <a href="index.php?page=messagerie"><?php echo $ssmenu12 ?> </a> <span class="nbrMessages" style="background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;">0</span></li>
 
               <li><a href="index.php?page=profil&nom=<?php echo $_SESSION['pseudo'] ?>"> <?php echo $ssmenu8 ?> </a></li>
 
@@ -261,7 +261,7 @@ elseif($_COOKIE['langue'] == "English") {
               </ul>
            </li><!--
        --><li> <?php echo $menu6.", ", strtoupper($_SESSION['pseudo']) ?>
-			 			<span class="nbrMessages" style="background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;"></span>
+			 			<span class="nbrMessages" style="background-color:red;color:white;font-weight:bold;border-radius:30px;border: 2px solid;padding:2px 3px 2px 4px;top: -6px;right:-6px;font-size:1em;">0</span>
             <ul>
               <?php require_once 'Controleurs/controleurMembres.php';
               $photo = new membres();
