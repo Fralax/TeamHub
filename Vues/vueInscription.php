@@ -14,8 +14,8 @@ $this->titre = $vueInscription;?>
 				<form name = "formulaireInscription" method="post" action = "">
 					<tr>
 						<td> <img src="Autres/avatar.png"> </td>
-					  <td> <input type="text" name="Prenom" placeholder=<?php echo $forminsc1 ?> size="25" value = "<?= $_POST['Prenom'] ?>"/>
-							<input type="text" name="nom" placeholder=<?php echo $forminsc2 ?> size="25" value = "<?= $_POST['nom'] ?>"/> </td>
+					  <td> <input type="text" name="Prenom" placeholder="<?php echo $forminsc1 ?>" size="25" value = "<?= $_POST['Prenom'] ?>"/>
+							<input type="text" name="nom" placeholder="<?php echo $forminsc2 ?>" size="25" value = "<?= $_POST['nom'] ?>"/> </td>
 					</tr>
 					<tr>
 						<td> <img src="Autres/intersex.png"> </td>
@@ -50,26 +50,26 @@ $this->titre = $vueInscription;?>
 
 					<tr>
 						<td> <img src="Autres/phone-receiver.png"></td>
-						<td> <input type="tel" name="Portable" placeholder=<?php echo $formclub4 ?> size="25" value = "<?= $_POST['Portable'] ?>" /> </td>
+						<td> <input type="tel" name="Portable" placeholder="<?php echo $formclub4 ?>" size="25" value = "<?= $_POST['Portable'] ?>" /> </td>
 					</tr>
 
 					<tr>
 						<td> <img src="Autres/opened-email-envelope.png"></td>
-						<td> <input type="email" name="Email" placeholder=<?php echo $forminsc5 ?> size="25" value = "<?= $_POST['Email'] ?>"/>
-						<input type="email" name="ConfirmEmail" placeholder=<?php echo $forminsc6 ?> size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/> </td>
+						<td> <input type="email" name="Email" placeholder="<?php echo $forminsc5 ?>" size="25" value = "<?= $_POST['Email'] ?>"/>
+						<input type="email" name="ConfirmEmail" placeholder="<?php echo $forminsc6 ?>" size="25" value = "<? if ($_POST['Email'] == $_POST['ConfirmEmail']){echo $_POST['Email'];} ?>"/> </td>
 					</tr>
 					<tr>
 					<td> <img src="Autres/house-mailbox.png"></td>
-					<td> <input type="text" name="cp" placeholder=<?php echo $formclub3 ?>size="25" value = "<?= $_POST['cp'] ?>"/> </td>
+					<td> <input type="text" name="cp" placeholder="<?php echo $formclub3 ?>" size="25" value = "<?= $_POST['cp'] ?>"/> </td>
 					</tr>
 					<tr>
 					<td> <img src="Autres/avatar.png"></td>
-					<td> <input type="text" name="pseudo" placeholder=<?php echo $forminsc7 ?> size="25" value = "<?= $_POST['pseudo'] ?>"/> </td>
+					<td> <input type="text" name="pseudo" placeholder="<?php echo $forminsc7 ?>" size="25" value = "<?= $_POST['pseudo'] ?>"/> </td>
 					</tr>
 					<tr>
 					<td> <img src="Autres/open-lock.png"></td>
-					<td> <input type="password" name="MotDePasse" placeholder=<?php echo $forminsc8 ?> size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/>
-							<input type="password" name="ConfirmMotDePasse" placeholder=<?php echo $forminsc9 ?> size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>
+					<td> <input type="password" name="MotDePasse" placeholder="<?php echo $forminsc8 ?>" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['MotDePasse'];} ?>"/>
+							<input type="password" name="ConfirmMotDePasse" placeholder="<?php echo $forminsc9 ?>" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>
 					</td>
 					</tr>
 			</table>

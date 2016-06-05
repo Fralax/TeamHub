@@ -119,6 +119,7 @@ $formclub14 = "Dimanche ";
 $formclub15 = "Heure";
 $formclub16 = "Minute";
 $formclub17 = "Ajoutez une remarque sur les horaires si vous le souhaitez";
+$formclub19 = "Ajouter une photo :";
 //
 $ajoutfaq = "Ajouter une Question à la FAQ";
 $redques = "Rédigez une question pour la FAQ";

@@ -102,25 +102,25 @@ $this->titre = $vueProfil.$_GET['nom'];?>
 						<div id = "form2" class="formsProfil">
 							<h2><?php echo $mod.$coorsoi ?></h2>
 							<form  name = "formulaireModifMesCoordonnees" method="post" action = "">
-								<p> <input type="tel" name="Portable" placeholder=<?php echo $formclub4 ?> size="25" value = "<?php echo $infos['u_portable']?>" /> </p>
-								<p> <input type="email" name="Email" placeholder=<?php echo $forminsc5 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
-								<p> <input type="email" name="ConfirmEmail" placeholder=<?php echo $forminsc6 ?> size="25" value = "<?php echo $infos['u_email']?>"/> </p>
+								<p> <input type="tel" name="Portable" placeholder="<?php echo $formclub4 ?>" size="25" value = "<?php echo $infos['u_portable']?>" /> </p>
+								<p> <input type="email" name="Email" placeholder="<?php echo $forminsc5 ?>" size="25" value = "<?php echo $infos['u_email']?>"/> </p>
+								<p> <input type="email" name="ConfirmEmail" placeholder="<?php echo $forminsc6 ?>" size="25" value = "<?php echo $infos['u_email']?>"/> </p>
 								<p> <input name="envoyerCoordonnees" type="submit" value="<?php echo $vali ?>"> </p>
 							</form>
 						</div>
 						<div id = "form3" class="formsProfil">
 							<h2><?php echo $mod.$loc ?></h2>
 							<form  name = "formulaireModifMonAdresse" method="post" action = "">
-								<p> <?php echo $modicp ?><input type="text" name="cp" placeholder=<?php echo $formclub3 ?> size="25" value = "<?php echo $infos['u_cp'] ?>"/>
+								<p> <?php echo $modicp ?><input type="text" name="cp" placeholder="<?php echo $formclub3 ?>" size="25" value = "<?php echo $infos['u_cp'] ?>"/>
 								<p> <input name="envoyerLocalisation" type="submit" value="<?php echo $vali ?>"> </p>
 							</form>
 						</div>
 						<div id = "form4" class="formsProfil">
 							<h2> <?php echo $mofimdp ?></h2>
 							<form  name = "formulaireModifMonMdp" method="post" action = "">
-								<p> <input type="password" name="AncienMotDePasse" placeholder=<?php echo $anmdp ?>  size="25" value = ""/> </p>
-					      <p> <input type="password" name="NouveauMotDePasse" placeholder=<?php echo $nmdp ?> size="25" value = ""/> </p>
-								<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder=<?php echo $confnmdp ?> size="25" value = ""/> </p>
+								<p> <input type="password" name="AncienMotDePasse" placeholder="<?php echo $anmdp ?>"  size="25" value = ""/> </p>
+					      <p> <input type="password" name="NouveauMotDePasse" placeholder="<?php echo $nmdp ?>" size="25" value = ""/> </p>
+								<p> <input type="password" name="ConfirmNouveauMotDePasse" placeholder="<?php echo $confnmdp ?>" size="25" value = ""/> </p>
 								<p> <input name="modifMdp" type="submit" value="<?php echo $modifi ?>"> </p>
 							</form>
 						</div>
@@ -177,7 +177,7 @@ $this->titre = $vueProfil.$_GET['nom'];?>
 			<?php echo $nonaccesmembre ?>
 		<?php } ?>
 		</div>
- 
+
 
 	<script src="http://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 	<script language="javascript" type="text/javascript">

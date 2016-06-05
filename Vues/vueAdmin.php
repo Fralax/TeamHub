@@ -119,7 +119,7 @@ $this->titre = $vueAdmin;?>
 						<option value = "<?php echo $nom?>" <?php if ($_POST['membresSite']=="$nom"){?> selected <?php }?> > <?php echo $nom?> </option>
 						<?php } ?>
 					</select>
-					<p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder=<?php echo $formmail2 ?>></p>
+					<p><input type="text" name="sujet" value="<?php $_POST['sujet'] ?>" placeholder="<?php echo $formmail2 ?>"></p>
 					<p><textarea name="mail" rows="8" cols="40"><?php echo $_POST['mail'] ?></textarea></p>
 					<p><input type="submit" name="envoyer" value="Envoyer"></p>
 				</form>
@@ -128,7 +128,7 @@ $this->titre = $vueAdmin;?>
 			<div id = "form4" class="formsVueAdmin">
 				<h2> <?php echo $mailtousmembres ?></h2>
 				<form action="" method="post">
-					<p><input type="text" name="sujetMembres" value="<?php echo $_POST['sujetMembres'] ?>" placeholder=<?php echo $formmail2 ?>></p>
+					<p><input type="text" name="sujetMembres" value="<?php echo $_POST['sujetMembres'] ?>" placeholder="<?php echo $formmail2 ?>"></p>
 					<p><textarea name="mailMembres" rows="8" cols="40"><?php echo $_POST['mailMembres'] ?></textarea></p>
 					<p><input type="submit" name="envoyerMailATousLesMembres" value="Envoyer"></p>
 				</form>

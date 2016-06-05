@@ -90,7 +90,7 @@ $this->titre = $vueGroupe.$caract['g_nom'];?>
           </div>
           <div id = "form3" class="forms">
             <form action="" method="post">
-              <input type="number" name="placesTotales" placeholder="Nombre de places" size="25" min="0"  />
+              <input type="number" name="placesTotales" placeholder="<?php echo $formgroup2 ?>" size="25" min="0"  />
               <input type="submit" name="ModifierPlaces" value="<?php echo $modifi ?>" >
             </form>
           </div>
