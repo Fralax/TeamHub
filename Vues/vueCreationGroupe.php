@@ -13,12 +13,12 @@ $this->titre = $vueCreationGroupe;?>
 				<table>
 					<tr>
 						<td>
-							<input type="text" name="nomGroupe" placeholder=<?php echo $formgroup1 ?> size="25" value = "<?= $_POST['nomGroupe'] ?>"/>
+							<input type="text" name="nomGroupe" placeholder="<?php echo $formgroup1 ?>" size="25" value = "<?= $_POST['nomGroupe'] ?>"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<?php echo $formgroup2 ?>: <input type="number" name="placesLibres" placeholder=<?php echo $formgroup2 ?> size="25"  min="2" max="100" value = "<?= $_POST['placesLibres'] ?>" />
+							<?php echo $formgroup2 ?>: <input type="number" name="placesLibres" placeholder="<?php echo $formgroup2 ?>" size="25"  min="2" max="100" value = "<?= $_POST['placesLibres'] ?>" />
 						</td>
 					</tr>
 					<tr>

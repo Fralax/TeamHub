@@ -12,7 +12,7 @@ $this->titre = $vueCreationSujetForum;?>
 		</div>
 		<div class="formulaireVueCreationSujet" >
 			<form name = "formulaireNouveauSujet" method="post" action = "">
-				<p> <?php echo $formsujet1 ?>: <input type="text" name="nomSujet" placeholder=<?php echo $formsujet1 ?> size="25" value = "<?= $_POST['nomSujet'] ?>"/> </p>
+				<p> <?php echo $formsujet1 ?>: <input type="text" name="nomSujet" placeholder="<?php echo $formsujet1 ?>" size="25" value = "<?= $_POST['nomSujet'] ?>"/> </p>
         <p>
          <textarea name="message" rows="7" cols="70"> <?php echo $_POST['message'] ?> </textarea>
        </p>

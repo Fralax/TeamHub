@@ -34,7 +34,7 @@ $this->titre = $vueRechercheAvancee;?>
 								<?php echo $formgroup1 ?>
 							</td>
 							<td>
-								<input type="text" name="nomGroupe" placeholder="Nom du Groupe" size="25" />
+								<input type="text" name="nomGroupe" placeholder="<?php echo $formgroup1 ?>" size="25" />
 							</td>
 						</tr>
 						<tr>

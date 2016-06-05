@@ -124,7 +124,7 @@ elseif($_COOKIE['langue'] == "English") {
                 $recherche->rechercheGroupes();
                 ?>
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
-                  <input type="text" name="BarreRecherche" placeholder=<?php echo $phRecherche ?>>
+                  <input type="text" name="BarreRecherche" placeholder="<?php echo $phRecherche ?>">
                   <input type="submit" name="Recherche" value="<?php echo $rec ?>">
                 </form>
                </li>
@@ -225,7 +225,7 @@ elseif($_COOKIE['langue'] == "English") {
                 $recherche->rechercheGroupes();
                 ?>
                 <form action="" id="formulaireRecherche" name="formulaireRecherche" method="post">
-                  <input type="text" name="BarreRecherche" placeholder=<?php echo $phRecherche ?>>
+                  <input type="text" name="BarreRecherche" placeholder="<?php echo $phRecherche ?>">
                   <input type="submit" name="Recherche" value="<?php echo $rec ?>">
                 </form>
                </li>
@@ -333,8 +333,8 @@ elseif($_COOKIE['langue'] == "English") {
                   $cnx->connexionUtilisateurs();
                   ?>
                   <form action="" id="formulaireAccueil" name="formulaireAccueil" method="post">
-                    <p> <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required> </p>
-                    <p> <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder=<?php echo $phConnexion ?> required> </p>
+                    <p> <input type="text" name="pseudo" id="pseudo" placeholder="<?php echo $forminsc7 ?>" required> </p>
+                    <p> <input type="password" name="PasswordAccueil" id="passwordaccueil" placeholder="<?php echo $phConnexion ?>" required> </p>
                     <p> <input name="connexion" type="submit" id="connexion" value = "<?php echo $co ?>"> </p>
                   </form>
                   <a href="index.php?page=motdepasseoublie"><?php echo $ssmenu11 ?></a>
