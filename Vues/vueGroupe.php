@@ -102,7 +102,7 @@ $this->titre = $vueGroupe.$caract['g_nom'];?>
           <a href="#form4"> <h3> <?php echo $invrej ?></h3></a>
           <?php } ?>
           <a href="#form5"> <h3> <?php echo $banmem ?> </h3></a>
-          <a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3>Supprimer le groupe</h3></a>
+          <a href="#" onclick="if (confirm('<?php echo $sursupgr.addslashes($_GET['nom']) ?> ?')) window.location='index.php?page=suppressiongroupe&nom=<?php echo addslashes($_GET['nom']) ?>'; return false"><h3> <?php echo $sugr ?> </h3></a>
 					<div id = "form4" class="forms">
 						<h2><?php echo $invutili ?></h2>
 

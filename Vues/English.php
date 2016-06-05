@@ -366,7 +366,7 @@ $ajnvclub = "Add a new Club";
 $rejgr = "Join the group";
 $nprej  ="Stop joining";
 $rejaut = "Join automatically";
-$sugr = "Dellete the group";
+$sugr = "Delete the group";
 $supadmins = "Removing Administrators";
 // submit
 $rec = "Search";
