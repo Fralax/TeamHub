@@ -180,12 +180,11 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-				<?php if($_COOKIE['langue'] == "Francais"){?>
+				<?php if($_COOKIE['langue'] == "English") {?>
+					TeamHub (c) 2016 Copyright Holder All Rights Reserved.
+				<?php } else { ?>
 					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
-				<?php }
-				elseif($_COOKIE['langue'] == "English") {?>
-					Copyright (c) 2016 Copyright Holder All Rights Reserved.
-				<?php }?>
+				<?php } ?>
 
       </footer>
 
@@ -300,12 +299,11 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-				<?php if($_COOKIE['langue'] == "Francais"){?>
+				<?php if($_COOKIE['langue'] == "English") {?>
+					TeamHub (c) 2016 Copyright Holder All Rights Reserved.
+				<?php } else { ?>
 					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
-				<?php }
-				elseif($_COOKIE['langue'] == "English") {?>
-					Copyright (c) 2016 Copyright Holder All Rights Reserved.
-				<?php }?>
+				<?php } ?>
       </footer>
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -411,12 +409,12 @@ elseif($_COOKIE['langue'] == "English") {
           <a href="index.php?page=changementlangue&langue=English"> <img src="Autres/En.png" alt="twitter" height="32" width="32"> </a>
         </div>
 
-				<?php if($_COOKIE['langue'] == "Francais"){?>
-					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
-				<?php }
-				elseif($_COOKIE['langue'] == "English") {?>
+				<?php if($_COOKIE['langue'] == "English") {?>
 					TeamHub (c) 2016 Copyright Holder All Rights Reserved.
-				<?php }?>
+				<?php } else { ?>
+					TeamHub &copy; 2016 - Tous droits r&eacute;serv&eacute;s
+				<?php } ?>
+
       </footer>
 
     </body>

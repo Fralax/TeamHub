@@ -272,6 +272,7 @@ $forminsc6 = "Confirm your Email";
 $forminsc7 = "Pseudo";
 $forminsc8 = "Password";
 $forminsc9 = "Confirm your Password";
+$cgu = "I accept the general terms of use";
 //
 $invutili = "Invite a user to your Group";
 $membreselec = "Select a member to invite";

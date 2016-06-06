@@ -72,6 +72,14 @@ $this->titre = $vueInscription;?>
 							<input type="password" name="ConfirmMotDePasse" placeholder="<?php echo $forminsc9 ?>" size="25" value = "<? if ($_POST['MotDePasse'] == $_POST['ConfirmMotDePasse']){echo $_POST['ConfirmMotDePasse'];} ?>"/>
 					</td>
 					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="cgu" value="cgu">
+						</td>
+						<td>
+							<?php echo $cgu ?>
+						</td>
+					</tr>
 			</table>
 			<input name="Envoyer" type="submit" value="<?php echo $env ?>">
 			</form>
