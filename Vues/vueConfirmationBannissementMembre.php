@@ -14,4 +14,4 @@ $this->titre = $vueConfirmationBannissementMembre;?>
 	    <p>  <?php echo $redirgr.$nom ?> </p>
 		</div>
 
-  <?php header('refresh:3;url=index.php?page=groupe&nom='.$nom) ?>
+  <?php header('refresh:3;url=index.php?page=groupe&nom='.$_GET['nom']) ?>
