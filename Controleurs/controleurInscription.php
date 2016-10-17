@@ -7,8 +7,6 @@ require_once 'Vues/vue.php';
 
    public function verif(){
      $user = new utilisateurs();
-
-     $user = new utilisateurs();
      $nom=$_POST['nom'];
      $prenom=$_POST['Prenom'];
      $email=$_POST['Email'];
